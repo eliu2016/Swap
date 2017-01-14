@@ -32,6 +32,7 @@
 		751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B0D1E249E5800FD515A /* SearchUsersView.swift */; };
 		751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B3F1E25C3B900FD515A /* EditProfile.swift */; };
 		751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */; };
+		752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B61E2AA7780054D975 /* SwapsViewController.swift */; };
 		752A6BCE1E1F273A00E6695B /* ShowLoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BCD1E1F273A00E6695B /* ShowLoadingOverlay.swift */; };
 		752A6BD01E1F280700E6695B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BCF1E1F280700E6695B /* SignUpViewController.swift */; };
 		752A6BD21E1F286000E6695B /* SetBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BD11E1F286000E6695B /* SetBirthdayViewController.swift */; };
@@ -214,6 +215,7 @@
 		751C0B0D1E249E5800FD515A /* SearchUsersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersView.swift; sourceTree = "<group>"; };
 		751C0B3F1E25C3B900FD515A /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerSwipeExtension.swift; sourceTree = "<group>"; };
+		752111B61E2AA7780054D975 /* SwapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapsViewController.swift; sourceTree = "<group>"; };
 		752A6BCD1E1F273A00E6695B /* ShowLoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLoadingOverlay.swift; sourceTree = "<group>"; };
 		752A6BCF1E1F280700E6695B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		752A6BD11E1F286000E6695B /* SetBirthdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBirthdayViewController.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				751C0B0D1E249E5800FD515A /* SearchUsersView.swift */,
 				752A6BDD1E20D39100E6695B /* ScannerView.swift */,
 				752A6BD71E20959500E6695B /* ProfileViewController.swift */,
+				752111B61E2AA7780054D975 /* SwapsViewController.swift */,
 				752A6BDB1E20D21F00E6695B /* ContainerViewController.swift */,
 			);
 			name = "Tab Bar Views";
@@ -811,6 +814,7 @@
 				752A6BDA1E20975E00E6695B /* SetttingsView.swift in Sources */,
 				2EFC3A2D1DF9D96000D45E7E /* ConfirmAccountViewController.swift in Sources */,
 				752A6BD51E1F497E00E6695B /* SetNameViewController.swift in Sources */,
+				752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */,
 				E7A30F04ABEB1F8300000000 /* AWSConfiguration.swift in Sources */,
 				2EFC3A241DF9B8ED00D45E7E /* Authorizing.swift in Sources */,
 				2ECF28871DF90D7200FEC5D2 /* AccountErrors.swift in Sources */,
