@@ -3,14 +3,50 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
+	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Branch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Swap.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftQRCode.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>p2.OAuth2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05A4EEBEAFE009CE52DBD2D5B9E8C2E0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1520003FEBEC114D6C84F832AFEDB994</key>
 		<dict>
 			<key>primary</key>
@@ -21,27 +57,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3BBEC521CA3193757CCE73C4766A1EBE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4097AF1BBF0FA9EC19595D830CC1C06E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4DC059E04CBA98AEDDB5C34E02D551E9</key>
+		<key>513D5EE922B5D2E8B413D12E61659C5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6593423080A357FFDCE94EEF23B8516A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7465A766601B8C2852411008740F1DE1</key>
+		<key>694599A863C0AD2496E21D4C7F0E9769</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -51,27 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<key>90C436A93F4667064C7DCF1EE6D029FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B45D2FB5F4BC304D75324A66B96EA5E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AA2B6C16CFF94795551E9A6044EF3349</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C4944FEC314D1A66588651D006273ADE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E499AD03603D1C072E96DEDF2D72CD7F</key>
+		<key>B3D7D35EF78339A5B5660007938F43FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

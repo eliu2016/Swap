@@ -16,7 +16,7 @@ import IQKeyboardManagerSwift
 import SwifteriOS
 import AWSCognitoIdentityProvider
 import OneSignal
-
+import Branch
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UIScrollViewDelegate {
     
@@ -24,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let branch = Branch.getInstance()
+        
+        branch?.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: { (param, error) in
+            
+        })
+        
         // Override point for customization after application launch.
         AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
     
@@ -112,6 +119,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         Swifter.handleOpenURL(url)
         youtube_oauth2.handleRedirectURL(url)
+        return true
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        
+         Branch.getInstance().continue(userActivity)
+        
         return true
     }
     

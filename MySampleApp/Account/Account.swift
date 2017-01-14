@@ -145,6 +145,8 @@ func createAccount(username: String?,
         
         if task.result != nil{
             
+            getContact(withPhonenumber: phonenumber!)
+            
             // Succeeded in signing up user
             print("Succeeded in Signing Up User")
             

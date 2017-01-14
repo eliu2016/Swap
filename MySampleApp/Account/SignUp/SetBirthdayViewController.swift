@@ -52,8 +52,12 @@ class SetBirthdayViewController: UIViewController {
         SwapUser(username: getUsernameOfSignedInUser()).set( Birthday: datePicker.date.timeIntervalSince1970 as Double,
                                                              
            DidSetInformation:  {
-        
-            self.performSegue(withIdentifier: "connectSocialMedias", sender: self)
+            
+            DispatchQueue.main.async {
+                
+                self.performSegue(withIdentifier: "connectSocialMedias", sender: self)
+            }
+            
         },
            
            

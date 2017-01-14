@@ -442,6 +442,7 @@ class SwapUser {
         
         OneSignal.idsAvailable { (userID, pushToken) in
             
+            print("THE NOTIFICATION ID IS .... \(userID)")
             if let notificationID = userID{
                 
                 // Creates an 'Users' object in order to store to database

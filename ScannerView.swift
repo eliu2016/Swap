@@ -11,7 +11,7 @@ import SwiftQRCode
 import AVFoundation
 
 let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true)
-    , strokeColor: UIColor.blue, maxDetectedCount: 1)
+    , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
 class ScannerViewController: UIViewController {
 

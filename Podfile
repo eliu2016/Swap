@@ -16,7 +16,8 @@ pod 'Alamofire'  #, '~> 4.2.0'
 pod 'SwiftyJSON'  #, '~> 3.1.3'
 pod 'Kingfisher'#, '~> 3.2.2'
 pod 'IQKeyboardManagerSwift'
-pod ‘SwiftQRCode’
+pod 'SwiftQRCode'
+pod 'Branch'
 
 
 pod 'OneSignal'
