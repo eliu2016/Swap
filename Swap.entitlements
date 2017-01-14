@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>webcredentials:example.com</string>
+		<string>applinks:swapapp.co</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
