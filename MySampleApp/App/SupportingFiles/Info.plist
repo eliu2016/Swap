@@ -2,10 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>kOSSettingsKeyAutoPrompt</key>
-	<false/>
-	<key>NSContactsUsageDescription</key>
-	<string>To Swap Contacts</string>
+	<key>NSCameraUsageDescription</key>
+	<string></string>
 	<key>AWS</key>
 	<dict>
 		<key>Cognito</key>
@@ -121,6 +119,8 @@
 	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow access to scan Swap Codes</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -139,7 +139,7 @@
 			<key>CFBundleURLIconFile</key>
 			<string></string>
 			<key>CFBundleURLName</key>
-			<string>redirect</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>swap</string>
@@ -218,8 +218,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSContactsUsageDescription</key>
+	<string>To Swap Contacts</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To select a file to upload.</string>
+	<string>Allow access to upload pictures and Swap Codes</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -245,6 +247,13 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>branch_key</key>
+	<dict>
+		<key>live</key>
+		<string>key_live_nnwp9DzHR7FQGCgQdkCLKfjoxzjLirVk</string>
+	</dict>
+	<key>kOSSettingsKeyAutoPrompt</key>
 	<false/>
 </dict>
 </plist>

@@ -48,8 +48,12 @@ class ConfirmAccountViewController: UIViewController {
         
         succeded: {
             
-            // Sign in the user 
-            self.signIn()
+            DispatchQueue.main.async {
+                
+                // Sign in the user
+                self.signIn()
+            }
+            
             
         })
     }

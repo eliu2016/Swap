@@ -11,7 +11,7 @@ import SwiftQRCode
 import AVFoundation
 
 let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true)
-    , strokeColor: UIColor.blue, maxDetectedCount: 1)
+    , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
 class ScannerViewController: UIViewController {
 
@@ -22,18 +22,21 @@ class ScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        enableCameraLabel.isHidden = true
+        enableCameraButton.isHidden = true
+        
         let authStatus = AVCaptureDevice.authorizationStatus(forMediaType:
             AVMediaTypeVideo)
         
         switch authStatus {
-        case .authorized:
+        case .authorized: break
+        case .denied:
             
-            enableCameraLabel.isHidden = true
-            enableCameraButton.isHidden = true
-        
-        break
-        case .denied: break
-        case .notDetermined: break
+            enableCameraLabel.isHidden = false
+            enableCameraButton.isHidden = false
+            
+            break
+            
         default: break
         }
         
