@@ -70,7 +70,33 @@ class ScannerViewController: UIViewController {
                 
                 if let user = user{
                     
-                    // Could get user 
+                    // Could get user
+                
+                    let userIsPrivate = user._isPrivate as! Bool
+                    
+                    if userIsPrivate{
+                        
+                        SwapUser(username: getUsernameOfSignedInUser()).sendSwapRequest(toSwapUser:  SwapUser(username: user._username!), completion: { error in
+                            
+                            if error != nil {
+                            
+                                // Some error happened
+                                print("REQUEST NOT SENT")
+                                 scanner.startScan()
+                                
+                            }  else{
+                                // Request Sent
+                                
+                                print("REQUEST SENT")
+                                 scanner.startScan()
+                            }
+                            
+                            
+                        })
+                        
+                    }
+                    
+                    else{
                     
                     // Share social medias 
                     shareVine(withUser: user)
@@ -87,6 +113,8 @@ class ScannerViewController: UIViewController {
                    SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
                     // Start Scanner back 
                     scanner.startScan()
+                        
+                    }
                     
                 }
                 
