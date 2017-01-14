@@ -41,8 +41,58 @@ class ScannerViewController: UIViewController {
         }
         
         
-        scanner.prepareScan(self.view){ (stringValue) in
-            print(stringValue)
+        scanner.prepareScan(self.view){ (swapLink) in
+           
+            
+            let username = getUsernameFromSwapLink(swapLink: swapLink)
+            
+            
+            
+            SwapUser(username: username).getInformation(completion: { (error, user) in
+                
+                // Stop Scanner
+                scanner.stopScan()
+                
+                
+                if error != nil {
+                    
+                    // There was an error trying to get the user from the swap code
+                    
+                   print("Could not get user.. Not a valid Swap Code... User does not exist...or bad internet connection")
+                    
+                    
+                    // Restart Scanner After Showing Pop Up View
+                    scanner.startScan()
+                    
+                    
+                }
+                
+                
+                if let user = user{
+                    
+                    // Could get user 
+                    
+                    // Share social medias 
+                    shareVine(withUser: user)
+                    shareSpotify(withUser: user, andIfNeededAuthorizeOnViewController: self)
+                    createContactInPhone(withContactDataOfUser: user, completion: {_ in return })
+                    shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: self)
+                    shareTwitter(withUser: user)
+                    shareYouTube(withUser: user)
+                    shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: self)
+                    sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: self)
+                    
+                    
+                    
+                   SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
+                    // Start Scanner back 
+                    scanner.startScan()
+                    
+                }
+                
+                
+            })
+            
             
         }
         scanner.scanFrame = view.bounds
@@ -61,5 +111,13 @@ class ScannerViewController: UIViewController {
         UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
         
     }
+    
+}
+
+
+func getUsernameFromSwapLink(swapLink: String) -> String {
+    
+    return (swapLink as NSString).lastPathComponent
+    
     
 }

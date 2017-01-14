@@ -487,20 +487,37 @@ class SwapUser {
     
     /// Sends Notification user that they have been swapped
     /// -todo: Use OneSignal API so when the user clicks the notification, he is brought to the Swap History Screen
-    func sendSwappedNotification(byUser: Users)  {
-        
-        let nameOfUser = "\(byUser._firstname!) \(byUser._lastname!)"
-        let usernameOfUser = byUser._username!
+    func sendSwappedNotification(bySwapUser: SwapUser)  {
         
         
-        self.getInformation { (error, user) in
+        
+        
+        bySwapUser.getInformation { (error, byUser) in
             
-            if error == nil{
+            if let byUser = byUser {
                 
-                let id = user!._notification_id_one_signal!
-                OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped® you."], "include_player_ids": [id]])
+            
+            let nameOfUser = "\(byUser._firstname!) \(byUser._lastname!)"
+            let usernameOfUser = byUser._username!
+            
+            
+            self.getInformation { (error, user) in
+                
+                if error == nil{
+                    
+                    if let id = user!._notification_id_one_signal{
+                        
+                         OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped® you."], "include_player_ids": [id]])
+                    }
+                    
+                                    
+                }
+            }
+                
             }
         }
+        
+       
         
         
     }
