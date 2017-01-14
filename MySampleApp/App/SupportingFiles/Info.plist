@@ -119,6 +119,8 @@
 	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow access to scan Swap Codes</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -219,7 +221,7 @@
 	<key>NSContactsUsageDescription</key>
 	<string>To Swap Contacts</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To select a file to upload.</string>
+	<string>Allow access to upload pictures and Swap Codes</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

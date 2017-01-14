@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "ConnectSocialMediasTutorial 2-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2017-01-11 at 3.53.07 PM.png",
+      "filename" : "ConnectSocialMediasTutorial 2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "ConnectSocialMediasTutorial 2-1.png",
       "scale" : "3x"
     }
   ],
