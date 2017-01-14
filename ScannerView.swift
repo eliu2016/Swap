@@ -22,18 +22,21 @@ class ScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        enableCameraLabel.isHidden = true
+        enableCameraButton.isHidden = true
+        
         let authStatus = AVCaptureDevice.authorizationStatus(forMediaType:
             AVMediaTypeVideo)
         
         switch authStatus {
-        case .authorized:
+        case .authorized: break
+        case .denied:
             
-            enableCameraLabel.isHidden = true
-            enableCameraButton.isHidden = true
-        
-        break
-        case .denied: break
-        case .notDetermined: break
+            enableCameraLabel.isHidden = false
+            enableCameraButton.isHidden = false
+            
+            break
+            
         default: break
         }
         
