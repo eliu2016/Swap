@@ -684,7 +684,7 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When's your birthday?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w65-85-wOH">
-                                <rect key="frame" x="87.5" y="60" width="200.5" height="40"/>
+                                <rect key="frame" x="102" y="60" width="171.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0ed-lY-J04"/>
                                 </constraints>
