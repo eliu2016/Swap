@@ -81,8 +81,12 @@ class SignUpViewController: UIViewController {
         
         didCreateAccount: {
             
+            DispatchQueue.main.async {
+                
+                self.performSegue(withIdentifier: "toConfirmAccount", sender: nil)
+            }
             
-            self.performSegue(withIdentifier: "toConfirmAccount", sender: nil)
+            
             
          
             
