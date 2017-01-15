@@ -716,4 +716,42 @@ class SwapUser {
             
         })
     }
+    
+    /// User this function to check if user has swapped another user. micheal.checkIfSwapped(anotherUser: david) will return true in completion block if David (requested) has approved a swap request from me (sender). Therefore, I can view his profile
+    func checkIfSwapped(anotherUser: SwapUser, result: @escaping (_ canViewProfile: Bool) -> Void)  {
+        
+        // hashKey = sender 
+        // rangeKey= requested
+        
+        self.NoSQL.load(SwapRequest.self, hashKey: self.username, rangeKey: anotherUser.username, completionHandler: { (request, error) in
+            
+            if let error = error{
+                // No Swap Request Found between these users so cannot view profile
+                
+                result(false)
+                
+                
+                
+            } else{
+                
+                if let request = request as? SwapRequest{
+                    let canView = request._status?.boolValue
+                    result(canView!)
+                }
+                else{
+                
+                        result(false)
+                }
+                
+                
+                
+            }
+            
+            
+            
+            
+        })
+        
+    }
+
 }
