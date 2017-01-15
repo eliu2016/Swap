@@ -575,6 +575,48 @@ class SwapUser {
         
 
     }
+    
+    
+    
+    
+  
+    /// Function that returns an array of SwapRequest objects
+    ///
+    /// - Parameter result: Returns and Error and an array of SwapRequest objects. Error will be nil if  there is no error. Be sure to unwrap the SwapRequest array. Iterate through SwapRequest array to retrieve each individual SwapRequest object. See SwapRequest class for more information on a SwapRequest object. Each SwapRequest object has a property associated with the information it contains.
+    func getPendingSwapRequests(result: @escaping (_ error: Error?, _ requests: [SwapRequest]?) -> Void)  {
+        
+        // Configures so that most recent data is obtained from NoSQL
+        
+        
+        let queryExpression = AWSDynamoDBQueryExpression()
+        queryExpression.indexName = "requested"
+        queryExpression.keyConditionExpression = "#hashAttribute = :hashAttribute"
+        queryExpression.expressionAttributeNames = ["#hashAttribute": "requested"]
+        queryExpression.expressionAttributeValues = [":hashAttribute": self.username]
+        
+        
+        self.NoSQL.query(SwapRequest.self, expression: queryExpression,  completionHandler: { (output, error) in
+            
+            if error != nil{
+               
+                
+                result(error, nil)
+                
+            }
+                
+            else{
+                
+                // Converts the response to an array of Swap History objects
+                let swapRequests = output?.items as! [SwapRequest]
+                result(nil, swapRequests)
+                
+                
+            }
+            
+        })
+
+        
+    }
 
     
 }
