@@ -113,7 +113,7 @@ class ProfileViewController: UIViewController {
             
             
         case Vine:
-            
+             
             DispatchQueue.global(qos: .userInteractive).async {
                 
                 SwapUser(username: getUsernameOfSignedInUser()
@@ -226,7 +226,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
+       
         
         // Hmm... Might consider putting this in viewDidLoad() ... Loads Profile Data 
         

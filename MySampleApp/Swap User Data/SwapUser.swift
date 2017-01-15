@@ -540,31 +540,43 @@ class SwapUser {
             
                 if error == nil{
                     
-                    // Send Swap Request Notification To User 
-                    toSwapUser.getInformation(completion: { (error, user) in
+                    
+                    self.getInformation(completion: { (error, me) in
                         
-                        if let user = user {
-                            // Did get information and there is no error 
+                        if let sender = me{
                             
-                            let nameOfUser = "\(user._firstname!) \(user._lastname!)"
-                            let usernameOfUser = user._username!
-                            
-                            if let id = user._notification_id_one_signal{
-                                // Can send a notification to user 
+                            // Send Swap Request Notification To User
+                            toSwapUser.getInformation(completion: { (error, user) in
                                 
-                                // Sends notification to user
-                                 OneSignal.postNotification([
-                                    "contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) requested to Swap™ you."],
-                                    "include_player_ids": [id],
-                                    "content_available": "true",
-                                    "buttons": [
+                                if let user = user {
+                                    // Did get information and there is no error
+                                    
+                                    let nameOfUser = "\(sender._firstname!) \(sender._lastname!)"
+                                    let usernameOfUser = sender._username!
+                                    
+                                    if let id = user._notification_id_one_signal{
+                                        // Can send a notification to user
+                                        
+                                        // Sends notification to user
+                                        OneSignal.postNotification([
+                                            "contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) requested to Swap™ you."],
+                                            "include_player_ids": [id],
+                                            "content_available": "true",
+                                            "buttons": [
                                                 ["id": "Accept", "text": "Accept"],
-                                                ["id": "Decline", "text": "Decline"] ]
-                                                             ])
-                            }
+                                                ["id": "Decline", "text": "Decline"] ],
+                                            "data": ["username": usernameOfUser]
+                                            ])
+                                    }
+                                }
+                                
+                            })
                         }
                         
                     })
+                    
+                    
+                    
                 }
                 
                 
