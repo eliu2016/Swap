@@ -591,8 +591,9 @@ class SwapUser {
         let queryExpression = AWSDynamoDBQueryExpression()
         queryExpression.indexName = "requested"
         queryExpression.keyConditionExpression = "#hashAttribute = :hashAttribute"
-        queryExpression.expressionAttributeNames = ["#hashAttribute": "requested"]
-        queryExpression.expressionAttributeValues = [":hashAttribute": self.username]
+        queryExpression.expressionAttributeNames = ["#hashAttribute": "requested", "#sender_confirmed_acceptance":"sender_confirmed_acceptance"]
+        queryExpression.expressionAttributeValues = [":hashAttribute": self.username, ":val": false]
+        queryExpression.filterExpression = "#sender_confirmed_acceptance = :val"
         
         
         self.NoSQL.query(SwapRequest.self, expression: queryExpression,  completionHandler: { (output, error) in
