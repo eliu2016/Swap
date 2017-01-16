@@ -868,7 +868,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
     
     
     var store = CNContactStore()
-    let contact = CNMutableContact()
+    var contact = CNMutableContact()
     
     let url = URL(string: user._profilePictureUrl!)!
     
@@ -885,58 +885,59 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
             contact.imageData = data!
             
             
+            
             if let firstname = user._firstname {
-                if !firstname.isEmpty{
+                
                     contact.givenName = firstname
-                }
+                
             }
             
             if let middlename = user._middlename {
-                if !middlename.isEmpty{
+               
                     contact.middleName = middlename
-                }
+                
             }
             
             
             if let lastname = user._lastname {
-                if !lastname.isEmpty{
+                
                     contact.familyName = lastname
-                }
+                
             }
             
             
             if let company = user._company {
-                if !company.isEmpty{
+              
                     contact.organizationName = company
-                }
+                
             }
             
             
             
             
             if let website = user._website{
-                if !website.isEmpty{
+                
                     
                     //  let websiteURL = CNLabeledValue(label:CNLabelURLAddressHomePage., value: website)
                     let websiteURL = CNLabeledValue(label: "homepage", value: website as NSString)
                     
                     contact.urlAddresses = [websiteURL]
                     
-                }
+                
             }
             
             
             if UserWillShareEmail{
                 DidShareEmail = true
                 if let email = user._email{
-                    if !email.isEmpty{
+                   
                         
                         
                         let Email = CNLabeledValue(label: "email", value: email as NSString)
                         
                         contact.emailAddresses = [Email]
                         
-                    }
+                    
                 }
                 
             }
@@ -946,7 +947,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
                 DidSharePhone = true
                 
                 if let phone = user._phonenumber{
-                    if !phone.isEmpty{
+                    
                         
                         
                         let Phone = CNPhoneNumber(stringValue: phone)
@@ -954,7 +955,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
                         
                         contact.phoneNumbers = [phonenumber as! CNLabeledValue<CNPhoneNumber>]
                         
-                    }
+                    
                 }
                 
             }

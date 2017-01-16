@@ -113,7 +113,7 @@ class ProfileViewController: UIViewController {
             
             
         case Vine:
-            
+             
             DispatchQueue.global(qos: .userInteractive).async {
                 
                 SwapUser(username: getUsernameOfSignedInUser()
@@ -226,7 +226,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
+       
         
         // Hmm... Might consider putting this in viewDidLoad() ... Loads Profile Data 
         
@@ -325,6 +325,12 @@ class ProfileViewController: UIViewController {
                         self.Spotify.isSelected = willShareSpotify
                         self.Email.isSelected = willShareEmail
                         self.Phone.isSelected = willSharePhone
+                        self.Vine.isSelected = (user?._willShareVine as? Bool) ?? false
+                        self.Instagram.isSelected = (user?._willShareInstagram as? Bool) ?? false
+                        self.Twitter.isSelected = (user?._willShareTwitter as? Bool) ?? false
+                        self.YouTube.isSelected = (user?._willShareYouTube as? Bool) ?? false
+                        self.SoundCloud.isSelected = (user?._willShareSoundCloud as? Bool) ?? false
+                        self.Pinterest.isSelected = (user?._willSharePinterest as? Bool) ?? false
                         self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
                         self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
                         
