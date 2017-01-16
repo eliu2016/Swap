@@ -12,6 +12,10 @@ import AWSCognitoIdentityProvider
 import AWSCore
 import AWSMobileHubHelper
 import OneSignal
+import Realm
+import RealmSwift
+import SwifteriOS
+
 
 /// Class for a SwapUser object
 class SwapUser {
@@ -751,6 +755,78 @@ class SwapUser {
             
             
         })
+        
+    }
+    
+    
+    func downloadCompilation()  {
+        let username = self.username
+        
+        
+        // Check if object already exists 
+        if cache.object(ofType: Compilation.self, forPrimaryKey: username) == nil{
+            
+            try! cache.write{
+            
+                // If it exists, create an object
+                cache.add(Compilation(value: ["username": username]), update: true)
+                
+            }
+        }
+
+        
+        // Refer
+        let compilation = cache.object(ofType: Compilation.self, forPrimaryKey: username) ?? Compilation(value: ["username": username])
+        
+        self.getInformation { (error, user) in
+            
+            if let user = user {
+                
+                try! cache.write {
+                    
+                    compilation.name = "\(user._firstname!) \(user._lastname)"
+                    compilation.isVerified = (user._isVerified?.boolValue)!
+                    compilation.profilePicture = user._profilePictureUrl!
+                    
+                }
+                
+                
+                // Download Tweets
+                if let token = getTwitterSecret(), let secret = getTwitterSecret(){
+                    
+                     var swifter = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: token, oauthTokenSecret: secret)
+                    
+                    if let twitterID = user._twitterID{
+                        
+                        swifter.getTimeline(for: twitterID, success: { (twitterJSON) in
+                            
+                            try! cache.write {
+                                
+                                let tweets  = returnTweets(fromJSON: twitterJSON)
+                                compilation.Tweets = tweets!
+                                
+                            }
+                        })
+                    }
+                    
+                    
+                }
+               
+                
+                
+                
+                
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
 

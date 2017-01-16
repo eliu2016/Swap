@@ -8,6 +8,8 @@
 
 import Foundation
 import p2_OAuth2
+import RealmSwift
+import Realm
 
 
 // =================== Spotify Authorization Information ============================================
@@ -182,4 +184,9 @@ var youtube_oauth2 = OAuth2CodeGrant(settings: [
     "redirect_uris": [googleURLScheme],
     "keychain": true
     ])
+
+
+
+// Realm 
+let cache = try! Realm()
 

@@ -16,6 +16,7 @@
 		2ECAD7261E2C491B0096A3C5 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAD7251E2C491B0096A3C5 /* Tweet.swift */; };
 		2ECAD7431E2C5E1F0096A3C5 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECAD73C1E2C5E100096A3C5 /* SwifteriOS.framework */; };
 		2ECAD7441E2C5E1F0096A3C5 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECAD73C1E2C5E100096A3C5 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ECAD74A1E2C7BE30096A3C5 /* Compilation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAD7491E2C7BE30096A3C5 /* Compilation.swift */; };
 		2ECF28831DF90D3E00FEC5D2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF28821DF90D3E00FEC5D2 /* Account.swift */; };
 		2ECF28871DF90D7200FEC5D2 /* AccountErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF28861DF90D7200FEC5D2 /* AccountErrors.swift */; };
 		2ECF288A1DF90D9500FEC5D2 /* SwapUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF28891DF90D9500FEC5D2 /* SwapUser.swift */; };
@@ -201,6 +202,7 @@
 		2EC5652B1DF924FA00D587EB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "MySampleApp/Social Media/Constants.swift"; sourceTree = SOURCE_ROOT; };
 		2ECAD7251E2C491B0096A3C5 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		2ECAD7311E2C5E0F0096A3C5 /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../../Downloads/Swifter-master 6/Swifter.xcodeproj"; sourceTree = "<group>"; };
+		2ECAD7491E2C7BE30096A3C5 /* Compilation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compilation.swift; sourceTree = "<group>"; };
 		2ECF287E1DF8F58800FEC5D2 /* Swap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swap.entitlements; sourceTree = SOURCE_ROOT; };
 		2ECF28821DF90D3E00FEC5D2 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = MySampleApp/Account/Account.swift; sourceTree = SOURCE_ROOT; };
 		2ECF28861DF90D7200FEC5D2 /* AccountErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountErrors.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				2E9849361E04BCD200EC4C4C /* ConnectSocialMedias.swift */,
 				2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */,
 				2ECAD7251E2C491B0096A3C5 /* Tweet.swift */,
+				2ECAD7491E2C7BE30096A3C5 /* Compilation.swift */,
 			);
 			name = "Social Media";
 			path = "../MySampleApp/Social Media";
@@ -793,6 +796,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ECAD74A1E2C7BE30096A3C5 /* Compilation.swift in Sources */,
 				E7A30F04B7E56FDE00000000 /* SwapHistory.swift in Sources */,
 				752A6BD21E1F286000E6695B /* SetBirthdayViewController.swift in Sources */,
 				2EC5652C1DF924FA00D587EB /* Constants.swift in Sources */,
