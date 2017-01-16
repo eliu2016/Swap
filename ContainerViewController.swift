@@ -72,7 +72,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         view.addSubview(scrollView)
         
-         SwapCenterButton = UIButton(frame: CGRect(x: 156, y: 609, width: 56, height: 49))
+         SwapCenterButton = UIButton(frame: CGRect(x: 156, y: 600, width: 62, height: 60))
         
       /*  var menuButtonFrame = SwapCenterButton.frame
         menuButtonFrame.origin.y = view.bounds.height - menuButtonFrame.height
@@ -86,7 +86,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         view.addSubview(SwapCenterButton)
         
-        SwapCenterButton.setImage(UIImage(named: "Logo"), for: .normal)
+        SwapCenterButton.setImage(UIImage(named: "SwapButton"), for: .normal)
         SwapCenterButton.addTarget(self, action: #selector(SwapButtonAction(sender:)), for: .touchUpInside)
         // 4) Finally set the size of the scroll view that contains the frames
   
