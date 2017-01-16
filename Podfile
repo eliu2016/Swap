@@ -19,7 +19,7 @@ pod 'IQKeyboardManagerSwift'
 pod 'SwiftQRCode'
 pod 'Branch'
 
-
+pod 'RealmSwift'
 pod 'OneSignal'
 
 
@@ -28,6 +28,7 @@ post_install do |installer|
         target.build_configurations.each do |config|
             xcconfig_path = config.base_configuration_reference.real_path
             xcconfig = File.read(xcconfig_path)
+            config.build_settings['SWIFT_VERSION'] = '3.0'
             new_xcconfig = xcconfig.sub('OTHER_LDFLAGS = $(inherited) -ObjC', 'OTHER_LDFLAGS = $(inherited)')
             File.open(xcconfig_path, "w") { |file| file << new_xcconfig }
         end
