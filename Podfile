@@ -6,32 +6,33 @@ platform :ios, '10.0'
 
 
 target 'Swap' do
-# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-use_frameworks!
-
-# Pods for Swap
-
-pod 'p2.OAuth2'  #, '~> 3.0'
-pod 'Alamofire'  #, '~> 4.2.0'
-pod 'SwiftyJSON'  #, '~> 3.1.3'
-pod 'Kingfisher'#, '~> 3.2.2'
-pod 'IQKeyboardManagerSwift'
-pod 'SwiftQRCode'
-pod 'Branch'
-
-
-pod 'OneSignal'
-
-
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            xcconfig_path = config.base_configuration_reference.real_path
-            xcconfig = File.read(xcconfig_path)
-            new_xcconfig = xcconfig.sub('OTHER_LDFLAGS = $(inherited) -ObjC', 'OTHER_LDFLAGS = $(inherited)')
-            File.open(xcconfig_path, "w") { |file| file << new_xcconfig }
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    
+    # Pods for Swap
+    
+    pod 'p2.OAuth2'  #, '~> 3.0'
+    pod 'Alamofire'  #, '~> 4.2.0'
+    pod 'SwiftyJSON'  #, '~> 3.1.3'
+    pod 'Kingfisher'#, '~> 3.2.2'
+    pod 'IQKeyboardManagerSwift'
+    pod 'SwiftQRCode'
+    pod 'Branch'
+    
+    pod 'RealmSwift'
+    pod 'OneSignal'
+    
+    
+    post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            target.build_configurations.each do |config|
+                xcconfig_path = config.base_configuration_reference.real_path
+                xcconfig = File.read(xcconfig_path)
+                config.build_settings['SWIFT_VERSION'] = '3.0'
+                new_xcconfig = xcconfig.sub('OTHER_LDFLAGS = $(inherited) -ObjC', 'OTHER_LDFLAGS = $(inherited)')
+                File.open(xcconfig_path, "w") { |file| file << new_xcconfig }
+            end
         end
     end
-end
-
+    
 end
