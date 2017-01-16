@@ -335,7 +335,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     override func viewDidAppear(_ animated: Bool) {
         saveViewController(viewController: self)
         
-        
+        SwapUser(username: getUsernameOfSignedInUser()).setUpPushNotifications()
         // Selects the social media icons if they are connected
         
         Spotify.isSelected = ((spotify_oauth2.accessToken != nil) || (spotify_oauth2.refreshToken != nil))

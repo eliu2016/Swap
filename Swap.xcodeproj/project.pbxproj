@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		01FDC6AC947EBE0F951630BF /* Pods_Swap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C679A794A37D996B81BAAC07 /* Pods_Swap.framework */; };
 		2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */; };
+		2E7DFDEA1E2ADBF700CBB26A /* SwapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7DFDE91E2ADBF700CBB26A /* SwapRequest.swift */; };
 		2E89BD371E146EB90028B20C /* SearchUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E89BD361E146EB90028B20C /* SearchUsers.swift */; };
 		2E9849371E04BCD200EC4C4C /* ConnectSocialMedias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9849361E04BCD200EC4C4C /* ConnectSocialMedias.swift */; };
 		2EC5652C1DF924FA00D587EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5652B1DF924FA00D587EB /* Constants.swift */; };
+		2ECAD7261E2C491B0096A3C5 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAD7251E2C491B0096A3C5 /* Tweet.swift */; };
 		2ECAD7431E2C5E1F0096A3C5 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECAD73C1E2C5E100096A3C5 /* SwifteriOS.framework */; };
 		2ECAD7441E2C5E1F0096A3C5 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECAD73C1E2C5E100096A3C5 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ECF28831DF90D3E00FEC5D2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECF28821DF90D3E00FEC5D2 /* Account.swift */; };
@@ -193,9 +195,11 @@
 		1DD70E29DF90B53300000000 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = MySampleApp/App/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		1DD70E29ED4914FA00000000 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Twitter.swift; sourceTree = "<group>"; };
+		2E7DFDE91E2ADBF700CBB26A /* SwapRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwapRequest.swift; path = MySampleApp/AmazonAws/Models/NoSQL/SwapRequest.swift; sourceTree = SOURCE_ROOT; };
 		2E89BD361E146EB90028B20C /* SearchUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUsers.swift; path = MySampleApp/SearchUsers.swift; sourceTree = SOURCE_ROOT; };
 		2E9849361E04BCD200EC4C4C /* ConnectSocialMedias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectSocialMedias.swift; sourceTree = "<group>"; };
 		2EC5652B1DF924FA00D587EB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "MySampleApp/Social Media/Constants.swift"; sourceTree = SOURCE_ROOT; };
+		2ECAD7251E2C491B0096A3C5 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		2ECAD7311E2C5E0F0096A3C5 /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../../Downloads/Swifter-master 6/Swifter.xcodeproj"; sourceTree = "<group>"; };
 		2ECF287E1DF8F58800FEC5D2 /* Swap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swap.entitlements; sourceTree = SOURCE_ROOT; };
 		2ECF28821DF90D3E00FEC5D2 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = MySampleApp/Account/Account.swift; sourceTree = SOURCE_ROOT; };
@@ -224,7 +228,7 @@
 		752A6BCF1E1F280700E6695B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		752A6BD11E1F286000E6695B /* SetBirthdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBirthdayViewController.swift; sourceTree = "<group>"; };
 		752A6BD41E1F497E00E6695B /* SetNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
-		752A6BD71E20959500E6695B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = mysampleapp/ProfileViewController.swift; sourceTree = "<group>"; };
+		752A6BD71E20959500E6695B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "/Users/DrStephenPhD/Downloads/Swap REPOSITORY /Swap/MySampleApp/Tab Bar Views/ProfileViewController.swift"; sourceTree = "<absolute>"; };
 		752A6BD91E20975E00E6695B /* SetttingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetttingsView.swift; sourceTree = "<group>"; };
 		752A6BDB1E20D21F00E6695B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		752A6BDD1E20D39100E6695B /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 				2EFC3A231DF9B8ED00D45E7E /* Authorizing.swift */,
 				2E9849361E04BCD200EC4C4C /* ConnectSocialMedias.swift */,
 				2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */,
+				2ECAD7251E2C491B0096A3C5 /* Tweet.swift */,
 			);
 			name = "Social Media";
 			path = "../MySampleApp/Social Media";
@@ -559,6 +564,7 @@
 			children = (
 				1DD70E290ECEC38400000000 /* SwapHistory.swift */,
 				1DD70E29C3D38DE600000000 /* Users.swift */,
+				2E7DFDE91E2ADBF700CBB26A /* SwapRequest.swift */,
 			);
 			name = NoSQL;
 			path = mysampleapp/amazonaws/models/nosql;
@@ -804,9 +810,11 @@
 				751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */,
 				752111BC1E2B42F60054D975 /* PrivacyPolicyView.swift in Sources */,
 				E7A30F04FE92C36800000000 /* AWSAPI_0MZ6OXIFT5_ResponseSchema.m in Sources */,
+				2E7DFDEA1E2ADBF700CBB26A /* SwapRequest.swift in Sources */,
 				752A6BD01E1F280700E6695B /* SignUpViewController.swift in Sources */,
 				E7A30F04A46BEE4900000000 /* AWSAPI_0MZ6OXIFT5_SwapUsersMobileHubClient.m in Sources */,
 				2ECF288E1DF90DB700FEC5D2 /* Contacts.swift in Sources */,
+				2ECAD7261E2C491B0096A3C5 /* Tweet.swift in Sources */,
 				2EFC3A291DF9C37100D45E7E /* ExtensionsSignIn.swift in Sources */,
 				2EFC3A321DFA1BE100D45E7E /* ConnectingSocialMediasViewController.swift in Sources */,
 				2E89BD371E146EB90028B20C /* SearchUsers.swift in Sources */,
