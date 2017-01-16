@@ -171,3 +171,23 @@ func returnTweet(fromJSON: SwifteriOS.JSON) -> Tweet {
     
     
 }
+
+
+func returnTweets(fromJSON: SwifteriOS.JSON) -> [Tweet]? {
+    
+    var allTweets: [Tweet]? = []
+    
+    if let tweetJsons = fromJSON.array{
+        
+        for json in tweetJsons {
+            
+            allTweets?.append(returnTweet(fromJSON: json))
+            
+        }
+        
+        return allTweets
+        
+    } else{
+        return []
+    }
+}
