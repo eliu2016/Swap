@@ -33,6 +33,8 @@
 		751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B3F1E25C3B900FD515A /* EditProfile.swift */; };
 		751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */; };
 		752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B61E2AA7780054D975 /* SwapsViewController.swift */; };
+		752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B91E2B3BE60054D975 /* SwappedViewController.swift */; };
+		752111BC1E2B42F60054D975 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */; };
 		752A6BCE1E1F273A00E6695B /* ShowLoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BCD1E1F273A00E6695B /* ShowLoadingOverlay.swift */; };
 		752A6BD01E1F280700E6695B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BCF1E1F280700E6695B /* SignUpViewController.swift */; };
 		752A6BD21E1F286000E6695B /* SetBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BD11E1F286000E6695B /* SetBirthdayViewController.swift */; };
@@ -216,6 +218,8 @@
 		751C0B3F1E25C3B900FD515A /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerSwipeExtension.swift; sourceTree = "<group>"; };
 		752111B61E2AA7780054D975 /* SwapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapsViewController.swift; sourceTree = "<group>"; };
+		752111B91E2B3BE60054D975 /* SwappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwappedViewController.swift; sourceTree = "<group>"; };
+		752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		752A6BCD1E1F273A00E6695B /* ShowLoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowLoadingOverlay.swift; sourceTree = "<group>"; };
 		752A6BCF1E1F280700E6695B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		752A6BD11E1F286000E6695B /* SetBirthdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBirthdayViewController.swift; sourceTree = "<group>"; };
@@ -409,6 +413,7 @@
 		751C0B3E1E25C38600FD515A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */,
 				752A6BD91E20975E00E6695B /* SetttingsView.swift */,
 				751C0B3F1E25C3B900FD515A /* EditProfile.swift */,
 			);
@@ -424,6 +429,7 @@
 				752A6BDD1E20D39100E6695B /* ScannerView.swift */,
 				752A6BD71E20959500E6695B /* ProfileViewController.swift */,
 				752111B61E2AA7780054D975 /* SwapsViewController.swift */,
+				752111B91E2B3BE60054D975 /* SwappedViewController.swift */,
 				752A6BDB1E20D21F00E6695B /* ContainerViewController.swift */,
 			);
 			name = "Tab Bar Views";
@@ -796,6 +802,7 @@
 				2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */,
 				2ECF288C1DF90DA900FEC5D2 /* SavingAppData.swift in Sources */,
 				751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */,
+				752111BC1E2B42F60054D975 /* PrivacyPolicyView.swift in Sources */,
 				E7A30F04FE92C36800000000 /* AWSAPI_0MZ6OXIFT5_ResponseSchema.m in Sources */,
 				752A6BD01E1F280700E6695B /* SignUpViewController.swift in Sources */,
 				E7A30F04A46BEE4900000000 /* AWSAPI_0MZ6OXIFT5_SwapUsersMobileHubClient.m in Sources */,
@@ -820,6 +827,7 @@
 				2ECF28871DF90D7200FEC5D2 /* AccountErrors.swift in Sources */,
 				751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */,
 				E7A30F04D052C5D100000000 /* AWSAPI_0MZ6OXIFT5_RequestSchema.m in Sources */,
+				752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */,
 				E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

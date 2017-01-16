@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (4.2.0)
+  - Branch (0.12.24):
+    - Branch/Core (= 0.12.24)
+    - Branch/without-IDFA (= 0.12.24)
+  - Branch/Core (0.12.24)
+  - Branch/without-IDFA (0.12.24)
   - IQKeyboardManagerSwift (4.0.8)
   - Kingfisher (3.2.4)
   - OneSignal (2.3.4)
@@ -9,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Branch
   - IQKeyboardManagerSwift
   - Kingfisher
   - OneSignal
@@ -18,6 +24,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Branch: 91bd039aab277cffce763662050d0b4a12b5d196
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   OneSignal: c8f0d08ffa30fcf751c97a29639725877027e788
@@ -25,6 +32,6 @@ SPEC CHECKSUMS:
   SwiftQRCode: 280589699d84195c2c573011aa52f2c015c31c34
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 00c14a659fb24c85b31211ba4aec471c42874484
+PODFILE CHECKSUM: fa4bb5693a9aa629d9fefbb46f9ae6c4c0857322
 
 COCOAPODS: 1.1.1
