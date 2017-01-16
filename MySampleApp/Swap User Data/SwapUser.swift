@@ -487,25 +487,271 @@ class SwapUser {
     
     /// Sends Notification user that they have been swapped
     /// -todo: Use OneSignal API so when the user clicks the notification, he is brought to the Swap History Screen
-    func sendSwappedNotification(byUser: Users)  {
-        
-        let nameOfUser = "\(byUser._firstname!) \(byUser._lastname!)"
-        let usernameOfUser = byUser._username!
+    func sendSwappedNotification(bySwapUser: SwapUser)  {
         
         
-        self.getInformation { (error, user) in
+        
+        
+        bySwapUser.getInformation { (error, byUser) in
             
-            if error == nil{
+            if let byUser = byUser {
                 
-                let id = user!._notification_id_one_signal!
-                OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped® you."], "include_player_ids": [id]])
+            
+            let nameOfUser = "\(byUser._firstname!) \(byUser._lastname!)"
+            let usernameOfUser = byUser._username!
+            
+            
+            self.getInformation { (error, user) in
+                
+                if error == nil{
+                    
+                    if let id = user!._notification_id_one_signal{
+                        
+                         OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped™ you."], "include_player_ids": [id]])
+                    }
+                    
+                                    
+                }
+            }
+                
             }
         }
+        
+       
         
         
     }
     
     
+    func sendSwapRequest(toSwapUser: SwapUser, completion: @escaping (_ error: Error?) -> Void = {_ in return})  {
+        
+        let request = SwapRequest()
+        
+        request?._sender = self.username
+        request?._requested = toSwapUser.username
+        request?._sent_at = NSDate().timeIntervalSince1970 as NSNumber // Current Time
+        request?._status = false // Not accepted yet 
+        request?._sender_confirmed_acceptance = false // Sender has not confirmed yet 
+        
+        updateMapperConfig.saveBehavior = .updateSkipNullAttributes
+        
+        NoSQL.save(request!, configuration
+            : updateMapperConfig, completionHandler: { error in
+            
+                if error == nil{
+                    
+                    
+                    self.getInformation(completion: { (error, me) in
+                        
+                        if let sender = me{
+                            
+                            // Send Swap Request Notification To User
+                            toSwapUser.getInformation(completion: { (error, user) in
+                                
+                                if let user = user {
+                                    // Did get information and there is no error
+                                    
+                                    let nameOfUser = "\(sender._firstname!) \(sender._lastname!)"
+                                    let usernameOfUser = sender._username!
+                                    
+                                    if let id = user._notification_id_one_signal{
+                                        // Can send a notification to user
+                                        
+                                        // Sends notification to user
+                                        OneSignal.postNotification([
+                                            "contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) requested to Swap™ you."],
+                                            "include_player_ids": [id],
+                                            "content_available": "true",
+                                            "buttons": [
+                                                ["id": "Accept", "text": "Accept"],
+                                                ["id": "Decline", "text": "Decline"] ],
+                                            "data": ["username": usernameOfUser]
+                                            ])
+                                    }
+                                }
+                                
+                            })
+                        }
+                        
+                    })
+                    
+                    
+                    
+                }
+                
+                
+                // Error will be nil if everything worked
+            completion(error)
+            
+        })
+        
 
+    }
     
+    
+    
+    
+  
+    /// Function that returns an array of SwapRequest objects
+    ///
+    /// - Parameter result: Returns an array of SwapRequests that the user has sent out. When obtaining the swap requests array, ensure that the status (swapRequest.status) == true before allowing the user to press the swap button to confirm. The status property tells if the requested user has accepted  a swap request. If the user has ignored the swap request, status will be false. If the user has denied a swap request, it will not be shown in the array. Here is an example: If David a private user and Micheal sends a swap request to David.  Initially, the sender is Micheal, the requested is David, the status is false, and sender_confirmed_acceptance is also false. If David accepts the friend request, status = true when Micheal attempts to getPendingSentSwapRequests. If David has neither accepted or denied request, status = true. However, if David denies the request, the request is removed from getPendingSentSwapRequest and status = false AND sender_confirmed = true.
+    func getPendingSentSwapRequests(result: @escaping (_ error: Error?, _ requests: [SwapRequest]?) -> Void)  {
+        
+        // Configures so that most recent data is obtained from NoSQL
+        
+        
+        let queryExpression = AWSDynamoDBQueryExpression()
+        queryExpression.indexName = "sender"
+        queryExpression.keyConditionExpression = "#hashAttribute = :hashAttribute"
+        queryExpression.expressionAttributeNames = ["#hashAttribute": "sender", "#sender_confirmed_acceptance":"sender_confirmed_acceptance"]
+        queryExpression.expressionAttributeValues = [":hashAttribute": self.username, ":val": false]
+        queryExpression.filterExpression = "#sender_confirmed_acceptance = :val"
+        
+        
+        self.NoSQL.query(SwapRequest.self, expression: queryExpression,  completionHandler: { (output, error) in
+            
+            if error != nil{
+               
+                
+                result(error, nil)
+                
+            }
+                
+            else{
+                
+                // Converts the response to an array of Swap History objects
+                let swapRequests = output?.items as! [SwapRequest]
+                result(nil, swapRequests)
+                
+                
+            }
+            
+        })
+
+        
+    }
+    
+    
+    /// If Micheal sends David a Swap Request and David accepts it, this function should be called where withUsername = David so that sender_confirmed = true so that it is removed from the getPendingSentSwapRequests array.
+    ///
+    ///
+    func confirmSwapRequestToUser(withUsername: String, completion: @escaping (_ error: Error?) -> Void = {_ in return })  {
+        
+        let swapRequest = SwapRequest()
+        updateMapperConfig.saveBehavior = .updateSkipNullAttributes
+        
+        swapRequest?._sender = self.username
+        swapRequest?._requested = withUsername
+        
+        
+        
+        swapRequest?._sender_confirmed_acceptance = true
+        
+        NoSQL.save(swapRequest!, configuration: updateMapperConfig, completionHandler: { error in
+            
+            completion(error)
+            
+        })
+
+    }
+    
+    
+    func performActionOnSwapRequestFromUser(withUsername: String, doAccept: Bool, completion: @escaping (_ error: Error?) -> Void = {_ in return })  {
+        
+        let swapRequest = SwapRequest()
+         updateMapperConfig.saveBehavior = .updateSkipNullAttributes
+        
+        swapRequest?._sender = withUsername
+        swapRequest?._requested = self.username
+        
+        swapRequest?._status = doAccept as NSNumber
+        
+        if !doAccept{
+            // Sender rejected the Swap Request. So now, set senderConfirmed = true so that it no longer appears on their pending Swap Requests 
+            
+            swapRequest?._sender_confirmed_acceptance = true
+        }
+        
+        
+        NoSQL.save(swapRequest!, configuration: updateMapperConfig, completionHandler: { error in
+            
+            completion(error)
+            
+        })
+
+    }
+
+    /// Gets the Swap Requests sent to the user
+    func getRequestedSwaps(result: @escaping (_ error: Error?, _ requests: [SwapRequest]?) -> Void)  {
+        
+        
+        // Configures so that most recent data is obtained from NoSQL
+        
+        
+        let queryExpression = AWSDynamoDBQueryExpression()
+        queryExpression.indexName = "requested"
+        queryExpression.keyConditionExpression = "#hashAttribute = :hashAttribute"
+        queryExpression.expressionAttributeNames = ["#hashAttribute": "requested", "#sender_confirmed_acceptance":"sender_confirmed_acceptance"]
+        queryExpression.expressionAttributeValues = [":hashAttribute": self.username, ":val": false]
+        queryExpression.filterExpression = "#sender_confirmed_acceptance = :val"
+        
+        
+        self.NoSQL.query(SwapRequest.self, expression: queryExpression,  completionHandler: { (output, error) in
+            
+            if error != nil{
+                
+                
+                result(error, nil)
+                
+            }
+                
+            else{
+                
+                // Converts the response to an array of Swap History objects
+                let swapRequests = output?.items as! [SwapRequest]
+                result(nil, swapRequests)
+                
+                
+            }
+            
+        })
+    }
+    
+    /// User this function to check if user has swapped another user. micheal.checkIfSwapped(anotherUser: david) will return true in completion block if David (requested) has approved a swap request from me (sender). Therefore, I can view his profile
+    func checkIfSwapped(anotherUser: SwapUser, result: @escaping (_ canViewProfile: Bool) -> Void)  {
+        
+        // hashKey = sender 
+        // rangeKey= requested
+        
+        self.NoSQL.load(SwapRequest.self, hashKey: self.username, rangeKey: anotherUser.username, completionHandler: { (request, error) in
+            
+            if let error = error{
+                // No Swap Request Found between these users so cannot view profile
+                
+                result(false)
+                
+                
+                
+            } else{
+                
+                if let request = request as? SwapRequest{
+                    let canView = request._status?.boolValue
+                    result(canView!)
+                }
+                else{
+                
+                        result(false)
+                }
+                
+                
+                
+            }
+            
+            
+            
+            
+        })
+        
+    }
+
 }

@@ -34,7 +34,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         // Override point for customization after application launch.
         AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
     
-          OneSignal.initWithLaunchOptions(launchOptions, appId: ONE_SIGNAL_APP_ID)
+        // One Signal Push Notification 
+        OneSignal.initWithLaunchOptions(launchOptions, appId: ONE_SIGNAL_APP_ID, handleNotificationAction: { (result) in
+            // Completion Block Called when the user presses an action button from a Swap Request
+            let payload = result?.notification.payload
+            // Obtain the Action Selected From Notification
+            
+            if let additionalData = payload?.additionalData, let actionSelected = additionalData["actionSelected"] as? String {
+                
+                let username = additionalData["username"] as? String ?? ""
+                
+                switch actionSelected{
+                    case "Accept":
+                    // User Accepted 
+                        SwapUser(username: getUsernameOfSignedInUser()).performActionOnSwapRequestFromUser(withUsername: username, doAccept: true)
+                    break
+                    
+                    case "Decline":
+                        SwapUser(username: getUsernameOfSignedInUser()).performActionOnSwapRequestFromUser(withUsername: username, doAccept: true)
+                    break
+                    
+                default: break
+                }
+                
+            }
+            
+            
+        })
+        
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil) // this assumes your storyboard is titled "Main.storyboard"
