@@ -9,7 +9,7 @@
 import Foundation
 import Kingfisher
 
-class SearchUsers: UIViewController, UITableViewDataSource, UICollectionViewDataSource, UISearchBarDelegate {
+class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
   
     
     @IBOutlet var searchedUsersTable: UITableView!
@@ -21,28 +21,29 @@ class SearchUsers: UIViewController, UITableViewDataSource, UICollectionViewData
     
     override func viewDidLoad() {
     
+        searchBar.delegate = self
         
-    self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
+        self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
         
-    self.automaticallyAdjustsScrollViewInsets = false;
+        self.automaticallyAdjustsScrollViewInsets = false;
         
      
-    //setup collection view layout
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
-    collectionView.collectionViewLayout = layout
-    collectionView.showsHorizontalScrollIndicator = false
+        //setup collection view layout
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = layout
+        collectionView.showsHorizontalScrollIndicator = false
         
     
     }
    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-// Make sure that the input is not empty; otherwise, all usesrs will be returned
+        // Make sure that the input is not empty; otherwise, all usesrs will be returned
         
         guard !(searchBar.text?.isEmpty)! else {
             
-            print("it is empty")
+            print("search is empty")
             return
         }
         
