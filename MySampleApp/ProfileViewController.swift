@@ -12,7 +12,7 @@ import Kingfisher
 
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     
     //labels
@@ -46,17 +46,15 @@ class ProfileViewController: UIViewController {
     @IBOutlet var Instagram: UIButton!
 
     
+    @IBOutlet var bioTextField: UITextField!
     
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
     
 
-    
-    
-    
     @IBAction func didToggleSocialMediaPermission(_ sender: UIButton) {
         
         
-        switch sender {
+    switch sender {
             
             
         case Spotify:
@@ -223,18 +221,25 @@ class ProfileViewController: UIViewController {
     
     
     
-    
     override func viewWillAppear(_ animated: Bool) {
         
+ 
         
         
-        // Hmm... Might consider putting this in viewDidLoad() ... Loads Profile Data 
+        
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        saveViewController(viewController: nil)
         
         // Loads profile data from API on a high priority background thread
-        DispatchQueue.global(qos: .userInitiated).async { 
+        DispatchQueue.global(qos: .userInitiated).async {
             
             // Hide UI or do whatever to show that the profile is loading
-           self.loadingIndicator.startAnimating()
+            self.loadingIndicator.startAnimating()
             
             self.nameLabel.isHidden = true
             self.pointsLabel.isHidden = true
@@ -266,12 +271,12 @@ class ProfileViewController: UIViewController {
             SwapUser(username: getUsernameOfSignedInUser()).getInformation(completion: { (error, user) in
                 
                 if error != nil{
-                    // There is an error 
+                    // There is an error
                     // Note -- Micheal S. Bingham -- Should Handle this in the future
                 }
-                
+                    
                 else{
-                     // Now goes to main UI Thread
+                    // Now goes to main UI Thread
                     
                     DispatchQueue.main.async(execute: {
                         
@@ -303,7 +308,7 @@ class ProfileViewController: UIViewController {
                         
                         
                         
-                        //Gets the Profile Information from User Object 
+                        //Gets the Profile Information from User Object
                         let firstname = user?._firstname ?? ""
                         let lastname = user?._lastname ?? ""
                         let points = user?._points ?? 0
@@ -319,6 +324,7 @@ class ProfileViewController: UIViewController {
                         
                         // Updates UI
                         self.nameLabel.text = "\(firstname) \(lastname)"
+                        self.bioTextField.text = "\(bio)"
                         self.pointsNumberLabel.text = "\(points)"
                         self.swapsNumberLabel.text = "\(swaps)"
                         self.swappedNumberLabel.text = "\(swapped)"
@@ -340,18 +346,9 @@ class ProfileViewController: UIViewController {
             
         }
         
+        //set delegates
+        bioTextField.delegate = self
         
-        
-    }
-    
-    
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        saveViewController(viewController: nil)
-
         // CONFIGURING THE MAIN TAB BAR CONTROLLER
         tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBackground")
         tabBarController?.tabBar.isTranslucent = false
@@ -373,7 +370,21 @@ class ProfileViewController: UIViewController {
         YouTube.setImage(UIImage(named: "YouTubeEnabled"), for: .selected)
         SoundCloud.setImage(UIImage(named: "SoundCloudEnabled"), for: .selected)
         Pinterest.setImage(UIImage(named: "PinterestEnabled"), for: .selected)
-       
+
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        //upload the updated user bio
+        
+        print("did end editing")
+        let Userbio = bioTextField.text
+        SwapUser().set(Bio: Userbio)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        bioTextField.resignFirstResponder()
+        return true
     }
 
     override func didReceiveMemoryWarning() {

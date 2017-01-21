@@ -8,11 +8,28 @@
 
 import Foundation
 
-class EditProfile: UIViewController, UIImagePickerControllerDelegate {
+class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePickerControllerDelegate {
     
+  
     let imagePicker = UIImagePickerController()
     
     @IBOutlet var profilePicture: UIImageView!
+    @IBOutlet var activityView: UIActivityIndicatorView!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        
+    }
+    
+    override func viewDidLoad() {
+        
+       circularImage(photoImageView: profilePicture)
+       imagePicker.delegate = self
+       
+        
+    }
     
     @IBAction func didPressCancel(_ sender: Any) {
         
@@ -27,19 +44,21 @@ class EditProfile: UIViewController, UIImagePickerControllerDelegate {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker:
+  
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            
-            profilePicture.contentMode = .scaleAspectFill
-            profilePicture.image = resizeImage(image: pickedImage)
-    
+        self.dismiss(animated: true, completion: nil)
+        
+        if let pickedimage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            profilePicture.image = pickedimage
+        }
+        else{
+            print("error selecting picture")
         }
         
-        dismiss(animated: true, completion: nil)
-        
+       
     }
+    
     
     func resizeImage(image: UIImage) -> UIImage {
         
@@ -61,11 +80,56 @@ class EditProfile: UIViewController, UIImagePickerControllerDelegate {
         image.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+    
         
         return scaledImage!
         
     }
 
+
+}
+
+class EditProfileTable: UITableViewController, UITextFieldDelegate {
     
+    @IBOutlet var firstNameField: UITextField!
+    @IBOutlet var lastNameField: UITextField!
+    @IBOutlet var emailField: UITextField!
+    @IBOutlet var birthdayField: UITextField!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        DispatchQueue.main.async {
+        
+            SwapUser(username: getUsernameOfSignedInUser()).getInformation { (error, user) in
+            
+                self.firstNameField.text = user?._firstname
+                self.lastNameField.text = user?._lastname
+                self.emailField.text = user?._email
+
+            }
+            
+        }
+    }
+    
+    override func viewDidLoad() {
+        tableView.allowsSelection = false
+        emailField.delegate = self
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+     
+        if textField.tag == 2{
+            tableView.setContentOffset(CGPoint(x: tableView.contentOffset.x, y: tableView.contentOffset.y + 50), animated: true)
+        }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField.tag == 2{
+            tableView.setContentOffset(CGPoint(x: tableView.contentOffset.x, y: tableView.contentOffset.y - 50), animated: true)
+        }
+    }
     
 }
+
+

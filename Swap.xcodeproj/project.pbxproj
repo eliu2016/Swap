@@ -32,6 +32,8 @@
 		751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B0D1E249E5800FD515A /* SearchUsersView.swift */; };
 		751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B3F1E25C3B900FD515A /* EditProfile.swift */; };
 		751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */; };
+		751D190D1E2EEBA100DF5415 /* SettingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D190C1E2EEBA100DF5415 /* SettingUI.swift */; };
+		751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */; };
 		752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B61E2AA7780054D975 /* SwapsViewController.swift */; };
 		752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B91E2B3BE60054D975 /* SwappedViewController.swift */; };
 		752111BC1E2B42F60054D975 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */; };
@@ -217,6 +219,8 @@
 		751C0B0D1E249E5800FD515A /* SearchUsersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersView.swift; sourceTree = "<group>"; };
 		751C0B3F1E25C3B900FD515A /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerSwipeExtension.swift; sourceTree = "<group>"; };
+		751D190C1E2EEBA100DF5415 /* SettingUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUI.swift; sourceTree = "<group>"; };
+		751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
 		752111B61E2AA7780054D975 /* SwapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapsViewController.swift; sourceTree = "<group>"; };
 		752111B91E2B3BE60054D975 /* SwappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwappedViewController.swift; sourceTree = "<group>"; };
 		752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
@@ -384,6 +388,7 @@
 		7515720D1DFA5F0B00ED4697 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				751D190C1E2EEBA100DF5415 /* SettingUI.swift */,
 				752A6BCD1E1F273A00E6695B /* ShowLoadingOverlay.swift */,
 				1DD70E298866540700000000 /* Launch Screen.storyboard */,
 				1DD70E29DF90B53300000000 /* Main.storyboard */,
@@ -413,9 +418,10 @@
 		751C0B3E1E25C38600FD515A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */,
 				752A6BD91E20975E00E6695B /* SetttingsView.swift */,
 				751C0B3F1E25C3B900FD515A /* EditProfile.swift */,
+				751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */,
+				752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */,
 			);
 			name = Settings;
 			path = ..;
@@ -799,6 +805,7 @@
 				752A6BDE1E20D39100E6695B /* ScannerView.swift in Sources */,
 				E7A30F04A0B2E49B00000000 /* UtilityFunctions.swift in Sources */,
 				751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */,
+				751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */,
 				2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */,
 				2ECF288C1DF90DA900FEC5D2 /* SavingAppData.swift in Sources */,
 				751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */,
@@ -812,6 +819,7 @@
 				2E89BD371E146EB90028B20C /* SearchUsers.swift in Sources */,
 				2EF431211E0B188100D2339A /* SwapUserHistory.swift in Sources */,
 				2EFC3A271DF9C0C700D45E7E /* SignInViewController.swift in Sources */,
+				751D190D1E2EEBA100DF5415 /* SettingUI.swift in Sources */,
 				2ECF28831DF90D3E00FEC5D2 /* Account.swift in Sources */,
 				2ECF28901DF90DEF00FEC5D2 /* Custom Operators.swift in Sources */,
 				752A6BCE1E1F273A00E6695B /* ShowLoadingOverlay.swift in Sources */,
