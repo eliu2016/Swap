@@ -251,20 +251,20 @@ func getSavedPhonenumber() -> String? {
 /// Saves the Twitter Consumer Key and Secret in User Defaults in order to later authenticate it in order to make API Requests
 ///
 /// - Parameters:
-///   - withConsumerKey: The Consumer Key of the Twitter Account
+///   - withToken: The Token Key of the Twitter Account
 ///   - andSecret: The Secret of the Twitter Account
 /// - Todo: Make sure that this is stored in Keychain Rather than User Defaults
-func saveTwitterAccount(withConsumerKey: String, andSecret: String)  {
+func saveTwitterAccount(withToken: String, andSecret: String)  {
     
-    UserDefaults.standard.set(withConsumerKey, forKey: "TwitterConsumerKey")
+    UserDefaults.standard.set(withToken, forKey: "TwitterToken")
     UserDefaults.standard.set(andSecret, forKey: "TwitterSecret")
     UserDefaults.standard.synchronize()
 }
 
 
-func getTwitterConsumerKey() -> String? {
+func getTwitterToken() -> String? {
     
-    return UserDefaults.standard.string(forKey: "TwitterConsumerKey")
+    return UserDefaults.standard.string(forKey: "TwitterToken")
     
 }
 

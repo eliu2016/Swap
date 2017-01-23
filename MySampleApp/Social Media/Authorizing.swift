@@ -11,15 +11,24 @@ import p2_OAuth2
 import Alamofire
 import SwiftyJSON
 import Accounts
+import TwitterKit
 
 /// Clears the Tokens from User Defaults in Twitter
 /// - Todo: Switch to using Keychain instead
 func logoutTwitter()  {
     
+     let store = Twitter.sharedInstance().sessionStore
+    
+    if let userID = store.session()?.userID{
+        store.logOutUserID(userID)
+    }
+    
     UserDefaults.standard.removeObject(forKey: "TwitterConsumerKey")
     UserDefaults.standard.removeObject(forKey: "TwitterSecret")
     UserDefaults.standard.synchronize()
 }
+
+
 
 /// Clears the access tokens from keychain in each social media and clears social media login cookies.
 func logoutSocialMediasAndClearCookies()  {

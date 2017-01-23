@@ -786,7 +786,7 @@ class SwapUser {
                 
                 
                 // Download Tweets
-                if let token = getTwitterConsumerKey(), let secret = getTwitterSecret(){
+                if let token = getTwitterToken(), let secret = getTwitterSecret(){
                     
                     let swifter = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: token, oauthTokenSecret: secret)
                     

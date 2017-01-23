@@ -30,9 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        Fabric.with([Answers.self])
-           Fabric.with([Crashlytics.self])
+        Fabric.with([Crashlytics.self(), Twitter.self(), Answers.self()])
         Fabric.sharedSDK().debug = true
         let branch = Branch.getInstance()
         
@@ -153,6 +151,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if Twitter.sharedInstance().application(app, open:url, options: options) {
+            return true
+            
+        }
+
         Swifter.handleOpenURL(url)
         youtube_oauth2.handleRedirectURL(url)
         return true

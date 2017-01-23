@@ -23,7 +23,7 @@ func shareTwitter(withUser: Users?,
     
     // Ensures a Twitter Account is Connected Before Proceeding 
     
-    guard ( getTwitterConsumerKey() != nil && getTwitterSecret() != nil ) else{
+    guard ( getTwitterToken() != nil && getTwitterSecret() != nil ) else{
         
         completion(UserError.NotConnected)
         return
@@ -57,7 +57,7 @@ func shareTwitter(withUser: Users?,
     let history = SwapUserHistory(swap: getUsernameOfSignedInUser(), swapped: user._username!)
     
 
-    let twitterAccount = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: getTwitterConsumerKey()!, oauthTokenSecret: getTwitterSecret()!)
+    let twitterAccount = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: getTwitterToken()!, oauthTokenSecret: getTwitterSecret()!)
     
     
     
