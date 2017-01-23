@@ -26,7 +26,7 @@ class Tweet: Object {
     dynamic var usernameOfCreator: String = ""
     dynamic var favoritesCount: Double = 0
     dynamic var isARetweet: Bool = false
-    dynamic  var isAReply: Bool = false
+    dynamic var isAReply: Bool = false
         
     
 }
@@ -105,20 +105,22 @@ func returnTweet(fromJSON: SwifteriOS.JSON) -> Tweet {
 
 
 func returnTweets(fromJSON: SwifteriOS.JSON) -> List<Tweet>? {
-    
-    var allTweets: List<Tweet>?
+
     
     if let tweetJsons = fromJSON.array{
+        var allTweets: List<Tweet> =  List<Tweet>()
+        
         
         for json in tweetJsons {
             
-            allTweets?.append(returnTweet(fromJSON: json))
+            allTweets.append(returnTweet(fromJSON: json))
             
         }
         
         return allTweets
         
     } else{
+   
         return nil
     }
     

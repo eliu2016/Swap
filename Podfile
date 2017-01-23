@@ -18,7 +18,6 @@ target 'Swap' do
     pod 'IQKeyboardManagerSwift'
     pod 'SwiftQRCode'
     pod 'Branch'
-    
     pod 'RealmSwift'
     pod 'OneSignal'
     

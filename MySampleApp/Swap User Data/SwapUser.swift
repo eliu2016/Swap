@@ -759,75 +759,97 @@ class SwapUser {
     }
     
     
+    /// Downloads the social media compilation of the user
     func downloadCompilation()  {
+        
+        
         let username = self.username
         
         
-        // Check if object already exists 
-        if cache.object(ofType: Compilation.self, forPrimaryKey: username) == nil{
-            
-            try! cache.write{
-            
-                // If it exists, create an object
-                cache.add(Compilation(value: ["username": username]), update: true)
-                
-            }
-        }
-
+        // Get Compilation Object Or Create One if It doesn't exist 
         
-        // Refer
-        let compilation = cache.object(ofType: Compilation.self, forPrimaryKey: username) ?? Compilation(value: ["username": username])
+        let compilation = Compilation()
+        compilation.id = username
         
         self.getInformation { (error, user) in
             
             if let user = user {
+
                 
-                try! cache.write {
+                // Update Compilation Object
+                let realm1 = try! Realm()
+                try! realm1.write {
                     
-                    compilation.name = "\(user._firstname!) \(user._lastname)"
-                    compilation.isVerified = (user._isVerified?.boolValue)!
-                    compilation.profilePicture = user._profilePictureUrl!
+                     realm1.create(Compilation.self, value: ["id": username, "name": "\(user._firstname!) \(user._lastname!)",  "isVerified": user._isVerified?.boolValue ?? false, "profilePicture": user._profilePictureUrl!], update: true)
                     
                 }
                 
                 
                 // Download Tweets
-                if let token = getTwitterSecret(), let secret = getTwitterSecret(){
+                if let token = getTwitterConsumerKey(), let secret = getTwitterSecret(){
                     
-                     var swifter = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: token, oauthTokenSecret: secret)
+                    let swifter = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: token, oauthTokenSecret: secret)
                     
                     if let twitterID = user._twitterID{
                         
                         swifter.getTimeline(for: twitterID, success: { (twitterJSON) in
                             
-                            try! cache.write {
+                            
+                            let realm2 = try! Realm()
+                            realm2.refresh()
+                            
+                            if  let ownerCompilation =  realm2.object(ofType: Compilation.self, forPrimaryKey: username){
+                                // Can get compilation object from database
                                 
-                                let tweets  = returnTweets(fromJSON: twitterJSON)
-                                compilation.Tweets = tweets!
                                 
+                                var dateUpdated = ownerCompilation.updatedAt
+                                var hasSeen = ownerCompilation.hasBeenViewed
+                                
+                                if let tweets = returnTweets(fromJSON: twitterJSON){
+                                    
+                                 
+                                    
+                                    if tweets.count != ownerCompilation.Tweets.count{
+                                        
+                                       // New Tweets have been added since before 
+                                        
+                                        // Update the dateUpdated
+                                       
+                                        dateUpdated = Date()
+                                        
+                                        hasSeen = false
+                                        
+                                        
+                                    }
+                                
+                                    try! realm2.write {
+                                        
+                                        realm2.create(Compilation.self, value: ["id": username, "Tweets": tweets, "updatedAt": dateUpdated as Date?, "hasBeenViewed": hasSeen], update: true)
+                                    }
+                                   
+                                }
+                                
+                                
+                              
+                               
+                                
+                               
                             }
+                            
+                            
+                        
+                            
                         })
                     }
                     
                     
                 }
-               
-                
-                
-                
-                
                 
             }
         }
         
         
-        
-        
-        
-        
-        
-        
-        
-    }
+       
+}
 
 }

@@ -187,6 +187,5 @@ var youtube_oauth2 = OAuth2CodeGrant(settings: [
 
 
 
-// Realm 
-let cache = try! Realm()
+
 

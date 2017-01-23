@@ -64,6 +64,7 @@ func authorizeTwitter(onViewController: UIViewController,  completion: @escaping
                 // Save Key and Secret in Keychain so that we can Authorize it Later 
                 saveTwitterAccount(withConsumerKey: (cred?.key)!, andSecret: (cred?.secret)!)
                 
+                print("the twitter key is ... \(cred?.key) \n\n\n and secret is ... \(cred?.secret)")
                 
               saveTwitterPhoto(withLink: "https://twitter.com/\((cred?.screenName)!)/profile_image?size=original")
                 
