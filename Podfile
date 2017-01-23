@@ -20,6 +20,10 @@ target 'Swap' do
     pod 'Branch'
     pod 'RealmSwift'
     pod 'OneSignal'
+    pod 'Fabric'
+    pod 'Answers'
+    pod 'TwitterKit'
+    pod 'Crashlytics'
     
     
     post_install do |installer|

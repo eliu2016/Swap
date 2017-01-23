@@ -156,7 +156,7 @@ func createAccount(username: String?,
             saveEmail(email: email?.lowercased().trim())
             savePhonenumber(phone: phonenumber?.trim())
 
-            
+            Analytics.didSignUp()
             didCreateAccount()
             
         }
@@ -256,6 +256,7 @@ func signOut(didSignOut: @escaping () -> Void?  = {return} )  {
         
         // successful sign in
         print("Sign out")
+        Analytics.didSignOut()
         didSignOut()
         
     }

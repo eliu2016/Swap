@@ -17,6 +17,12 @@ import SwifteriOS
 import AWSCognitoIdentityProvider
 import OneSignal
 import Branch
+import Fabric
+import Answers
+import TwitterKit
+import Crashlytics
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UIScrollViewDelegate {
     
@@ -25,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        Fabric.with([Answers.self])
+           Fabric.with([Crashlytics.self])
+        Fabric.sharedSDK().debug = true
         let branch = Branch.getInstance()
         
         branch?.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: { (param, error) in

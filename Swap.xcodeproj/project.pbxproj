@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01FDC6AC947EBE0F951630BF /* Pods_Swap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C679A794A37D996B81BAAC07 /* Pods_Swap.framework */; };
+		2E1D60C31E35D9190057688F /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D60C21E35D9190057688F /* Analytics.swift */; };
 		2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */; };
 		2E7DFDEA1E2ADBF700CBB26A /* SwapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7DFDE91E2ADBF700CBB26A /* SwapRequest.swift */; };
 		2E89BD371E146EB90028B20C /* SearchUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E89BD361E146EB90028B20C /* SearchUsers.swift */; };
@@ -195,6 +196,7 @@
 		1DD70E29D44DF82800000000 /* AWSPinpoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSPinpoint.framework; path = MySampleApp/Sdk/Aws/AWSPinpoint.framework; sourceTree = "<group>"; };
 		1DD70E29DF90B53300000000 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = MySampleApp/App/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		1DD70E29ED4914FA00000000 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2E1D60C21E35D9190057688F /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Analytics.swift; path = MySampleApp/Analytics/Analytics.swift; sourceTree = SOURCE_ROOT; };
 		2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Twitter.swift; sourceTree = "<group>"; };
 		2E7DFDE91E2ADBF700CBB26A /* SwapRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwapRequest.swift; path = MySampleApp/AmazonAws/Models/NoSQL/SwapRequest.swift; sourceTree = SOURCE_ROOT; };
 		2E89BD361E146EB90028B20C /* SearchUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUsers.swift; path = MySampleApp/SearchUsers.swift; sourceTree = SOURCE_ROOT; };
@@ -272,6 +274,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1D60BD1E35D8F80057688F /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				2E1D60C21E35D9190057688F /* Analytics.swift */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
 		2ECAD7321E2C5E0F0096A3C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +525,7 @@
 		B401C9798A0C4C4000000000 /* Swap */ = {
 			isa = PBXGroup;
 			children = (
+				2E1D60BD1E35D8F80057688F /* Analytics */,
 				2ECF28921DF90FA600FEC5D2 /* Social Media */,
 				2ECF28881DF90D8700FEC5D2 /* Swap User Data */,
 				2ECF28841DF90D6000FEC5D2 /* Errors */,
@@ -603,6 +614,8 @@
 				E1F174220000000000000000 /* ShellScript */,
 				046BEBAA642E77522B7752DE /* [CP] Embed Pods Frameworks */,
 				5E467CABB8500876804DF6EE /* [CP] Copy Pods Resources */,
+				2EFD04C51E35CC82006F1C84 /* ShellScript */,
+				2EFD04CA1E35CF25006F1C84 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -733,6 +746,33 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Swap/Pods-Swap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2EFD04C51E35CC82006F1C84 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2df0987160fc84b411c672e72b9e6272945e0e3b 0416b823e77c4f4ed04a403a22055d6c07fdf5531c5dfa84b8a3bec68e136c35";
+			showEnvVarsInLog = 0;
+		};
+		2EFD04CA1E35CF25006F1C84 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 		5E467CABB8500876804DF6EE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -832,6 +872,7 @@
 				2E9849371E04BCD200EC4C4C /* ConnectSocialMedias.swift in Sources */,
 				752A6BDA1E20975E00E6695B /* SetttingsView.swift in Sources */,
 				2EFC3A2D1DF9D96000D45E7E /* ConfirmAccountViewController.swift in Sources */,
+				2E1D60C31E35D9190057688F /* Analytics.swift in Sources */,
 				752A6BD51E1F497E00E6695B /* SetNameViewController.swift in Sources */,
 				752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */,
 				E7A30F04ABEB1F8300000000 /* AWSConfiguration.swift in Sources */,

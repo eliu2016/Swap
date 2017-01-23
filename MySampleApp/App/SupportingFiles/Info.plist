@@ -2,6 +2,61 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    
+    <key>Fabric</key>
+    <dict>
+        <key>APIKey</key>
+        <string>2df0987160fc84b411c672e72b9e6272945e0e3b</string>
+        <key>Kits</key>
+        <array>
+            <dict>
+                <key>KitInfo</key>
+                <dict/>
+                <key>KitName</key>
+                <string>Crashlytics</string>
+            </dict>
+        </array>
+    </dict>
+    
+    
+    
+    <key>Fabric</key>
+    <dict>
+        <key>APIKey</key>
+        <string>2df0987160fc84b411c672e72b9e6272945e0e3b</string>
+        <key>Kits</key>
+        <array>
+            <dict>
+                <key>KitInfo</key>
+                <dict/>
+                <key>KitName</key>
+                <string>Answers</string>
+            </dict>
+        </array>
+    </dict>
+    
+    
+    <key>Fabric</key>
+    <dict>
+        <key>APIKey</key>
+        <string>2df0987160fc84b411c672e72b9e6272945e0e3b</string>
+        <key>Kits</key>
+        <array>
+            <dict>
+                <key>KitInfo</key>
+                <dict>
+                    <key>consumerKey</key>
+                    <string>vFuhhTMwYAZFEKJTOvLR0TbTU</string>
+                    <key>consumerSecret</key>
+                    <string>b6MvPtOOobLxvH78Dd4Kt3ytaL0WjsDw0kzeQhg4xfhE5gtvzz</string>
+                </dict>
+                <key>KitName</key>
+                <string>Twitter</string>
+            </dict>
+        </array>
+    </dict>
+    
+    
 	<key>NSCameraUsageDescription</key>
 	<string></string>
 	<key>AWS</key>
