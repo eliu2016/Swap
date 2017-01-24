@@ -204,6 +204,9 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
                     
                     
                     
+                } else{
+                    // It worked 
+                    sender.isSelected  = true
                 }
             })
             
@@ -360,6 +363,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         Twitter.isSelected = (getTwitterSecret() != nil && getTwitterToken() != nil)
         Vine.isSelected = (getVineUsername() != nil && getVinePassword() != nil )
         YouTube.isSelected = ( (youtube_oauth2.accessToken != nil) || (youtube_oauth2.refreshToken != nil) )
+        Snapchat.isSelected = ( (reddit_oauth2.accessToken != nil) || (reddit_oauth2.refreshToken != nil) ) // Change to reddit
         
   
     }
