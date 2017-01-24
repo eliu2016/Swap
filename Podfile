@@ -11,6 +11,7 @@ use_frameworks!
 
 # Pods for Swap
 
+
 pod 'p2.OAuth2'  #, '~> 3.0'
 pod 'Alamofire'  #, '~> 4.2.0'
 pod 'SwiftyJSON'  #, '~> 3.1.3'
@@ -18,9 +19,12 @@ pod 'Kingfisher'#, '~> 3.2.2'
 pod 'IQKeyboardManagerSwift'
 pod 'SwiftQRCode'
 pod 'Branch'
-
-
+pod 'RealmSwift'
 pod 'OneSignal'
+pod 'Fabric'
+pod 'Answers'
+pod 'TwitterKit'
+pod 'Crashlytics'
 
 
 post_install do |installer|
