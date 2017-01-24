@@ -27,7 +27,7 @@ class SetNameViewController: UIViewController {
         
         // Sets the Swap User's initial data in the database 
         // By default, the user is NOT searchable 
-        SwapUser(username: getUsernameOfSignedInUser()).set(Firstname: firstnameField.text,  Lastname: lastnameField.text, isPrivate: true, Points: 0, Swapped: 0, Swaps: 0, ProfileImage: defaultImage, QRImage: swapCodeImage,
+       SwapUser(username: getUsernameOfSignedInUser()).set(Firstname: firstnameField.text,  Lastname: lastnameField.text, Phonenumber: getSavedPhonenumber(), Email: getSavedEmail(), isPrivate: false, Points: 0, Swapped: 0, Swaps: 0, ProfileImage: defaultImage, QRImage: swapCodeImage,
                                                             
         DidSetInformation: {
             
