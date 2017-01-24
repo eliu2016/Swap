@@ -15,7 +15,7 @@ class SwapUserHistory{
     /// The user who commits the Swap action
     var swap: String
     
-    /// THe user who gets swapped 
+    /// THe user who gets swapped
     var swapped: String
     
     /// Object refers to NoSQL database of users
@@ -26,12 +26,12 @@ class SwapUserHistory{
     
     var currentTime = NSDate().timeIntervalSince1970 as NSNumber
     
-/// Creates a Swap User History Object with the swap and swapped usernames as partition and sort keys and automatically sets the time swapped in the Database
+    /// Creates a Swap User History Object with the swap and swapped usernames as partition and sort keys and automatically sets the time swapped in the Database
     init(swap: String = getUsernameOfSignedInUser(), swapped: String) {
         
         self.swap = swap
         self.swapped = swapped
-    
+        
     }
     
     
@@ -82,9 +82,9 @@ class SwapUserHistory{
             completion(error)
             
         })
-
         
-
+        
+        
         
         
         

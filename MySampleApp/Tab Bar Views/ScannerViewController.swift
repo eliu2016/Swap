@@ -10,8 +10,8 @@ import Foundation
 import SwiftQRCode
 import AVFoundation
 
-let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true)
-    , strokeColor: UIColor.clear, maxDetectedCount: 1)
+//let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true)
+//    , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
 class ScannerViewController: UIViewController {
 
@@ -41,18 +41,18 @@ class ScannerViewController: UIViewController {
         }
         
         
-        scanner.prepareScan(self.view){ (stringValue) in
-            print(stringValue)
-            
-        }
-        scanner.scanFrame = view.bounds
+//        scanner.prepareScan(self.view){ (stringValue) in
+//            print(stringValue)
+//            
+//        }
+//        scanner.scanFrame = view.bounds
         
     }
    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-         scanner.startScan()
+        // scanner.startScan()
        
     }
     
