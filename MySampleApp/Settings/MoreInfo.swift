@@ -25,9 +25,17 @@ class MoreInfoTable: UITableViewController {
             
             DispatchQueue.main.async {
                 
-                self.middleNameField.text = user?._middlename
-                self.companyField.text = user?._company
-                self.websiteField.text = user?._website
+               
+                
+                let middlename = (user?._middlename == nil && getSavedMiddlename() != nil)  ?getSavedMiddlename()! : ( user?._middlename ?? "")
+                
+                  let company = (user?._company == nil && getSavedCompany() != nil)  ? getSavedCompany()! : ( user?._company ?? "")
+                
+                  let website = (user?._website == nil && getSavedWebsite() != nil)  ?getSavedWebsite()! : ( user?._website ?? "")
+                
+                self.middleNameField.text = middlename
+                self.companyField.text = company
+                self.websiteField.text = website
                 
             }
             
