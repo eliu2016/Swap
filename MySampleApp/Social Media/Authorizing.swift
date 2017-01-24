@@ -775,8 +775,75 @@ func authorizeReddit(onViewController: UIViewController, completion: @escaping (
         }  else{
             
             if let json = json{
+                print("if let json = json")
+                // Get Reddit ID
+                // Block is called whenever .authorize() is called and there is success
                 
-                print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nthe reddit json response is ..... \(json)")
+                // The DataLoader class ensures that a request will be made. It will authorize if needed
+                var redditReq = reddit_oauth2.request(forURL: URL(string: "http://www.reddit.com/api/v1/me/friends/michealbingham?name=micheal&note=Swapped")!)
+                redditReq.sign(with: reddit_oauth2)
+                redditReq.httpMethod = "PUT"
+                
+                let loader = RedditLoader()
+                
+                loader.requestUserdata(callback: { (json, error) in
+                    
+                    if let json = json {
+                        
+                       
+                        
+                        if let username = json["name"] as? String {
+                            
+                            // Sets the YouTube in the Database
+                            
+                            SwapUser(username: getUsernameOfSignedInUser()).set(RedditID: username, DidSetInformation: {
+                                
+                                DispatchQueue.main.async {
+                                    completion(nil)
+                                }
+                                
+                            }, CannotSetInformation: {
+                                completion(AuthorizationError.Unknown)
+                            })
+                            
+
+                            
+                        } else{
+                            completion(AuthorizationError.IDNotFound)
+                        }
+                        
+                        
+                        
+                    } else{
+                        
+                        completion(error)
+                    }
+                    
+                    
+                })
+                
+//                loader.perform(request: redditReq, callback: { (response) in
+//                    
+//                    do{
+//                        
+//                        
+//                        let redditJSON = try response.responseJSON()
+//                        print("inside do block of reddit json")
+//                        // Get Reddit JSON
+//                        print("\n\n\n\n\n\n\n\n\n\n\n\n   TRYING TO FOLLOW GIVES: \(redditJSON)")
+//                
+//                        
+//                    }
+//                        
+//                    catch let _ {
+//                        // Could not get a response for some reason.
+//                        
+//                        completion(AuthorizationError.Unknown)
+//                        
+//                        
+//                    }
+//                    
+//                })
             }
             
         }
