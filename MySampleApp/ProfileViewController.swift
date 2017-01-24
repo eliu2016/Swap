@@ -27,7 +27,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
    
     //image views
     @IBOutlet weak var profilePicImageView: UIImageView!
-    @IBOutlet var profilePicBorder: UIImageView!
     @IBOutlet weak var swapCodeImageView: UIImageView!
     @IBOutlet var GradientBottomLine: UIImageView!
     
@@ -250,7 +249,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.swapsNumberLabel.isHidden = true
             self.GradientBottomLine.isHidden = true
             self.profilePicImageView.isHidden = true
-            self.profilePicBorder.isHidden = true
             self.swapCodeImageView.isHidden = true
             self.Spotify.isHidden = true
             self.Phone.isHidden = true
@@ -263,7 +261,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.Vine.isHidden = true
             self.Facebook.isHidden = true
             self.Instagram.isHidden = true
-            
+            self.bioTextField.isHidden = true
             
             
             //Gets info of signed in user
@@ -292,7 +290,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.swappedNumberLabel.isHidden = false
                         self.GradientBottomLine.isHidden = false
                         self.profilePicImageView.isHidden = false
-                        self.profilePicBorder.isHidden = false
                         self.swapCodeImageView.isHidden = false
                         self.Spotify.isHidden = false
                         self.Phone.isHidden = false
@@ -305,7 +302,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.Vine.isHidden = false
                         self.Facebook.isHidden = false
                         self.Instagram.isHidden = false
-                        
+                        self.bioTextField.isHidden = false
                         
                         
                         //Gets the Profile Information from User Object
@@ -332,6 +329,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.Email.isSelected = willShareEmail
                         self.Phone.isSelected = willSharePhone
                         self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
+                        circularImage(photoImageView: self.profilePicImageView)
                         self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
                         
                         
