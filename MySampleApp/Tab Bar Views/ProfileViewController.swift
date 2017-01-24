@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var Spotify: UIButton!
     @IBOutlet weak var Phone: UIButton!
     @IBOutlet weak var Email: UIButton!
-    @IBOutlet var Snapchat: UIButton!
+    @IBOutlet var Snapchat: UIButton!  // Change this to Reddit
     @IBOutlet var Twitter: UIButton!
     @IBOutlet var YouTube: UIButton!
     @IBOutlet var SoundCloud: UIButton!
@@ -210,8 +210,24 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             }
             
             break
+        
+        // Change this to Reddit
+    case Snapchat:
+        
+        DispatchQueue.global(qos: .userInteractive).async {
             
-            
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareReddit: !sender.isSelected, DidSetInformation: {
+                
+                DispatchQueue.main.async {
+                    sender.isSelected = !sender.isSelected
+                }
+                
+            })
+        }
+        
+        break
+        
+        
         default:
             break
         }
@@ -253,7 +269,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.Spotify.isHidden = true
             self.Phone.isHidden = true
             self.Email.isHidden = true
-            self.Snapchat.isHidden = true
+            self.Snapchat.isHidden = true // Change this to Reddit
             self.Twitter.isHidden = true
             self.YouTube.isHidden = true
             self.SoundCloud.isHidden = true
@@ -294,7 +310,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.Spotify.isHidden = false
                         self.Phone.isHidden = false
                         self.Email.isHidden = false
-                        self.Snapchat.isHidden = false
+                        self.Snapchat.isHidden = false // Change this to Reddit
                         self.Twitter.isHidden = false
                         self.YouTube.isHidden = false
                         self.SoundCloud.isHidden = false
@@ -334,6 +350,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.YouTube.isSelected = (user?._willShareYouTube as? Bool) ?? false
                         self.SoundCloud.isSelected = (user?._willShareSoundCloud as? Bool) ?? false
                         self.Pinterest.isSelected = (user?._willSharePinterest as? Bool) ?? false
+                        self.Snapchat.isSelected = (user?._willShareReddit as? Bool) ?? false // Change this to Reddit
                         self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
                         circularImage(photoImageView: self.profilePicImageView)
                         self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
@@ -363,17 +380,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
         
         // Set the selected photos for when the social media icons are toggled
-        Spotify.setImage(UIImage(named: "SpotifyEnabled"), for: .selected)
-        Email.setImage(UIImage(named: "EmailEnabled"), for: .selected)
-        Phone.setImage(UIImage(named: "PhoneEnabled"), for: .selected)
-        Vine.setImage(UIImage(named: "VineEnabled"), for: .selected)
-        Instagram.setImage(UIImage(named: "InstagramEnabled"), for: .selected)
-        Facebook.setImage(UIImage(named: "FacebookEnabled"), for: .selected)
-        Snapchat.setImage(UIImage(named: "SnapchatEnabled"), for: .selected)
-        Twitter.setImage(UIImage(named: "TwitterEnabled"), for: .selected)
-        YouTube.setImage(UIImage(named: "YouTubeEnabled"), for: .selected)
-        SoundCloud.setImage(UIImage(named: "SoundCloudEnabled"), for: .selected)
-        Pinterest.setImage(UIImage(named: "PinterestEnabled"), for: .selected)
+        Spotify.setImage(#imageLiteral(resourceName: "SpotifyEnabled"), for: .selected)
+        Email.setImage(#imageLiteral(resourceName: "EmailEnabled"), for: .selected)
+        Phone.setImage(#imageLiteral(resourceName: "PhoneEnabled"), for: .selected)
+        Vine.setImage(#imageLiteral(resourceName: "VineEnabled"), for: .selected)
+        Instagram.setImage(#imageLiteral(resourceName: "InstagramEnabled"), for: .selected)
+        Facebook.setImage(#imageLiteral(resourceName: "FacebookEnabled"), for: .selected)
+        Snapchat.setImage(#imageLiteral(resourceName: "SnapchatEnabled"), for: .selected) // Change this to Reddit
+        Twitter.setImage(#imageLiteral(resourceName: "TwitterEnabled"), for: .selected)
+        YouTube.setImage(#imageLiteral(resourceName: "YouTubeEnabled"), for: .selected)
+        SoundCloud.setImage(#imageLiteral(resourceName: "SoundCloudEnabled"), for: .selected)
+        Pinterest.setImage(#imageLiteral(resourceName: "PinterestEnabled"), for: .selected)
 
     }
     
