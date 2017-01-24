@@ -10,6 +10,7 @@ import Foundation
 import SwiftQRCode
 import AVFoundation
 
+
 let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true) , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
 class ScannerViewController: UIViewController {
@@ -88,6 +89,11 @@ class ScannerViewController: UIViewController {
                                 
                             
                                 scanner.startScan()
+                                
+                                // Log analytics
+                                Analytics.didSwap(byMethod: .swapcode, isPrivate: true)
+                              
+                               
                             }
                             
                             
@@ -112,6 +118,11 @@ class ScannerViewController: UIViewController {
                         SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
                         // Start Scanner back
                         scanner.startScan()
+                        
+                        
+                        // Log Analytics
+                        Analytics.didSwap(byMethod: .swapcode, didShareSpotify: false, didSharePhone: true, didShareEmail: true, didShareInstagram: false, didShareSnapchat: true, didShareTwitter: false, didShareYouTube: true, didShareSoundCloud: true, didSharePinterest: false)
+                        
                         
                     }
                     
