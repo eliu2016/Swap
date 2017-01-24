@@ -95,12 +95,20 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     //setup collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        //number of featured profiles
         return 10
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 10;
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featuredCell", for: indexPath) as! featuredProfilesCell
         
         cell.clipsToBounds = true
+        
         cell.username.text = "featured"
         
         return cell

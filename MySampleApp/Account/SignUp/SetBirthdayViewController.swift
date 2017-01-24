@@ -49,7 +49,7 @@ class SetBirthdayViewController: UIViewController {
         datePicker.isEnabled = false
         continueButton.isEnabled = false
     
-        SwapUser(username: getUsernameOfSignedInUser()).set( Birthday: datePicker.date.timeIntervalSince1970 as Double,
+        SwapUser(username: getUsernameOfSignedInUser()).set(Birthday: datePicker.date.timeIntervalSince1970 as Double,
                                                              
            DidSetInformation:  {
             
@@ -71,9 +71,6 @@ class SetBirthdayViewController: UIViewController {
         
             return nil
         })
-        
-        
-        
         
     }
     

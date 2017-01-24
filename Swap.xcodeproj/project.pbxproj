@@ -34,6 +34,7 @@
 		751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */; };
 		751D190D1E2EEBA100DF5415 /* SettingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D190C1E2EEBA100DF5415 /* SettingUI.swift */; };
 		751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */; };
+		751FCB801E33E52C0099FDFE /* notificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCB7F1E33E52C0099FDFE /* notificationView.swift */; };
 		752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B61E2AA7780054D975 /* SwapsViewController.swift */; };
 		752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B91E2B3BE60054D975 /* SwappedViewController.swift */; };
 		752111BC1E2B42F60054D975 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */; };
@@ -221,6 +222,7 @@
 		751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerSwipeExtension.swift; sourceTree = "<group>"; };
 		751D190C1E2EEBA100DF5415 /* SettingUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUI.swift; sourceTree = "<group>"; };
 		751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
+		751FCB7F1E33E52C0099FDFE /* notificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationView.swift; sourceTree = "<group>"; };
 		752111B61E2AA7780054D975 /* SwapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapsViewController.swift; sourceTree = "<group>"; };
 		752111B91E2B3BE60054D975 /* SwappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwappedViewController.swift; sourceTree = "<group>"; };
 		752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 			children = (
 				751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */,
 				751C0B0D1E249E5800FD515A /* SearchUsersView.swift */,
+				751FCB7F1E33E52C0099FDFE /* notificationView.swift */,
 				752A6BDD1E20D39100E6695B /* ScannerView.swift */,
 				752A6BD71E20959500E6695B /* ProfileViewController.swift */,
 				752111B61E2AA7780054D975 /* SwapsViewController.swift */,
@@ -825,6 +828,7 @@
 				752A6BCE1E1F273A00E6695B /* ShowLoadingOverlay.swift in Sources */,
 				E7A30F0414C8EE1900000000 /* Users.swift in Sources */,
 				2ECF288A1DF90D9500FEC5D2 /* SwapUser.swift in Sources */,
+				751FCB801E33E52C0099FDFE /* notificationView.swift in Sources */,
 				2E9849371E04BCD200EC4C4C /* ConnectSocialMedias.swift in Sources */,
 				752A6BDA1E20975E00E6695B /* SetttingsView.swift in Sources */,
 				2EFC3A2D1DF9D96000D45E7E /* ConfirmAccountViewController.swift in Sources */,

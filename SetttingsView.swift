@@ -23,22 +23,6 @@ class SettingsView: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
      
         
-       //clear swap history row pressed
-        if (indexPath.section == 1 && indexPath.row == 2){
-            
-            let alert = UIAlertController(title: "Erase Swap History?", message: "This action cannot be undone", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
-            let OkAction = UIAlertAction(title: "Yes", style: .default){ (action) in
-                
-                //call a method that clears the swap history
-                }
-            
-            alert.addAction(OkAction)
-            self.present(alert, animated: true, completion: nil)
-        }
-        
-        
         //log out row pressed
         if (indexPath.section == 1 && indexPath.row == 3){
             

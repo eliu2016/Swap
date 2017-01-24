@@ -280,7 +280,7 @@ class SwapUser {
         
         
         let manager = AWSUserFileManager.defaultUserFileManager()
-        let localContent = manager.localContent(with: withData, key: "public/\(self.username)/profile_picture.jpg")
+        let localContent = manager.localContent(with: withData, key: "public/\(self.username)/profile_picture-\(randomNumber).jpg")
        
         localContent.uploadWithPin(onCompletion: true,
                                    progressBlock: { (content, progress) in
