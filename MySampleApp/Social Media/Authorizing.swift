@@ -764,25 +764,24 @@ func authorizeReddit(onViewController: UIViewController, completion: @escaping (
     
     
     
+    
     reddit_oauth2.authorizeEmbedded(from: onViewController, params: ["duration": "permanent"] , callback:{ json, error in
         
         
         if let error = error {
             
             // Did not work
+           
             completion(error)
             
         }  else{
             
-            if let json = json{
+            if let _ = json{
                 print("if let json = json")
                 // Get Reddit ID
                 // Block is called whenever .authorize() is called and there is success
                 
-                // The DataLoader class ensures that a request will be made. It will authorize if needed
-                var redditReq = reddit_oauth2.request(forURL: URL(string: "http://www.reddit.com/api/v1/me/friends/michealbingham?name=micheal&note=Swapped")!)
-                redditReq.sign(with: reddit_oauth2)
-                redditReq.httpMethod = "PUT"
+                
                 
                 let loader = RedditLoader()
                 
@@ -790,7 +789,7 @@ func authorizeReddit(onViewController: UIViewController, completion: @escaping (
                     
                     if let json = json {
                         
-                       
+                       print("\n\n\n\n\n\n\n\n\n\n\n\n\n\nHERE IS REDDIT ... \(json)")
                         
                         if let username = json["name"] as? String {
                             
@@ -822,28 +821,7 @@ func authorizeReddit(onViewController: UIViewController, completion: @escaping (
                     
                 })
                 
-//                loader.perform(request: redditReq, callback: { (response) in
-//                    
-//                    do{
-//                        
-//                        
-//                        let redditJSON = try response.responseJSON()
-//                        print("inside do block of reddit json")
-//                        // Get Reddit JSON
-//                        print("\n\n\n\n\n\n\n\n\n\n\n\n   TRYING TO FOLLOW GIVES: \(redditJSON)")
-//                
-//                        
-//                    }
-//                        
-//                    catch let _ {
-//                        // Could not get a response for some reason.
-//                        
-//                        completion(AuthorizationError.Unknown)
-//                        
-//                        
-//                    }
-//                    
-//                })
+
             }
             
         }

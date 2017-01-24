@@ -78,6 +78,88 @@ func shareTwitter(withUser: Users?,
     
 }
 
+
+func shareReddit(withUser: Users?,
+                 andIfNeededAuthorizeOnViewController: UIViewController,
+                 completion: @escaping (_ error: Error?) -> Void = {noError in return})  {
+    
+    guard (reddit_oauth2.accessToken != nil  || reddit_oauth2.refreshToken != nil) else {
+        
+        // User does not have a Reddit account connected
+        completion(UserError.NotConnected)
+        return
+    }
+
+    
+    guard let user = withUser else{
+        
+        // There is no user to share Pinterest with
+        completion(UserError.CouldNotGetUser)
+        return
+    }
+    
+    let UserWillShareReddit = user._willShareReddit as? Bool ?? false
+    
+    guard UserWillShareReddit else{
+        
+        completion(UserError.WillNotShareSocialMedia)
+        return
+    }
+    
+    guard let RedditID = user._redditID else {
+        // User does not have a reddit ID connected
+        
+        completion(UserError.WillNotShareSocialMedia)
+        return
+    }
+    
+    
+    // Creates a SwapUserHistory Object in order to save in Swap History if the Follow Attempt was a success
+    let history = SwapUserHistory(swap: getUsernameOfSignedInUser(), swapped: user._username!)
+    
+    
+    
+    
+    // Sets up Authorization Screen if you need to authorize Reddit
+    reddit_oauth2.authConfig.authorizeEmbedded = true
+    
+    reddit_oauth2.authConfig.authorizeContext = andIfNeededAuthorizeOnViewController
+    
+    reddit_oauth2.authConfig.ui.useSafariView = false
+    
+    
+    reddit_oauth2.authorize(params: ["duration": "permanent"], callback: { (json, error) in
+        
+        if error != nil {
+            // There was some error trying to authorize it
+            
+            completion(AuthorizationError.Unknown)
+            
+        } else{
+            
+            let loader = RedditLoader()
+            
+            loader.request(path: "http://www.reddit.com/api/v1/me/friends/michealbingham?name=micheal&note=Swapped", callback: { (json, error) in
+                
+                print("\n\n\n\n\n\n\n\n\n\n\n\n The response reddit is \(json)")
+                 print("\n\n\n\n\n\n\n\n\n\n\n\n The error reddit is \(error)")
+                
+            })
+            
+            /*
+             // The DataLoader class ensures that a request will be made. It will authorize if needed
+             var redditReq = reddit_oauth2.request(forURL: URL(string: "http://www.reddit.com/api/v1/me/friends/michealbingham?name=micheal&note=Swapped")!)
+             redditReq.sign(with: reddit_oauth2)
+             redditReq.httpMethod = "PUT"
+             */
+            
+        }
+    })
+    
+}
+
+
+
 /// Function that follows given user on Pinterest. Function will first check if a Pinterest account is configured, if not, an error will be returned in completion block. Function will also check if the user has set permission to follow on Pinterest. If there is no valid (expired) access token and refresh token, the function will attempt to authorize the user with an embedded web view controller on view controller specified.
 ///
 /// - Parameters:
@@ -136,7 +218,7 @@ func sharePinterest(withUser: Users?,
     // Will show login screen if cannot refresh access token with refresh token
     pinterest_oauth2.authorize { (json, error) in
         
-        if let error = error {
+        if error != nil {
             // There was some error trying to authorize it
             
             completion(AuthorizationError.Unknown)
@@ -828,7 +910,6 @@ func shareVine(withUser: Users?,
     })
     
 }
-
 
 
 

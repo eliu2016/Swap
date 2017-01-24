@@ -272,5 +272,40 @@ class RedditLoader: OAuth2DataLoader {
     func requestUserdata(callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void)) {
         request(path: "api/v1/me", callback: callback)
     }
+    
+    
+    func addFriend(withUsername: String,  callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void))  {
+        
+        putRequest(path: "/api/v1/me/friends/?id=\(withUsername)&type=friend", callback: callback)
+    }
+    
+    
+    /** Perform a request against the API and return decoded JSON or an Error. */
+    func putRequest(path: String, callback: @escaping ((OAuth2JSON?, Error?) -> Void)) {
+        let url = baseURL.appendingPathComponent(path)
+        var req = oauth2.request(forURL: url)
+        req.httpMethod = "PUT"
+    
+        perform(request: req) { response in
+            do {
+                let dict = try response.responseJSON()
+                if response.response.statusCode < 400 {
+                    DispatchQueue.main.async() {
+                        callback(dict, nil)
+                    }
+                }
+                else {
+                    DispatchQueue.main.async() {
+                        callback(nil, OAuth2Error.generic("\(response.response.statusCode)"))
+                    }
+                }
+            }
+            catch let error {
+                DispatchQueue.main.async() {
+                    callback(nil, error)
+                }
+            }
+        }
+    }
 }
 
