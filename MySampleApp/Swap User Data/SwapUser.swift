@@ -5,13 +5,16 @@
 //  Created by Micheal S. Bingham on 11/19/16.
 //  Copyright © 2016 Swap Inc. All rights reserved.
 //
-
 import Foundation
 import AWSDynamoDB
 import AWSCognitoIdentityProvider
 import AWSCore
 import AWSMobileHubHelper
 import OneSignal
+import Realm
+import RealmSwift
+import SwifteriOS
+
 
 /// Class for a SwapUser object
 class SwapUser {
@@ -25,7 +28,7 @@ class SwapUser {
     /// Variable used to modify how data is stored in database
     var updateMapperConfig = AWSDynamoDBObjectMapperConfiguration()
     
-    /// Variable to determine if user is verified 
+    /// Variable to determine if user is verified
     var isVerified = false
     
     // Variable containing profile picture URL
@@ -141,14 +144,14 @@ class SwapUser {
         
         
         if let linkToProfileImage = ProfileImage{
-            // User setted Profile Picture so we have to set it in amazon cognito 
+            // User setted Profile Picture so we have to set it in amazon cognito
             
             
-
+            
             let ProfilePictureURL = AWSCognitoIdentityUserAttributeType()
             ProfilePictureURL?.name = "picture"
             ProfilePictureURL?.value = linkToProfileImage
-
+            
             
             
             
@@ -281,7 +284,7 @@ class SwapUser {
         
         let manager = AWSUserFileManager.defaultUserFileManager()
         let localContent = manager.localContent(with: withData, key: "public/\(self.username)/profile_picture-\(randomNumber).jpg")
-       
+        
         localContent.uploadWithPin(onCompletion: true,
                                    progressBlock: { (content, progress) in
                                     
@@ -290,25 +293,25 @@ class SwapUser {
         }, completionHandler: { (content, error) in
             
             // Finished uploading
-        if error == nil {
-            
-            
-            
-           let LinkToProfilePicture = "https://s3.amazonaws.com/swap-userfiles-mobilehub-1081613436/public/\(self.username)/profile_picture-\(randomNumber).jpg"
-            
-            self.set(ProfileImage: LinkToProfilePicture,DidSetInformation: {
+            if error == nil {
                 
-                completion(nil)
                 
-                return nil
-            })
-            
-            
-        }
-        else{
-            
-        completion(error)
-        }
+                
+                let LinkToProfilePicture = "https://s3.amazonaws.com/swap-userfiles-mobilehub-1081613436/public/\(self.username)/profile_picture-\(randomNumber).jpg"
+                
+                self.set(ProfileImage: LinkToProfilePicture,DidSetInformation: {
+                    
+                    completion(nil)
+                    
+                    return nil
+                })
+                
+                
+            }
+            else{
+                
+                completion(error)
+            }
             
         })
         
@@ -321,7 +324,7 @@ class SwapUser {
     /// - Parameter byValue: 1 by default. It will decrement if you pass a negative number
     func incrementSwaps(byValue: NSNumber = 1)  {
         
-      let username =  AWSDynamoDBAttributeValue()
+        let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
         
         let value = AWSDynamoDBAttributeValue()
@@ -334,7 +337,7 @@ class SwapUser {
         updateItemInput?.expressionAttributeValues = [":val": value!]
         
         
-       
+        
         self.dynamoDB.updateItem(updateItemInput!, completionHandler: {(output, error) in
             
             
@@ -395,7 +398,7 @@ class SwapUser {
     
     /// Function that returns an array of SwapHistory objects
     ///
-    /// - Parameter result: Returns and Error and an array of SwapHistory objects. Error will be nil if  there is no error. Be sure to unwrap the swapHistory array. Iterate through swapHistories array to retrieve each individual SwapHistory object. See SwapHistory class for more information on a Swap History object. Each Swap History object has a property associated with the information it contains. For example: swapHistory._swapped is the person that was 'Swapped' and swapHistory.swap is the person that swapped. Each property also tells whether the specific social media were shared or not. It may be 'nil' or 'false' or 'true'. If swaphistory._didShareTwitter is nil or false , Twitter was not shared. It is more likely the value will be nil rather than false. If there are no records for Swap History, the array will be empty. 
+    /// - Parameter result: Returns and Error and an array of SwapHistory objects. Error will be nil if  there is no error. Be sure to unwrap the swapHistory array. Iterate through swapHistories array to retrieve each individual SwapHistory object. See SwapHistory class for more information on a Swap History object. Each Swap History object has a property associated with the information it contains. For example: swapHistory._swapped is the person that was 'Swapped' and swapHistory.swap is the person that swapped. Each property also tells whether the specific social media were shared or not. It may be 'nil' or 'false' or 'true'. If swaphistory._didShareTwitter is nil or false , Twitter was not shared. It is more likely the value will be nil rather than false. If there are no records for Swap History, the array will be empty.
     func getSwapHistory(result: @escaping (_ queryError: Error?, _ swapHistories: [SwapHistory]?) -> Void)  {
         
         // Configures so that most recent data is obtained from NoSQL
@@ -438,7 +441,7 @@ class SwapUser {
         // Ensures that if a value is not passed in the function, it is ignored when saved into database
         updateMapperConfig.saveBehavior = .updateSkipNullAttributes
         
-      
+        
         
         OneSignal.idsAvailable { (userID, pushToken) in
             
@@ -457,9 +460,9 @@ class SwapUser {
                 
             }
         }
-    
         
-
+        
+        
         
         
     }
@@ -487,25 +490,365 @@ class SwapUser {
     
     /// Sends Notification user that they have been swapped
     /// -todo: Use OneSignal API so when the user clicks the notification, he is brought to the Swap History Screen
-    func sendSwappedNotification(byUser: Users)  {
-        
-        let nameOfUser = "\(byUser._firstname!) \(byUser._lastname!)"
-        let usernameOfUser = byUser._username!
+    func sendSwappedNotification(bySwapUser: SwapUser)  {
         
         
-        self.getInformation { (error, user) in
+        
+        
+        bySwapUser.getInformation { (error, byUser) in
             
-            if error == nil{
+            if let byUser = byUser {
                 
-                let id = user!._notification_id_one_signal!
-                OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped® you."], "include_player_ids": [id]])
+                
+                let nameOfUser = "\(byUser._firstname!) \(byUser._lastname!)"
+                let usernameOfUser = byUser._username!
+                
+                
+                self.getInformation { (error, user) in
+                    
+                    if error == nil{
+                        
+                        if let id = user!._notification_id_one_signal{
+                            
+                            OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped™ you."], "include_player_ids": [id]])
+                        }
+                        
+                        
+                    }
+                }
+                
             }
         }
+        
+        
         
         
     }
     
     
-
+    func sendSwapRequest(toSwapUser: SwapUser, completion: @escaping (_ error: Error?) -> Void = {_ in return})  {
+        
+        let request = SwapRequest()
+        
+        request?._sender = self.username
+        request?._requested = toSwapUser.username
+        request?._sent_at = NSDate().timeIntervalSince1970 as NSNumber // Current Time
+        request?._status = false // Not accepted yet
+        request?._sender_confirmed_acceptance = false // Sender has not confirmed yet
+        
+        updateMapperConfig.saveBehavior = .updateSkipNullAttributes
+        
+        NoSQL.save(request!, configuration
+            : updateMapperConfig, completionHandler: { error in
+                
+                if error == nil{
+                    
+                    
+                    self.getInformation(completion: { (error, me) in
+                        
+                        if let sender = me{
+                            
+                            // Send Swap Request Notification To User
+                            toSwapUser.getInformation(completion: { (error, user) in
+                                
+                                if let user = user {
+                                    // Did get information and there is no error
+                                    
+                                    let nameOfUser = "\(sender._firstname!) \(sender._lastname!)"
+                                    let usernameOfUser = sender._username!
+                                    
+                                    if let id = user._notification_id_one_signal{
+                                        // Can send a notification to user
+                                        
+                                        // Sends notification to user
+                                        OneSignal.postNotification([
+                                            "contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) requested to Swap™ you."],
+                                            "include_player_ids": [id],
+                                            "content_available": "true",
+                                            "buttons": [
+                                                ["id": "Accept", "text": "Accept"],
+                                                ["id": "Decline", "text": "Decline"] ],
+                                            "data": ["username": usernameOfUser]
+                                            ])
+                                    }
+                                }
+                                
+                            })
+                        }
+                        
+                    })
+                    
+                    
+                    
+                }
+                
+                
+                // Error will be nil if everything worked
+                completion(error)
+                
+        })
+        
+        
+    }
+    
+    
+    
+    
+    
+    /// Function that returns an array of SwapRequest objects
+    ///
+    /// - Parameter result: Returns an array of SwapRequests that the user has sent out. When obtaining the swap requests array, ensure that the status (swapRequest.status) == true before allowing the user to press the swap button to confirm. The status property tells if the requested user has accepted  a swap request. If the user has ignored the swap request, status will be false. If the user has denied a swap request, it will not be shown in the array. Here is an example: If David a private user and Micheal sends a swap request to David.  Initially, the sender is Micheal, the requested is David, the status is false, and sender_confirmed_acceptance is also false. If David accepts the friend request, status = true when Micheal attempts to getPendingSentSwapRequests. If David has neither accepted or denied request, status = true. However, if David denies the request, the request is removed from getPendingSentSwapRequest and status = false AND sender_confirmed = true.
+    func getPendingSentSwapRequests(result: @escaping (_ error: Error?, _ requests: [SwapRequest]?) -> Void)  {
+        
+        // Configures so that most recent data is obtained from NoSQL
+        
+        
+        let queryExpression = AWSDynamoDBQueryExpression()
+        queryExpression.indexName = "sender"
+        queryExpression.keyConditionExpression = "#hashAttribute = :hashAttribute"
+        queryExpression.expressionAttributeNames = ["#hashAttribute": "sender", "#sender_confirmed_acceptance":"sender_confirmed_acceptance"]
+        queryExpression.expressionAttributeValues = [":hashAttribute": self.username, ":val": false]
+        queryExpression.filterExpression = "#sender_confirmed_acceptance = :val"
+        
+        
+        self.NoSQL.query(SwapRequest.self, expression: queryExpression,  completionHandler: { (output, error) in
+            
+            if error != nil{
+                
+                
+                result(error, nil)
+                
+            }
+                
+            else{
+                
+                // Converts the response to an array of Swap History objects
+                let swapRequests = output?.items as! [SwapRequest]
+                result(nil, swapRequests)
+                
+                
+            }
+            
+        })
+        
+        
+    }
+    
+    
+    /// If Micheal sends David a Swap Request and David accepts it, this function should be called where withUsername = David so that sender_confirmed = true so that it is removed from the getPendingSentSwapRequests array.
+    ///
+    ///
+    func confirmSwapRequestToUser(withUsername: String, completion: @escaping (_ error: Error?) -> Void = {_ in return })  {
+        
+        let swapRequest = SwapRequest()
+        updateMapperConfig.saveBehavior = .updateSkipNullAttributes
+        
+        swapRequest?._sender = self.username
+        swapRequest?._requested = withUsername
+        
+        
+        
+        swapRequest?._sender_confirmed_acceptance = true
+        
+        NoSQL.save(swapRequest!, configuration: updateMapperConfig, completionHandler: { error in
+            
+            completion(error)
+            
+        })
+        
+    }
+    
+    
+    func performActionOnSwapRequestFromUser(withUsername: String, doAccept: Bool, completion: @escaping (_ error: Error?) -> Void = {_ in return })  {
+        
+        let swapRequest = SwapRequest()
+        updateMapperConfig.saveBehavior = .updateSkipNullAttributes
+        
+        swapRequest?._sender = withUsername
+        swapRequest?._requested = self.username
+        
+        swapRequest?._status = doAccept as NSNumber
+        
+        if !doAccept{
+            // Sender rejected the Swap Request. So now, set senderConfirmed = true so that it no longer appears on their pending Swap Requests
+            
+            swapRequest?._sender_confirmed_acceptance = true
+        }
+        
+        
+        NoSQL.save(swapRequest!, configuration: updateMapperConfig, completionHandler: { error in
+            
+            completion(error)
+            
+        })
+        
+    }
+    
+    /// Gets the Swap Requests sent to the user
+    func getRequestedSwaps(result: @escaping (_ error: Error?, _ requests: [SwapRequest]?) -> Void)  {
+        
+        
+        // Configures so that most recent data is obtained from NoSQL
+        
+        
+        let queryExpression = AWSDynamoDBQueryExpression()
+        queryExpression.indexName = "requested"
+        queryExpression.keyConditionExpression = "#hashAttribute = :hashAttribute"
+        queryExpression.expressionAttributeNames = ["#hashAttribute": "requested", "#sender_confirmed_acceptance":"sender_confirmed_acceptance"]
+        queryExpression.expressionAttributeValues = [":hashAttribute": self.username, ":val": false]
+        queryExpression.filterExpression = "#sender_confirmed_acceptance = :val"
+        
+        
+        self.NoSQL.query(SwapRequest.self, expression: queryExpression,  completionHandler: { (output, error) in
+            
+            if error != nil{
+                
+                
+                result(error, nil)
+                
+            }
+                
+            else{
+                
+                // Converts the response to an array of Swap History objects
+                let swapRequests = output?.items as! [SwapRequest]
+                result(nil, swapRequests)
+                
+                
+            }
+            
+        })
+    }
+    
+    /// User this function to check if user has swapped another user. micheal.checkIfSwapped(anotherUser: david) will return true in completion block if David (requested) has approved a swap request from me (sender). Therefore, I can view his profile
+    func checkIfSwapped(anotherUser: SwapUser, result: @escaping (_ canViewProfile: Bool) -> Void)  {
+        
+        // hashKey = sender
+        // rangeKey= requested
+        
+        self.NoSQL.load(SwapRequest.self, hashKey: self.username, rangeKey: anotherUser.username, completionHandler: { (request, error) in
+            
+            if let error = error{
+                // No Swap Request Found between these users so cannot view profile
+                
+                result(false)
+                
+                
+                
+            } else{
+                
+                if let request = request as? SwapRequest{
+                    let canView = request._status?.boolValue
+                    result(canView!)
+                }
+                else{
+                    
+                    result(false)
+                }
+                
+                
+                
+            }
+            
+            
+            
+            
+        })
+        
+    }
+    
+    
+    /// Downloads the social media compilation of the user
+    func downloadCompilation()  {
+        
+        
+        let username = self.username
+        
+        
+        // Get Compilation Object Or Create One if It doesn't exist
+        
+        let compilation = Compilation()
+        compilation.id = username
+        
+        self.getInformation { (error, user) in
+            
+            if let user = user {
+                
+                
+                // Update Compilation Object
+                let realm1 = try! Realm()
+                try! realm1.write {
+                    
+                    realm1.create(Compilation.self, value: ["id": username, "name": "\(user._firstname!) \(user._lastname!)",  "isVerified": user._isVerified?.boolValue ?? false, "profilePicture": user._profilePictureUrl!], update: true)
+                    
+                }
+                
+                
+                // Download Tweets
+                if let token = getTwitterToken(), let secret = getTwitterSecret(){
+                    
+                    let swifter = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: token, oauthTokenSecret: secret)
+                    
+                    if let twitterID = user._twitterID{
+                        
+                        swifter.getTimeline(for: twitterID, success: { (twitterJSON) in
+                            
+                            
+                            let realm2 = try! Realm()
+                            realm2.refresh()
+                            
+                            if  let ownerCompilation =  realm2.object(ofType: Compilation.self, forPrimaryKey: username){
+                                // Can get compilation object from database
+                                
+                                
+                                var dateUpdated = ownerCompilation.updatedAt
+                                var hasSeen = ownerCompilation.hasBeenViewed
+                                
+                                if let tweets = returnTweets(fromJSON: twitterJSON){
+                                    
+                                    
+                                    
+                                    if tweets.count != ownerCompilation.Tweets.count{
+                                        
+                                        // New Tweets have been added since before
+                                        
+                                        // Update the dateUpdated
+                                        
+                                        dateUpdated = Date()
+                                        
+                                        hasSeen = false
+                                        
+                                        
+                                    }
+                                    
+                                    try! realm2.write {
+                                        
+                                        realm2.create(Compilation.self, value: ["id": username, "Tweets": tweets, "updatedAt": dateUpdated as Date?, "hasBeenViewed": hasSeen], update: true)
+                                    }
+                                    
+                                }
+                                
+                                
+                                
+                                
+                                
+                                
+                            }
+                            
+                            
+                            
+                            
+                        })
+                    }
+                    
+                    
+                }
+                
+            }
+        }
+        
+        
+        
+    }
     
 }

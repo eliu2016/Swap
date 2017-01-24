@@ -60,8 +60,8 @@ class SetNameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // Autofills the fields based on if the information is in the user's addressbook already 
         
-        firstnameField.text = getSavedFirstname()
-        lastnameField.text = getSavedLastname()
+        firstnameField.text = getSavedFirstname() ?? ""
+        lastnameField.text = getSavedLastname() ?? ""
         
     }
     

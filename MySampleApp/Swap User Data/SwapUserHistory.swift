@@ -5,7 +5,6 @@
 //  Created by Micheal S. Bingham on 12/21/16.
 //
 //
-
 import Foundation
 import AWSDynamoDB
 

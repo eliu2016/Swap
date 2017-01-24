@@ -5,14 +5,13 @@
 //  Created by Dr. Stephen, Ph.D on 11/28/16.
 //
 //
-
 import Foundation
 import Contacts
 
 
 @available(iOS 9.0, *)
 
-/// Function that tried to find a contact in addressbook with specified phone number in background. Saves phonenumber, name, website, contact photo, and company in User Defaults. Country code can be included or omitted. Doesn't make a difference. 
+/// Function that tried to find a contact in addressbook with specified phone number in background. Saves phonenumber, name, website, contact photo, and company in User Defaults. Country code can be included or omitted. Doesn't make a difference.
 ///
 /// - Parameter withPhonenumber: Phonenumber of the user
 func getContact(withPhonenumber: String)  {
@@ -138,3 +137,4 @@ func getContact(withPhonenumber: String)  {
     
     
 }
+

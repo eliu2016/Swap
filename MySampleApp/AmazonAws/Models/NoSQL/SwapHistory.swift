@@ -10,7 +10,6 @@
 //
 // Source code generated from template: aws-my-sample-app-ios-swift v0.8
 //
-
 import Foundation
 import UIKit
 import AWSDynamoDB

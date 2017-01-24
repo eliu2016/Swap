@@ -40,6 +40,7 @@ extension SignInViewController {
                 DispatchQueue.main.async(execute: {
                     
                     // Do whatever needs to be done after a succesful login (i.e. go to profile view controller)
+                    Analytics.didSignIn()
                     SwapUser(username: getUsernameOfSignedInUser()).setUpPushNotifications()
                     self.performSegue(withIdentifier: "signIn", sender: nil)
                     

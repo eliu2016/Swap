@@ -5,7 +5,6 @@
 //  Created by Micheal S. Bingham on 11/27/16.
 //
 // Use this to save any type of data in the app –– never pass information through view controllers
-
 import Foundation
 
 
@@ -137,9 +136,9 @@ func getInstagramProfilePictureLink() -> URL? {
 func saveTwitterPhoto(withLink: String?)  {
     
     
-        UserDefaults.standard.set(URL(string: withLink!), forKey: "twitterProfilePic")
-        UserDefaults.standard.synchronize()
-        
+    UserDefaults.standard.set(URL(string: withLink!), forKey: "twitterProfilePic")
+    UserDefaults.standard.synchronize()
+    
     
     
 }
@@ -192,7 +191,7 @@ func getContactImage() -> UIImage? {
     
 }
 
-/// Saves the current UIViewController. Pass 'self' in this function in 'viewDidAppear' or 'viewWillAppear'. This will save the restoration ID of the view controller in order to instantiate that same view controller in app delegate. Call this function whenever you want the user to see this view controller again after they open the app after exiting or quiting. Set this to nil when user is on Profile View Controller. You ONLY want to save the last view controller when the user is on a sign up type screen. 
+/// Saves the current UIViewController. Pass 'self' in this function in 'viewDidAppear' or 'viewWillAppear'. This will save the restoration ID of the view controller in order to instantiate that same view controller in app delegate. Call this function whenever you want the user to see this view controller again after they open the app after exiting or quiting. Set this to nil when user is on Profile View Controller. You ONLY want to save the last view controller when the user is on a sign up type screen.
 ///
 /// - Parameter viewController: View Controller with a restorationID
 func saveViewController(viewController: UIViewController?)  {
@@ -226,19 +225,19 @@ func getLastViewControllerID() -> String? {
 func saveEmail(email: String?) {
     
     UserDefaults.standard.set(email, forKey: "email")
-     UserDefaults.standard.synchronize()
+    UserDefaults.standard.synchronize()
 }
 
 /// Get the saved phonenumber from User Defaults
 func getSavedEmail() -> String? {
-   return  UserDefaults.standard.object(forKey: "email") as? String
+    return  UserDefaults.standard.object(forKey: "email") as? String
 }
 
 /// Use this function to save the phonenumber of the user in order to pass it to a different view controller
 func savePhonenumber(phone: String?) {
     
     UserDefaults.standard.set(phone, forKey: "phonenumber")
-     UserDefaults.standard.synchronize()
+    UserDefaults.standard.synchronize()
 }
 
 /// Get the saved email from User Defaults
@@ -248,7 +247,7 @@ func getSavedPhonenumber() -> String? {
 
 
 
-/// Saves the Twitter Token Key and Secret in User Defaults in order to later authenticate it in order to make API Requests
+/// Saves the Twitter Consumer Key and Secret in User Defaults in order to later authenticate it in order to make API Requests
 ///
 /// - Parameters:
 ///   - withToken: The Token Key of the Twitter Account
@@ -293,6 +292,3 @@ func getVinePassword() -> String? {
     return UserDefaults.standard.string(forKey: "VinePassword")
     
 }
-
-
-

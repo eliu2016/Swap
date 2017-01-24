@@ -5,21 +5,29 @@
 //  Created by Micheal S. Bingham on 11/29/16.
 //
 //
-
 import Foundation
 import p2_OAuth2
 import Alamofire
 import SwiftyJSON
 import Accounts
+import TwitterKit
 
 /// Clears the Tokens from User Defaults in Twitter
 /// - Todo: Switch to using Keychain instead
 func logoutTwitter()  {
     
-    UserDefaults.standard.removeObject(forKey: "TwitterConsumerKey")
+    let store = Twitter.sharedInstance().sessionStore
+    
+    if let userID = store.session()?.userID{
+        store.logOutUserID(userID)
+    }
+    
+    UserDefaults.standard.removeObject(forKey: "TwitterToken")
     UserDefaults.standard.removeObject(forKey: "TwitterSecret")
     UserDefaults.standard.synchronize()
 }
+
+
 
 /// Clears the access tokens from keychain in each social media and clears social media login cookies.
 func logoutSocialMediasAndClearCookies()  {
@@ -35,7 +43,7 @@ func logoutSocialMediasAndClearCookies()  {
     logoutTwitter()
     logoutVine()
     logoutYouTube()
-
+    
     
     // Delete everything out of User Defaults
     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
@@ -47,13 +55,12 @@ func logoutSocialMediasAndClearCookies()  {
 
 /// Forgets the access tokens for Spotify in keychain. However, if this function is called, calling authorizeSpotify() will not show the login screen for Spotify again. The login screen will appear disapper shortly after because the login information is still stored in web cookies. Cookies have to be cleared in order to do this. See logoutSocialMediasAndClearCookies().
 
-
 func logoutSpotify()  {
     
     // Forgets the access tokens in keychain
     
-   
-        spotify_oauth2.forgetTokens()
+    
+    spotify_oauth2.forgetTokens()
     
     
     
@@ -71,11 +78,11 @@ func authorizeSpotify(onViewController: UIViewController, completion: @escaping 
     
     // Stuff For AlamoFire
     /*
-    let sessionManager = SessionManager()
-    let retrier = OAuth2RetryHandler(oauth2: spotify_oauth2)
-    sessionManager.adapter = retrier
-    sessionManager.retrier = retrier
-    */
+     let sessionManager = SessionManager()
+     let retrier = OAuth2RetryHandler(oauth2: spotify_oauth2)
+     sessionManager.adapter = retrier
+     sessionManager.retrier = retrier
+     */
     
     
     
@@ -122,17 +129,17 @@ func authorizeSpotify(onViewController: UIViewController, completion: @escaping 
                     })
                     
                     
-               
+                    
                     
                 }
-                
+                    
                 else{
                     // ID Not Found in Spotify Response JSON
-                   completion(AuthorizationError.IDNotFound)
+                    completion(AuthorizationError.IDNotFound)
                 }
                 
             }
-            
+                
             catch let error {
                 // Could not get a response for some reason.
                 
@@ -171,20 +178,19 @@ func authorizeSpotify(onViewController: UIViewController, completion: @escaping 
 ///Forgets the access tokens for Instagram in keychain. However, if this function is called, calling authorizeInstagram() will not show the login screen for Spotify again. The login screen will appear disapper shortly after because the login information is still stored in web cookies. Cookies have to be cleared in order to do this. See logoutSocialMediasAndClearCookies().
 func logoutInstagram()  {
     
- 
-        instagram_oauth2.forgetTokens()
+    
+    instagram_oauth2.forgetTokens()
     
     
 }
 
 
-/// Function to authorize Instagram with an embedded view controller. Function will forget access tokens first and then show the embedded view controller which instantly disappears if the user is logged in, or pops up and prompts the user to log in if the user is not logged in. Do not call this function to authorize Instagram before making a request, call instagram_oauth2.authorize() instead. Authorize() will only show the view controller if the user is logged out. Function will store the Instagram UID in the database for the user currently signed in. Function also stores the Instagram profile picture URL in Userdefaults. 
+/// Function to authorize Instagram with an embedded view controller. Function will forget access tokens first and then show the embedded view controller which instantly disappears if the user is logged in, or pops up and prompts the user to log in if the user is not logged in. Do not call this function to authorize Instagram before making a request, call instagram_oauth2.authorize() instead. Authorize() will only show the view controller if the user is logged out. Function will store the Instagram UID in the database for the user currently signed in. Function also stores the Instagram profile picture URL in Userdefaults.
 ///
 /// - Parameters:
 ///   - onViewController: View Controller to show Embedded View Controller for Web on  (usually self)
 ///   - completion: Called when completed, error is nil if there is no error.
-/// - Attention: As of December 2016, Access Tokens for Instagram do not expire; however, instagram has explicitly stated that to never assume that access tokens will remain forever; therefore, always call instagram_oauth2.authorize() before making requests 
-
+/// - Attention: As of December 2016, Access Tokens for Instagram do not expire; however, instagram has explicitly stated that to never assume that access tokens will remain forever; therefore, always call instagram_oauth2.authorize() before making requests
 func authorizeInstagram(onViewController: UIViewController, completion: @escaping (_ logInError: AuthorizationError?) -> () ) {
     
     logoutInstagram()
@@ -212,14 +218,14 @@ func authorizeInstagram(onViewController: UIViewController, completion: @escapin
         
         SwapUser(username: getUsernameOfSignedInUser()).set(InstagramID: instagramID,
                                                             
-    DidSetInformation: { error  in
-            
-            // It worked.. .setting instagram ID Now
-        DispatchQueue.main.async {
-            completion(nil)
-        }
-        
-        
+                                                            DidSetInformation: { error  in
+                                                                
+                                                                // It worked.. .setting instagram ID Now
+                                                                DispatchQueue.main.async {
+                                                                    completion(nil)
+                                                                }
+                                                                
+                                                                
         }, CannotSetInformation: { error in
             
             completion(AuthorizationError.Unknown)
@@ -250,7 +256,7 @@ func authorizeInstagram(onViewController: UIViewController, completion: @escapin
 /// See logoutSpotify() for more informaton. Forgets Tokens for SoundCloud
 func logoutSoundCloud() {
     
-        soundcloud_oauth2.forgetTokens()
+    soundcloud_oauth2.forgetTokens()
     
 }
 
@@ -261,7 +267,6 @@ func logoutSoundCloud() {
 ///   - onViewController: View Controller to show Embedded View Controller for Web on  (usually self)
 ///   - completion: Called when completed, error is nil if there is no error.
 /// - Attention: SoundCloud access tokens do not expire; however, they do change when the user changes their pasword. Should test app for when users change passwords.
-
 
 func authorizeSoundCloud(onViewController: UIViewController, completion: @escaping (_ loginError: AuthorizationError?) -> () )  {
     
@@ -280,9 +285,9 @@ func authorizeSoundCloud(onViewController: UIViewController, completion: @escapi
     
     soundcloud_oauth2.authorize()
     
-
     
-   
+    
+    
     
     
     soundcloud_oauth2.onAuthorize = {
@@ -291,7 +296,7 @@ func authorizeSoundCloud(onViewController: UIViewController, completion: @escapi
         
         // The DataLoader class ensures that a request will be made. It will authorize if needed
         var soundcloudReq = soundcloud_oauth2.request(forURL: URL(string: "https://api.soundcloud.com/me?oauth_token=\(soundcloud_oauth2.accessToken!)")!)
-               soundcloudReq.sign(with: soundcloud_oauth2)
+        soundcloudReq.sign(with: soundcloud_oauth2)
         var loader = OAuth2DataLoader(oauth2: soundcloud_oauth2)
         
         
@@ -300,7 +305,7 @@ func authorizeSoundCloud(onViewController: UIViewController, completion: @escapi
             do {
                 
                 let soundcloudJSON = try response.responseJSON()
-               
+                
                 
                 if let SoundCloudID = soundcloudJSON["id"] as? NSNumber{
                     
@@ -324,7 +329,7 @@ func authorizeSoundCloud(onViewController: UIViewController, completion: @escapi
                     
                     
                 }
-                
+                    
                 else{
                     
                     completion(AuthorizationError.IDNotFound)
@@ -347,13 +352,13 @@ func authorizeSoundCloud(onViewController: UIViewController, completion: @escapi
         
         
     }
-        
+    
     
     
     soundcloud_oauth2.onFailure = {
         error in
         
-       
+        
         // ERROR Failed Authorizing
         
         if error == nil{
@@ -376,7 +381,7 @@ func authorizeSoundCloud(onViewController: UIViewController, completion: @escapi
 func logoutPinterest()  {
     
     
-        pinterest_oauth2.forgetTokens()
+    pinterest_oauth2.forgetTokens()
     
 }
 
@@ -387,7 +392,6 @@ func logoutPinterest()  {
 ///   - onViewController: View Controller to show Embedded View Controller for Web on  (usually self)
 ///   - completion: Called when completed, error is nil if there is no error.
 /// - Attention: Call pinterest.authorize() before making requests because Pinterest tokens expire.
-
 func authorizePinterest(onViewController: UIViewController, completion: @escaping (_ loginError: AuthorizationError?) -> () )  {
     
     logoutPinterest()
@@ -406,7 +410,7 @@ func authorizePinterest(onViewController: UIViewController, completion: @escapin
     pinterest_oauth2.onAuthorize = {  parameters in
         
         print("the pareamters for pinterst are ... \(parameters)")
-
+        
         Alamofire.request("https://api.pinterest.com/v1/me/?access_token=\(pinterest_oauth2.accessToken!)", method: .get).validate().responseJSON(completionHandler: { (response) in
             
             print("the response is ... \(response)")
@@ -457,7 +461,7 @@ func authorizePinterest(onViewController: UIViewController, completion: @escapin
         
     }
     
-
+    
     pinterest_oauth2.onFailure = { error in
         
         // ERROR Failed Authorizing
@@ -512,86 +516,86 @@ func authorizeVine(username: String?, password: String?, atSetUp: Bool = true, c
     }
     
     
- 
+    
     
     let parameters = ["username": username, "password": password]
     let vineAuthUrl = "https://api.vineapp.com/users/authenticate"
     
     Alamofire.request(vineAuthUrl, method: .post, parameters: parameters)
-    .responseJSON { (response) in
-        
-        
-        if let data = response.data {
+        .responseJSON { (response) in
             
-            let vineResponse = JSON(data: data)
             
-            print("vine response is ... \(vineResponse)")
-            
-            if let vineKey = vineResponse["data"]["key"].string{
+            if let data = response.data {
                 
-                // There is Session Key for Vine so Auth did Work 
+                let vineResponse = JSON(data: data)
                 
-                let vineID = vineResponse["data"]["userId"].stringValue
+                print("vine response is ... \(vineResponse)")
                 
-                
-                
-                if atSetUp{
+                if let vineKey = vineResponse["data"]["key"].string{
                     
-                    // Set Vine Auth Info in Keychain/UserDefaults
-                    saveVine(username: username, andPassword: password)
+                    // There is Session Key for Vine so Auth did Work
                     
-                    SwapUser(username: getUsernameOfSignedInUser()).set(VineID: vineID, DidSetInformation: {
+                    let vineID = vineResponse["data"]["userId"].stringValue
+                    
+                    
+                    
+                    if atSetUp{
                         
-                        DispatchQueue.main.async {
+                        // Set Vine Auth Info in Keychain/UserDefaults
+                        saveVine(username: username, andPassword: password)
+                        
+                        SwapUser(username: getUsernameOfSignedInUser()).set(VineID: vineID, DidSetInformation: {
                             
-                             completion(nil, vineKey, vineID)
-                        }
+                            DispatchQueue.main.async {
+                                
+                                completion(nil, vineKey, vineID)
+                            }
+                            
+                            
+                            
+                        }, CannotSetInformation: {
+                            
+                            completion(AuthorizationError.Unknown, nil, nil)
+                        })
                         
                         
                         
-                    }, CannotSetInformation: {
                         
-                        completion(AuthorizationError.Unknown, nil, nil)
-                    })
+                        
+                    }  else{
+                        
+                        completion(nil, vineKey, vineID)
+                    }
                     
-                    
-                    
-                   
-                    
-                }  else{
-                    
-                     completion(nil, vineKey, vineID)
                 }
+                    
+                else{
+                    // No session key in vine response
+                    completion(AuthorizationError.Cancelled, nil, nil)
+                }
+            }
+                
+            else{
+                // No Data in Response
+                
+                
+                completion(AuthorizationError.Unknown, nil, nil)
                 
             }
             
-            else{
-                // No session key in vine response
-                completion(AuthorizationError.Cancelled, nil, nil)
-            }
-        }
-        
-        else{
-            // No Data in Response 
             
-          
-            completion(AuthorizationError.Unknown, nil, nil)
             
-        }
-        
-        
-        
     }
     
     
     
     
-  
+    
     
 }
 
 func logoutVine()  {
-
+    
     
     UserDefaults.standard.removeObject(forKey: "VineUsername")
     UserDefaults.standard.removeObject(forKey: "VinePassword")
@@ -601,8 +605,8 @@ func logoutVine()  {
 
 func logoutYouTube()  {
     
-  
-        youtube_oauth2.forgetTokens()
+    
+    youtube_oauth2.forgetTokens()
     
 }
 
@@ -611,7 +615,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
     
     
     logoutYouTube()
-
+    
     
     youtube_oauth2.authorize()
     
@@ -627,13 +631,13 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
         loader.perform(request: youtubeReq, callback: { (response) in
             
             do{
-               
+                
                 if let data = response.data{
                     
                     let json = JSON(data: data)
                     let items = json["items"]
                     
-                   
+                    
                     
                     if let channelID = items[0]["id"].string{
                         
@@ -667,11 +671,11 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
                                 
                                 
                                 
-                               
+                                
                                 
                                 
                             }
-                            
+                                
                             else{
                                 completion(AuthorizationError.Unknown)
                             }
@@ -682,7 +686,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
                         
                         
                     }
-                    
+                        
                     else{
                         // No ID
                         completion(AuthorizationError.IDNotFound)
@@ -693,7 +697,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
                     
                     
                 }
-                
+                    
                 else{
                     
                     // No data in response
@@ -703,7 +707,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
                 
                 
                 
-               
+                
                 
             }
                 
@@ -779,11 +783,6 @@ class OAuth2RetryHandler: RequestRetrier, RequestAdapter {
         return urlRequest.signed(with: loader.oauth2)
     }
 }
-
-
-
-
-
 
 
 

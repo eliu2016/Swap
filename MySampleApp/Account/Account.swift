@@ -5,7 +5,6 @@
 //  Created by Micheal S. Bingham on 11/19/16.
 //  Copyright © 2016 Swap Inc. All rights reserved.
 //
-
 import Foundation
 import AWSCore
 import AWSCognitoIdentityProvider
@@ -49,7 +48,7 @@ func createAccount(username: String?,
         return
     }
     
-   
+    
     guard (username?.isAValidUsername())! else {
         
         
@@ -155,8 +154,8 @@ func createAccount(username: String?,
             savePassword(password: password!)
             saveEmail(email: email?.lowercased().trim())
             savePhonenumber(phone: phonenumber?.trim())
-
             
+            Analytics.didSignUp()
             didCreateAccount()
             
         }
@@ -256,6 +255,7 @@ func signOut(didSignOut: @escaping () -> Void?  = {return} )  {
         
         // successful sign in
         print("Sign out")
+        Analytics.didSignOut()
         didSignOut()
         
     }
@@ -268,7 +268,7 @@ func signOut(didSignOut: @escaping () -> Void?  = {return} )  {
 func getUsernameOfSignedInUser() -> String {
     
     if let username = AWSIdentityManager.defaultIdentityManager().userName{
-    
+        
         return username
     }  else{
         
@@ -304,5 +304,3 @@ func guessAndSetSex(withFirstname: String) {
         
     }
 }
-
-
