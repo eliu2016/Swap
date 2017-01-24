@@ -5,7 +5,6 @@
 //  Created by Micheal S. Bingham on 12/16/16.
 //
 //
-
 import Foundation
 import p2_OAuth2
 import Alamofire
@@ -21,9 +20,9 @@ import Kingfisher
 func shareTwitter(withUser: Users?,
                   completion: (_ error: Error?) -> Void = {noError in return})  {
     
-    // Ensures a Twitter Account is Connected Before Proceeding 
+    // Ensures a Twitter Account is Connected Before Proceeding
     
-    guard ( getTwitterConsumerKey() != nil && getTwitterSecret() != nil ) else{
+    guard ( getTwitterToken() != nil && getTwitterSecret() != nil ) else{
         
         completion(UserError.NotConnected)
         return
@@ -56,8 +55,8 @@ func shareTwitter(withUser: Users?,
     // Creates a SwapUserHistory Object in order to save in Swap History if the Follow Attempt was a success
     let history = SwapUserHistory(swap: getUsernameOfSignedInUser(), swapped: user._username!)
     
-
-    let twitterAccount = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: getTwitterConsumerKey()!, oauthTokenSecret: getTwitterSecret()!)
+    
+    let twitterAccount = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: getTwitterToken()!, oauthTokenSecret: getTwitterSecret()!)
     
     
     
@@ -65,9 +64,9 @@ func shareTwitter(withUser: Users?,
     
     twitterAccount.followUser(for: UserTag.id(TwitterID), follow: true, success: { json in
         
-      
         
-        // success 
+        
+        // success
         history.didShare(TwitterIs: true)
         
     }, failure: { error in
@@ -75,7 +74,7 @@ func shareTwitter(withUser: Users?,
         
         // it failed
     })
-
+    
     
 }
 
@@ -99,7 +98,7 @@ func sharePinterest(withUser: Users?,
     
     guard let user = withUser else{
         
-        // There is no user to share Pinterest with 
+        // There is no user to share Pinterest with
         completion(UserError.CouldNotGetUser)
         return
     }
@@ -107,25 +106,25 @@ func sharePinterest(withUser: Users?,
     let UserWillSharePinterest = user._willSharePinterest as? Bool ?? false
     
     guard UserWillSharePinterest else{
-       
+        
         completion(UserError.WillNotShareSocialMedia)
         return
     }
     
     guard let PinterestID = user._pinterestID else {
-        // User does not have a pinterest ID connected 
- 
+        // User does not have a pinterest ID connected
+        
         completion(UserError.WillNotShareSocialMedia)
         return
     }
     
     
-    // Creates a SwapUserHistory Object in order to save in Swap History if the Follow Attempt was a success 
+    // Creates a SwapUserHistory Object in order to save in Swap History if the Follow Attempt was a success
     let history = SwapUserHistory(swap: getUsernameOfSignedInUser(), swapped: user._username!)
     
     
     
-   
+    
     // Sets up Authorization Screen if you need to authorize Pinterest
     pinterest_oauth2.authConfig.authorizeEmbedded = true
     
@@ -133,7 +132,7 @@ func sharePinterest(withUser: Users?,
     
     pinterest_oauth2.authConfig.ui.useSafariView = false
     
-   
+    
     // Will show login screen if cannot refresh access token with refresh token
     pinterest_oauth2.authorize { (json, error) in
         
@@ -143,64 +142,64 @@ func sharePinterest(withUser: Users?,
             completion(AuthorizationError.Unknown)
             
         }
-        
-        else{
-        
-        
-        var req = pinterest_oauth2.request(forURL: URL(string: "https://api.pinterest.com/v1/me/following/users/?user=\(PinterestID)")!)
-        req.httpMethod = "POST"
-        
-        
-        let task = pinterest_oauth2.session.dataTask(with: req) { data, response, error in
             
-            if let error = error {
+        else{
+            
+            
+            var req = pinterest_oauth2.request(forURL: URL(string: "https://api.pinterest.com/v1/me/following/users/?user=\(PinterestID)")!)
+            req.httpMethod = "POST"
+            
+            
+            let task = pinterest_oauth2.session.dataTask(with: req) { data, response, error in
                 
-                // There was an error making the request 
-                completion(error)
-                
-            }
-            else {
-                
-                if let data = data {
+                if let error = error {
                     
-                    // There is data in the request
-                    let jsonResponse = JSON(data: data)
+                    // There was an error making the request
+                    completion(error)
                     
-                    // the json response for "data" is nil if it succeeded in following
-                    let followedAccount = jsonResponse["data"].string == nil
+                }
+                else {
                     
-                    if followedAccount{
-                        // SUCCESS
-                        // Set in Swap History
-                        print("did follow pinterest")
-                        history.didShare(PinterestIs: true)
-                        completion(nil)
-                    }
-                    
-                    else{
+                    if let data = data {
                         
-                        completion(UserError.Unknown)
+                        // There is data in the request
+                        let jsonResponse = JSON(data: data)
+                        
+                        // the json response for "data" is nil if it succeeded in following
+                        let followedAccount = jsonResponse["data"].string == nil
+                        
+                        if followedAccount{
+                            // SUCCESS
+                            // Set in Swap History
+                            print("did follow pinterest")
+                            history.didShare(PinterestIs: true)
+                            completion(nil)
+                        }
+                            
+                        else{
+                            
+                            completion(UserError.Unknown)
+                        }
+                        
+                    }
+                        
+                    else{
+                        // No data in request
+                        completion(AuthorizationError.Unknown)
                     }
                     
+                    
+                    
+                    
+                    
                 }
-                
-                else{
-                    // No data in request 
-                    completion(AuthorizationError.Unknown)
-                }
-                
-                
-        
-                
-    
             }
+            task.resume()
+            
         }
-        task.resume()
         
     }
     
-    }
-
 }
 
 
@@ -260,7 +259,7 @@ func shareSpotify(withUser: Users?,
     spotify_oauth2.authConfig.ui.useSafariView = false
     
     
-     // Will show login screen if cannot refresh access token with refresh token
+    // Will show login screen if cannot refresh access token with refresh token
     
     spotify_oauth2.authorize { (json, error) in
         
@@ -296,7 +295,7 @@ func shareSpotify(withUser: Users?,
                         
                         // Parse JSON response for errors or success****
                         print("the json response for spotify follow is ....\(jsonResponse)")
-
+                        
                         let didFollow = jsonResponse.string == nil
                         
                         if didFollow{
@@ -307,7 +306,7 @@ func shareSpotify(withUser: Users?,
                             
                         } else{
                             
-                            // Did not follow user 
+                            // Did not follow user
                             completion(UserError.Unknown)
                             
                         }
@@ -358,7 +357,7 @@ func shareInstagram(withUser: Users?,
         completion(UserError.NotConnected)
         return
     }
- 
+    
     
     guard let user = withUser else{
         
@@ -401,9 +400,9 @@ func shareInstagram(withUser: Users?,
     
     
     
-  instagram_oauth2.authorize { (json, error) in
-    
-    
+    instagram_oauth2.authorize { (json, error) in
+        
+        
         
         if let error = error {
             // There was some error trying to authorize it
@@ -425,37 +424,37 @@ func shareInstagram(withUser: Users?,
                         
                         if code == 200{
                             // SUCCESS
-                            // Add to Swap History 
+                            // Add to Swap History
                             history.didShare(InstagramIs: true)
                             completion(nil)
                         }
-                        
+                            
                         else{
-                            // No success code 
+                            // No success code
                             completion(UserError.Unknown)
                         }
                     }
-                    
+                        
                     else{
                         // No success
                         
                         completion(UserError.Unknown)
                     }
                     
-            
+                    
                 }
-                
+                    
                 else{
                     // No data in reponse
                     completion(AuthorizationError.Unknown)
                 }
             })
             
-         
+            
         }
         
         
-   }
+    }
     
     
 }
@@ -533,8 +532,8 @@ func shareYouTube(withUser: Users?,
             // Can't Authorize
             completion(AuthorizationError.Unknown)
         }
-        
-        
+            
+            
         else{
             
             // Subscribe on YouTube
@@ -555,15 +554,15 @@ func shareYouTube(withUser: Users?,
                     
                     if let id = jsonReply["id"].string{
                         
-                        // Follow Attempt Worked 
-                         history.didShare(YouTubeIs: true)
+                        // Follow Attempt Worked
+                        history.didShare(YouTubeIs: true)
                         completion(nil)
                         
                     }  else{
                         
                         
                         //Did not work
-                       
+                        
                         completion(UserError.CouldNotGetUser)
                     }
                     
@@ -574,19 +573,19 @@ func shareYouTube(withUser: Users?,
                 }
             })
             
-           
+            
+            
+        }
+        
         
     }
-    
-
-}
     
 }
 
 
 /// Function that follows the user on SoundCloud. See other 'share' functions for additional details to the functionality.
 ///
-/// - Parameters: 
+/// - Parameters:
 ///   - withUser: User to follow on SoundCloud
 ///   - andIfNeededAuthorizeOnViewController: Usually self
 ///   - completion: Error is nil if there is success
@@ -640,19 +639,19 @@ func shareSoundCloud(withUser: Users?,
     soundcloud_oauth2.authConfig.ui.useSafariView = false
     
     
-    // Will show login screen if there is no valid refresh token to refresh access token 
+    // Will show login screen if there is no valid refresh token to refresh access token
     
     soundcloud_oauth2.authorize { (json, error) in
         
         if let _ = error {
             
-            // Some error authorizing SoundCloud 
+            // Some error authorizing SoundCloud
             
             completion(AuthorizationError.Unknown)
             
         }
-        
-        
+            
+            
         else{
             
             // Try to follow on SoundCloud
@@ -673,11 +672,11 @@ func shareSoundCloud(withUser: Users?,
                             // SoundCloud Worked
                             
                             history.didShare(SoundCloudIs: true)
-                    
+                            
                             completion(nil)
                         }
                     }
-                    
+                        
                     else if let id = soundcloudJSON["id"].int{
                         
                         if "\(id)" == "\(SoundCloudID)"{
@@ -688,7 +687,7 @@ func shareSoundCloud(withUser: Users?,
                             completion(nil)
                             
                         }
-                        
+                            
                         else{
                             
                             // Did not work
@@ -701,11 +700,11 @@ func shareSoundCloud(withUser: Users?,
                     }
                     
                 }
-                
+                    
                 else{
                     
-                    // No data in response 
-               
+                    // No data in response
+                    
                     completion(UserError.Unknown)
                 }
                 
@@ -728,7 +727,7 @@ func shareVine(withUser: Users?,
     
     
     guard getVinePassword() != nil && getVineUsername() != nil else{
-        // No Vine Account Configured 
+        // No Vine Account Configured
         completion(UserError.NotConnected)
         
         return
@@ -771,26 +770,26 @@ func shareVine(withUser: Users?,
         
         
         if error != nil{
-            // Error Authorizing 
+            // Error Authorizing
             
             completion(AuthorizationError.Unknown)
         }
-        
+            
         else{
             
-            // Continue to follow Vine 
-         
+            // Continue to follow Vine
+            
             let headers = ["vine-session-id": key!]
             
-      
+            
             
             
             Alamofire.request("https://api.vineapp.com/users/\(VineID)/followers", method: .post, parameters: nil, headers: headers).responseJSON(completionHandler: { (response) in
                 
                 
                 if let data = response.data{
-                   
-                
+                    
+                    
                     let json = JSON(data: data)
                     print("Vine json is ... \(json)")
                     
@@ -801,21 +800,21 @@ func shareVine(withUser: Users?,
                         history.didShare(VineIs: true)
                         
                         completion(nil)
-                      
+                        
                         
                     }
                     else{
-                    
+                        
                         // Could not follow
                         
-                         completion(UserError.Unknown)
+                        completion(UserError.Unknown)
                         
                     }
                     
                     
                     
                 }
-                
+                    
                 else{
                     
                     
@@ -839,7 +838,7 @@ func shareVine(withUser: Users?,
 /// -todo: Check if Contact already exists before adding
 /// - Parameters
 ///   - withContactDataOfUser:
-///   - completion: 
+///   - completion:
 func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (_ error: Error?) -> Void)  {
     
     var DidSharePhone: Bool? = nil
@@ -856,7 +855,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
     let history = SwapUserHistory(swap: getUsernameOfSignedInUser(), swapped: user._username!)
     
     let UserWillSharePhone = user._willSharePhone as? Bool ?? false
-
+    
     let UserWillShareEmail = user._willShareEmail as? Bool ?? false
     
     guard UserWillSharePhone || UserWillShareEmail else{
@@ -868,75 +867,76 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
     
     
     var store = CNContactStore()
-    let contact = CNMutableContact()
+    var contact = CNMutableContact()
     
     let url = URL(string: user._profilePictureUrl!)!
     
-    // Set Contact Image 
+    // Set Contact Image
     ImageDownloader.default.downloadImage(with: url , options: [], progressBlock:  nil, completionHandler: {  (image, error, url, data) in
         
         if error != nil{
             completion(error)
         }
-        
+            
         else{
             
             // Image has finished downloading
             contact.imageData = data!
             
             
+            
             if let firstname = user._firstname {
-                if !firstname.isEmpty{
-                    contact.givenName = firstname
-                }
+                
+                contact.givenName = firstname
+                
             }
             
             if let middlename = user._middlename {
-                if !middlename.isEmpty{
-                    contact.middleName = middlename
-                }
+                
+                contact.middleName = middlename
+                
             }
             
             
             if let lastname = user._lastname {
-                if !lastname.isEmpty{
-                    contact.familyName = lastname
-                }
+                
+                contact.familyName = lastname
+                
             }
             
             
             if let company = user._company {
-                if !company.isEmpty{
-                    contact.organizationName = company
-                }
+                
+                contact.organizationName = company
+                
             }
             
             
             
             
             if let website = user._website{
-                if !website.isEmpty{
-                    
-                    //  let websiteURL = CNLabeledValue(label:CNLabelURLAddressHomePage., value: website)
-                    let websiteURL = CNLabeledValue(label: "homepage", value: website as NSString)
-                    
-                    contact.urlAddresses = [websiteURL]
-                    
-                }
+                
+                
+                //  let websiteURL = CNLabeledValue(label:CNLabelURLAddressHomePage., value: website)
+                let websiteURL = CNLabeledValue(label: "homepage", value: website as NSString)
+                
+                contact.urlAddresses = [websiteURL]
+                
+                
             }
             
             
             if UserWillShareEmail{
                 DidShareEmail = true
                 if let email = user._email{
-                    if !email.isEmpty{
-                        
-                        
-                        let Email = CNLabeledValue(label: "email", value: email as NSString)
-                        
-                        contact.emailAddresses = [Email]
-                        
-                    }
+                    
+                    
+                    
+                    let Email = CNLabeledValue(label: "email", value: email as NSString)
+                    
+                    contact.emailAddresses = [Email]
+                    
+                    
                 }
                 
             }
@@ -946,15 +946,15 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
                 DidSharePhone = true
                 
                 if let phone = user._phonenumber{
-                    if !phone.isEmpty{
-                        
-                        
-                        let Phone = CNPhoneNumber(stringValue: phone)
-                        let phonenumber = CNLabeledValue(label: "iPhone", value: Phone)
-                        
-                        contact.phoneNumbers = [phonenumber as! CNLabeledValue<CNPhoneNumber>]
-                        
-                    }
+                    
+                    
+                    
+                    let Phone = CNPhoneNumber(stringValue: phone)
+                    let phonenumber = CNLabeledValue(label: "iPhone", value: Phone)
+                    
+                    contact.phoneNumbers = [phonenumber as! CNLabeledValue<CNPhoneNumber>]
+                    
+                    
                 }
                 
             }
@@ -995,18 +995,18 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
             request.add(contact, toContainerWithIdentifier: nil)
             do{
                 try store.execute(request)
-              
+                
                 history.didShare( EmailIs: DidShareEmail, PhonenumberIs: DidSharePhone,completion: { (error) in
                     
                     if let error = error{
                         completion(error)
                     }
-                    
+                        
                     else{
-                         completion(nil)
+                        completion(nil)
                     }
                 })
-               
+                
                 
             } catch let err{
                 
@@ -1016,7 +1016,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
             }
             
             
-
+            
             
             
         }
@@ -1025,7 +1025,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
         
     })
     
-
-
+    
+    
     
 }
