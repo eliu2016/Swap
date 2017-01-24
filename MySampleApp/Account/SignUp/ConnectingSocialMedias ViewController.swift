@@ -335,6 +335,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     override func viewDidAppear(_ animated: Bool) {
         saveViewController(viewController: self)
         
+        SwapUser(username: getUsernameOfSignedInUser()).setUpPushNotifications()
         
         // Selects the social media icons if they are connected
         
@@ -342,7 +343,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         Instagram.isSelected = ((instagram_oauth2.accessToken != nil) || (instagram_oauth2.refreshToken != nil))
         SoundCloud.isSelected = ((soundcloud_oauth2.accessToken != nil) || (soundcloud_oauth2.refreshToken != nil))
         Pinterest.isSelected = ( (pinterest_oauth2.accessToken != nil) || (pinterest_oauth2.refreshToken != nil) )
-        Twitter.isSelected = (getTwitterSecret() != nil && getTwitterConsumerKey() != nil) 
+        Twitter.isSelected = (getTwitterSecret() != nil && getTwitterToken() != nil)
         Vine.isSelected = (getVineUsername() != nil && getVinePassword() != nil )
         YouTube.isSelected = ( (youtube_oauth2.accessToken != nil) || (youtube_oauth2.refreshToken != nil) )
         
