@@ -264,7 +264,7 @@ func shareSpotify(withUser: Users?,
     spotify_oauth2.authorize { (json, error) in
         
         
-        if let error = error {
+        if error != nil {
             // There was some error trying to authorize it
             
             completion(AuthorizationError.Unknown)
@@ -867,7 +867,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
     
     
     var store = CNContactStore()
-    var contact = CNMutableContact()
+    let contact = CNMutableContact()
     
     let url = URL(string: user._profilePictureUrl!)!
     
@@ -952,7 +952,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
                     let Phone = CNPhoneNumber(stringValue: phone)
                     let phonenumber = CNLabeledValue(label: "iPhone", value: Phone)
                     
-                    contact.phoneNumbers = [phonenumber as! CNLabeledValue<CNPhoneNumber>]
+                    contact.phoneNumbers = [phonenumber ]
                     
                     
                 }

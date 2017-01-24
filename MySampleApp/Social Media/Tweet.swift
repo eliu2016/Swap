@@ -32,7 +32,7 @@ class Tweet: Object {
 
 func returnTweet(fromJSON: SwifteriOS.JSON) -> Tweet {
     
-    var tweet = Tweet()
+    let tweet = Tweet()
     
     
     
@@ -107,7 +107,7 @@ func returnTweets(fromJSON: SwifteriOS.JSON) -> List<Tweet>? {
     
     
     if let tweetJsons = fromJSON.array{
-        var allTweets: List<Tweet> =  List<Tweet>()
+        let allTweets: List<Tweet> =  List<Tweet>()
         
         
         for json in tweetJsons {

@@ -82,7 +82,7 @@ class SwapUser {
               VineID: String? = nil,
               InstagramID: String? = nil,
               TwitterID: String? = nil,
-              SnapchatID: String? = nil,
+              RedditID: String? = nil,
               PinterestID: String? = nil,
               SoundCloudID: String? = nil,
               WillShareSpotify: Bool? = nil,
@@ -92,7 +92,7 @@ class SwapUser {
               WillShareInstagram: Bool? = nil,
               WillShareTwitter: Bool? = nil,
               WillShareEmail: Bool? = nil,
-              WillShareSnapchat: Bool? = nil,
+              WillShareReddit: Bool? = nil,
               WillSharePinterest: Bool? = nil,
               WillShareSoundCloud: Bool? = nil,
               DidSetInformation: @escaping () -> Void? = { return nil },
@@ -128,7 +128,7 @@ class SwapUser {
         user?._vineID = (VineID != nil && !((VineID?.isEmpty)!)) ? VineID: nil
         user?._instagramID = (InstagramID != nil && !((InstagramID?.isEmpty)!)) ? InstagramID: nil
         user?._twitterID = (TwitterID != nil && !((TwitterID?.isEmpty)!)) ? TwitterID: nil
-        user?._snapchatID = (SnapchatID != nil && !((SnapchatID?.isEmpty)!)) ? SnapchatID: nil
+        user?._redditID = (RedditID != nil && !((RedditID?.isEmpty)!)) ? RedditID: nil
         user?._pinterestID = (PinterestID != nil && !((PinterestID?.isEmpty)!)) ? PinterestID: nil
         user?._soundcloudID = (SoundCloudID != nil && !((SoundCloudID?.isEmpty)!)) ? SoundCloudID: nil
         user?._willShareSpotify = (WillShareSpotify != nil) ? (WillShareSpotify! as NSNumber) : nil
@@ -138,7 +138,7 @@ class SwapUser {
         user?._willShareInstagram = (WillShareInstagram != nil) ? (WillShareInstagram! as NSNumber) : nil
         user?._willShareTwitter = (WillShareTwitter != nil) ? (WillShareTwitter! as NSNumber) : nil
         user?._willShareEmail = (WillShareEmail != nil) ? (WillShareEmail! as NSNumber) : nil
-        user?._willShareSnapchat = (WillShareSnapchat != nil) ? (WillShareSnapchat! as NSNumber) : nil
+        user?._willShareReddit = (WillShareReddit != nil) ? (WillShareReddit! as NSNumber) : nil
         user?._willSharePinterest = (WillSharePinterest != nil) ? (WillSharePinterest! as NSNumber) : nil
         user?._willShareSoundCloud = (WillShareSoundCloud != nil) ? (WillShareSoundCloud! as NSNumber) : nil
         

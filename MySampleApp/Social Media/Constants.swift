@@ -183,3 +183,22 @@ var youtube_oauth2 = OAuth2CodeGrant(settings: [
     "keychain": true
     ])
 
+// ==================================== YouTube Authoriation Info ==================================
+
+
+
+//=================== Reddit Authorization Information ==========================================//
+
+var reddit_oauth2: OAuth2CodeGrant = OAuth2CodeGrant(settings: [
+    "client_id": "s06QBYeHGLK8yg",
+    "client_secret": "",
+    "authorize_uri": "https://www.reddit.com/api/v1/authorize",
+    "token_uri": "https://www.reddit.com/api/v1/access_token",
+    "scope": "identity,read",      // comma-separated, not space-separated scopes!
+    "redirect_uris": ["http://swapapp.co"],   // register scheme in Info.plist
+    "parameters": ["duration": "permanent"],
+    ])
+
+//=================== Reddit Authorization Information ==========================================//
+
+

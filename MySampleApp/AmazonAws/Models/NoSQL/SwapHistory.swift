@@ -23,7 +23,7 @@ class SwapHistory: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _didShareInstagram: NSNumber?
     var _didSharePhonenumber: NSNumber?
     var _didSharePinterest: NSNumber?
-    var _didShareSnapchat: NSNumber?
+    var _didShareReddit: NSNumber?
     var _didShareSoundCloud: NSNumber?
     var _didShareSpotify: NSNumber?
     var _didShareTwitter: NSNumber?
@@ -57,7 +57,7 @@ class SwapHistory: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_didShareInstagram" : "didShareInstagram",
             "_didSharePhonenumber" : "didSharePhonenumber",
             "_didSharePinterest" : "didSharePinterest",
-            "_didShareSnapchat" : "didShareSnapchat",
+            "_didShareReddit" : "didShareReddit",
             "_didShareSoundCloud" : "didShareSoundCloud",
             "_didShareSpotify" : "didShareSpotify",
             "_didShareTwitter" : "didShareTwitter",

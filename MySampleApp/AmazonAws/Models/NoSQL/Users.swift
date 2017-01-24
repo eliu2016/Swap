@@ -34,7 +34,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _pinterestID: String?
     var _points: NSNumber?
     var _profilePictureUrl: String?
-    var _snapchatID: String?
+    var _redditID: String?
     var _soundcloudID: String?
     var _spotifyID: String?
     var _swapCodeUrl: String?
@@ -47,7 +47,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _willShareInstagram: NSNumber?
     var _willSharePhone: NSNumber?
     var _willSharePinterest: NSNumber?
-    var _willShareSnapchat: NSNumber?
+    var _willShareReddit: NSNumber?
     var _willShareSoundCloud: NSNumber?
     var _willShareSpotify: NSNumber?
     var _willShareTwitter: NSNumber?
@@ -86,7 +86,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_pinterestID" : "pinterest_ID",
             "_points" : "points",
             "_profilePictureUrl" : "profile_picture_url",
-            "_snapchatID" : "snapchat_ID",
+            "_redditID" : "redditID",
             "_soundcloudID" : "soundcloud_ID",
             "_spotifyID" : "spotify_ID",
             "_swapCodeUrl" : "swap_code_url",
@@ -99,7 +99,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_willShareInstagram" : "willShareInstagram",
             "_willSharePhone" : "willSharePhone",
             "_willSharePinterest" : "willSharePinterest",
-            "_willShareSnapchat" : "willShareSnapchat",
+            "_willShareReddit" : "willShareReddit",
             "_willShareSoundCloud" : "willShareSoundCloud",
             "_willShareSpotify" : "willShareSpotify",
             "_willShareTwitter" : "willShareTwitter",

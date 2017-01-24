@@ -377,7 +377,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
 
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         //upload the updated user bio
         
         print("did end editing")
@@ -385,7 +385,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         SwapUser().set(Bio: Userbio)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         bioTextField.resignFirstResponder()
         return true

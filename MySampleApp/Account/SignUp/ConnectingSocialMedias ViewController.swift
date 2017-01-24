@@ -194,6 +194,20 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
             break
         case Snapchat:
             // Authorize Snapchat
+            
+            authorizeReddit(onViewController: self, completion: { (error) in
+                
+                if let error = error{
+                    
+                    // There is an error
+              
+                    
+                    
+                    
+                }
+            })
+            
+            
             break
         case Pinterest:
             // Authorize Pinterest
@@ -335,7 +349,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     override func viewDidAppear(_ animated: Bool) {
         saveViewController(viewController: self)
         
-        SwapUser(username: getUsernameOfSignedInUser()).setUpPushNotifications()
+      
         
         // Selects the social media icons if they are connected
         
@@ -354,6 +368,8 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+          SwapUser(username: getUsernameOfSignedInUser()).setUpPushNotifications()
         
         if !UserDefaults.standard.bool(forKey: "ConnectSocialMediaTutorialShown")
         {

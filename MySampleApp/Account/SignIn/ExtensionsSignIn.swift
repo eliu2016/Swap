@@ -90,7 +90,7 @@ extension SignInViewController: AWSCognitoIdentityPasswordAuthentication {
     
     /// Customize this function in order to display UI or do whatever that needs to be done if the login fails for the user (i.e. Display UI screen that says invalid login)
     func didCompleteStepWithError(_ error: Error?) {
-        if let error = error {
+        if error != nil {
             
             //*** There was an error signing in
             
@@ -239,7 +239,7 @@ extension ConfirmAccountViewController: AWSCognitoIdentityPasswordAuthentication
     
     /// Customize this function in order to display UI or do whatever that needs to be done if the login fails for the user (i.e. Display UI screen that says invalid login)
     func didCompleteStepWithError(_ error: Error?) {
-        if let error = error {
+        if error != nil {
             
             //*** There was an error signing in
             

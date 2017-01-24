@@ -29,7 +29,7 @@ func authorizeTwitter(onViewController: UIViewController,  completion: @escaping
             saveTwitterAccount(withToken: token, andSecret: secret)
         }
         
-        if let error = error{
+        if error != nil{
             completion(AuthorizationError.Unknown)
         } else{
             completion(nil)

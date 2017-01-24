@@ -39,13 +39,12 @@ class SwapUserHistory{
                   VineIs: Bool? = nil,
                   PhonenumberIs: Bool? = nil,
                   SpotifyIs: Bool? = nil,
-                  SnapchatIs: Bool? = nil,
+                  RedditIs: Bool? = nil,
                   TwitterIs: Bool? = nil,
                   YouTubeIs: Bool? = nil,
                   SoundCloudIs: Bool? = nil,
                   PinterestIs: Bool? = nil,
                   InstagramIs: Bool? = nil,
-                  theSwapMethodIs: String? = nil,
                   completion: @escaping (_ error: Error?) -> Void = {noError in return})  {
         
         
@@ -53,21 +52,21 @@ class SwapUserHistory{
         updateMapperConfig.saveBehavior = .updateSkipNullAttributes
         
         /// Swap History Object for database
-        var swapHistory = SwapHistory()
+        let swapHistory = SwapHistory()
         
         // Each Swap History Row/Object in Database is identified by the person who swapped, 'swap' and the person that is swapped 'swapped'
         swapHistory?._swap = self.swap
         swapHistory?._swapped = self.swapped
         swapHistory?._time = currentTime
         
-        swapHistory?._method = theSwapMethodIs
+     
         
         swapHistory?._didShareBirthday = (BirthdayIs != nil) ? (BirthdayIs! as NSNumber) : nil
         swapHistory?._didShareEmail = (EmailIs != nil) ? (EmailIs! as NSNumber) : nil
         swapHistory?._didShareVine = (VineIs != nil) ? (VineIs! as NSNumber) : nil
         swapHistory?._didSharePhonenumber = (PhonenumberIs != nil) ? (PhonenumberIs! as NSNumber) : nil
         swapHistory?._didShareSpotify = (SpotifyIs != nil) ? (SpotifyIs! as NSNumber) : nil
-        swapHistory?._didShareSnapchat = (SnapchatIs != nil) ? (SnapchatIs! as NSNumber) : nil
+        swapHistory?._didShareReddit = (RedditIs != nil) ? (RedditIs! as NSNumber) : nil
         swapHistory?._didShareTwitter = (TwitterIs != nil) ? (TwitterIs! as NSNumber) : nil
         swapHistory?._didShareYouTube = (YouTubeIs != nil) ? (YouTubeIs! as NSNumber) : nil
         swapHistory?._didShareSoundCloud = (SoundCloudIs != nil) ? (SoundCloudIs! as NSNumber) : nil

@@ -106,7 +106,7 @@ func authorizeSpotify(onViewController: UIViewController, completion: @escaping 
         // The DataLoader class ensures that a request will be made. It will authorize if needed
         var spotifyReq = spotify_oauth2.request(forURL: URL(string: SPOTIFY_USER_URL)!)
         spotifyReq.sign(with: spotify_oauth2)
-        var loader = OAuth2DataLoader(oauth2: spotify_oauth2)
+        let loader = OAuth2DataLoader(oauth2: spotify_oauth2)
         loader.perform(request: spotifyReq, callback: { (response) in
             
             do{
@@ -140,7 +140,7 @@ func authorizeSpotify(onViewController: UIViewController, completion: @escaping 
                 
             }
                 
-            catch let error {
+            catch let _ {
                 // Could not get a response for some reason.
                 
                 completion(AuthorizationError.Unknown)
@@ -297,7 +297,7 @@ func authorizeSoundCloud(onViewController: UIViewController, completion: @escapi
         // The DataLoader class ensures that a request will be made. It will authorize if needed
         var soundcloudReq = soundcloud_oauth2.request(forURL: URL(string: "https://api.soundcloud.com/me?oauth_token=\(soundcloud_oauth2.accessToken!)")!)
         soundcloudReq.sign(with: soundcloud_oauth2)
-        var loader = OAuth2DataLoader(oauth2: soundcloud_oauth2)
+        let loader = OAuth2DataLoader(oauth2: soundcloud_oauth2)
         
         
         loader.perform(request: soundcloudReq, callback: { (response) in
@@ -338,7 +338,7 @@ func authorizeSoundCloud(onViewController: UIViewController, completion: @escapi
                 
             }
                 
-            catch let error {
+            catch _ {
                 
                 // Could not get a response
                 
@@ -627,7 +627,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
         // The DataLoader class ensures that a request will be made. It will authorize if needed
         var youtubeReq = youtube_oauth2.request(forURL: URL(string: "https://www.googleapis.com/youtube/v3/channels?part=id&mine=true")!)
         youtubeReq.sign(with: youtube_oauth2)
-        var loader = OAuth2DataLoader(oauth2: youtube_oauth2)
+        let loader = OAuth2DataLoader(oauth2: youtube_oauth2)
         loader.perform(request: youtubeReq, callback: { (response) in
             
             do{
@@ -643,7 +643,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
                         
                         var plusReq = youtube_oauth2.request(forURL: URL(string: "https://www.googleapis.com/plus/v1/people/me")!)
                         plusReq.sign(with: youtube_oauth2 )
-                        var loader = OAuth2DataLoader(oauth2: youtube_oauth2)
+                        let loader = OAuth2DataLoader(oauth2: youtube_oauth2)
                         
                         loader.perform(request: plusReq, callback: { (response ) in
                             
@@ -711,7 +711,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
                 
             }
                 
-            catch let error {
+            catch let _ {
                 // Could not get a response for some reason.
                 
                 completion(AuthorizationError.Unknown)
@@ -745,6 +745,54 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
     
     
 }
+
+
+func logoutReddit()  {
+    
+    reddit_oauth2.forgetTokens()
+}
+
+func authorizeReddit(onViewController: UIViewController, completion: @escaping (_ loginError: Error?) -> Void)  {
+    
+      logoutReddit()
+    
+    reddit_oauth2.authConfig.authorizeEmbedded = true
+    
+    reddit_oauth2.authConfig.authorizeContext = onViewController
+    
+    reddit_oauth2.authConfig.ui.useSafariView = false
+    
+    
+    
+    reddit_oauth2.authorizeEmbedded(from: onViewController, params: ["duration": "permanent"] , callback:{ json, error in
+        
+        
+        if let error = error {
+            
+            // Did not work
+            completion(error)
+            
+        }  else{
+            
+            if let json = json{
+                
+                print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nthe reddit json response is ..... \(json)")
+            }
+            
+        }
+    })
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
 
 
 /// Class to use Oauth with Alamofire

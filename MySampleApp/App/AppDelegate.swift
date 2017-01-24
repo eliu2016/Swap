@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         let signInVC = mainStoryboard.instantiateViewController(withIdentifier: signInVCID)
         
         // if signed in  -> profile view controller else -> login view controller
-        var defaultVC: UIViewController = isSignedIn() ? profileVC : signInVC
+        let defaultVC: UIViewController = isSignedIn() ? profileVC : signInVC
         
         
         
