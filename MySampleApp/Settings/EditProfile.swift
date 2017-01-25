@@ -35,8 +35,14 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
        
         SwapUser(username: getUsernameOfSignedInUser()).getInformation { (error, user) in
             
-            self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
+            DispatchQueue.main.async {
+            
             self.activityView.isHidden = true
+            self.activityView.stopAnimating()
+                
+            }
+            self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
+          
         }
         
         
@@ -54,7 +60,7 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
         let email = editProfileEmail
         let birthday = editProfileBirthday
         let imageData = UIImageJPEGRepresentation(profilePicture.image!, 1.0)
-        
+
         doneActivityView.isHidden = false
         doneActivityView.startAnimating()
         doneButton.isHidden = true
@@ -143,6 +149,7 @@ class EditProfileTable: UITableViewController, UITextFieldDelegate {
         SwapUser(username: getUsernameOfSignedInUser()).getInformation { (error, user) in
             
             DispatchQueue.main.async {
+                
                 self.firstNameField.text = user?._firstname
                 self.lastNameField.text = user?._lastname
                 self.emailField.text = user?._email
@@ -168,10 +175,14 @@ class EditProfileTable: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         tableView.allowsSelection = false
         emailField.delegate = self
+        firstNameField.delegate = self
+        lastNameField.delegate = self
         birthdayPicker.addTarget(self, action: #selector(datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
     func datePickerValueChanged(sender:UIDatePicker) {
+        
+        editProfileBirthday = birthdayPicker.date.timeIntervalSince1970 as Double
         
         let dateFormatter = DateFormatter()
         
@@ -196,7 +207,7 @@ class EditProfileTable: UITableViewController, UITextFieldDelegate {
         editProfileFirstName = firstNameField.text!
         editProfileLastName =  lastNameField.text!
         editProfileEmail = emailField.text!
-        editProfileBirthday = birthdayPicker.date.timeIntervalSince1970 as Double
+        
     
         
         if textField.tag == 2{

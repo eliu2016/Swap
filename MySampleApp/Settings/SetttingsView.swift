@@ -16,6 +16,7 @@ class SettingsView: UITableViewController {
     @IBAction func closeSettings(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     
@@ -24,7 +25,7 @@ class SettingsView: UITableViewController {
      
         
         //log out row pressed
-        if (indexPath.section == 1 && indexPath.row == 3){
+        if (indexPath.section == 1 && indexPath.row == 2){
             
             let alert = UIAlertController(title: "Confirm Sign Out?", message: "Swap Points will reset", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Canvel", style: .cancel, handler: nil))

@@ -10,4 +10,7 @@ import Foundation
 
 class notificationView: UIViewController {
     
+    override func viewDidLoad() {
+        self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
+    }
 }

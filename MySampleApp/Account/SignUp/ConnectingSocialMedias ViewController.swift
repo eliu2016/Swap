@@ -66,7 +66,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
                     //There was no error authorizing
                     
                     // Highlights social media icon
-                    
+                    SwapUser().incrementPoints(byValue: 5)
                     sender.isSelected = true
                 }
             })
@@ -106,7 +106,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
                     //There was no error authorizing
                     
                     // Highlights social media icon
-                    
+                    SwapUser().incrementPoints(byValue: 5)
                     sender.isSelected = true
                 }
                 
@@ -141,8 +141,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
                     
                 else{
                     // It worked
-                    print("it worked")
-                    
+                    SwapUser().incrementPoints(byValue: 5)
                     sender.isSelected = true
                 }
                 
@@ -184,7 +183,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
                     
                 else{
                     // It worked 
-                    
+                    SwapUser().incrementPoints(byValue: 5)
                     sender.isSelected = true
                 }
                 
@@ -206,6 +205,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
                     
                 } else{
                     // It worked 
+                    SwapUser().incrementPoints(byValue: 5)
                     sender.isSelected  = true
                 }
             })
@@ -240,7 +240,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
                     
                 else{
                     // It worked
-                    
+                    SwapUser().incrementPoints(byValue: 5)
                     sender.isSelected = true
                 }
                 
@@ -278,7 +278,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
                 else{
                     // It worked
                     print("it worked")
-                    
+                    SwapUser().incrementPoints(byValue: 5)
                     sender.isSelected = true
                 }
                 
