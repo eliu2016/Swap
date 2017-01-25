@@ -91,9 +91,9 @@ class ScannerViewController: UIViewController {
                                 scanner.startScan()
                                 
                                 // Log analytics
-                                Analytics.didSwap(byMethod: .swapcode, isPrivate: true)
+                               Analytics.didSwap(byMethod: .swapcode, isPrivate: true)
                               
-                               
+                                
                             }
                             
                             
@@ -120,8 +120,30 @@ class ScannerViewController: UIViewController {
                         scanner.startScan()
                         
                         
-                        // Log Analytics
-                        Analytics.didSwap(byMethod: .swapcode, didShareSpotify: false, didSharePhone: true, didShareEmail: true, didShareInstagram: false, didShareSnapchat: true, didShareTwitter: false, didShareYouTube: true, didShareSoundCloud: true, didSharePinterest: false)
+                        // Log Analytics // If current user has social media connected and the other has the social media 'on' then essentially the user has shared that social media. +- ~3% margin error perhaps
+                        
+                        // ========= Begin Loggin Analytics ====================================
+                        let sharedSpotify = (spotify_oauth2.accessToken != nil || spotify_oauth2.refreshToken != nil) && (user._willShareSpotify?.boolValue ?? false) && (user._spotifyID != nil)
+                        
+                         let sharedPhone =  (user._willSharePhone?.boolValue ?? false)
+                        let sharedEmail =  (user._willShareEmail?.boolValue ?? false)
+                        
+                        let sharedInstagram = (instagram_oauth2.accessToken != nil || instagram_oauth2.refreshToken != nil) && (user._willShareInstagram?.boolValue ?? false) && user._instagramID != nil
+                        
+                        let sharedReddit = (reddit_oauth2.accessToken != nil || spotify_oauth2.refreshToken != nil) && (user._willShareSpotify?.boolValue ?? false) && user._redditID != nil
+                        
+                          let sharedTwitter = (getTwitterToken() != nil && getTwitterSecret() != nil ) && (user._willShareTwitter?.boolValue ?? false) && user._twitterID != nil
+                        
+                        
+                          let sharedYouTube = (youtube_oauth2.accessToken != nil || youtube_oauth2.refreshToken != nil) && (user._willShareYouTube?.boolValue ?? false) && user._youtubeID != nil
+                        
+                          let sharedSoundCloud = (soundcloud_oauth2.accessToken != nil || soundcloud_oauth2.refreshToken != nil) && (user._willShareSoundCloud?.boolValue ?? false) && user._soundcloudID != nil
+                        
+                         let sharedPinterest = (pinterest_oauth2.accessToken != nil || pinterest_oauth2.refreshToken != nil) && (user._willSharePinterest?.boolValue ?? false) && user._pinterestID != nil
+                        
+                        Analytics.didSwap(byMethod: .swapcode, didShareSpotify: sharedSpotify, didSharePhone: sharedPhone, didShareEmail: sharedEmail, didShareInstagram: sharedInstagram, didShareReddit: sharedReddit, didShareTwitter: sharedTwitter, didShareYouTube: sharedYouTube, didShareSoundCloud: sharedSoundCloud, didSharePinterest: sharedPinterest)
+                        
+                        // ========= End Logging Analytics ====================================
                         
                         
                     }
