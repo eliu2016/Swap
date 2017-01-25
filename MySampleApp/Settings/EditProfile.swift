@@ -19,14 +19,17 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
   
     let imagePicker = UIImagePickerController()
     
+    @IBOutlet var doneButton: UIButton!
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var activityView: UIActivityIndicatorView!
+    @IBOutlet var doneActivityView: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
         
        circularImage(photoImageView: profilePicture)
        imagePicker.delegate = self
+       doneActivityView.stopAnimating()
        
         activityView.startAnimating()
        
@@ -51,6 +54,10 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
         let email = editProfileEmail
         let birthday = editProfileBirthday
         let imageData = UIImageJPEGRepresentation(profilePicture.image!, 1.0)
+        
+        doneActivityView.isHidden = false
+        doneActivityView.startAnimating()
+        doneButton.isHidden = true
         
             SwapUser().uploadProfilePicture(withData: imageData!, completion:
             {_ in
@@ -145,6 +152,14 @@ class EditProfileTable: UITableViewController, UITextFieldDelegate {
                 editProfileLastName = (user?._lastname)!
                 editProfileEmail = (user?._email)!
                 editProfileBirthday = self.birthdayPicker.date.timeIntervalSince1970 as Double
+                
+                let dateFormatter = DateFormatter()
+                
+                dateFormatter.dateStyle = DateFormatter.Style.medium
+                
+                dateFormatter.timeStyle = DateFormatter.Style.none
+                
+                self.birthdayField.text = dateFormatter.string(from: self.birthdayPicker.date)
             }
             
         }
