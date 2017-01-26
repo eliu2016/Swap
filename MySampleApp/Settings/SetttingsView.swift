@@ -10,6 +10,36 @@ import Foundation
 
 class SettingsView: UITableViewController {
     
+    
+    @IBOutlet weak var isPrivateSwitch: UISwitch!
+    
+    @IBAction func didTogglePrivate(_ sender: UISwitch) {
+      
+        
+        SwapUser().set(isPrivate: sender.isOn)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        SwapUser().getInformation { (error, user) in
+            
+            DispatchQueue.main.async {
+                
+            
+            if let user = user{
+                
+             let isPrivate  = user._isPrivate as? Bool ?? false
+                
+            self.isPrivateSwitch.isOn = isPrivate
+                
+            }
+                
+            }
+        }
+            
+    }
+    
     override func viewDidLoad() {
         
     }
