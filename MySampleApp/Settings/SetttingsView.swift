@@ -10,7 +10,22 @@ import Foundation
 
 class SettingsView: UITableViewController {
     
-    override func viewDidLoad() {
+    @IBOutlet var privateAccountSwitch: UISwitch!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        SwapUser().getInformation(completion: { (error, user) in
+            
+    
+            //needs modification
+            if (user?._isPrivate == 1){
+                self.privateAccountSwitch.isOn = true
+            }
+            else{
+                self.privateAccountSwitch.isOn = false
+            }
+        
+        })
         
     }
     @IBAction func closeSettings(_ sender: Any) {
@@ -19,6 +34,17 @@ class SettingsView: UITableViewController {
         
     }
     
+    @IBAction func didTogglePrivateAccount(_ sender: UISwitch) {
+        
+            
+        if sender.isOn{
+            SwapUser().set(isPrivate: true)
+        }
+        else{
+            SwapUser().set(isPrivate: false)
+        }
+            
+    }
     
     //code that runs when a certain row is tapped
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -28,7 +54,7 @@ class SettingsView: UITableViewController {
         if (indexPath.section == 1 && indexPath.row == 2){
             
             let alert = UIAlertController(title: "Confirm Sign Out?", message: "Swap Points will reset", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Canvel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Yes", style: .default){ (action) in
                 
                

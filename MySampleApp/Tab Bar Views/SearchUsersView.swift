@@ -87,7 +87,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         cell.username.text = returnedUsers[indexPath.item].username
 
         cell.profileImage.kf.setImage(with: returnedUsers[indexPath.item].profilePictureURL)
-        
+        circularImage(photoImageView: cell.profileImage)
         
         return cell
     }
@@ -97,18 +97,14 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         //number of featured profiles
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 10;
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featuredCell", for: indexPath) as! featuredProfilesCell
         
-        cell.clipsToBounds = true
-        
+      
+        cell.contentView.frame = cell.bounds
         cell.username.text = "featured"
         
         return cell

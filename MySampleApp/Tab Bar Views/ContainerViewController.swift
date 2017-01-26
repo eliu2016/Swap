@@ -72,7 +72,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         view.addSubview(scrollView)
         scrollView.delegate = self
         
-        SwapCenterButton = UIButton(frame: CGRect(x: self.view.frame.size.width*0.4, y: self.view.frame.size.height*0.9, width: 62, height: 60))
+        SwapCenterButton = UIButton(frame: CGRect(x: self.view.frame.size.width*0.42, y: self.view.frame.size.height*0.9, width: 62, height: 60))
         
       /*  var menuButtonFrame = SwapCenterButton.frame
         menuButtonFrame.origin.y = view.bounds.height - menuButtonFrame.height
