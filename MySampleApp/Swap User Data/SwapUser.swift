@@ -510,7 +510,9 @@ class SwapUser {
                         
                         if let id = user!._notification_id_one_signal{
                             
-                            OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped™ you."], "include_player_ids": [id]])
+                            OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped™ you."],
+                                  "content_available": "true"
+                                  , "include_player_ids": [id]])
                         }
                         
                         
@@ -613,6 +615,7 @@ class SwapUser {
                             // Sends notification to user
                             OneSignal.postNotification([
                                 "contents": ["en": "\(nameOfUser) (@\(username)) has accepted your Swap™ Request."],
+                                  "content_available": "true",
                                 "include_player_ids": [id]
                                 ])
                             

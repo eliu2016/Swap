@@ -42,6 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         // One Signal Push Notification
         OneSignal.initWithLaunchOptions(launchOptions, appId: ONE_SIGNAL_APP_ID, handleNotificationAction: { (result) in
+            
+            setNotificationCount(byAdding: 1)
+            
             // Completion Block Called when the user presses an action button from a Swap Request
             let payload = result?.notification.payload
             // Obtain the Action Selected From Notification
@@ -146,7 +149,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        
         AWSMobileClient.sharedInstance.application(application, didReceiveRemoteNotification: userInfo)
+        
+        
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -167,6 +173,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         return true
     }
+    
+   
+    
+}
+
+
+
+func setNotificationCount(byAdding:Int? = 0)
+    
+{
+    
+    
+    
+    let currentCount = UserDefaults.standard.integer(forKey: "NotificationCount")
+    
+    let application = UIApplication.shared
+    if #available(iOS 10.0, *) {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in }
+    }
+    else{
+        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+    }
+    application.registerForRemoteNotifications()
+    
+    
+   
+        
+        UserDefaults.standard.set(0, forKey: "NotificationCount")
+        application.applicationIconBadgeNumber = 0
+
+        
+        if byAdding! > 0 {
+            
+            let newCount = currentCount + byAdding!
+            UserDefaults.standard.set(newCount, forKey: "NotificationCount")
+            
+            application.applicationIconBadgeNumber = newCount
+        }
+
+        
+    
+    
     
     
 }
