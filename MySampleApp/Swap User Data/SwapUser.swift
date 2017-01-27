@@ -511,8 +511,10 @@ class SwapUser {
                         if let id = user!._notification_id_one_signal{
                             
                             OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped™ you."],
-                                  "content_available": "true"
-                                  , "include_player_ids": [id]])
+                                  "content_available": true,
+                                  "ios_badgeType": "Increase",
+                                  "ios_badgeCount": "1",
+                                  "include_player_ids": [id]])
                         }
                         
                         
@@ -566,7 +568,9 @@ class SwapUser {
                                         OneSignal.postNotification([
                                             "contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) requested to Swap™ you."],
                                             "include_player_ids": [id],
-                                            "content_available": "true",
+                                            "content_available": true,
+                                            "ios_badgeType": "Increase",
+                                            "ios_badgeCount": "1",
                                             "buttons": [
                                                 ["id": "Accept", "text": "Accept"],
                                                 ["id": "Decline", "text": "Decline"] ],
@@ -615,7 +619,9 @@ class SwapUser {
                             // Sends notification to user
                             OneSignal.postNotification([
                                 "contents": ["en": "\(nameOfUser) (@\(username)) has accepted your Swap™ Request."],
-                                  "content_available": "true",
+                                  "content_available": true,
+                                  "ios_badgeType": "Increase",
+                                  "ios_badgeCount": "1",
                                 "include_player_ids": [id]
                                 ])
                             

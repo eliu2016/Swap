@@ -40,37 +40,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         // Override point for customization after application launch.
         AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
         
-        // One Signal Push Notification
-        OneSignal.initWithLaunchOptions(launchOptions, appId: ONE_SIGNAL_APP_ID, handleNotificationAction: { (result) in
-            
-            setNotificationCount(byAdding: 1)
-            
-            // Completion Block Called when the user presses an action button from a Swap Request
-            let payload = result?.notification.payload
-            // Obtain the Action Selected From Notification
-            
-            if let additionalData = payload?.additionalData, let actionSelected = additionalData["actionSelected"] as? String {
-                
-                let username = additionalData["username"] as? String ?? ""
-                
-                switch actionSelected{
-                case "Accept":
-                    // User Accepted
-                    SwapUser(username: getUsernameOfSignedInUser()).performActionOnSwapRequestFromUser(withUsername: username, doAccept: true)
-                    break
-                    
-                case "Decline":
-                    SwapUser(username: getUsernameOfSignedInUser()).performActionOnSwapRequestFromUser(withUsername: username, doAccept: true)
-                    break
-                    
-                default: break
-                }
-                
-            }
-            
-            
-        })
         
+        OneSignal.initWithLaunchOptions(launchOptions, appId: ONE_SIGNAL_APP_ID, handleNotificationReceived: { notification in
+           
+         
+        },
+                                        handleNotificationAction: {
+                                            (result) in
+                                            
+                                            
+                                            
+                                            // Completion Block Called when the user presses an action button from a Swap Request
+                                            let payload = result?.notification.payload
+                                            // Obtain the Action Selected From Notification
+                                            
+                                            if let additionalData = payload?.additionalData, let actionSelected = additionalData["actionSelected"] as? String {
+                                                
+                                                let username = additionalData["username"] as? String ?? ""
+                                                
+                                                switch actionSelected{
+                                                case "Accept":
+                                                    // User Accepted
+                                                    SwapUser(username: getUsernameOfSignedInUser()).performActionOnSwapRequestFromUser(withUsername: username, doAccept: true)
+                                                    break
+                                                    
+                                                case "Decline":
+                                                    SwapUser(username: getUsernameOfSignedInUser()).performActionOnSwapRequestFromUser(withUsername: username, doAccept: true)
+                                                    break
+                                                    
+                                                default: break
+                                                }
+                                                
+                                            }
+                                            
+                                            
+        }, settings: [:])
+        
+        
+       
+    
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil) // this assumes your storyboard is titled "Main.storyboard"
@@ -121,6 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+   
     }
     
     
@@ -136,9 +145,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
         
-        // Clear the badge icon when you open the app.
-        UIApplication.shared.applicationIconBadgeNumber = 0
-    }
+        
+            }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         AWSMobileClient.sharedInstance.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
@@ -150,8 +158,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
+     
         AWSMobileClient.sharedInstance.application(application, didReceiveRemoteNotification: userInfo)
-        
+    
         
     }
     
@@ -180,42 +189,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
 
 
-func setNotificationCount(byAdding:Int? = 0)
-    
-{
-    
-    
-    
-    let currentCount = UserDefaults.standard.integer(forKey: "NotificationCount")
-    
-    let application = UIApplication.shared
-    if #available(iOS 10.0, *) {
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in }
-    }
-    else{
-        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
-    }
-    application.registerForRemoteNotifications()
-    
-    
-   
-        
-        UserDefaults.standard.set(0, forKey: "NotificationCount")
-        application.applicationIconBadgeNumber = 0
 
-        
-        if byAdding! > 0 {
-            
-            let newCount = currentCount + byAdding!
-            UserDefaults.standard.set(newCount, forKey: "NotificationCount")
-            
-            application.applicationIconBadgeNumber = newCount
-        }
-
-        
-    
-    
-    
-    
-}
