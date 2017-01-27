@@ -112,7 +112,7 @@ class ScannerViewController: UIViewController {
                         shareYouTube(withUser: user)
                         shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: self)
                         sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: self)
-                        
+                        shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: self)
                         
                         
                         SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))

@@ -276,7 +276,7 @@ class RedditLoader: OAuth2DataLoader {
     
     func addFriend(withUsername: String,  callback: @escaping ((_ dict: OAuth2JSON?, _ error: Error?) -> Void))  {
         
-        putRequest(path: "/api/v1/me/friends/?id=\(withUsername)&type=friend", callback: callback)
+        putRequest(path: "api/v1/me/friends/\(withUsername)", callback: callback)
     }
     
     
@@ -285,6 +285,7 @@ class RedditLoader: OAuth2DataLoader {
         let url = baseURL.appendingPathComponent(path)
         var req = oauth2.request(forURL: url)
         req.httpMethod = "PUT"
+        req.httpBody  = "{}".data(using: .utf8)
     
         perform(request: req) { response in
             do {

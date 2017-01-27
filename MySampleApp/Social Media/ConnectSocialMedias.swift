@@ -138,20 +138,30 @@ func shareReddit(withUser: Users?,
         } else{
             
             let loader = RedditLoader()
-            
-            loader.request(path: "http://www.reddit.com/api/v1/me/friends/michealbingham?name=micheal&note=Swapped", callback: { (json, error) in
+            loader.addFriend(withUsername: RedditID, callback: { (json, error) in
                 
-                print("\n\n\n\n\n\n\n\n\n\n\n\n The response reddit is \(json)")
-                 print("\n\n\n\n\n\n\n\n\n\n\n\n The error reddit is \(error)")
+                if let error = error{
+                    completion(error)
+                }
+                
+                if let response = json{
+                 
+                    
+                    // Check if "id" is in the JSON to determine if it is a success
+                    if let id = response["id"] as? String{
+                       // FOLLOWING WORKED
+                        
+                        history.didShare(RedditIs: true)
+                        completion(nil)
+                        
+                    } else{
+                        // Did not work 
+                        completion(AuthorizationError.Unknown)
+                    }
+                }
                 
             })
             
-            /*
-             // The DataLoader class ensures that a request will be made. It will authorize if needed
-             var redditReq = reddit_oauth2.request(forURL: URL(string: "http://www.reddit.com/api/v1/me/friends/michealbingham?name=micheal&note=Swapped")!)
-             redditReq.sign(with: reddit_oauth2)
-             redditReq.httpMethod = "PUT"
-             */
             
         }
     })
