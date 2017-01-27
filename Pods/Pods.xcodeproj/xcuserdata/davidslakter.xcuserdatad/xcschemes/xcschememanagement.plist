@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PhoneNumberKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Swap.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,22 +62,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05293DABA4493A33B673E0CBE0E0449F</key>
+		<key>08E85383B307FB359793552B78F80CA2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C888244E1133C680DBF379F4ED055FB</key>
+		<key>2D35EC83074E144226EF8FCD88B2D246</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3264A3811C5E525F6FE02348BB9E02C8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>41B4EE813BF3F15B2FC9B92295F60720</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4DC059E04CBA98AEDDB5C34E02D551E9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>767C0D9ACF4B1C4492583806C195724A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,22 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8C5BD10883BD185426DD737247F56DEC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8D464169D000BB666C814E25C888DFAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A7F969C87CF26AAB65DED840B228ED59</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C4944FEC314D1A66588651D006273ADE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CB56F729B6359F1B6D501ECC99F7635B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F07E6B3A5B1BD1D0D210F17FA7029359</key>
 		<dict>
 			<key>primary</key>
 			<true/>
