@@ -592,7 +592,44 @@ class SwapUser {
     }
     
     
-    
+    func sendNotifcationOfSwapRequestAcceptanceToUser(withUsername: String)  {
+        
+        self.getInformation { (error, thisUser) in
+            
+            if let thisUser = thisUser{
+                 let nameOfUser = "\(thisUser._firstname!) \(thisUser._lastname!)"
+                let username = thisUser._username!
+                
+                
+                SwapUser(username: withUsername).getInformation { (error, user) in
+                    
+                    if let user = user {
+                        if let id = user._notification_id_one_signal{
+                            
+                            let nameOfUser = "\(user._firstname!) \(user._lastname!)"
+                            
+                            // Send Notification to User withUsername that the Swap Request has been accepted
+                            
+                            // Sends notification to user
+                            OneSignal.postNotification([
+                                "contents": ["en": "\(nameOfUser) (@\(username)) has accepted your Swap™ Request."],
+                                "include_player_ids": [id]
+                                ])
+                            
+                        }
+                    }
+                }
+                
+                
+            }
+            
+            
+        }
+        
+        
+       
+        
+    }
     
     
     /// Function that returns an array of SwapRequest objects
@@ -678,6 +715,9 @@ class SwapUser {
         
         NoSQL.save(swapRequest!, configuration: updateMapperConfig, completionHandler: { error in
             
+            if error == nil {
+                self.sendNotifcationOfSwapRequestAcceptanceToUser(withUsername: withUsername)
+            }
             completion(error)
             
         })
