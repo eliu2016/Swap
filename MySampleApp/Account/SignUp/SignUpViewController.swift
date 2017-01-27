@@ -46,7 +46,6 @@ class SignUpViewController: UIViewController {
         }
        
         
-        
         createAccount(username: usernameField.text,
                       password: passwordField.text,
                       email: emailField.text,
@@ -55,7 +54,7 @@ class SignUpViewController: UIViewController {
         failedToCreateAccount:{ signUpError in
             
             blackOverlay.isHidden = true
-            blackOverlay.isHidden = true
+            loadingSymbol.isHidden = true
                     
             switch signUpError{
                 
@@ -101,9 +100,6 @@ class SignUpViewController: UIViewController {
                 self.performSegue(withIdentifier: "toConfirmAccount", sender: nil)
             }
             
-            
-            
-         
             
             
         })

@@ -28,6 +28,16 @@ class SettingsView: UITableViewController {
         })
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        for indexpath in self.tableView.indexPathsForVisibleRows!{
+            
+            self.tableView.deselectRow(at: indexpath, animated: true)
+            
+        }
+        
+    }
     @IBAction func closeSettings(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
