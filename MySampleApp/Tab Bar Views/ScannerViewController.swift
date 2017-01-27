@@ -178,7 +178,7 @@ class ScannerViewController: UIViewController {
 
 func getUsernameFromSwapLink(swapLink: String) -> String {
     
-    return (swapLink as NSString).lastPathComponent
+    return (swapLink as NSString).lastPathComponent.lowercased()
     
     
 }
