@@ -207,9 +207,26 @@ var reddit_oauth2: OAuth2CodeGrant = OAuth2CodeGrant(settings: [
 
 
 
+//=================== GitHub Authorization Information ==========================================//
 
 
+let GITHUB_CLIENT_ID = "52e9a1b1e8f32e392c39"
+let GITHUB_CLIENT_SECRET = "1efa10c25aac49ed9527cb6385da8134365687af"
+let GITHUB_CALLBACK = "http://swapapp.co"
 
+
+var github_oauth2: OAuth2CodeGrant = OAuth2CodeGrant(settings: [
+    "client_id": GITHUB_CLIENT_ID,
+    "client_secret": GITHUB_CLIENT_SECRET,
+    "authorize_uri": "https://github.com/login/oauth/authorize",
+    "token_uri": "https://github.com/login/oauth/access_token",
+    "scope": "user user:follow",
+    "redirect_uris": [GITHUB_CALLBACK],   // register scheme in Info.plist
+    "secret_in_body": true,
+    ])
+
+
+//=================== GitHub Authorization Information ==========================================//
 
 
 

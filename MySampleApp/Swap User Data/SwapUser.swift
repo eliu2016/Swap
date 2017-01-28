@@ -85,6 +85,7 @@ class SwapUser {
               RedditID: String? = nil,
               PinterestID: String? = nil,
               SoundCloudID: String? = nil,
+              GitHubID: String? = nil,
               WillShareSpotify: Bool? = nil,
               WillShareYouTube: Bool? = nil,
               WillSharePhonenumber: Bool? = nil,
@@ -95,6 +96,7 @@ class SwapUser {
               WillShareReddit: Bool? = nil,
               WillSharePinterest: Bool? = nil,
               WillShareSoundCloud: Bool? = nil,
+              WillShareGitHub: Bool? = nil,
               DidSetInformation: @escaping () -> Void? = { return nil },
               CannotSetInformation: @escaping () -> Void? =  { return }) {
         
@@ -129,6 +131,7 @@ class SwapUser {
         user?._instagramID = (InstagramID != nil && !((InstagramID?.isEmpty)!)) ? InstagramID: nil
         user?._twitterID = (TwitterID != nil && !((TwitterID?.isEmpty)!)) ? TwitterID: nil
         user?._redditID = (RedditID != nil && !((RedditID?.isEmpty)!)) ? RedditID: nil
+        user?._githubID = (GitHubID != nil && !((GitHubID?.isEmpty)!)) ? GitHubID: nil
         user?._pinterestID = (PinterestID != nil && !((PinterestID?.isEmpty)!)) ? PinterestID: nil
         user?._soundcloudID = (SoundCloudID != nil && !((SoundCloudID?.isEmpty)!)) ? SoundCloudID: nil
         user?._willShareSpotify = (WillShareSpotify != nil) ? (WillShareSpotify! as NSNumber) : nil
@@ -141,7 +144,7 @@ class SwapUser {
         user?._willShareReddit = (WillShareReddit != nil) ? (WillShareReddit! as NSNumber) : nil
         user?._willSharePinterest = (WillSharePinterest != nil) ? (WillSharePinterest! as NSNumber) : nil
         user?._willShareSoundCloud = (WillShareSoundCloud != nil) ? (WillShareSoundCloud! as NSNumber) : nil
-        
+         user?._willShareGitHub = (WillShareGitHub != nil) ? (WillShareGitHub! as NSNumber) : nil
         
         if let linkToProfileImage = ProfileImage{
             // User setted Profile Picture so we have to set it in amazon cognito

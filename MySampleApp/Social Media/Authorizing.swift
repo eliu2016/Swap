@@ -834,7 +834,81 @@ func authorizeReddit(onViewController: UIViewController, completion: @escaping (
 
 
 
+func logoutGitHub()  {
+    
+    github_oauth2.forgetTokens()
+}
 
+func authorizeGitHub(onViewController: UIViewController, completion: @escaping (_ loginError: Error?) -> Void)  {
+    
+    logoutGitHub()
+    
+    github_oauth2.authConfig.authorizeEmbedded = true
+    
+    github_oauth2.authConfig.authorizeContext = onViewController
+    
+    github_oauth2.authConfig.ui.useSafariView = false
+    
+    
+    github_oauth2.authorizeEmbedded(from: onViewController, callback: { (response, error) in
+        
+        if let error = error {
+            completion(error)
+        }  else{
+            
+            
+            if let response = response{
+                
+             
+                
+                if let accessToken = github_oauth2.accessToken{
+                    
+                     Alamofire.request("https://api.github.com/user", method: .get, parameters: ["access_token": accessToken]).responseJSON(completionHandler: { (response) in
+                        
+                        if let data = response.data{
+                            
+                            let json = JSON(data: data)
+                            
+                            print("\n\n\n\n\n\n\n the github response is ... \(json)")
+                            
+                            if let GitHubID = json["login"].string{
+                                
+                                // can get an id 
+                                SwapUser().set(GitHubID: GitHubID, DidSetInformation: {
+                                
+                                    DispatchQueue.main.async {
+                                        completion(nil)
+                                    }
+                                    
+                                })
+                                
+                                
+                            }  else{
+                                completion(AuthorizationError.IDNotFound)
+                            }
+                            
+                        }  else{
+                        
+                            completion(AuthorizationError.IDNotFound)
+                        }
+                        
+                     })
+                    
+                } else {
+                    completion(AuthorizationError.Unknown)
+                }
+                
+               
+                
+            }  else{
+                
+                completion(AuthorizationError.Unknown)
+            }
+        }
+        
+    })
+    
+}
 
 
 

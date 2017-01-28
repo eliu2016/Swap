@@ -227,6 +227,22 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
         break
         
+    // Change this to GitHub
+    case Facebook:
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareGitHub: !sender.isSelected, DidSetInformation: {
+                
+                DispatchQueue.main.async {
+                    sender.isSelected = !sender.isSelected
+                }
+                
+            })
+        }
+        
+        break
+        
         
         default:
             break
@@ -351,6 +367,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.SoundCloud.isSelected = (user?._willShareSoundCloud as? Bool) ?? false
                         self.Pinterest.isSelected = (user?._willSharePinterest as? Bool) ?? false
                         self.Snapchat.isSelected = (user?._willShareReddit as? Bool) ?? false // Change this to Reddit
+                        self.Facebook.isSelected = (user?._willShareGitHub as? Bool) ?? false // Change this to GitHub
                         self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
                         circularImage(photoImageView: self.profilePicImageView)
                         self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
@@ -415,6 +432,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         
+    
     }
 
     /*
