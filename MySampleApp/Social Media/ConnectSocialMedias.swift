@@ -138,20 +138,30 @@ func shareReddit(withUser: Users?,
         } else{
             
             let loader = RedditLoader()
-            
-            loader.request(path: "http://www.reddit.com/api/v1/me/friends/michealbingham?name=micheal&note=Swapped", callback: { (json, error) in
+            loader.addFriend(withUsername: RedditID, callback: { (json, error) in
                 
-                print("\n\n\n\n\n\n\n\n\n\n\n\n The response reddit is \(json)")
-                 print("\n\n\n\n\n\n\n\n\n\n\n\n The error reddit is \(error)")
+                if let error = error{
+                    completion(error)
+                }
+                
+                if let response = json{
+                 
+                    
+                    // Check if "id" is in the JSON to determine if it is a success
+                    if let id = response["id"] as? String{
+                       // FOLLOWING WORKED
+                        
+                        history.didShare(RedditIs: true)
+                        completion(nil)
+                        
+                    } else{
+                        // Did not work 
+                        completion(AuthorizationError.Unknown)
+                    }
+                }
                 
             })
             
-            /*
-             // The DataLoader class ensures that a request will be made. It will authorize if needed
-             var redditReq = reddit_oauth2.request(forURL: URL(string: "http://www.reddit.com/api/v1/me/friends/michealbingham?name=micheal&note=Swapped")!)
-             redditReq.sign(with: reddit_oauth2)
-             redditReq.httpMethod = "PUT"
-             */
             
         }
     })
@@ -664,6 +674,125 @@ func shareYouTube(withUser: Users?,
     
 }
 
+
+func shareGitHub(withUser: Users?,
+                 andIfNeededAuthorizeOnViewController: UIViewController,
+                 completion: @escaping (_ error: Error? ) -> Void = {noError in return})  {
+    
+    
+    
+    guard (github_oauth2.accessToken != nil || github_oauth2.refreshToken != nil) else {
+        
+        // User does not have a GitHub account connected
+        print("no git hub connected")
+        completion(UserError.NotConnected)
+        return
+    }
+    
+    
+    guard let user = withUser else{
+        
+        // There is no user to share GitHub with
+        completion(UserError.CouldNotGetUser)
+        return
+    }
+    
+    let UserWillShareGitHub = user._willShareGitHub as? Bool ?? false
+    
+    guard UserWillShareGitHub else{
+        
+        completion(UserError.WillNotShareSocialMedia)
+        return
+    }
+    
+    guard let GitHubID = user._githubID else {
+        // User does not have a GitHub ID connected
+        
+        completion(UserError.WillNotShareSocialMedia)
+        return
+    }
+    
+    
+    
+    // Creates a SwapUserHistory Object in order to save in Swap History if the Follow Attempt was a success
+    let history = SwapUserHistory(swap: getUsernameOfSignedInUser(), swapped: user._username!)
+    
+    
+    
+    // Sets up Authorization Screen if you need to authorize GitHub
+    github_oauth2.authConfig.authorizeEmbedded = true
+    
+    github_oauth2.authConfig.authorizeContext = andIfNeededAuthorizeOnViewController
+    
+    github_oauth2.authConfig.ui.useSafariView = false
+    
+    
+    
+    // Will show login screen if there is no valid refresh token to refresh access token
+    
+    github_oauth2.authorize { (json, error) in
+        
+        if let _ = error {
+            
+            // Some error authorizing GitHub
+            print("Some error authorizing github")
+            completion(AuthorizationError.Unknown)
+            
+        }
+            
+            
+        else{
+            
+            // Try to follow on GitHub
+            
+            if let accessToken = github_oauth2.accessToken{
+                print("access token found")
+            
+            Alamofire.request("https://api.github.com/user/following/\(GitHubID)?access_token=\(accessToken)", method: .put).responseJSON(completionHandler: { (response) in
+                
+           
+                
+                if let response = response.response{
+                    
+                    let code = response.statusCode
+                    
+                    if code == 204{
+                        
+                        // most likely  a success
+                        history.didShare(GitHubIs: true)
+                        DispatchQueue.main.async {
+                            completion(nil)
+                        }
+                        
+                    } else{
+                        
+                        // most likely a fail
+                        completion(AuthorizationError.Unknown)
+                    }
+                    
+                } else{
+                    completion(AuthorizationError.Unknown)
+                }
+                
+                
+            })
+            
+            } else{
+                
+                // No Access Token
+                print("no github access token")
+                completion(UserError.Unknown)
+            }
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+}
 
 /// Function that follows the user on SoundCloud. See other 'share' functions for additional details to the functionality.
 ///

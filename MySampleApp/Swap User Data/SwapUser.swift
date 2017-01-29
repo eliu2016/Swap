@@ -85,6 +85,7 @@ class SwapUser {
               RedditID: String? = nil,
               PinterestID: String? = nil,
               SoundCloudID: String? = nil,
+              GitHubID: String? = nil,
               WillShareSpotify: Bool? = nil,
               WillShareYouTube: Bool? = nil,
               WillSharePhonenumber: Bool? = nil,
@@ -95,6 +96,7 @@ class SwapUser {
               WillShareReddit: Bool? = nil,
               WillSharePinterest: Bool? = nil,
               WillShareSoundCloud: Bool? = nil,
+              WillShareGitHub: Bool? = nil,
               DidSetInformation: @escaping () -> Void? = { return nil },
               CannotSetInformation: @escaping () -> Void? =  { return }) {
         
@@ -129,6 +131,7 @@ class SwapUser {
         user?._instagramID = (InstagramID != nil && !((InstagramID?.isEmpty)!)) ? InstagramID: nil
         user?._twitterID = (TwitterID != nil && !((TwitterID?.isEmpty)!)) ? TwitterID: nil
         user?._redditID = (RedditID != nil && !((RedditID?.isEmpty)!)) ? RedditID: nil
+        user?._githubID = (GitHubID != nil && !((GitHubID?.isEmpty)!)) ? GitHubID: nil
         user?._pinterestID = (PinterestID != nil && !((PinterestID?.isEmpty)!)) ? PinterestID: nil
         user?._soundcloudID = (SoundCloudID != nil && !((SoundCloudID?.isEmpty)!)) ? SoundCloudID: nil
         user?._willShareSpotify = (WillShareSpotify != nil) ? (WillShareSpotify! as NSNumber) : nil
@@ -141,7 +144,7 @@ class SwapUser {
         user?._willShareReddit = (WillShareReddit != nil) ? (WillShareReddit! as NSNumber) : nil
         user?._willSharePinterest = (WillSharePinterest != nil) ? (WillSharePinterest! as NSNumber) : nil
         user?._willShareSoundCloud = (WillShareSoundCloud != nil) ? (WillShareSoundCloud! as NSNumber) : nil
-        
+         user?._willShareGitHub = (WillShareGitHub != nil) ? (WillShareGitHub! as NSNumber) : nil
         
         if let linkToProfileImage = ProfileImage{
             // User setted Profile Picture so we have to set it in amazon cognito
@@ -510,7 +513,11 @@ class SwapUser {
                         
                         if let id = user!._notification_id_one_signal{
                             
-                            OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped™ you."], "include_player_ids": [id]])
+                            OneSignal.postNotification(["contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) has Swapped™ you."],
+                                  "content_available": true,
+                                  "ios_badgeType": "Increase",
+                                  "ios_badgeCount": "1",
+                                  "include_player_ids": [id]])
                         }
                         
                         
@@ -564,7 +571,9 @@ class SwapUser {
                                         OneSignal.postNotification([
                                             "contents": ["en": "\(nameOfUser) (@\(usernameOfUser)) requested to Swap™ you."],
                                             "include_player_ids": [id],
-                                            "content_available": "true",
+                                            "content_available": true,
+                                            "ios_badgeType": "Increase",
+                                            "ios_badgeCount": "1",
                                             "buttons": [
                                                 ["id": "Accept", "text": "Accept"],
                                                 ["id": "Decline", "text": "Decline"] ],
@@ -592,7 +601,47 @@ class SwapUser {
     }
     
     
-    
+    func sendNotifcationOfSwapRequestAcceptanceToUser(withUsername: String)  {
+        
+        self.getInformation { (error, thisUser) in
+            
+            if let thisUser = thisUser{
+                 let nameOfUser = "\(thisUser._firstname!) \(thisUser._lastname!)"
+                let username = thisUser._username!
+                
+                
+                SwapUser(username: withUsername).getInformation { (error, user) in
+                    
+                    if let user = user {
+                        if let id = user._notification_id_one_signal{
+                            
+                            let nameOfUser = "\(user._firstname!) \(user._lastname!)"
+                            
+                            // Send Notification to User withUsername that the Swap Request has been accepted
+                            
+                            // Sends notification to user
+                            OneSignal.postNotification([
+                                "contents": ["en": "\(nameOfUser) (@\(username)) has accepted your Swap™ Request."],
+                                  "content_available": true,
+                                  "ios_badgeType": "Increase",
+                                  "ios_badgeCount": "1",
+                                "include_player_ids": [id]
+                                ])
+                            
+                        }
+                    }
+                }
+                
+                
+            }
+            
+            
+        }
+        
+        
+       
+        
+    }
     
     
     /// Function that returns an array of SwapRequest objects
@@ -678,6 +727,9 @@ class SwapUser {
         
         NoSQL.save(swapRequest!, configuration: updateMapperConfig, completionHandler: { error in
             
+            if error == nil {
+                self.sendNotifcationOfSwapRequestAcceptanceToUser(withUsername: withUsername)
+            }
             completion(error)
             
         })

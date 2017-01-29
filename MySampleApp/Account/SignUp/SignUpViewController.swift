@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import PhoneNumberKit
 
 class SignUpViewController: UIViewController {
     
     //Text Fields
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var phonenumberField: UITextField!
+    @IBOutlet weak var phonenumberField: PhoneNumberTextField!
     @IBOutlet weak var passwordField: UITextField!
     
     //Buttons
@@ -32,15 +33,28 @@ class SignUpViewController: UIViewController {
         self.view.addSubview(blackOverlay)
         self.view.addSubview(loadingSymbol)
         
+
+        let phoneNumberKit = PhoneNumberKit()
+        var formattedPhoneNumber = ""
+        
+        do {
+            let phoneNumber = try phoneNumberKit.parse(phonenumberField.text!)
+            formattedPhoneNumber = PhoneNumberKit().format(phoneNumber, toType: .e164)
+        }
+        catch {
+            print("Phone number parser error")
+        }
+       
+        
         createAccount(username: usernameField.text,
                       password: passwordField.text,
                       email: emailField.text,
-                      phonenumber: phonenumberField.text,
+                      phonenumber: formattedPhoneNumber,
                       
         failedToCreateAccount:{ signUpError in
             
             blackOverlay.isHidden = true
-            blackOverlay.isHidden = true
+            loadingSymbol.isHidden = true
                     
             switch signUpError{
                 
@@ -86,9 +100,6 @@ class SignUpViewController: UIViewController {
                 self.performSegue(withIdentifier: "toConfirmAccount", sender: nil)
             }
             
-            
-            
-         
             
             
         })
