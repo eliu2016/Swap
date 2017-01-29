@@ -29,6 +29,7 @@ class SwapHistory: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _didShareTwitter: NSNumber?
     var _didShareVine: NSNumber?
     var _didShareYouTube: NSNumber?
+    var _didShareGitHub: NSNumber?
     var _location: Set<NSNumber>?
     var _method: String?
     var _time: NSNumber?
@@ -63,6 +64,7 @@ class SwapHistory: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_didShareTwitter" : "didShareTwitter",
             "_didShareVine" : "didShareVine",
             "_didShareYouTube" : "didShareYouTube",
+            "_didShareGitHub" : "didShareGitHub",
             "_location" : "location",
             "_method" : "method",
             "_time" : "time",

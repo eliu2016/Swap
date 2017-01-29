@@ -37,6 +37,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _redditID: String?
     var _soundcloudID: String?
     var _spotifyID: String?
+    var _githubID: String?
     var _swapCodeUrl: String?
     var _swapped: NSNumber?
     var _swaps: NSNumber?
@@ -53,6 +54,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _willShareTwitter: NSNumber?
     var _willShareVine: NSNumber?
     var _willShareYouTube: NSNumber?
+    var _willShareGitHub: NSNumber?
     var _youtubeID: String?
     var _notification_id_one_signal: String?
     
@@ -87,6 +89,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_points" : "points",
             "_profilePictureUrl" : "profile_picture_url",
             "_redditID" : "redditID",
+            "_githubID": "githubID",
             "_soundcloudID" : "soundcloud_ID",
             "_spotifyID" : "spotify_ID",
             "_swapCodeUrl" : "swap_code_url",
@@ -105,6 +108,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_willShareTwitter" : "willShareTwitter",
             "_willShareVine" : "willShareVine",
             "_willShareYouTube" : "willShareYouTube",
+            "_willShareGitHub": "willShareGitHub",
             "_youtubeID" : "youtube_ID",
             "_notification_id_one_signal": "notification_id_one_signal",
         ]

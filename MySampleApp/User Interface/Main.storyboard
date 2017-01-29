@@ -5,7 +5,9 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
+
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1484,7 +1486,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="onTintColor" red="0.0045176092535257339" green="0.79236000776290894" blue="0.8608931303024292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
+
                                                         <action selector="didTogglePrivateAccount:" destination="U5G-4Q-vfF" eventType="valueChanged" id="vLj-kE-E2y"/>
+
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -1555,7 +1559,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+
                         <outlet property="privateAccountSwitch" destination="wju-3j-KIc" id="nwg-Ma-Svs"/>
+
                         <segue destination="Zxc-qU-hxd" kind="presentation" identifier="signOut" id="3i4-u5-l9d"/>
                     </connections>
                 </tableViewController>
@@ -1667,7 +1673,9 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V4p-D6-RZp">
+
                                 <rect key="frame" x="0.0" y="165" width="375" height="425"/>
+
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="77" id="06w-SX-War" customClass="searchUsernamesCell" customModule="Swap" customModuleProvider="target">
@@ -1726,6 +1734,8 @@
                                     <outlet property="delegate" destination="ZpM-LC-rQe" id="VeH-Yd-dVA"/>
                                 </connections>
                             </tableView>
+
+
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2558,12 +2568,15 @@
         </scene>
     </scenes>
     <resources>
+
         <image name="AddFriendsIcon" width="64" height="64"/>
+
         <image name="BlackCarrot" width="32" height="32"/>
         <image name="BlueRoundBorder" width="123" height="127"/>
         <image name="CloseIcon" width="64" height="64"/>
         <image name="ConnectSocialMediaTutorial" width="360" height="632"/>
         <image name="DefaultProfileImage" width="181" height="176"/>
+
         <image name="EmailDisabled" width="97" height="94"/>
         <image name="ExploreIcon" width="28" height="28"/>
         <image name="FacebookDisabled" width="100" height="98"/>
@@ -2572,17 +2585,21 @@
         <image name="HomeIcon" width="45" height="45"/>
         <image name="InfoIcon" width="95" height="80"/>
         <image name="InstagramDisabled" width="134" height="128"/>
+
         <image name="LeftCarrot" width="32" height="32"/>
         <image name="LoginButton" width="288" height="48"/>
         <image name="Logo" width="232" height="229"/>
         <image name="MainBackground" width="378" height="666"/>
         <image name="NotificationIcon" width="27" height="27"/>
         <image name="PhoneDisabled" width="91" height="88"/>
+
         <image name="PinterestDisabled" width="99" height="96"/>
+
         <image name="RightCarrot" width="32" height="32"/>
         <image name="SearchIcon" width="27" height="27"/>
         <image name="SettingsIcon" width="102" height="99"/>
         <image name="SnapchatDisabled" width="88" height="87"/>
+
         <image name="SoundCloudDisabled" width="96" height="95"/>
         <image name="SpotifyDisabled" width="95" height="93"/>
         <image name="TextfieldBottom" width="615" height="2"/>
@@ -2592,6 +2609,7 @@
         <image name="VineDisabled" width="88" height="87"/>
         <image name="WhiteRoundBorder" width="123" height="127"/>
         <image name="YouTubeDisabled" width="131" height="128"/>
+
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YeA-4M-5uc"/>

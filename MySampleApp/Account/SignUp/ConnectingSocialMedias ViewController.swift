@@ -288,6 +288,8 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
             
             break
             
+            //****** Add GitHub
+            
         default:
             break
         }
@@ -364,7 +366,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         Vine.isSelected = (getVineUsername() != nil && getVinePassword() != nil )
         YouTube.isSelected = ( (youtube_oauth2.accessToken != nil) || (youtube_oauth2.refreshToken != nil) )
         Snapchat.isSelected = ( (reddit_oauth2.accessToken != nil) || (reddit_oauth2.refreshToken != nil) ) // Change to reddit
-        
+      //  GitHub.isSelected = ( (github_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) ) // Add GitHub
   
     }
     

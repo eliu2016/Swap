@@ -14,6 +14,7 @@ PODS:
   - Kingfisher (3.2.4)
   - OneSignal (2.3.4)
   - p2.OAuth2 (3.0.1)
+
   - PhoneNumberKit (1.2.1):
     - PhoneNumberKit/PhoneNumberKitCore (= 1.2.1)
     - PhoneNumberKit/UIKit (= 1.2.1)
@@ -32,6 +33,7 @@ PODS:
   - TwitterKit (2.7.0):
     - TwitterCore (= 2.7.0)
 
+
 DEPENDENCIES:
   - Alamofire
   - Answers
@@ -42,7 +44,9 @@ DEPENDENCIES:
   - Kingfisher
   - OneSignal
   - p2.OAuth2
+
   - PhoneNumberKit (~> 1.2)
+
   - RealmSwift
   - SwiftQRCode
   - SwiftyJSON
@@ -58,6 +62,8 @@ SPEC CHECKSUMS:
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   OneSignal: c8f0d08ffa30fcf751c97a29639725877027e788
   p2.OAuth2: 1c58296b53820e57ea63a8977541d2e4780df141
+
+=======
   PhoneNumberKit: 7917d5f1ca21cacce535e9aa9c6d7a4537f25726
   Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
   RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567

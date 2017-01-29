@@ -34,7 +34,7 @@ class Analytics {
     }
     
     ///-todo: For some reason, in analytics, the custom attributes are not being recorded. Fix.
-    class func didSwap(byMethod: SwapMethod, isPrivate: Bool = false, didShareSpotify: Bool = false, didSharePhone: Bool = false, didShareEmail: Bool = false, didShareInstagram: Bool = false, didShareSnapchat: Bool = false, didShareTwitter: Bool = false, didShareYouTube: Bool = false, didShareSoundCloud: Bool = false, didSharePinterest: Bool = false){
+    class func didSwap(byMethod: SwapMethod, isPrivate: Bool = false, didShareSpotify: Bool = false, didSharePhone: Bool = false, didShareEmail: Bool = false, didShareInstagram: Bool = false, didShareReddit: Bool = false, didShareTwitter: Bool = false, didShareYouTube: Bool = false, didShareSoundCloud: Bool = false, didSharePinterest: Bool = false){
         
         var method = ""
         if byMethod == .username{
@@ -48,7 +48,7 @@ class Analytics {
             Answers.logCustomEvent(withName: "Swap", customAttributes: [
                 
                 "Method" : method,
-                "Private Swap Request": true as NSNumber
+                "Private Swap Request": true.toString()
                 ])
             
         }  else{
@@ -56,15 +56,15 @@ class Analytics {
         Answers.logCustomEvent(withName: "Swap", customAttributes: [
             
             "Method" : method,
-            "Spotify": didShareSpotify as NSNumber,
-            "Phone Number": didSharePhone as NSNumber,
-            "Email": didShareEmail as NSNumber,
-            "Instagram": didShareInstagram as NSNumber,
-            "Snapchat" : didShareSnapchat as NSNumber,
-            "Twitter" : didShareTwitter as NSNumber,
-            "YouTube": didShareYouTube as NSNumber,
-            "SoundCloud": didShareSoundCloud as NSNumber,
-            "Pinterest": didSharePinterest as NSNumber
+            "Spotify": didShareSpotify.toString(),
+            "Phone Number": didSharePhone.toString(),
+            "Email": didShareEmail.toString(),
+            "Instagram": didShareInstagram.toString(),
+            "Reddit" : didShareReddit.toString(),
+            "Twitter" : didShareTwitter.toString(),
+            "YouTube": didShareYouTube.toString(),
+            "SoundCloud": didShareSoundCloud.toString(),
+            "Pinterest": didSharePinterest.toString()
             
 
             ])
@@ -80,4 +80,17 @@ class Analytics {
 enum SwapMethod {
     case username
     case swapcode
+}
+
+
+extension Bool{
+    
+    func toString() -> String {
+        
+        if self{
+            return "Shared"
+        } else{
+            return "Not Shared"
+        }
+    }
 }

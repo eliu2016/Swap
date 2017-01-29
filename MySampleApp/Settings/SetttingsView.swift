@@ -10,22 +10,32 @@ import Foundation
 
 class SettingsView: UITableViewController {
     
+
     @IBOutlet var privateAccountSwitch: UISwitch!
     
     override func viewWillAppear(_ animated: Bool) {
         
-        SwapUser().getInformation(completion: { (error, user) in
+     
             
-    
-            //needs modification
-            if (user?._isPrivate == 1){
-                self.privateAccountSwitch.isOn = true
+   
+       
+        SwapUser().getInformation { (error, user) in
+            
+            DispatchQueue.main.async {
+                
+            
+            if let user = user{
+                
+             let isPrivate  = user._isPrivate as? Bool ?? false
+                
+            self.privateAccountSwitch.isOn = isPrivate
+                
             }
-            else{
-                self.privateAccountSwitch.isOn = false
+                
             }
-        
-        })
+        }
+      
+     
         
     }
     
@@ -36,6 +46,7 @@ class SettingsView: UITableViewController {
             self.tableView.deselectRow(at: indexpath, animated: true)
             
         }
+
         
     }
     @IBAction func closeSettings(_ sender: Any) {
@@ -47,12 +58,7 @@ class SettingsView: UITableViewController {
     @IBAction func didTogglePrivateAccount(_ sender: UISwitch) {
         
             
-        if sender.isOn{
-            SwapUser().set(isPrivate: true)
-        }
-        else{
-            SwapUser().set(isPrivate: false)
-        }
+      SwapUser().set(isPrivate: sender.isOn)
             
     }
     
