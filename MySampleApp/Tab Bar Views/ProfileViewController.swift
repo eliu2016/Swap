@@ -254,18 +254,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
- 
-        
-        
-        
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        saveViewController(viewController: nil)
-        
         // Loads profile data from API on a high priority background thread
         DispatchQueue.global(qos: .userInitiated).async {
             
@@ -381,8 +369,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 
                 
             })
-            
         }
+        
+        
+        
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        saveViewController(viewController: nil)
+        
         
         //set delegates
         bioTextField.delegate = self

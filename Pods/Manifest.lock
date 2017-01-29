@@ -14,17 +14,25 @@ PODS:
   - Kingfisher (3.2.4)
   - OneSignal (2.3.4)
   - p2.OAuth2 (3.0.1)
-  - Realm (2.3.0):
-    - Realm/Headers (= 2.3.0)
-  - Realm/Headers (2.3.0)
-  - RealmSwift (2.3.0):
-    - Realm (= 2.3.0)
+
+  - PhoneNumberKit (1.2.1):
+    - PhoneNumberKit/PhoneNumberKitCore (= 1.2.1)
+    - PhoneNumberKit/UIKit (= 1.2.1)
+  - PhoneNumberKit/PhoneNumberKitCore (1.2.1)
+  - PhoneNumberKit/UIKit (1.2.1):
+    - PhoneNumberKit/PhoneNumberKitCore
+  - Realm (2.1.2):
+    - Realm/Headers (= 2.1.2)
+  - Realm/Headers (2.1.2)
+  - RealmSwift (2.1.2):
+    - Realm (= 2.1.2)
   - SwiftQRCode (3.0.2)
   - SwiftyJSON (3.1.4)
-  - TwitterCore (2.8.0):
+  - TwitterCore (2.7.0):
     - Fabric
-  - TwitterKit (2.8.0):
-    - TwitterCore (= 2.8.0)
+  - TwitterKit (2.7.0):
+    - TwitterCore (= 2.7.0)
+
 
 DEPENDENCIES:
   - Alamofire
@@ -36,6 +44,9 @@ DEPENDENCIES:
   - Kingfisher
   - OneSignal
   - p2.OAuth2
+
+  - PhoneNumberKit (~> 1.2)
+
   - RealmSwift
   - SwiftQRCode
   - SwiftyJSON
@@ -51,13 +62,16 @@ SPEC CHECKSUMS:
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   OneSignal: c8f0d08ffa30fcf751c97a29639725877027e788
   p2.OAuth2: 1c58296b53820e57ea63a8977541d2e4780df141
-  Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
-  RealmSwift: dc6f99ea55e59490cec69c860f91932b6bf7efb6
+
+=======
+  PhoneNumberKit: 7917d5f1ca21cacce535e9aa9c6d7a4537f25726
+  Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
+  RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567
   SwiftQRCode: 280589699d84195c2c573011aa52f2c015c31c34
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
-  TwitterKit: f7b0a1adcb800f6446ff0ef70164797376522ff3
+  TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
+  TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: 33f7cf32ebb5ac211d1855d6c5ed8162209f5f26
+PODFILE CHECKSUM: ced6d89e67e2ec544d1b117c4e2037b6c0d0dc51
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.1.1

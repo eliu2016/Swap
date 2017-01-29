@@ -50,6 +50,8 @@
 		752A6BDA1E20975E00E6695B /* SetttingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BD91E20975E00E6695B /* SetttingsView.swift */; };
 		752A6BDC1E20D21F00E6695B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BDB1E20D21F00E6695B /* ContainerViewController.swift */; };
 		752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BDD1E20D39100E6695B /* ScannerViewController.swift */; };
+		752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */; };
+		752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1941E3B115000CE5289 /* SearchedUser.swift */; };
 		75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 751572101DFBBD3800ED4697 /* Lantinghei.ttc */; };
 		75C1EA101E021086005CB420 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C1EA0F1E021086005CB420 /* Images.xcassets */; };
 		E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E292635028900000000 /* AWSMobileClient.swift */; };
@@ -242,6 +244,8 @@
 		752A6BD91E20975E00E6695B /* SetttingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetttingsView.swift; sourceTree = "<group>"; };
 		752A6BDB1E20D21F00E6695B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		752A6BDD1E20D39100E6695B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSwapLinkView.swift; sourceTree = "<group>"; };
+		752BE1941E3B115000CE5289 /* SearchedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUser.swift; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B015F0F8311569CB29239575 /* Pods-Swap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swap/Pods-Swap.debug.xcconfig"; sourceTree = "<group>"; };
 		C679A794A37D996B81BAAC07 /* Pods_Swap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -443,6 +447,8 @@
 		752A6BD31E1F30D700E6695B /* Tab Bar Views */ = {
 			isa = PBXGroup;
 			children = (
+				752BE1941E3B115000CE5289 /* SearchedUser.swift */,
+				752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */,
 				751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */,
 				751C0B0D1E249E5800FD515A /* SearchUsersView.swift */,
 				751FCB7F1E33E52C0099FDFE /* notificationView.swift */,
@@ -837,6 +843,7 @@
 				752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */,
 				E7A30F04A0B2E49B00000000 /* UtilityFunctions.swift in Sources */,
 				751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */,
+				752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */,
 				751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */,
 				2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */,
 				2ECF288C1DF90DA900FEC5D2 /* SavingAppData.swift in Sources */,
@@ -859,6 +866,7 @@
 				E7A30F0414C8EE1900000000 /* Users.swift in Sources */,
 				751FCB801E33E52C0099FDFE /* notificationView.swift in Sources */,
 				2E9849371E04BCD200EC4C4C /* ConnectSocialMedias.swift in Sources */,
+				752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */,
 				752A6BDA1E20975E00E6695B /* SetttingsView.swift in Sources */,
 				2EFC3A2D1DF9D96000D45E7E /* ConfirmAccountViewController.swift in Sources */,
 				2EE143C91E3726ED000EADB7 /* SwapRequest.swift in Sources */,

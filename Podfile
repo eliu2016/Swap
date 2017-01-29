@@ -25,6 +25,7 @@ pod 'Fabric'
 pod 'Answers'
 pod 'TwitterKit'
 pod 'Crashlytics'
+pod 'PhoneNumberKit', '~> 1.2'
 
 
 post_install do |installer|
