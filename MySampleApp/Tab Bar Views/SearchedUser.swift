@@ -23,6 +23,7 @@ class SearchedUser: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         
         self.tabBarController?.tabBar.isHidden = true
@@ -33,9 +34,10 @@ class SearchedUser: UIViewController {
         
         usernameLabel.text = searchedUser
         
+        
         SwapUser(username: searchedUser).getInformation { (error, user) in
        
-            DispatchQueue.main.async {
+             DispatchQueue.main.async {
             
             self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             circularImage(photoImageView: self.profilePicture)

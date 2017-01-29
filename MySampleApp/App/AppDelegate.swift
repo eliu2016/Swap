@@ -29,13 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        //make UI changes
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         Fabric.with([Crashlytics.self(), Twitter.self(), Answers.self()])
         Fabric.sharedSDK().debug = true
         let branch = Branch.getInstance()
         
-        branch?.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: { (param, error) in
-            
-        })
+     
         
         // Override point for customization after application launch.
         AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
@@ -76,8 +78,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                                             
         }, settings: [:])
         
+        //enable keyboard manager
+        IQKeyboardManager.sharedManager().enable = true
         
-       
+        
+        branch?.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: { (param, error) in
+            
+            if error == nil{
+                
+                
+                
+                // opened by swap link
+                if let swapLink = param?["+non_branch_link"] as? String{
+                    
+                    if isSignedIn(){
+                        let username = getUsernameFromSwapLink(swapLink: swapLink)
+                        
+                        SwapUser(username: username).getInformation(completion: { (error, user) in
+                            
+                            if user != nil {
+                                // Valid Swap Link
+                                
+                                // set username to global variable
+                                searchedUser = username
+                                
+                                
+                                
+                                // Open Profile of Swap Link User
+                                // *** HELP @DAVID SLAKTER **** 
+                                
+                                // **** NEEDS MODIFICATION .... 
+                                
+                                // Should open the profile of the user  with username 'searchedUser' 
+                                
+                                self.window = UIWindow(frame: UIScreen.main.bounds)
+                                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil) // this assumes your storyboard is titled "Main.storyboard
+                                
+                                // Reference to Searched User Profile View Controller
+                                let profileViewControllerID: String = "SearchedUserProfileViewController"
+                                let vc = mainStoryboard.instantiateViewController(withIdentifier: profileViewControllerID)
+                                
+                                // Call View did load of the view controller 
+                                
+                                
+                                self.window?.rootViewController = vc
+                                 self.window?.makeKeyAndVisible()
+                            }
+                        })
+                    }
+                    
+                }
+            }
+        })
     
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -103,12 +155,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         self.window?.makeKeyAndVisible()
         
         
-        //enable keyboard manager
-        IQKeyboardManager.sharedManager().enable = true
+     
         
-        //make UI changes
-        UIApplication.shared.statusBarStyle = .lightContent
         
+       
         
         
         return true
@@ -179,6 +229,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         
         Branch.getInstance().continue(userActivity)
+        
+        
         
         return true
     }

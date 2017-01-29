@@ -43,6 +43,7 @@ func logoutSocialMediasAndClearCookies()  {
     logoutTwitter()
     logoutVine()
     logoutYouTube()
+    logoutGitHub()
     
     
     // Delete everything out of User Defaults
