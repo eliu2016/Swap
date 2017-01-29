@@ -36,7 +36,8 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
     
     }
-   
+    
+  
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         // Make sure that the input is not empty; otherwise, all usesrs will be returned
@@ -73,6 +74,14 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     func scrollViewDidScroll(scrollView: UIScrollView) {
       
         searchBar.resignFirstResponder()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let username = returnedUsers[indexPath.item].username
+    
+        searchedUser = username
+        performSegue(withIdentifier: "showUserProfile", sender: nil)
     }
     
     //setup table view
