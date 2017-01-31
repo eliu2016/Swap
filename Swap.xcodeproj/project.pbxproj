@@ -52,6 +52,7 @@
 		752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BDD1E20D39100E6695B /* ScannerViewController.swift */; };
 		752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */; };
 		752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1941E3B115000CE5289 /* SearchedUser.swift */; };
+		75A81B0E1E4051F500F8F62C /* TwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B0D1E4051F500F8F62C /* TwitterView.swift */; };
 		75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 751572101DFBBD3800ED4697 /* Lantinghei.ttc */; };
 		75C1EA101E021086005CB420 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C1EA0F1E021086005CB420 /* Images.xcassets */; };
 		E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E292635028900000000 /* AWSMobileClient.swift */; };
@@ -247,6 +248,7 @@
 		752A6BDD1E20D39100E6695B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSwapLinkView.swift; sourceTree = "<group>"; };
 		752BE1941E3B115000CE5289 /* SearchedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUser.swift; sourceTree = "<group>"; };
+		75A81B0D1E4051F500F8F62C /* TwitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterView.swift; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -462,6 +464,15 @@
 			path = "../MySampleApp/Tab Bar Views";
 			sourceTree = "<group>";
 		};
+		75A81B0C1E40515400F8F62C /* Preview Views */ = {
+			isa = PBXGroup;
+			children = (
+				75A81B0D1E4051F500F8F62C /* TwitterView.swift */,
+			);
+			name = "Preview Views";
+			path = "../MySampleApp/Preview Views";
+			sourceTree = "<group>";
+		};
 		B401C979480EFEB400000000 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +551,7 @@
 				2ECF287E1DF8F58800FEC5D2 /* Swap.entitlements */,
 				751C0B3E1E25C38600FD515A /* Settings */,
 				752A6BD31E1F30D700E6695B /* Tab Bar Views */,
+				75A81B0C1E40515400F8F62C /* Preview Views */,
 				7515720D1DFA5F0B00ED4697 /* User Interface */,
 				B401C9799E82047000000000 /* AmazonAws */,
 				B401C97978C125A000000000 /* App */,
@@ -838,6 +850,7 @@
 				E7A30F04571346AE00000000 /* AppDelegate.swift in Sources */,
 				2EE1439B1E370947000EADB7 /* SwapUserHistory.swift in Sources */,
 				2EFC3A391DFA2D6400D45E7E /* User Errors.swift in Sources */,
+				75A81B0E1E4051F500F8F62C /* TwitterView.swift in Sources */,
 				752A6BD81E20959500E6695B /* ProfileViewController.swift in Sources */,
 				2ECF28951DF90FE000FEC5D2 /* AuthorizationErrors.swift in Sources */,
 				752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */,

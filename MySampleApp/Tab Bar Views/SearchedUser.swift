@@ -20,13 +20,18 @@ class SearchedUser: UIViewController {
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var fullName: UILabel!
     @IBOutlet var profilePicture: UIImageView!
+    @IBOutlet var verifiedIcon: UIImageView!
     
     
     
     
     override func viewDidLoad() {
+    
+        self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
+        self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
         
-        self.tabBarController?.tabBar.isHidden = true
+        
+        verifiedIcon.isHidden = true
       
        MakeBlurViewCircular(blurView: BlurView1)
        MakeBlurViewCircular(blurView: BlurView2)
@@ -44,6 +49,9 @@ class SearchedUser: UIViewController {
             
             self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
                 
+                if user?._isVerified == 1{
+                    self.verifiedIcon.isHidden = false
+                }
             }
         }
 
@@ -51,7 +59,7 @@ class SearchedUser: UIViewController {
     
     @IBAction func didTapBack(_ sender: Any) {
         
-        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{

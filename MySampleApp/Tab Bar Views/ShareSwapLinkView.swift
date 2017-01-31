@@ -23,5 +23,11 @@ class ShareSwapLinkView: UIViewController{
         
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func didTapShare(_ sender: Any) {
+        
+        let shareVC = UIActivityViewController(activityItems: [swapLink.text!], applicationActivities: nil)
+        present(shareVC, animated: true, completion: nil)
+        
+    }
     
 }

@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var swapCodeImageView: UIImageView!
     @IBOutlet var GradientBottomLine: UIImageView!
+    @IBOutlet var verifiedIcon: UIImageView!
+   
     
     
     //buttons
@@ -43,7 +45,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var Vine: UIButton!
     @IBOutlet var Facebook: UIButton!
     @IBOutlet var Instagram: UIButton!
-
+    @IBOutlet var infoIcon: UIButton!
     
     @IBOutlet var bioTextField: UITextField!
     
@@ -282,6 +284,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.Facebook.isHidden = true
             self.Instagram.isHidden = true
             self.bioTextField.isHidden = true
+            self.infoIcon.isHidden = true
+            self.verifiedIcon.isHidden = true
             
             
             //Gets info of signed in user
@@ -323,6 +327,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.Facebook.isHidden = false
                         self.Instagram.isHidden = false
                         self.bioTextField.isHidden = false
+                        self.infoIcon.isHidden = false
+                        
+                        if SwapUser().isVerified{
+                            
+                            self.verifiedIcon.isHidden = false
+                        }
                         
                         
                         //Gets the Profile Information from User Object
