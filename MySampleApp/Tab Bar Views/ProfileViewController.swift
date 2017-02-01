@@ -329,7 +329,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.bioTextField.isHidden = false
                         self.infoIcon.isHidden = false
                         
-                        if SwapUser().isVerified{
+                        if (user?._isVerified?.boolValue)!{
                             
                             self.verifiedIcon.isHidden = false
                         }

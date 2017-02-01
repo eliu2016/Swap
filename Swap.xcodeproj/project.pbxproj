@@ -53,6 +53,7 @@
 		752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */; };
 		752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1941E3B115000CE5289 /* SearchedUser.swift */; };
 		75A81B0E1E4051F500F8F62C /* TwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B0D1E4051F500F8F62C /* TwitterView.swift */; };
+		75A81B101E415E6F00F8F62C /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B0F1E415E6F00F8F62C /* StoriesView.swift */; };
 		75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 751572101DFBBD3800ED4697 /* Lantinghei.ttc */; };
 		75C1EA101E021086005CB420 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C1EA0F1E021086005CB420 /* Images.xcassets */; };
 		E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E292635028900000000 /* AWSMobileClient.swift */; };
@@ -249,6 +250,7 @@
 		752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSwapLinkView.swift; sourceTree = "<group>"; };
 		752BE1941E3B115000CE5289 /* SearchedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUser.swift; sourceTree = "<group>"; };
 		75A81B0D1E4051F500F8F62C /* TwitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterView.swift; sourceTree = "<group>"; };
+		75A81B0F1E415E6F00F8F62C /* StoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoriesView.swift; path = "../User Interface/StoriesView.swift"; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -451,6 +453,7 @@
 			children = (
 				752BE1941E3B115000CE5289 /* SearchedUser.swift */,
 				752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */,
+				75A81B0F1E415E6F00F8F62C /* StoriesView.swift */,
 				751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */,
 				751C0B0D1E249E5800FD515A /* SearchUsersView.swift */,
 				751FCB7F1E33E52C0099FDFE /* notificationView.swift */,
@@ -856,6 +859,7 @@
 				752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */,
 				E7A30F04A0B2E49B00000000 /* UtilityFunctions.swift in Sources */,
 				751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */,
+				75A81B101E415E6F00F8F62C /* StoriesView.swift in Sources */,
 				752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */,
 				751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */,
 				2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */,

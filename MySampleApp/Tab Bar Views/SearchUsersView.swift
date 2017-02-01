@@ -15,13 +15,18 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet var searchedUsersTable: UITableView!
    // @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var tableView: UITableView!
     
     var returnedUsers: [SwapUser] = []
 
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.tabBarController?.tabBar.isHidden = false
+        for indexpath in self.tableView.indexPathsForVisibleRows!{
+            
+            self.tableView.deselectRow(at: indexpath, animated: true)
+            
+        }
         
     }
     override func viewDidLoad() {
@@ -103,10 +108,13 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         cell.profileImage.kf.setImage(with: returnedUsers[indexPath.item].profilePictureURL)
         circularImage(photoImageView: cell.profileImage)
         
-        if (!returnedUsers[indexPath.item].isVerified){
+        if (returnedUsers[indexPath.item].isVerified){
             
+            cell.verifiedIcon.isHidden = false
+            
+        }
+        else{
             cell.verifiedIcon.isHidden = true
-            
         }
         
         return cell

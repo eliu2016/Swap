@@ -29,6 +29,7 @@ class SearchedUser: UIViewController {
     
         self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
+        self.tabBarController?.tabBar.isTranslucent = false
         
         
         verifiedIcon.isHidden = true
