@@ -109,10 +109,12 @@ class ScannerViewController: UIViewController {
                         createContactInPhone(withContactDataOfUser: user, completion: {_ in return })
                         shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: self)
                         shareTwitter(withUser: user)
-                        shareYouTube(withUser: user)
+                        shareYouTube(withUser: user, andIfNeededAuthorizeOnViewController: self)
                         shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: self)
                         sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: self)
                         shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: self)
+                        shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: self)
+                        shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: self)
                         
                         
                         SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))

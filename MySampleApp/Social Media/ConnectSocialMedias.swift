@@ -557,6 +557,7 @@ func shareInstagram(withUser: Users?,
 ///   - withUser: User to follow on YouTube
 ///   - completion: Error is nil if there is success
 func shareYouTube(withUser: Users?,
+                  andIfNeededAuthorizeOnViewController: UIViewController,
                   completion: @escaping (_ error: Error?) -> Void = {noError in return})  {
     
     guard (youtube_oauth2.accessToken != nil || youtube_oauth2.refreshToken != nil) else {
@@ -616,7 +617,7 @@ func shareYouTube(withUser: Users?,
     ]
     
     
-    youtube_oauth2.authorize { (json, error) in
+    youtube_oauth2.authorizeEmbedded(from: andIfNeededAuthorizeOnViewController) { (json, error) in
         
         
         if error != nil{
@@ -1041,7 +1042,96 @@ func shareVine(withUser: Users?,
 }
 
 
-
+func shareVimeo(withUser: Users?,
+                andIfNeededAuthorizeOnViewController: UIViewController,
+                completion: @escaping (_ error: Error?) -> Void = {noError in return}
+                )  {
+    
+    
+    
+    guard (vimeo_oauth2.accessToken != nil || vimeo_oauth2.refreshToken != nil )else {
+        
+        // User does not have a Vimeo account connected
+        completion(UserError.NotConnected)
+        return
+    }
+    
+    guard let user = withUser else{
+        
+        // There is no user to share Vimeo with
+        completion(UserError.CouldNotGetUser)
+        return
+    }
+    
+    let UserWillShareVimeo = user._willShareVimeo as? Bool ?? false
+    
+    guard UserWillShareVimeo else{
+        
+        completion(UserError.WillNotShareSocialMedia)
+        return
+    }
+    
+    guard let VimeoID = user._vimeoID else {
+        // User does not have a Vimeo ID Connected
+        
+        completion(UserError.WillNotShareSocialMedia)
+        return
+    }
+    
+    
+    // Creates a SwapUserHistory Object in order to save in Swap History if the Follow Attempt was a success
+    let history = SwapUserHistory(swap: getUsernameOfSignedInUser(), swapped: user._username!)
+    
+    
+    
+    // Try to follow
+    
+    vimeo_oauth2.authorizeEmbedded(from: andIfNeededAuthorizeOnViewController, callback: { (response, error) in
+        
+        
+        if let error = error{
+            
+            completion(error)
+            
+        }  else{
+            
+            
+            // No error authorizing now try to Follow
+            
+            let vimeoLoader = OAuth2DataLoader(oauth2: vimeo_oauth2)
+            
+            var vimeoFollowRequest = vimeo_oauth2.request(forURL: URL(string: "https://api.vimeo.com/me/following/\(VimeoID)")!)
+            vimeoFollowRequest.httpMethod = "PUT"
+            
+            vimeoLoader.perform(request: vimeoFollowRequest, callback: { (response) in
+                
+               
+      
+                
+                
+               let responseCode = response.response.statusCode
+                
+                if responseCode == 204{
+                    // success
+                    
+                    history.didShare(VimeoIs: true)
+                    
+                    completion(nil)
+                    
+                } else{
+                    // failure 
+                    completion(AuthorizationError.Unknown)
+                }
+               
+                
+                
+            })
+            
+        }
+        
+    })
+    
+}
 
 
 ///

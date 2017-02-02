@@ -699,10 +699,6 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
     
     logoutYouTube()
     
- 
-    
-  
-   
     
     youtube_oauth2.authorizeEmbedded(from: onViewController) { (json, error) in
         
