@@ -43,6 +43,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _swaps: NSNumber?
     var _twitterID: String?
     var _vineID: String?
+    var _vimeoID: String?
     var _website: String?
     var _willShareEmail: NSNumber?
     var _willShareInstagram: NSNumber?
@@ -55,6 +56,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _willShareVine: NSNumber?
     var _willShareYouTube: NSNumber?
     var _willShareGitHub: NSNumber?
+    var _willShareVimeo: NSNumber?
     var _youtubeID: String?
     var _notification_id_one_signal: String?
     
@@ -97,6 +99,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_swaps" : "swaps",
             "_twitterID" : "twitter_ID",
             "_vineID" : "vine_ID",
+            "_vimeoID": "vimeoID",
             "_website" : "website",
             "_willShareEmail" : "willShareEmail",
             "_willShareInstagram" : "willShareInstagram",
@@ -109,6 +112,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_willShareVine" : "willShareVine",
             "_willShareYouTube" : "willShareYouTube",
             "_willShareGitHub": "willShareGitHub",
+            "_willShareVimeo": "willShareVimeo",
             "_youtubeID" : "youtube_ID",
             "_notification_id_one_signal": "notification_id_one_signal",
         ]

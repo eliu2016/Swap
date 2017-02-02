@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E4041D11E428CBD003C23F3 /* InstagramUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041D01E428CBD003C23F3 /* InstagramUser.swift */; };
+		2E4041D31E4290FF003C23F3 /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041D21E4290FF003C23F3 /* InstagramMedia.swift */; };
 		2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */; };
 		2E9849371E04BCD200EC4C4C /* ConnectSocialMedias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9849361E04BCD200EC4C4C /* ConnectSocialMedias.swift */; };
 		2EC5652C1DF924FA00D587EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5652B1DF924FA00D587EB /* Constants.swift */; };
@@ -202,6 +204,8 @@
 		1DD70E29D44DF82800000000 /* AWSPinpoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSPinpoint.framework; path = MySampleApp/Sdk/Aws/AWSPinpoint.framework; sourceTree = "<group>"; };
 		1DD70E29DF90B53300000000 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "MySampleApp/User Interface/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		1DD70E29ED4914FA00000000 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2E4041D01E428CBD003C23F3 /* InstagramUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramUser.swift; sourceTree = "<group>"; };
+		2E4041D21E4290FF003C23F3 /* InstagramMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramMedia.swift; sourceTree = "<group>"; };
 		2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Twitter.swift; sourceTree = "<group>"; };
 		2E9849361E04BCD200EC4C4C /* ConnectSocialMedias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectSocialMedias.swift; sourceTree = "<group>"; };
 		2EC5652B1DF924FA00D587EB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "MySampleApp/Social Media/Constants.swift"; sourceTree = SOURCE_ROOT; };
@@ -293,11 +297,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2E4041CB1E428CA4003C23F3 /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				2E4041D01E428CBD003C23F3 /* InstagramUser.swift */,
+				2E4041D21E4290FF003C23F3 /* InstagramMedia.swift */,
+			);
+			name = Instagram;
+			sourceTree = "<group>";
+		};
 		2ECF287F1DF90D0C00FEC5D2 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				2ECF28811DF90D1A00FEC5D2 /* SignUp */,
 				2ECF28801DF90D1400FEC5D2 /* SignIn */,
+				2ECF28811DF90D1A00FEC5D2 /* SignUp */,
 				2ECF28821DF90D3E00FEC5D2 /* Account.swift */,
 				2EE143C61E3725CC000EADB7 /* Analytics.swift */,
 			);
@@ -363,6 +376,7 @@
 		2ECF28921DF90FA600FEC5D2 /* Social Media */ = {
 			isa = PBXGroup;
 			children = (
+				2E4041CB1E428CA4003C23F3 /* Instagram */,
 				2EC5652B1DF924FA00D587EB /* Constants.swift */,
 				2EFC3A231DF9B8ED00D45E7E /* Authorizing.swift */,
 				2E9849361E04BCD200EC4C4C /* ConnectSocialMedias.swift */,
@@ -837,6 +851,7 @@
 				2EFC3A341DFA27F800D45E7E /* SelectProfilePictureViewController.swift in Sources */,
 				E7A30F04571346AE00000000 /* AppDelegate.swift in Sources */,
 				2EE1439B1E370947000EADB7 /* SwapUserHistory.swift in Sources */,
+				2E4041D31E4290FF003C23F3 /* InstagramMedia.swift in Sources */,
 				2EFC3A391DFA2D6400D45E7E /* User Errors.swift in Sources */,
 				752A6BD81E20959500E6695B /* ProfileViewController.swift in Sources */,
 				2ECF28951DF90FE000FEC5D2 /* AuthorizationErrors.swift in Sources */,
@@ -879,6 +894,7 @@
 				E7A30F04D052C5D100000000 /* AWSAPI_0MZ6OXIFT5_RequestSchema.m in Sources */,
 				752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */,
 				E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */,
+				2E4041D11E428CBD003C23F3 /* InstagramUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
