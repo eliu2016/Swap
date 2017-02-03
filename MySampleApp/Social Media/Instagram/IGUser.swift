@@ -7,21 +7,35 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class IGUser {
 
     var id: String = ""
     
+    init(id: String) {
+        
+        self.id = id
+    }
     
-    func getMedia(completion: (_ updatedMedia: IGMedia?) -> Void) -> IGMedia? {
-        
-        // Get Cached JSON Object containing response for IGMedias and return IGMedia Objects based on it
-        
-        // Attempt to download new media objects and add it to cache. Return nil if nothing is new
+    
+    func getMedia(completion: @escaping (_ medias: [IGMedia]?) -> Void) {
         
         
-        // If there's new Data
-        NotificationCenter.default.post(Notification.Name.updatedInstagramMedia)
+        Alamofire.request("https://api.instagram.com/v1/users/\(self.id)/media/recent/", method: .get, parameters: ["access_token": instagram_oauth2.accessToken ?? ""]).responseJSON { (response) in
+            
+            if let Data = response.data{
+                
+                let mediaObjects = JSON(data: Data)
+                let medias: [IGMedia] = mediaObjects.toIGMedias()
+                
+                completion(medias)
+               
+                
+            }
+        }
+      
     }
 }
 
@@ -29,4 +43,29 @@ class IGUser {
 extension Notification.Name{
     
     static let  updatedInstagramMedia = Notification.Name("updatedInstagramMedia")
+}
+
+extension JSON{
+    
+    func toIGMedias() -> [IGMedia] {
+        
+        var medias: [IGMedia] = []
+        let jsonResponse = self
+        
+        guard jsonResponse["data"].array != nil else {
+            
+            return []
+        }
+        
+        let arrayOfJSONs = jsonResponse["data"].array!
+        
+        for json in arrayOfJSONs{
+            
+            
+            let media = IGMedia(media: json)
+            medias.append(media)
+        }
+        
+        return medias
+    }
 }

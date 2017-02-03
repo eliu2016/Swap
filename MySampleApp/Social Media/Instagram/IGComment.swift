@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftyJSON
 class IGComment {
     
     
@@ -15,7 +15,7 @@ class IGComment {
     var date_created: Date = Date()
     var text: String =  ""
     var from_username: String = ""
-    var from_profile_picture: URL = URL()
+    var from_profile_picture: URL?
     var from_id: String = ""
     var from_full_name: String = ""
     
