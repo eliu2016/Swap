@@ -8,43 +8,55 @@
 
 import Foundation
 
-class notificationView: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    @IBOutlet var tableView: UITableView!
-    
-    
-    var refreshControl: UIRefreshControl!
+class notificationView: UITableViewController
+{
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        self.tableView.allowsSelection = false
         
-        refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: "refresh:", for: UIControlEvents.valueChanged)
-        tableView.addSubview(refreshControl) // not required when using UITableViewController
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.backgroundColor = .blue
+        self.refreshControl?.tintColor = .white
+        self.refreshControl?.addTarget(self, action: #selector(notificationView.refreshTable), for: .valueChanged)
+        
+
     }
     
     
     //table view
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        let blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+        
+        blankTableMessage.text = "No Notifications :'("
+        blankTableMessage.textColor = .black
+        blankTableMessage.textAlignment = NSTextAlignment.center
+        blankTableMessage.font = UIFont(name: "Avenir-Next", size: 20)
+        blankTableMessage.sizeToFit()
+        
+        self.tableView.backgroundView = blankTableMessage
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        return 1;
         
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath) as! notificationCell;
+        let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath);
         
 
         
         return cell
     }
+
     
     
-    func refresh(sender: AnyObject) {
+    func refreshTable() {
         // Code to refresh table view  
         tableView.reloadData()
+    
     }
     
     

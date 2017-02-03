@@ -56,10 +56,17 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
         let user = swappedHistoryUsers[indexPath.item]
         
         cell.username.text = user._swap
-        cell.swapDate.text = "\(user._time as! Double)"
-        
+        cell.swapDate.text = "\(user._time as! TimeInterval)"
+       
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.performSegue(withIdentifier: "ShowSwappedUserProfile", sender: nil)
+        searchedUser = swappedHistoryUsers[indexPath.item]._swap!
+        
     }
     
 }

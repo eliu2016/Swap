@@ -50,6 +50,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var bioTextField: UITextField!
     
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+
     
 
     @IBAction func didToggleSocialMediaPermission(_ sender: UIButton) {

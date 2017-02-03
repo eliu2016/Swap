@@ -22,11 +22,11 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     override func viewWillAppear(_ animated: Bool) {
         
-        for indexpath in self.tableView.indexPathsForVisibleRows!{
+      /*  for indexpath in self.tableView.indexPathsForVisibleRows!{
             
             self.tableView.deselectRow(at: indexpath, animated: true)
             
-        }
+        }*/
         
     }
     override func viewDidLoad() {
