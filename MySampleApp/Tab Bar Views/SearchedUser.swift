@@ -22,6 +22,7 @@ class SearchedUser: UIViewController {
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var verifiedIcon: UIImageView!
     
+    @IBOutlet var bioLabel: UILabel!
     
     
     
@@ -49,6 +50,8 @@ class SearchedUser: UIViewController {
             circularImage(photoImageView: self.profilePicture)
             
             self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
+                
+            self.bioLabel.text = user?._bio
                 
                 if user?._isVerified == 1{
                     self.verifiedIcon.isHidden = false

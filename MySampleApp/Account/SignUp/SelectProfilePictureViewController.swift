@@ -33,7 +33,10 @@ class SelectProfilePictureViewController: UIViewController {
         twitterPictureImageView.kf.setImage(with: getTwitterProfilePictureLink())
         youtubePictureImageView.kf.setImage(with: getYouTubeProfilePictureLink())
         
-      
+        circularImage(photoImageView: contactImageView)
+        circularImage(photoImageView: instagramPictureImageView)
+        circularImage(photoImageView: twitterPictureImageView)
+        circularImage(photoImageView: youtubePictureImageView)
     
     }
     
