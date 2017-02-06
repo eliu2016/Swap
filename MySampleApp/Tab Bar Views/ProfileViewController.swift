@@ -219,7 +219,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
         DispatchQueue.global(qos: .userInteractive).async {
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareVine: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareVimeo: !sender.isSelected, DidSetInformation: {
                 
                 DispatchQueue.main.async {
                     sender.isSelected = !sender.isSelected
@@ -365,8 +365,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.YouTube.isSelected = (user?._willShareYouTube as? Bool) ?? false
                         self.SoundCloud.isSelected = (user?._willShareSoundCloud as? Bool) ?? false
                         self.Pinterest.isSelected = (user?._willSharePinterest as? Bool) ?? false
-                        self.Vimeo.isSelected = (user?._willShareVine as? Bool) ?? false
-                        
+                        self.Vimeo.isSelected = (user?._willShareVimeo as? Bool) ?? false
                         self.Github.isSelected = (user?._willShareGitHub as? Bool) ?? false 
                         self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
                         circularImage(photoImageView: self.profilePicImageView)

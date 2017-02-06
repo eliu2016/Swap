@@ -19,7 +19,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     @IBOutlet weak var YouTube: UIButton!
     @IBOutlet var Reddit: UIButton!
     @IBOutlet weak var Instagram: UIButton!
-    @IBOutlet weak var Snapchat: UIButton!
+    @IBOutlet weak var Vimeo: UIButton!
     @IBOutlet weak var Pinterest: UIButton!
     @IBOutlet weak var SoundCloud: UIButton!
     @IBOutlet var dismissTutorial: UIButton!
@@ -210,8 +210,26 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
             })
             
             break
-        case Snapchat:
-            // Authorize Snapchat
+        case Vimeo:
+            // Authorize Vimeo
+            
+            authorizeVimeo(onViewController: self, completion: { (error) in
+                
+                if let error = error {
+                    
+                    
+                    // There is an error
+                  
+                }
+                    
+                else{
+                    // It worked
+                    SwapUser().incrementPoints(byValue: 5)
+                    sender.isSelected = true
+                }
+                
+                
+            })
             
             
             break
@@ -338,7 +356,8 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     
     @IBAction func didTapNext(_ sender: UIButton) {
         
-         let atLeastOneSocialMediaIsConnected: Bool = (Twitter.isSelected || SoundCloud.isSelected || Pinterest.isSelected || Snapchat.isSelected || Instagram.isSelected || Reddit.isSelected || YouTube.isSelected || Spotify.isSelected || Github.isSelected)
+        // Add Vimeo ****
+         let atLeastOneSocialMediaIsConnected: Bool = (Twitter.isSelected || SoundCloud.isSelected || Pinterest.isSelected || Vimeo.isSelected || Instagram.isSelected || Reddit.isSelected || YouTube.isSelected || Spotify.isSelected || Github.isSelected)
         
         
         if atLeastOneSocialMediaIsConnected{
@@ -366,7 +385,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         // Sets the default images for social media icons if they are selected
         
         Spotify.setImage(#imageLiteral(resourceName: "SpotifyEnabled"), for: UIControlState.selected)
-        Snapchat.setImage(#imageLiteral(resourceName: "SnapchatEnabled"), for: UIControlState.selected)
+        Vimeo.setImage(#imageLiteral(resourceName: "VimeoEnabled"), for: UIControlState.selected)
         Twitter.setImage(#imageLiteral(resourceName: "TwitterEnabled"), for: UIControlState.selected)
         YouTube.setImage(#imageLiteral(resourceName: "YouTubeEnabled"), for: UIControlState.selected)
         SoundCloud.setImage(#imageLiteral(resourceName: "SoundCloudEnabled"), for: UIControlState.selected)
@@ -391,10 +410,10 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         SoundCloud.isSelected = ((soundcloud_oauth2.accessToken != nil) || (soundcloud_oauth2.refreshToken != nil))
         Pinterest.isSelected = ( (pinterest_oauth2.accessToken != nil) || (pinterest_oauth2.refreshToken != nil) )
         Twitter.isSelected = (getTwitterSecret() != nil && getTwitterToken() != nil)
-        Reddit.isSelected = (getVineUsername() != nil && getVinePassword() != nil )
         YouTube.isSelected = ( (youtube_oauth2.accessToken != nil) || (youtube_oauth2.refreshToken != nil) )
-        Snapchat.isSelected = ( (reddit_oauth2.accessToken != nil) || (reddit_oauth2.refreshToken != nil) ) // Change to reddit
+        Reddit.isSelected = ( (reddit_oauth2.accessToken != nil) || (reddit_oauth2.refreshToken != nil) )
         Github.isSelected = ( (github_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) )
+        Vimeo.isSelected = ( (vimeo_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) )
   
     }
     

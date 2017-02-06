@@ -63,25 +63,25 @@ class SearchedUser: UIViewController {
                 
             self.bioLabel.text = user?._bio
                 
-                if user?._isVerified == 1{
-                    self.verifiedIcon.isHidden = false
-                }
+            self.verifiedIcon.isHidden = !(user?._isVerified?.boolValue ?? false)
                 
-                if user?._willShareSpotify as? Bool ?? false{
-                    
-                }
-                if ( (user?._willShareEmail as? Bool ?? false) || (user?._willSharePhone as? Bool ?? false)){
-                    
-                  
-                }
-                if (user?._willShareTwitter as? Bool ?? false){
-                    
-                    self.Twitter.image  = #imageLiteral(resourceName: "TwitterLight")
-                }
-                if (user?._willShareInstagram as? Bool ?? false){
-                    
-                    self.Instagram.image = #imageLiteral(resourceName: "InstagramLight")
-                }
+             //   self.Spotify.image = (user?._willShareSpotify?.boolValue ?? false) ? SpotifyLightImage : SpotifyLight
+                
+            self.Twitter.image = (user?._willShareTwitter?.boolValue ?? false) ? #imageLiteral(resourceName: "TwitterDark"): #imageLiteral(resourceName: "TwitterLight")
+                
+            self.Instagram.image = (user?._willShareInstagram?.boolValue ?? false) ? #imageLiteral(resourceName: "InstagramDark") : #imageLiteral(resourceName: "InstagramLight")
+                
+                
+                
+            let userWillAtLeastShareEmailOrPhoneNumber = (user?._willShareEmail?.boolValue ?? false) || (user?._willSharePhone?.boolValue ?? false)
+            
+            // self.Contact.image = userWillAtLeastShareEmailOrPhoneNumber ? #imageLiteral(resourceName: "ContactDark") : ContactLight
+                
+                
+                
+                
+            
+                
             }
         }
 
