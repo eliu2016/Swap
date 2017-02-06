@@ -300,7 +300,7 @@ class SwapUser {
     ///   - completion: If the error is nil, it has suceeded and the profile picture has been updated in Database
     func uploadProfilePicture(withData: Data, completion: @escaping (_ error: Error?) -> Void)  {
         
-        let randomNumber = arc4random_uniform(99999999)
+        let randomNumber = Date().timeIntervalSince1970 as Double
         
         
         let manager = AWSUserFileManager.defaultUserFileManager()
