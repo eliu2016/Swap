@@ -476,8 +476,8 @@
 				75A81B0D1E4051F500F8F62C /* TwitterView.swift */,
 			);
 			name = "Preview Views";
-			path = "../MySampleApp/Preview Views";
-			sourceTree = "<group>";
+			path = "/Users/DrStephenPhD/Documents/Swap/mysampleapp/../MySampleApp/Preview Views";
+			sourceTree = "<absolute>";
 		};
 		B401C979480EFEB400000000 /* Models */ = {
 			isa = PBXGroup;
