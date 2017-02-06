@@ -165,6 +165,20 @@ class SwapUser {
             pool.getUser(self.username).update([ProfilePictureURL!])
         }
         
+        if isVerified ?? false{
+            
+            // Set verified in database
+            
+            let verified = AWSCognitoIdentityUserAttributeType()
+            verified?.name = "profile"
+            verified?.value = "IS_VERIFIED"
+            
+            
+            
+            
+            pool.getUser(self.username).update([verified!])
+        }
+        
         
         NoSQL.save(user!, configuration: updateMapperConfig, completionHandler: { error in
             
