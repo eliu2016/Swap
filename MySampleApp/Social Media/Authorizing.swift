@@ -45,6 +45,7 @@ func logoutSocialMediasAndClearCookies()  {
     logoutYouTube()
     logoutGitHub()
     logoutVimeo()
+    logoutReddit()
     
     // Delete everything out of User Defaults
     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
