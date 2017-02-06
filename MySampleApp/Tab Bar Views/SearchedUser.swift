@@ -20,13 +20,30 @@ class SearchedUser: UIViewController {
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var fullName: UILabel!
     @IBOutlet var profilePicture: UIImageView!
+    @IBOutlet var verifiedIcon: UIImageView!
     
+    @IBOutlet var bioLabel: UILabel!
     
+    @IBOutlet var Spotify: UIImageView!
+    @IBOutlet var Contact: UIImageView!
+    @IBOutlet var Instagram: UIImageView!
+    @IBOutlet var Pinterest: UIImageView!
+    @IBOutlet var SoundCloud: UIImageView!
+    @IBOutlet var YouTube: UIImageView!
+    @IBOutlet var Twitter: UIImageView!
     
-    
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
         
-        self.tabBarController?.tabBar.isHidden = true
+       
+    }
+    override func viewDidLoad() {
+    
+        self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
+        self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
+        self.tabBarController?.tabBar.isTranslucent = false
+        
+        
+        verifiedIcon.isHidden = true
       
        MakeBlurViewCircular(blurView: BlurView1)
        MakeBlurViewCircular(blurView: BlurView2)
@@ -44,6 +61,27 @@ class SearchedUser: UIViewController {
             
             self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
                 
+            self.bioLabel.text = user?._bio
+                
+                if user?._isVerified == 1{
+                    self.verifiedIcon.isHidden = false
+                }
+                
+                if (user?._willShareSpotify as? Bool)!{
+                    
+                }
+                if ((user?._willShareEmail as? Bool)! || (user?._willSharePhone as? Bool)!){
+                    
+                  
+                }
+                if (user?._willShareTwitter as? Bool)!{
+                    
+                    self.Twitter.image  = #imageLiteral(resourceName: "TwitterLight")
+                }
+                if (user?._willShareInstagram as? Bool)!{
+                    
+                    self.Instagram.image = #imageLiteral(resourceName: "InstagramLight")
+                }
             }
         }
 
@@ -51,7 +89,7 @@ class SearchedUser: UIViewController {
     
     @IBAction func didTapBack(_ sender: Any) {
         
-        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{

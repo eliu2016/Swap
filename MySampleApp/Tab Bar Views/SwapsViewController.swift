@@ -58,7 +58,12 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        searchedUser = swapHistoryUsers[indexPath.item]._swapped!
+        
+        self.performSegue(withIdentifier: "ShowSwapsUserProfile", sender: nil)
+    }
 }
 
 class swapsTableCell: UITableViewCell {

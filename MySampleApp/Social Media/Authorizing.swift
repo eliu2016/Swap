@@ -44,7 +44,7 @@ func logoutSocialMediasAndClearCookies()  {
     logoutVine()
     logoutYouTube()
     logoutGitHub()
-    
+    logoutVimeo()
     
     // Delete everything out of User Defaults
     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
@@ -175,12 +175,94 @@ func authorizeSpotify(onViewController: UIViewController, completion: @escaping 
     
 }
 
+func logoutVimeo()  {
+    
+    vimeo_oauth2.forgetTokens()
+}
+
+func authorizeVimeo(onViewController: UIViewController,
+                    completion: @escaping (_ loginError: Error?) -> ()) {
+    
+    logoutVimeo()
+    
+    vimeo_oauth2.authConfig.authorizeEmbedded = true
+    
+    vimeo_oauth2.authConfig.authorizeContext = onViewController
+    
+    vimeo_oauth2.authConfig.ui.useSafariView = false
+    
+    
+    vimeo_oauth2.authorizeEmbedded(from: onViewController, callback:{ (json, error) in
+        
+        if let error = error {
+            completion(error)
+           
+        } else{
+            
+            
+            
+            // No error 
+            //Request User Data
+            let vimeoLoader = OAuth2DataLoader(oauth2: vimeo_oauth2)
+            let vimReq = vimeo_oauth2.request(forURL: URL(string: "https://api.vimeo.com/me")!)
+            
+            vimeoLoader.perform(request: vimReq, callback: { (response) in
+                
+              
+                
+                do{
+                    let vimeoJSON = try response.responseJSON()
+                    
+                    if let idURL = vimeoJSON["uri"] as? String{
+                        
+                        let vimeoID = (idURL as NSString).lastPathComponent
+                        
+                        // Save to database 
+                        
+                        SwapUser(username: getUsernameOfSignedInUser()).set(VimeoID: vimeoID, DidSetInformation: {
+                            
+                            DispatchQueue.main.async {
+                                completion(nil)
+                            }
+                            
+                        }, CannotSetInformation: {
+                            completion(AuthorizationError.Unknown)
+                        })
+                    
+                        
+                        
+                    } else {
+                   
+                          completion(AuthorizationError.Unknown)
+                    }
+                    
+                    
+                    
+                    
+                }
+                    
+                catch let _ {
+                    // Could not get a response for some reason.
+                    
+                    completion(AuthorizationError.Unknown)
+                    
+                    
+                }
+                
+            })
+            
+        }
+        
+    })
+    
+}
 
 ///Forgets the access tokens for Instagram in keychain. However, if this function is called, calling authorizeInstagram() will not show the login screen for Spotify again. The login screen will appear disapper shortly after because the login information is still stored in web cookies. Cookies have to be cleared in order to do this. See logoutSocialMediasAndClearCookies().
 func logoutInstagram()  {
     
     
     instagram_oauth2.forgetTokens()
+    
     
     
 }
@@ -618,10 +700,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
     logoutYouTube()
     
     
-    youtube_oauth2.authorize()
-    
-    
-    youtube_oauth2.onAuthorize = { parameters in
+    youtube_oauth2.authorizeEmbedded(from: onViewController) { (json, error) in
         
         
         

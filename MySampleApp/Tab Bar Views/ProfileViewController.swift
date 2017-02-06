@@ -13,7 +13,7 @@ import Kingfisher
 
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
-    
+
     
     //labels
     @IBOutlet weak var nameLabel: UILabel!
@@ -29,25 +29,28 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var swapCodeImageView: UIImageView!
     @IBOutlet var GradientBottomLine: UIImageView!
+    @IBOutlet var verifiedIcon: UIImageView!
+   
     
     
     //buttons
     @IBOutlet weak var Spotify: UIButton!
     @IBOutlet weak var Phone: UIButton!
     @IBOutlet weak var Email: UIButton!
-    @IBOutlet var Snapchat: UIButton!  // Change this to Reddit
+    @IBOutlet var Vimeo: UIButton!
     @IBOutlet var Twitter: UIButton!
     @IBOutlet var YouTube: UIButton!
     @IBOutlet var SoundCloud: UIButton!
     @IBOutlet var Pinterest: UIButton!
-    @IBOutlet var Vine: UIButton!
-    @IBOutlet var Facebook: UIButton!
+    @IBOutlet var Reddit: UIButton!
+    @IBOutlet var Github: UIButton!
     @IBOutlet var Instagram: UIButton!
-
+    @IBOutlet var infoIcon: UIButton!
     
     @IBOutlet var bioTextField: UITextField!
     
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+
     
 
     @IBAction func didToggleSocialMediaPermission(_ sender: UIButton) {
@@ -109,12 +112,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
-        case Vine:
+        case Reddit:
             
             DispatchQueue.global(qos: .userInteractive).async {
                 
                 SwapUser(username: getUsernameOfSignedInUser()
-                    ).set(WillShareVine: !sender.isSelected, DidSetInformation: {
+                    ).set(WillShareReddit: !sender.isSelected, DidSetInformation: {
                         
                         DispatchQueue.main.async {
                             sender.isSelected = !sender.isSelected
@@ -211,12 +214,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             break
         
-        // Change this to Reddit
-    case Snapchat:
+
+    case Vimeo:
         
         DispatchQueue.global(qos: .userInteractive).async {
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareReddit: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareVine: !sender.isSelected, DidSetInformation: {
                 
                 DispatchQueue.main.async {
                     sender.isSelected = !sender.isSelected
@@ -227,8 +230,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
         break
         
-    // Change this to GitHub
-    case Facebook:
+   
+    case Github:
         
         DispatchQueue.global(qos: .userInteractive).async {
             
@@ -273,15 +276,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             self.Spotify.isHidden = true
             self.Phone.isHidden = true
             self.Email.isHidden = true
-            self.Snapchat.isHidden = true // Change this to Reddit
+            self.Vimeo.isHidden = true
             self.Twitter.isHidden = true
             self.YouTube.isHidden = true
             self.SoundCloud.isHidden = true
             self.Pinterest.isHidden = true
-            self.Vine.isHidden = true
-            self.Facebook.isHidden = true
+            self.Reddit.isHidden = true
+            self.Github.isHidden = true
             self.Instagram.isHidden = true
             self.bioTextField.isHidden = true
+            self.infoIcon.isHidden = true
+            self.verifiedIcon.isHidden = true
             
             
             //Gets info of signed in user
@@ -314,15 +319,21 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.Spotify.isHidden = false
                         self.Phone.isHidden = false
                         self.Email.isHidden = false
-                        self.Snapchat.isHidden = false // Change this to Reddit
+                        self.Vimeo.isHidden = false // Change this to Reddit
                         self.Twitter.isHidden = false
                         self.YouTube.isHidden = false
                         self.SoundCloud.isHidden = false
                         self.Pinterest.isHidden = false
-                        self.Vine.isHidden = false
-                        self.Facebook.isHidden = false
+                        self.Reddit.isHidden = false
+                        self.Github.isHidden = false
                         self.Instagram.isHidden = false
                         self.bioTextField.isHidden = false
+                        self.infoIcon.isHidden = false
+                        
+                        if (user?._isVerified?.boolValue ?? false){
+                            
+                            self.verifiedIcon.isHidden = false
+                        }
                         
                         
                         //Gets the Profile Information from User Object
@@ -348,14 +359,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.Spotify.isSelected = willShareSpotify
                         self.Email.isSelected = willShareEmail
                         self.Phone.isSelected = willSharePhone
-                        self.Vine.isSelected = (user?._willShareVine as? Bool) ?? false
+                        self.Reddit.isSelected = (user?._willShareReddit as? Bool) ?? false
                         self.Instagram.isSelected = (user?._willShareInstagram as? Bool) ?? false
                         self.Twitter.isSelected = (user?._willShareTwitter as? Bool) ?? false
                         self.YouTube.isSelected = (user?._willShareYouTube as? Bool) ?? false
                         self.SoundCloud.isSelected = (user?._willShareSoundCloud as? Bool) ?? false
                         self.Pinterest.isSelected = (user?._willSharePinterest as? Bool) ?? false
-                        self.Snapchat.isSelected = (user?._willShareReddit as? Bool) ?? false // Change this to Reddit
-                        self.Facebook.isSelected = (user?._willShareGitHub as? Bool) ?? false // Change this to GitHub
+                        self.Vimeo.isSelected = (user?._willShareVine as? Bool) ?? false
+                        
+                        self.Github.isSelected = (user?._willShareGitHub as? Bool) ?? false 
                         self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
                         circularImage(photoImageView: self.profilePicImageView)
                         self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
@@ -398,10 +410,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         Spotify.setImage(#imageLiteral(resourceName: "SpotifyEnabled"), for: .selected)
         Email.setImage(#imageLiteral(resourceName: "EmailEnabled"), for: .selected)
         Phone.setImage(#imageLiteral(resourceName: "PhoneEnabled"), for: .selected)
-        Vine.setImage(#imageLiteral(resourceName: "VineEnabled"), for: .selected)
+        Reddit.setImage(#imageLiteral(resourceName: "RedditEnabled"), for: .selected)
         Instagram.setImage(#imageLiteral(resourceName: "InstagramEnabled"), for: .selected)
-        Facebook.setImage(#imageLiteral(resourceName: "FacebookEnabled"), for: .selected)
-        Snapchat.setImage(#imageLiteral(resourceName: "SnapchatEnabled"), for: .selected) // Change this to Reddit
+        Github.setImage(#imageLiteral(resourceName: "GithubEnabled"), for: .selected)
+        Vimeo.setImage(#imageLiteral(resourceName: "VimeoEnabled"), for: .selected)
         Twitter.setImage(#imageLiteral(resourceName: "TwitterEnabled"), for: .selected)
         YouTube.setImage(#imageLiteral(resourceName: "YouTubeEnabled"), for: .selected)
         SoundCloud.setImage(#imageLiteral(resourceName: "SoundCloudEnabled"), for: .selected)

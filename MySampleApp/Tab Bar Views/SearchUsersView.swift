@@ -13,12 +13,22 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
   
     
     @IBOutlet var searchedUsersTable: UITableView!
-    @IBOutlet var collectionView: UICollectionView!
+   // @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var tableView: UITableView!
     
     var returnedUsers: [SwapUser] = []
 
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+      /*  for indexpath in self.tableView.indexPathsForVisibleRows!{
+            
+            self.tableView.deselectRow(at: indexpath, animated: true)
+            
+        }*/
+        
+    }
     override func viewDidLoad() {
     
         searchBar.delegate = self
@@ -28,11 +38,11 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         self.automaticallyAdjustsScrollViewInsets = false;
         
      
-        //setup collection view layout
+        /*setup collection view layout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
-        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false*/
         
     
     }
@@ -98,6 +108,15 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         cell.profileImage.kf.setImage(with: returnedUsers[indexPath.item].profilePictureURL)
         circularImage(photoImageView: cell.profileImage)
         
+        if (returnedUsers[indexPath.item].isVerified){
+            
+            cell.verifiedIcon.isHidden = false
+            
+        }
+        else{
+            cell.verifiedIcon.isHidden = true
+        }
+        
         return cell
     }
  
@@ -128,6 +147,7 @@ class searchUsernamesCell: UITableViewCell {
     @IBOutlet weak var carrot: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var username: UILabel!
+    @IBOutlet var verifiedIcon: UIImageView!
     
 }
 class featuredProfilesCell: UICollectionViewCell{

@@ -34,7 +34,7 @@ class Analytics {
     }
     
     ///-todo: For some reason, in analytics, the custom attributes are not being recorded. Fix.
-    class func didSwap(byMethod: SwapMethod, isPrivate: Bool = false, didShareSpotify: Bool = false, didSharePhone: Bool = false, didShareEmail: Bool = false, didShareInstagram: Bool = false, didShareReddit: Bool = false, didShareTwitter: Bool = false, didShareYouTube: Bool = false, didShareSoundCloud: Bool = false, didSharePinterest: Bool = false){
+    class func didSwap(byMethod: SwapMethod, isPrivate: Bool = false, didShareSpotify: Bool = false, didSharePhone: Bool = false, didShareEmail: Bool = false, didShareInstagram: Bool = false, didShareReddit: Bool = false, didShareTwitter: Bool = false, didShareYouTube: Bool = false, didShareSoundCloud: Bool = false, didSharePinterest: Bool = false, didShareGitHub: Bool = false, didShareVimeo: Bool = false){
         
         var method = ""
         if byMethod == .username{
@@ -64,7 +64,9 @@ class Analytics {
             "Twitter" : didShareTwitter.toString(),
             "YouTube": didShareYouTube.toString(),
             "SoundCloud": didShareSoundCloud.toString(),
-            "Pinterest": didSharePinterest.toString()
+            "Pinterest": didSharePinterest.toString(),
+            "GitHub": didShareGitHub.toString(),
+            "Vimeo": didShareVimeo.toString()
             
 
             ])

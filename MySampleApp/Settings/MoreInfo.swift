@@ -8,13 +8,18 @@
 
 import Foundation
 
+var moreInfoMiddleName = ""
+var moreInfoCompany = ""
+var moreInfoWebsite = ""
 
-class MoreInfoTable: UITableViewController {
+
+
+class MoreInfoTable: UITableViewController, UITextFieldDelegate {
    
     @IBOutlet public var middleNameField: UITextField!
     @IBOutlet var companyField: UITextField!
     @IBOutlet var websiteField: UITextField!
-    @IBOutlet var addressField: UITextField!
+
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +42,10 @@ class MoreInfoTable: UITableViewController {
                 self.companyField.text = company
                 self.websiteField.text = website
                 
+                var moreInfoMiddleName = middlename
+                var moreInfoCompany = company
+                var moreInfoWebsite = website
+                
             }
             
         }
@@ -45,14 +54,46 @@ class MoreInfoTable: UITableViewController {
     
     override func viewDidLoad() {
         tableView.allowsSelection = false
+        middleNameField.delegate = self
+        companyField.delegate = self
+        websiteField.delegate = self
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moreInfoMiddleName = middleNameField.text!
+        moreInfoCompany = companyField.text!
+        moreInfoWebsite = websiteField.text!
     }
 
     
 }
-class MoreInfo: UIViewController {
+class MoreInfo: UIViewController{
+    
+    @IBOutlet var activityView: UIActivityIndicatorView!
     
     @IBAction func didTapBack(_ sender: Any) {
         
-        self.navigationController?.popViewController(animated: true)
+        activityView.isHidden = false
+        activityView.startAnimating()
+        
+            SwapUser().set(Middlename: moreInfoMiddleName, Website: moreInfoWebsite, Company: moreInfoCompany,  DidSetInformation: {
+            
+            DispatchQueue.main.async {
+                
+                self.navigationController?.popViewController(animated: true)
+                
+            }
+            
+        }, CannotSetInformation: {
+
+            print("error setting basic profile info")
+            
+        })
+    
     }
+    override func viewDidLoad() {
+        activityView.isHidden = true
+        activityView.stopAnimating()
+    }
+    
 }

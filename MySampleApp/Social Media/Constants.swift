@@ -221,7 +221,7 @@ var github_oauth2: OAuth2CodeGrant = OAuth2CodeGrant(settings: [
     "authorize_uri": "https://github.com/login/oauth/authorize",
     "token_uri": "https://github.com/login/oauth/access_token",
     "scope": "user user:follow",
-    "redirect_uris": [GITHUB_CALLBACK],   // register scheme in Info.plist
+    "redirect_uris": [GITHUB_CALLBACK],
     "secret_in_body": true,
     ])
 
@@ -231,9 +231,25 @@ var github_oauth2: OAuth2CodeGrant = OAuth2CodeGrant(settings: [
 
 
 
+//=================== Vimeo Authorization Information ==========================================//
 
+let VIMEO_CLIENT_ID = "134256550d9bb3189ff00892d18196b12cf858af"
+let VIMEO_CLIENT_SECRET = "/3RO81tpJUiUj7qhEnShjTKNYzKRAcXmarcBHzgirUAe+dg6GHFxA35NLo0InFHA5ViCacjhuvaFeuirdU1IuOpTSJCRbtQsJMGTeC7FAVmUc8pGsRuQt5pFuEpgpnBS"
+let VIMEO_AUTH_URL = "https://api.vimeo.com/oauth/authorize"
+let VIMEO_ACCESS_TOKEN_URL = "https://api.vimeo.com/oauth/access_token"
+let VIMEO_CALLBACK = "https://swapapp.co"
 
+var vimeo_oauth2: OAuth2CodeGrant = OAuth2CodeGrant(settings: [
+    "client_id": VIMEO_CLIENT_ID,
+    "client_secret": VIMEO_CLIENT_SECRET,
+    "authorize_uri": VIMEO_AUTH_URL,
+    "token_uri": VIMEO_ACCESS_TOKEN_URL,
+    "scope": "private interact create edit delete public video_files",
+    "redirect_uris": [VIMEO_CALLBACK],   // register scheme in Info.plist
+    "secret_in_body": true,
+    ])
 
+//=================== Vimeo Authorization Information ==========================================//
 
 
 /**

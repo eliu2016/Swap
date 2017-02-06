@@ -86,6 +86,7 @@ class SwapUser {
               PinterestID: String? = nil,
               SoundCloudID: String? = nil,
               GitHubID: String? = nil,
+              VimeoID: String? = nil,
               WillShareSpotify: Bool? = nil,
               WillShareYouTube: Bool? = nil,
               WillSharePhonenumber: Bool? = nil,
@@ -97,6 +98,7 @@ class SwapUser {
               WillSharePinterest: Bool? = nil,
               WillShareSoundCloud: Bool? = nil,
               WillShareGitHub: Bool? = nil,
+              WillShareVimeo: Bool? = nil,
               DidSetInformation: @escaping () -> Void? = { return nil },
               CannotSetInformation: @escaping () -> Void? =  { return }) {
         
@@ -134,6 +136,7 @@ class SwapUser {
         user?._githubID = (GitHubID != nil && !((GitHubID?.isEmpty)!)) ? GitHubID: nil
         user?._pinterestID = (PinterestID != nil && !((PinterestID?.isEmpty)!)) ? PinterestID: nil
         user?._soundcloudID = (SoundCloudID != nil && !((SoundCloudID?.isEmpty)!)) ? SoundCloudID: nil
+        user?._vimeoID = (VimeoID != nil && !((VimeoID?.isEmpty)!)) ? VimeoID: nil
         user?._willShareSpotify = (WillShareSpotify != nil) ? (WillShareSpotify! as NSNumber) : nil
         user?._willShareYouTube = (WillShareYouTube != nil) ? (WillShareYouTube! as NSNumber) : nil
         user?._willSharePhone = (WillSharePhonenumber != nil) ? (WillSharePhonenumber! as NSNumber) : nil
@@ -145,6 +148,7 @@ class SwapUser {
         user?._willSharePinterest = (WillSharePinterest != nil) ? (WillSharePinterest! as NSNumber) : nil
         user?._willShareSoundCloud = (WillShareSoundCloud != nil) ? (WillShareSoundCloud! as NSNumber) : nil
          user?._willShareGitHub = (WillShareGitHub != nil) ? (WillShareGitHub! as NSNumber) : nil
+        user?._willShareVimeo = (WillShareVimeo != nil) ? (WillShareVimeo! as NSNumber) : nil
         
         if let linkToProfileImage = ProfileImage{
             // User setted Profile Picture so we have to set it in amazon cognito
@@ -904,3 +908,4 @@ class SwapUser {
     }
     
 }
+
