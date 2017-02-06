@@ -12,10 +12,11 @@ class TutorialPageController: UIPageViewController {
     
     var ViewCotrollers: [UIViewController] = []
     
-   override func viewdidLoad(){
-    
-    self.setViewControllers(ViewCotrollers, direction: .forward, animated: true, completion: nil)
+
     
     
-    }
+    //setViewControllers(ViewCotrollers, direction: .forward, animated: true, completion: nil)
+    
+    
+
 }

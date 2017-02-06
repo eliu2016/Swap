@@ -24,8 +24,18 @@ class SearchedUser: UIViewController {
     
     @IBOutlet var bioLabel: UILabel!
     
+    @IBOutlet var Spotify: UIImageView!
+    @IBOutlet var Contact: UIImageView!
+    @IBOutlet var Instagram: UIImageView!
+    @IBOutlet var Pinterest: UIImageView!
+    @IBOutlet var SoundCloud: UIImageView!
+    @IBOutlet var YouTube: UIImageView!
+    @IBOutlet var Twitter: UIImageView!
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        
+       
+    }
     override func viewDidLoad() {
     
         self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
@@ -55,6 +65,22 @@ class SearchedUser: UIViewController {
                 
                 if user?._isVerified == 1{
                     self.verifiedIcon.isHidden = false
+                }
+                
+                if (user?._willShareSpotify as? Bool)!{
+                    
+                }
+                if ((user?._willShareEmail as? Bool)! || (user?._willSharePhone as? Bool)!){
+                    
+                  
+                }
+                if (user?._willShareTwitter as? Bool)!{
+                    
+                    self.Twitter.image  = #imageLiteral(resourceName: "TwitterLight")
+                }
+                if (user?._willShareInstagram as? Bool)!{
+                    
+                    self.Instagram.image = #imageLiteral(resourceName: "InstagramLight")
                 }
             }
         }

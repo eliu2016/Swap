@@ -44,11 +44,15 @@ class notificationView: UITableViewController
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath);
         
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ManageSwapRequests", for: indexPath);
         
-        return cell
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "NotifySwap", for: indexPath)
+  
+        
+            return cell
+        
+        
     }
 
     

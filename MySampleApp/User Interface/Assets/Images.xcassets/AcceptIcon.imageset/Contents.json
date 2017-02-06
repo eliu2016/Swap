@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2016-08-22 at 12.47.00 PM-1.png",
+      "filename" : "correct-symbol-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2016-08-22 at 12.47.00 PM-2.png",
+      "filename" : "correct-symbol-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2016-08-22 at 12.47.00 PM.png",
+      "filename" : "correct-symbol.png",
       "scale" : "3x"
     }
   ],

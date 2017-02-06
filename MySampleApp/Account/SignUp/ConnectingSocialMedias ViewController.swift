@@ -13,6 +13,7 @@ import SafariServices
 class ConnectingSocialMediasViewController: UIViewController, SFSafariViewControllerDelegate {
 
     
+    @IBOutlet var Github: UIButton!
     @IBOutlet weak var Twitter: UIButton!
     @IBOutlet weak var Spotify: UIButton!
     @IBOutlet weak var YouTube: UIButton!
@@ -290,7 +291,32 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
             
             break
             
-            //****** Add GitHub
+        case Github:
+            
+            //Authorize Github
+            
+            authorizeGitHub(onViewController: self, completion: { (error) in
+                
+                if let error = error {
+                    print("there is an error ... \(error)")
+                    
+                    // There is an error
+                    
+                }
+                    
+                else{
+                    // It worked
+                    print("it worked")
+                    SwapUser().incrementPoints(byValue: 5)
+                    sender.isSelected = true
+                }
+                
+            
+            })
+            
+            break
+            
+            
             
         default:
             break
@@ -312,7 +338,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     
     @IBAction func didTapNext(_ sender: UIButton) {
         
-         let atLeastOneSocialMediaIsConnected: Bool = (Twitter.isSelected || SoundCloud.isSelected || Pinterest.isSelected || Snapchat.isSelected || Instagram.isSelected || Reddit.isSelected || YouTube.isSelected || Spotify.isSelected)
+         let atLeastOneSocialMediaIsConnected: Bool = (Twitter.isSelected || SoundCloud.isSelected || Pinterest.isSelected || Snapchat.isSelected || Instagram.isSelected || Reddit.isSelected || YouTube.isSelected || Spotify.isSelected || Github.isSelected)
         
         
         if atLeastOneSocialMediaIsConnected{
@@ -347,7 +373,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         Pinterest.setImage(#imageLiteral(resourceName: "PinterestEnabled"), for: UIControlState.selected)
         Reddit.setImage(#imageLiteral(resourceName: "RedditEnabled"), for: UIControlState.selected)
         Instagram.setImage(#imageLiteral(resourceName: "InstagramEnabled"), for: UIControlState.selected)
-        
+        Github.setImage(#imageLiteral(resourceName: "GithubEnabled"), for: UIControlState.selected)
         
         
     }
@@ -368,7 +394,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         Reddit.isSelected = (getVineUsername() != nil && getVinePassword() != nil )
         YouTube.isSelected = ( (youtube_oauth2.accessToken != nil) || (youtube_oauth2.refreshToken != nil) )
         Snapchat.isSelected = ( (reddit_oauth2.accessToken != nil) || (reddit_oauth2.refreshToken != nil) ) // Change to reddit
-      //  GitHub.isSelected = ( (github_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) ) // Add GitHub
+        Github.isSelected = ( (github_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) )
   
     }
     
