@@ -10,6 +10,8 @@
 		2E4041DB1E43D892003C23F3 /* IGUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041DA1E43D892003C23F3 /* IGUser.swift */; };
 		2E4041DD1E43D982003C23F3 /* IGMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041DC1E43D982003C23F3 /* IGMedia.swift */; };
 		2E4041DF1E43DD82003C23F3 /* IGComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041DE1E43DD82003C23F3 /* IGComment.swift */; };
+		2E49B8371E4A52E8005029C9 /* YouTubeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49B8361E4A52E8005029C9 /* YouTubeUser.swift */; };
+		2E49B8391E4A534E005029C9 /* YouTubeMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49B8381E4A534E005029C9 /* YouTubeMedia.swift */; };
 		2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */; };
 		2E9849371E04BCD200EC4C4C /* ConnectSocialMedias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9849361E04BCD200EC4C4C /* ConnectSocialMedias.swift */; };
 		2EC5652C1DF924FA00D587EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC5652B1DF924FA00D587EB /* Constants.swift */; };
@@ -211,6 +213,8 @@
 		2E4041DA1E43D892003C23F3 /* IGUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGUser.swift; sourceTree = "<group>"; };
 		2E4041DC1E43D982003C23F3 /* IGMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGMedia.swift; sourceTree = "<group>"; };
 		2E4041DE1E43DD82003C23F3 /* IGComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGComment.swift; sourceTree = "<group>"; };
+		2E49B8361E4A52E8005029C9 /* YouTubeUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeUser.swift; sourceTree = "<group>"; };
+		2E49B8381E4A534E005029C9 /* YouTubeMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeMedia.swift; sourceTree = "<group>"; };
 		2E61ACDC1E0DE42100ABCE52 /* Twitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Twitter.swift; sourceTree = "<group>"; };
 		2E9849361E04BCD200EC4C4C /* ConnectSocialMedias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectSocialMedias.swift; sourceTree = "<group>"; };
 		2EC5652B1DF924FA00D587EB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "MySampleApp/Social Media/Constants.swift"; sourceTree = SOURCE_ROOT; };
@@ -315,6 +319,15 @@
 			path = Instagram;
 			sourceTree = "<group>";
 		};
+		2E49B8311E4A5227005029C9 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				2E49B8361E4A52E8005029C9 /* YouTubeUser.swift */,
+				2E49B8381E4A534E005029C9 /* YouTubeMedia.swift */,
+			);
+			path = YouTube;
+			sourceTree = "<group>";
+		};
 		2ECF287F1DF90D0C00FEC5D2 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +398,7 @@
 		2ECF28921DF90FA600FEC5D2 /* Social Media */ = {
 			isa = PBXGroup;
 			children = (
+				2E49B8311E4A5227005029C9 /* YouTube */,
 				2E4041D91E43D86F003C23F3 /* Instagram */,
 				2EC5652B1DF924FA00D587EB /* Constants.swift */,
 				2EFC3A231DF9B8ED00D45E7E /* Authorizing.swift */,
@@ -863,6 +877,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E49B8391E4A534E005029C9 /* YouTubeMedia.swift in Sources */,
 				E7A30F04B7E56FDE00000000 /* SwapHistory.swift in Sources */,
 				752A6BD21E1F286000E6695B /* SetBirthdayViewController.swift in Sources */,
 				2EE143C71E3725CC000EADB7 /* Analytics.swift in Sources */,
@@ -917,6 +932,7 @@
 				2EFC3A241DF9B8ED00D45E7E /* Authorizing.swift in Sources */,
 				2ECF28871DF90D7200FEC5D2 /* AccountErrors.swift in Sources */,
 				751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */,
+				2E49B8371E4A52E8005029C9 /* YouTubeUser.swift in Sources */,
 				E7A30F04D052C5D100000000 /* AWSAPI_0MZ6OXIFT5_RequestSchema.m in Sources */,
 				752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */,
 				E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */,
