@@ -42,7 +42,11 @@ class SignUpViewController: UIViewController {
             formattedPhoneNumber = PhoneNumberKit().format(phoneNumber, toType: .e164)
         }
         catch {
-            print("Phone number parser error")
+            
+            UIAlertView(title: "Could Not Create Account",
+                        message: "Please enter a valid phone number.",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
         }
        
         
@@ -60,30 +64,62 @@ class SignUpViewController: UIViewController {
                 
             case .EmptyFields:
                 // Tell the user to enter required fields 
+                UIAlertView(title: "Could Not Create Account",
+                            message: "Please enter a valid phone number.",
+                            delegate: nil,
+                            cancelButtonTitle: "Ok").show()
                 break
                 
             case .InvalidEmail:
                 // Tell the user to enter a valid email address
+                
+                UIAlertView(title: "Invalid Email Address",
+                            message: "Please enter a valid email address.",
+                            delegate: nil,
+                            cancelButtonTitle: "Ok").show()
+                
                 break
                 
             case .InvalidPhonenumber:
                 // Tell the user to enter a valid phone number
+                
+                UIAlertView(title: "Invalid Phone Number",
+                            message: "Please enter a valid phone number.",
+                            delegate: nil,
+                            cancelButtonTitle: "Ok").show()
+                
                 break
                 
             case .InvalidUsername:
                 // Tell the user to enter a valid username format 
+                UIAlertView(title: "Invalid Username",
+                            message: "Usernames can be no longer than 18 characters and cannot contain special characters.",
+                            delegate: nil,
+                            cancelButtonTitle: "Ok").show()
                 break
                 
             case .PasswordTooShort:
                 // Tell the user that his/her password is too short - Must be at least 6 characters
+                UIAlertView(title: "Invalid Password",
+                            message: "Password must be at least 6 characters.",
+                            delegate: nil,
+                            cancelButtonTitle: "Ok").show()
                 break
                 
             case .UsernameTaken:
                 // Tell the user to enter a different username 
+                UIAlertView(title: "Username Taken",
+                            message: "Please enter a different username.",
+                            delegate: nil,
+                            cancelButtonTitle: "Ok").show()
                 break
                 
             case .UnknownSignUpError:
                 // Some unknown error has occured ... Tell the user to try again 
+                UIAlertView(title: "Try Again",
+                            message: "Check internet connection and try again.",
+                            delegate: nil,
+                            cancelButtonTitle: "Ok").show()
                 break
                 
             
