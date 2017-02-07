@@ -2049,7 +2049,7 @@
         <!--Twitter View-->
         <scene sceneID="aLB-3Y-Lut">
             <objects>
-                <viewController id="fuv-h6-NpP" customClass="TwitterView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TwitterPreviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fuv-h6-NpP" customClass="TwitterView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TNs-KT-ut9"/>
                         <viewControllerLayoutGuide type="bottom" id="3bX-e7-4uZ"/>

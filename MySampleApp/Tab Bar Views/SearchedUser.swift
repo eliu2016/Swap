@@ -58,6 +58,9 @@ class SearchedUser: UIViewController {
             
             self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             circularImage(photoImageView: self.profilePicture)
+                
+            // Send the Twitter ID to the Twitter Preview View Controller 
+            twitterUserID = user?._twitterID ?? ""
             
             self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
                 
