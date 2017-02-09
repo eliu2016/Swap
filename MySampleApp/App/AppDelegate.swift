@@ -33,19 +33,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         //make UI changes
         UIApplication.shared.statusBarStyle = .lightContent
         
+        var storyboard: UIStoryboard = self.grabStoryboard()
+        
+        
         Fabric.with([Crashlytics.self(), Twitter.self(), Answers.self()])
         Fabric.sharedSDK().debug = true
         let branch = Branch.getInstance()
         
-     
+        
         
         // Override point for customization after application launch.
         AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
         
         
         OneSignal.initWithLaunchOptions(launchOptions, appId: ONE_SIGNAL_APP_ID, handleNotificationReceived: { notification in
-           
-         
+            
+            
         },
                                         handleNotificationAction: {
                                             (result) in
@@ -105,24 +108,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                                 
                                 
                                 // Open Profile of Swap Link User
-                                // *** HELP @DAVID SLAKTER **** 
+                                // *** HELP @DAVID SLAKTER ****
                                 
-                                // **** NEEDS MODIFICATION .... 
+                                // **** NEEDS MODIFICATION ....
                                 
-                                // Should open the profile of the user  with username 'searchedUser' 
+                                // Should open the profile of the user  with username 'searchedUser'
                                 
                                 self.window = UIWindow(frame: UIScreen.main.bounds)
-                                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil) // this assumes your storyboard is titled "Main.storyboard
+                                //   let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil) // this assumes your storyboard is titled "Main.storyboard
                                 
                                 // Reference to Searched User Profile View Controller
                                 let profileViewControllerID: String = "SearchedUserProfileViewController"
-                                let vc = mainStoryboard.instantiateViewController(withIdentifier: profileViewControllerID)
+                                let vc = storyboard.instantiateViewController(withIdentifier: profileViewControllerID)
                                 
-                                // Call View did load of the view controller 
+                                // Call View did load of the view controller
                                 
                                 
                                 self.window?.rootViewController = vc
-                                 self.window?.makeKeyAndVisible()
+                                self.window?.makeKeyAndVisible()
                             }
                         })
                     }
@@ -130,18 +133,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                 }
             }
         })
-    
+        
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil) // this assumes your storyboard is titled "Main.storyboard"
+        //let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil) // this assumes your storyboard is titled "Main.storyboard"
         
         // Reference to Profile View Controller
         let profileViewControllerID: String = "ProfileViewController"
-        let profileVC = mainStoryboard.instantiateViewController(withIdentifier: profileViewControllerID)
+        let profileVC = storyboard.instantiateViewController(withIdentifier: profileViewControllerID)
         
         // Reference to Sign In View Controller
         let signInVCID: String = "SignInViewController"
-        let signInVC = mainStoryboard.instantiateViewController(withIdentifier: signInVCID)
+        let signInVC = storyboard.instantiateViewController(withIdentifier: signInVCID)
         
         // if signed in  -> profile view controller else -> login view controller
         let defaultVC: UIViewController = isSignedIn() ? profileVC : signInVC
@@ -151,14 +154,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         
         // If there is no saved view controller ID in UserDefaults, it instantiates the default view controller as the initial view controller. However, if there is, it instantiates the last view controller it can remember being on
-        self.window?.rootViewController =  (getLastViewControllerID() != nil ) ? mainStoryboard.instantiateViewController(withIdentifier: getLastViewControllerID()! ) : defaultVC
+        self.window?.rootViewController =  (getLastViewControllerID() != nil ) ? storyboard.instantiateViewController(withIdentifier: getLastViewControllerID()! ) : defaultVC
         self.window?.makeKeyAndVisible()
         
-        
-     
-        
-        
-       
         
         
         return true
@@ -179,7 +177,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-   
+        
     }
     
     
@@ -196,7 +194,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
         
         
-            }
+    }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         AWSMobileClient.sharedInstance.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
@@ -208,9 +206,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
-     
+        
         AWSMobileClient.sharedInstance.application(application, didReceiveRemoteNotification: userInfo)
-    
+        
         
     }
     
@@ -235,7 +233,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         return true
     }
     
-   
+    func grabStoryboard() -> UIStoryboard {
+        // determine screen size
+        let screenHeight = UIScreen.main.bounds.size.height
+        var storyboard: UIStoryboard! = nil
+        
+        switch (screenHeight) {
+        // iPhone 4s
+        case 480:
+            storyboard = UIStoryboard(name: "3.5in", bundle: nil)
+            break
+        // iPhone 5s
+        case 568:
+            storyboard = UIStoryboard(name: "4in", bundle: nil)
+        // iPhone 6
+        case 667:
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+        // iPhone 6 Plus
+        case 736:
+            storyboard = UIStoryboard(name: "IPhone7Plus", bundle: nil)
+            
+        default:
+            storyboard = UIStoryboard(name: "3.5in", bundle: nil)
+            // it's an iPad
+            break
+        }
+        
+        return storyboard
+    }
+    
     
 }
 
