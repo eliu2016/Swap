@@ -76,7 +76,7 @@ class MoreInfo: UIViewController{
         activityView.isHidden = false
         activityView.startAnimating()
         
-            SwapUser().set(Middlename: moreInfoMiddleName, Website: moreInfoWebsite, Company: moreInfoCompany,  DidSetInformation: {
+            SwapUser().updateProfileInfoWith(Middlename: moreInfoMiddleName,  Company: moreInfoCompany,Website: moreInfoWebsite,   DidSetInformation: {
             
             DispatchQueue.main.async {
                 
