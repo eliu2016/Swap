@@ -42,7 +42,7 @@ class SearchedUser: UIViewController {
     }
     override func viewDidLoad() {
     
-        self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
+        self.tabBarController?.tabBar.backgroundImage = UIImage(named: "subheader1")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
         

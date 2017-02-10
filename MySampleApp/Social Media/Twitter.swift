@@ -17,7 +17,7 @@ import TwitterKit
 
 func authorizeTwitter(onViewController: UIViewController,  completion: @escaping (_ loginError: AuthorizationError?) -> () ) {
     
-    
+    logoutTwitter()
     
     Twitter.sharedInstance().logIn(withMethods: .all, completion: {  (session, error) in
         
@@ -27,13 +27,25 @@ func authorizeTwitter(onViewController: UIViewController,  completion: @escaping
             let secret = session.authTokenSecret
             
             saveTwitterAccount(withToken: token, andSecret: secret)
+            
+            if error != nil{
+                completion(AuthorizationError.Unknown)
+            } else{
+              
+                SwapUser(username: getUsernameOfSignedInUser()).set(TwitterID: session.userID, DidSetInformation: {
+                    
+                    DispatchQueue.main.async {
+                        
+                         completion(nil)
+                    }
+                    
+                })
+            
+            }
+            
         }
         
-        if error != nil{
-            completion(AuthorizationError.Unknown)
-        } else{
-            completion(nil)
-        }
+      
         
         
     })
