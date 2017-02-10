@@ -12,18 +12,20 @@ class ShareSwapLinkView: UIViewController{
     
     @IBOutlet var swapLink: UILabel!
 
-    let loadingView = ShowLoadingOverlay().showLoadingSymbol()
+    var loadingView: UIImageView? = nil
     
     override func viewDidLoad() {
         
-        self.view.addSubview(loadingView)
+        loadingView = ShowLoadingOverlay().showLoadingSymbol(view: self.view)
+        
+        self.view.addSubview(loadingView!)
         
         swapLink.text = "Swapapp.co/\(getUsernameOfSignedInUser())"
         
         let shareVC = UIActivityViewController(activityItems: [swapLink.text!], applicationActivities: nil)
         present(shareVC, animated: true, completion: {
             
-            self.loadingView.isHidden = true
+            self.loadingView?.isHidden = true
             
         })
     }
@@ -35,12 +37,12 @@ class ShareSwapLinkView: UIViewController{
     
     @IBAction func didTapShare(_ sender: Any) {
         
-        self.loadingView.isHidden = false
+        self.loadingView?.isHidden = false
         
         let shareVC = UIActivityViewController(activityItems: [swapLink.text!], applicationActivities: nil)
         present(shareVC, animated: true, completion: {
             
-            self.loadingView.isHidden = true
+            self.loadingView?.isHidden = true
         
         })
         
