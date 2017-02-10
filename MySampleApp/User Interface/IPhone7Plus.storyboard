@@ -616,7 +616,9 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When's your birthday?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfW-kI-gQS">
-                                <rect key="frame" x="107.33333333333331" y="60" width="200.33333333333337" height="40"/>
+
+                                <rect key="frame" x="107.66666666666666" y="60" width="200.33333333333334" height="40"/>
+
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2gK-W0-wlj"/>
                                 </constraints>
@@ -706,14 +708,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Profile Picture" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqP-fJ-Q1k">
-                                <rect key="frame" x="61" y="91" width="252" height="21"/>
+                                <rect key="frame" x="81" y="91" width="252" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FZLTZHB--B51-0" family="Lantinghei TC" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kk1-ol-3QL">
-                                <rect key="frame" x="124" y="536" width="128" height="59"/>
+                                <rect key="frame" x="143" y="582" width="128" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FZLTTHB--B51-0" family="Lantinghei TC" pointSize="19"/>
                                 <state key="normal" title="Skip">
@@ -726,23 +728,23 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RightCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="Q4l-St-CdR">
-                                <rect key="frame" x="218" y="558" width="13" height="16"/>
+                                <rect key="frame" x="236" y="603" width="13" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIe-Pk-0ut">
-                                <rect key="frame" x="61" y="179" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vaT-vU-9x8">
-                                <rect key="frame" x="213" y="179" width="100" height="100"/>
+                                <rect key="frame" x="81" y="191" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLV-yF-UkH">
-                                <rect key="frame" x="57" y="345" width="100" height="100"/>
+                                <rect key="frame" x="81" y="363" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jx9-6x-Foi">
-                                <rect key="frame" x="213" y="345" width="100" height="100"/>
+                                <rect key="frame" x="229" y="363" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vaT-vU-9x8">
+                                <rect key="frame" x="229" y="191" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -1293,7 +1295,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBs-bc-oRB">
-                                <rect key="frame" x="315" y="28" width="33" height="30"/>
+                                <rect key="frame" x="359" y="34" width="33" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="UploadIcon"/>
                             </button>
@@ -1366,7 +1368,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ManageSwapRequests" rowHeight="65" id="Q9R-Km-pHC" customClass="notificationCell" customModule="Swap" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="privateSwapRequest" rowHeight="65" id="Q9R-Km-pHC" customClass="notificationCell" customModule="Swap" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q9R-Km-pHC" id="p7B-yC-yJl">
@@ -1397,7 +1399,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotifySwap" rowHeight="65" id="Cm2-4H-qvC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="notifyRequestAcceptance" rowHeight="65" id="Cm2-4H-qvC">
                                 <rect key="frame" x="0.0" y="93" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cm2-4H-qvC" id="zKd-tA-Olb">
@@ -1415,11 +1417,10 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDc-6A-TpI">
-                                            <rect key="frame" x="266" y="17" width="64" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDc-6A-TpI">
+                                            <rect key="frame" x="259" y="17" width="89" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                            <state key="normal" title="Swap">
+                                            <state key="normal" image="SwapNotificationsButton">
                                                 <color key="titleColor" red="0.0" green="0.113132724" blue="0.12351284899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
@@ -1436,7 +1437,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="biU-vk-dri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1840.8" y="3438.530734632684"/>
+            <point key="canvasLocation" x="1840.5797101449277" y="3437.771739130435"/>
         </scene>
         <!--Tutorial Page Controller-->
         <scene sceneID="yac-YA-RhU">
@@ -1730,7 +1731,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iCg-d6-7Pj">
-                                <rect key="frame" x="0.0" y="120" width="414" height="644"/>
+                                <rect key="frame" x="0.0" y="135" width="414" height="644"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1798,13 +1799,6 @@
                                     <outlet property="delegate" destination="gUB-qu-grS" id="Mx6-7f-BvT"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOB-xD-39P">
-                                <rect key="frame" x="30" y="84" width="153" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
-                                <color key="textColor" red="0.0" green="0.66083386799999999" blue="0.72146652919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" backgroundImage="Header1" translatesAutoresizingMaskIntoConstraints="NO" id="WD1-fT-sXb">
                                 <rect key="frame" x="20" y="28" width="374" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1813,6 +1807,13 @@
                                     <outlet property="delegate" destination="gUB-qu-grS" id="V95-C8-isE"/>
                                 </connections>
                             </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search Something..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOB-xD-39P">
+                                <rect key="frame" x="32" y="98" width="174" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.66083386799999999" blue="0.72146652919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1820,6 +1821,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="WD1-fT-sXb" id="DS4-34-rdW"/>
+                        <outlet property="searchLabel" destination="eOB-xD-39P" id="CkG-pH-eEb"/>
                         <outlet property="searchedUsersTable" destination="iCg-d6-7Pj" id="aM1-HX-Osr"/>
                         <outlet property="tableView" destination="iCg-d6-7Pj" id="qin-73-Cee"/>
                         <segue destination="BAm-xT-tcN" kind="presentation" identifier="showUserProfile" modalTransitionStyle="coverVertical" id="Rco-zO-8yi"/>
@@ -2006,6 +2008,10 @@
                                     <action selector="didTapBack:" destination="dju-Rq-Yop" eventType="touchUpInside" id="ghY-9m-XOO"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DGB-xZ-Zak">
+                                <rect key="frame" x="189" y="350" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2025,7 +2031,9 @@
                         <outlet property="YouTube" destination="8cl-ZG-bml" id="nSL-ac-kX2"/>
                         <outlet property="bioLabel" destination="Wfa-VP-n4V" id="UGs-f2-PxJ"/>
                         <outlet property="fullName" destination="8Lc-kz-PqH" id="Z6K-zF-aXl"/>
+                        <outlet property="loadingView" destination="DGB-xZ-Zak" id="pyu-Ho-87l"/>
                         <outlet property="profilePicture" destination="6rU-yY-CZw" id="hGb-mb-KG3"/>
+                        <outlet property="swapButton" destination="MyY-kS-eB5" id="Q91-Te-cUN"/>
                         <outlet property="usernameLabel" destination="Kvo-Fi-jkR" id="0vp-cU-ivz"/>
                         <outlet property="verifiedIcon" destination="SbA-vT-sUG" id="gqb-u8-btX"/>
                     </connections>
@@ -2741,6 +2749,7 @@
         <image name="SoundCloudDisabled" width="64" height="63"/>
         <image name="SpotifyDark" width="37" height="37"/>
         <image name="SpotifyDisabled" width="63" height="62"/>
+        <image name="SwapNotificationsButton" width="273" height="86"/>
         <image name="SwapProfileButton" width="112" height="41"/>
         <image name="TextfieldBottom" width="410" height="1"/>
         <image name="TranparentOverlay" width="182" height="227"/>

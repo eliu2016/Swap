@@ -11,6 +11,11 @@ import Foundation
 class notificationView: UITableViewController
 {
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -21,6 +26,7 @@ class notificationView: UITableViewController
         self.refreshControl?.tintColor = .white
         self.refreshControl?.addTarget(self, action: #selector(notificationView.refreshTable), for: .valueChanged)
         
+        self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
 
     }
     
@@ -45,9 +51,9 @@ class notificationView: UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ManageSwapRequests", for: indexPath);
+        let cell = tableView.dequeueReusableCell(withIdentifier: "privateSwapRequest", for: indexPath);
         
-        let cell2 = tableView.dequeueReusableCell(withIdentifier: "NotifySwap", for: indexPath)
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "notifyRequestAcceptance", for: indexPath)
   
         
             return cell
@@ -62,14 +68,6 @@ class notificationView: UITableViewController
         tableView.reloadData()
     
     }
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-       
-    }
-    
-   
     
 }
  class notificationCell: UITableViewCell {

@@ -77,7 +77,7 @@ class SettingsView: UITableViewController {
                 let loadingOverlay = ShowLoadingOverlay()
                 
                 self.view.addSubview(loadingOverlay.showBlackOverlay())
-                self.view.addSubview(loadingOverlay.showLoadingSymbol())
+                self.view.addSubview(loadingOverlay.showLoadingSymbol(view: self.view))
                 
                 signOut{
                     DispatchQueue.main.async {

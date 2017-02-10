@@ -29,7 +29,7 @@ class SignUpViewController: UIViewController {
     //show loading overlay
    let loadingOverlay = ShowLoadingOverlay()
    let blackOverlay = loadingOverlay.showBlackOverlay()
-   let loadingSymbol = loadingOverlay.showLoadingSymbol()
+        let loadingSymbol = loadingOverlay.showLoadingSymbol(view: self.view)
         self.view.addSubview(blackOverlay)
         self.view.addSubview(loadingSymbol)
         

@@ -16,6 +16,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
    // @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchLabel: UILabel!
     
     var returnedUsers: [SwapUser] = []
 
@@ -57,6 +58,10 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
             print("search is empty")
             return
         }
+        
+        searchLabel.text = searchText
+        
+        
         
      searchUsers(withUsername: searchBar.text!) { (error, users) in
         

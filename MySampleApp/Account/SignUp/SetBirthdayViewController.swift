@@ -42,7 +42,7 @@ class SetBirthdayViewController: UIViewController {
         //show loading overlay
         let loadingOverlay = ShowLoadingOverlay()
         let blackOverlay = loadingOverlay.showBlackOverlay()
-        let loadingSymbol = loadingOverlay.showLoadingSymbol()
+        let loadingSymbol = loadingOverlay.showLoadingSymbol(view: self.view)
         
         view.addSubview(blackOverlay)
         view.addSubview(loadingSymbol)

@@ -22,6 +22,8 @@ class SearchedUser: UIViewController {
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var verifiedIcon: UIImageView!
     
+    @IBOutlet var swapButton: UIButton!
+    
     @IBOutlet var bioLabel: UILabel!
     
     @IBOutlet var Spotify: UIImageView!
@@ -32,19 +34,36 @@ class SearchedUser: UIViewController {
     @IBOutlet var YouTube: UIImageView!
     @IBOutlet var Twitter: UIImageView!
     
+    @IBOutlet var loadingView: UIActivityIndicatorView!
+    
     override func viewWillAppear(_ animated: Bool) {
         
        
     }
     override func viewDidLoad() {
     
-        self.tabBarController?.tabBar.backgroundImage = UIImage(named: "subheader1")
+        self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
         
         
         verifiedIcon.isHidden = true
-      
+        profilePicture.isHidden = true
+        bioLabel.isHidden = true
+        fullName.isHidden = true
+        Spotify.isHidden = true
+        Contact.isHidden = true
+        Instagram.isHidden = true
+        Pinterest.isHidden = true
+        SoundCloud.isHidden = true
+        YouTube.isHidden = true
+        Twitter.isHidden = true
+        BlurView1.isHidden = true
+        BlurView2.isHidden = true
+        BlurView3.isHidden = true
+        swapButton.isHidden = true
+        
+        
        MakeBlurViewCircular(blurView: BlurView1)
        MakeBlurViewCircular(blurView: BlurView2)
        MakeBlurViewCircular(blurView: BlurView3)
@@ -66,6 +85,23 @@ class SearchedUser: UIViewController {
                 
             self.bioLabel.text = user?._bio
                 
+                //show the hidden views
+                
+                self.profilePicture.isHidden = false
+                self.bioLabel.isHidden = false
+                self.fullName.isHidden = false
+                self.Spotify.isHidden = false
+                self.Contact.isHidden = false
+                self.Instagram.isHidden = false
+                self.Pinterest.isHidden = false
+                self.SoundCloud.isHidden = false
+                self.YouTube.isHidden = false
+                self.Twitter.isHidden = false
+                self.BlurView1.isHidden = false
+                self.BlurView2.isHidden = false
+                self.BlurView3.isHidden = false
+                self.swapButton.isHidden = false
+                
             self.verifiedIcon.isHidden = !(user?._isVerified?.boolValue ?? false)
                 
              //   self.Spotify.image = (user?._willShareSpotify?.boolValue ?? false) ? SpotifyLightImage : SpotifyLight
@@ -80,11 +116,8 @@ class SearchedUser: UIViewController {
             
             // self.Contact.image = userWillAtLeastShareEmailOrPhoneNumber ? #imageLiteral(resourceName: "ContactDark") : ContactLight
                 
-                
-                
-                
+                self.loadingView.stopAnimating()
             
-                
             }
         }
 
