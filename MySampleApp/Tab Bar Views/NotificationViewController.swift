@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NotificationViewController: UIViewController, UITableViewDataSource
+class NotificationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     
     var swapRequests: [SwapRequest] = []
@@ -19,23 +19,30 @@ class NotificationViewController: UIViewController, UITableViewDataSource
     
     override func viewWillAppear(_ animated: Bool) {
        
-        SwapUser().getRequestedSwaps { (error, requests) in
+        SwapUser(username: getUsernameOfSignedInUser()).getRequestedSwaps { (error, requests) in
             
             if let requests = requests{
                 
                 DispatchQueue.main.async {
                     
+                    
                     self.swapRequests = requests
                     
                 }
             }
+            
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+        tableView.delegate = self
     
-        self.tableView.allowsSelection = false
+        self.tableView.allowsSelection = true
         
         tableView.addSubview(refreshControl)
         self.refreshControl.tintColor = .black
@@ -47,9 +54,9 @@ class NotificationViewController: UIViewController, UITableViewDataSource
     
     
     //table view
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if swapRequests.count == 0{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+        /*if swapRequests.count == 0{
             
             let blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         
@@ -61,17 +68,18 @@ class NotificationViewController: UIViewController, UITableViewDataSource
         
             self.tableView.backgroundView = blankTableMessage
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        }
+        }*/
         
+        print("I AM BEING CALLED")
         return swapRequests.count;
         
     }
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "privateSwapRequest", for: indexPath) as! notificationCell;
+            let cell = tableView.dequeueReusableCell(withIdentifier: "privateSwapRequest", for: indexPath) as! notificationCell;
         
-       cell.usernameLabel.text = swapRequests[indexPath.item]._sender
+            cell.usernameLabel.text = swapRequests[indexPath.item]._sender
         
         
             return cell
@@ -81,11 +89,11 @@ class NotificationViewController: UIViewController, UITableViewDataSource
     func refreshTable() {
         // Code to refresh table view  
         tableView.reloadData()
+        refreshControl.endRefreshing()
     
     }
     
 }
-
 
  class notificationCell: UITableViewCell {
     

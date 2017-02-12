@@ -1018,7 +1018,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VerifiedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CIk-Mr-Qkw">
-                                <rect key="frame" x="98" y="80" width="18" height="20"/>
+                                <rect key="frame" x="98" y="80" width="18" height="18.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACT-ka-kUy">
@@ -1188,17 +1188,40 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="UploadIcon"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DU9-U3-8wp" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="134" y="313" width="106" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <state key="normal" title="Done" backgroundImage="ConfirmSwapButton"/>
+                                <connections>
+                                    <action selector="didPressDone:" destination="WYQ-e0-MuD" eventType="touchUpInside" id="sbM-R4-Ehj"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="mwg-HX-FyR" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="158" y="197" width="58" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAf-Sx-3hm" customClass="SpringLabel" customModule="Spring">
+                                <rect key="frame" x="111" y="261" width="152" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <color key="textColor" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93290692557058252" green="0.99108461721182695" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="confirmSwapButton" destination="DU9-U3-8wp" id="nqw-G6-CIm"/>
+                        <outlet property="confirmSwapLabel" destination="IAf-Sx-3hm" id="1X4-Im-NLj"/>
                         <outlet property="enableCameraButton" destination="dap-Fa-aPj" id="JhW-aD-vPx"/>
                         <outlet property="enableCameraLabel" destination="Ex6-hP-FgT" id="TrI-dQ-iCS"/>
+                        <outlet property="profilePic" destination="mwg-HX-FyR" id="E7e-yS-Foq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LX-I5-QWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1066" y="2579"/>
+            <point key="canvasLocation" x="-1066.4000000000001" y="2578.5607196401802"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Pj-B7-Yk8">
@@ -1380,6 +1403,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vkb-f7-Lx5" id="q2t-4v-uU1"/>
+                                    <outlet property="delegate" destination="vkb-f7-Lx5" id="8TF-Pl-cqi"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1926,7 +1953,7 @@
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VerifiedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="q7F-RU-Fgg">
-                                <rect key="frame" x="213" y="113" width="19" height="21"/>
+                                <rect key="frame" x="213" y="113" width="18" height="18.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpotifyDark" translatesAutoresizingMaskIntoConstraints="NO" id="RT0-Rx-P4J">
@@ -2730,6 +2757,7 @@
         <image name="BlackCarrot" width="32" height="32"/>
         <image name="BlueRoundBorder" width="123" height="127"/>
         <image name="CloseIcon" width="64" height="64"/>
+        <image name="ConfirmSwapButton" width="317" height="108"/>
         <image name="ConnectSocialMediaTutorial" width="360" height="632"/>
         <image name="ContactDark" width="57" height="55"/>
         <image name="DeclineIcon" width="64" height="64"/>
@@ -2753,7 +2781,7 @@
         <image name="PinterestDark" width="55" height="54"/>
         <image name="PinterestDisabled" width="99" height="96"/>
         <image name="ProfileBlackIcon" width="30" height="34"/>
-        <image name="RedditDisabled" width="93" height="90"/>
+        <image name="RedditDisabled" width="66" height="66"/>
         <image name="RightCarrot" width="32" height="32"/>
         <image name="SearchIcon" width="27" height="27"/>
         <image name="SettingsIcon" width="102" height="99"/>
@@ -2770,7 +2798,7 @@
         <image name="TwitterDark" width="56" height="55"/>
         <image name="TwitterDisabled" width="97" height="94"/>
         <image name="UploadIcon" width="64" height="64"/>
-        <image name="VerifiedIcon" width="145" height="149"/>
+        <image name="VerifiedIcon" width="27" height="27"/>
         <image name="VimeoDisabled" width="159" height="152"/>
         <image name="WhiteRoundBorder" width="123" height="127"/>
         <image name="YouTubeBlackIcon" width="40" height="27"/>
