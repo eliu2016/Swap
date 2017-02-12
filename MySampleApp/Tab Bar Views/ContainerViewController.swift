@@ -18,6 +18,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
      var scrollView: UIScrollView!
      var SwapCenterButton: UIButton!
     
+    
     override func viewDidLoad() {
   
      
@@ -58,6 +59,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         scrollView.bounces = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.isPagingEnabled = true
+        scrollView.isUserInteractionEnabled = true
         
         // 3) Set up the frames of the view controllers to align
         //    with eachother inside the container view
