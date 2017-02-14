@@ -624,7 +624,7 @@ class SwapUser {
         self.getInformation { (error, thisUser) in
             
             if let thisUser = thisUser{
-                 let nameOfUser = "\(thisUser._firstname!) \(thisUser._lastname!)"
+                let nameOfUser = "\(thisUser._firstname!) \(thisUser._lastname!)"
                 let username = thisUser._username!
                 
                 
@@ -633,8 +633,7 @@ class SwapUser {
                     if let user = user {
                         if let id = user._notification_id_one_signal{
                             
-                            let nameOfUser = "\(user._firstname!) \(user._lastname!)"
-                            
+                
                             // Send Notification to User withUsername that the Swap Request has been accepted
                             
                             // Sends notification to user
