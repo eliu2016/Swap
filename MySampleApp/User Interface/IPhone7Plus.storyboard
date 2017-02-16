@@ -1250,7 +1250,7 @@
         <!--Notification View Controller-->
         <scene sceneID="r8O-YG-BAI">
             <objects>
-                <viewController id="6kF-ED-Yp7" customClass="NotificationViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6kF-ED-Yp7" customClass="NotificationViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XNv-6F-lLu"/>
                         <viewControllerLayoutGuide type="bottom" id="CBR-i3-WYK"/>

@@ -245,13 +245,19 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     }
     @IBAction func didPressSwap(_ sender: Any) {
         
-        let swappedUser = acceptedRequests[(sender as AnyObject).tag]._sender!
+        let vc = NotificationViewController(nibName: "NotificationView", bundle: nil)
         
-        SwapUser().swapUserWithUsername(username: swappedUser, viewController: NotificationViewController())
+        let usernameToSwapWith = acceptedRequests[(sender as AnyObject).tag]._sender!
         
-        //probably put this in a completion block
-        SwapUser().confirmSwapRequestToUser(withUsername: swappedUser)
+        SwapUser().swapWith(userWithUsername: usernameToSwapWith, authorizeOnViewController: vc, overridePrivateAccount: true, completion: { (error, user) in
+            
+            SwapUser().confirmSwapRequestToUser(withUsername: usernameToSwapWith)
+            
+        })
         
+        
+        /*
+         ******* On notifications, it should swap with the user regardless if they are private or not because notifications shows approved swap requests so this is redundant
      //if user is private
         
         swapButton.setImage(#imageLiteral(resourceName: "PendingNotificationsButton"), for: .normal)
@@ -259,7 +265,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     //else if user is not private
     
         swapButton.setImage(#imageLiteral(resourceName: "SwappedNotificationsButton"), for: .normal)
-        
+        */
         
     }
 }

@@ -957,9 +957,9 @@ class SwapUser {
         
     }
     
-    func swapUserWithUsername(username: String, viewController: UIViewController){
+    func swapWith(userWithUsername: String, authorizeOnViewController: UIViewController, overridePrivateAccount: Bool = false, completion: @escaping (_ error: Error?, _ user: Users?) -> Void){
        
-        SwapUser(username: username).getInformation(completion: { (error, user) in
+        SwapUser(username: userWithUsername).getInformation(completion: { (error, user) in
             
         
             if error != nil {
@@ -967,6 +967,10 @@ class SwapUser {
                 // There was an error trying to get the user from the swap code
                 
                 print("Could not get user.. Not a valid Swap Code... User does not exist...or bad internet connection")
+                DispatchQueue.main.async {
+                     completion(error, nil)
+                }
+               
         
             }
             
@@ -977,12 +981,15 @@ class SwapUser {
                 
                 let userIsPrivate = user._isPrivate as! Bool
                 
-                if userIsPrivate{
+                let shouldSendSwapRequest = overridePrivateAccount ? false : userIsPrivate
+                
+                if shouldSendSwapRequest{
                     
                     SwapUser(username: getUsernameOfSignedInUser()).sendSwapRequest(toSwapUser:  SwapUser(username: user._username!), completion: { error in
                         
                         if error != nil {
                             
+                            completion(error, nil)
                          
                         } else {
                             
@@ -992,6 +999,12 @@ class SwapUser {
                             
                             // Log analytics
                             Analytics.didSwap(byMethod: .username, isPrivate: true)
+                            
+                             DispatchQueue.main.async {
+                                
+                                completion(nil, user)
+                            }
+                            
                             
                         }
                         
@@ -1005,16 +1018,16 @@ class SwapUser {
                     
                     // Share social medias
                     shareVine(withUser: user)
-                    shareSpotify(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    shareSpotify(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     createContactInPhone(withContactDataOfUser: user, completion: {_ in return })
-                    shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     shareTwitter(withUser: user)
-                    shareYouTube(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
-                    shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
-                    sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
-                    shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
-                    shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
-                    shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    shareYouTube(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                    shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                    sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                    shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                    shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                    shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     
                     
                     SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
@@ -1049,6 +1062,10 @@ class SwapUser {
                     
                     // ========= End Logging Analytics ====================================
                     
+                    DispatchQueue.main.async {
+                            completion(nil, user)
+                    }
+                
                     
                 }
                 
