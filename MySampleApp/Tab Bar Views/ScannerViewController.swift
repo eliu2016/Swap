@@ -56,13 +56,9 @@ class ScannerViewController: UIViewController {
             
             let username = getUsernameFromSwapLink(swapLink: swapLink)
             
-            
-            
-            SwapUser(username: username).getInformation(completion: { (error, user) in
+            SwapUser().swapWith(userWithUsername: username, authorizeOnViewController: self, completion: { (error, user) in
                 
-                // Stop Scanner
                 scanner.stopScan()
-                
                 
                 if error != nil {
                     
@@ -74,126 +70,47 @@ class ScannerViewController: UIViewController {
                     // Restart Scanner After Showing Pop Up View
                     scanner.startScan()
                     
-                    
                 }
                 
                 
-                if let user = user{
+                
+                
+                if let user = user {
                     
-                    // Could get user
-                    
-                    let userIsPrivate = user._isPrivate as! Bool
-                    
-                    if userIsPrivate{
+                    if user._isPrivate?.boolValue ?? false{
                         
-                        SwapUser(username: getUsernameOfSignedInUser()).sendSwapRequest(toSwapUser:  SwapUser(username: user._username!), completion: { error in
-                            
-                            if error != nil {
-                                
-                                // Some error happened
-                             
-                                scanner.startScan()
-                                
-                            }  else{
-                                
-                                //confirm swap
-                                DispatchQueue.main.async {
-                                    
-                                    self.confirmSwapBackground = self.newConfirmView()
-                                    self.view.addSubview(self.confirmSwapBackground!)
-                                    self.view.bringSubview(toFront: self.profilePic)
-                                    self.view.bringSubview(toFront: self.confirmSwapLabel)
-                                    self.view.bringSubview(toFront: self.confirmSwapButton)
-                                
-                                    self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
-                                
-                                    self.confirmSwapLabel.text = "Request sent to " + user._firstname! + " " + user._lastname!
-                                
-                                    self.profilePic.isHidden = false
-                                    self.confirmSwapLabel.isHidden = false
-                                    self.confirmSwapButton.isHidden = false
-                                }
-                                // Request Sent
-                                
-
-                                
-                                // Log analytics
-                               Analytics.didSwap(byMethod: .swapcode, isPrivate: true)
-                              
-                                
-                            }
-                            
-                            
-                        })
+                        self.confirmSwapBackground = self.newConfirmView()
+                        self.view.addSubview(self.confirmSwapBackground!)
+                        self.view.bringSubview(toFront: self.profilePic)
+                        self.view.bringSubview(toFront: self.confirmSwapLabel)
+                        self.view.bringSubview(toFront: self.confirmSwapButton)
+                        
+                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
+                        
+                        self.confirmSwapLabel.text = "Request sent to " + user._firstname! + " " + user._lastname!
+                        
+                        self.profilePic.isHidden = false
+                        self.confirmSwapLabel.isHidden = false
+                        self.confirmSwapButton.isHidden = false
                         
                     }
-                        
+                    
                     else{
-                        //configure confirm swap screen
-                        DispatchQueue.main.async {
-                            
-                            self.confirmSwapBackground = self.newConfirmView()
-                            self.view.addSubview(self.confirmSwapBackground!)
-                            
-                            self.view.bringSubview(toFront: self.profilePic)
-                            self.view.bringSubview(toFront: self.confirmSwapLabel)
-                            self.view.bringSubview(toFront: self.confirmSwapButton)
                         
-                            self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
+                        self.confirmSwapBackground = self.newConfirmView()
+                        self.view.addSubview(self.confirmSwapBackground!)
                         
-                            self.confirmSwapLabel.text =  user._firstname! + " " + user._lastname!
-                            
-                            self.profilePic.isHidden = false
-                            self.confirmSwapLabel.isHidden = false
-                            self.confirmSwapButton.isHidden = false
-                        }
+                        self.view.bringSubview(toFront: self.profilePic)
+                        self.view.bringSubview(toFront: self.confirmSwapLabel)
+                        self.view.bringSubview(toFront: self.confirmSwapButton)
                         
-                        // Share social medias
-                        shareVine(withUser: user)
-                        shareSpotify(withUser: user, andIfNeededAuthorizeOnViewController: self)
-                        createContactInPhone(withContactDataOfUser: user, completion: {_ in return })
-                        shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: self)
-                        shareTwitter(withUser: user)
-                        shareYouTube(withUser: user, andIfNeededAuthorizeOnViewController: self)
-                        shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: self)
-                        sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: self)
-                        shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: self)
-                        shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: self)
-                        shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: self)
+                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
                         
+                        self.confirmSwapLabel.text =  user._firstname! + " " + user._lastname!
                         
-                        SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
-                
-                        
-                        // Log Analytics // If current user has social media connected and the other has the social media 'on' then essentially the user has shared that social media. +- ~3% margin error perhaps
-                        
-                        // ========= Begin Loggin Analytics ====================================
-                        let sharedSpotify = (spotify_oauth2.accessToken != nil || spotify_oauth2.refreshToken != nil) && (user._willShareSpotify?.boolValue ?? false) && (user._spotifyID != nil)
-                        
-                         let sharedPhone =  (user._willSharePhone?.boolValue ?? false)
-                        let sharedEmail =  (user._willShareEmail?.boolValue ?? false)
-                        
-                        let sharedInstagram = (instagram_oauth2.accessToken != nil || instagram_oauth2.refreshToken != nil) && (user._willShareInstagram?.boolValue ?? false) && user._instagramID != nil
-                        
-                        let sharedReddit = (reddit_oauth2.accessToken != nil || spotify_oauth2.refreshToken != nil) && (user._willShareSpotify?.boolValue ?? false) && user._redditID != nil
-                        
-                          let sharedTwitter = (getTwitterToken() != nil && getTwitterSecret() != nil ) && (user._willShareTwitter?.boolValue ?? false) && user._twitterID != nil
-                        
-                        
-                          let sharedYouTube = (youtube_oauth2.accessToken != nil || youtube_oauth2.refreshToken != nil) && (user._willShareYouTube?.boolValue ?? false) && user._youtubeID != nil
-                        
-                          let sharedSoundCloud = (soundcloud_oauth2.accessToken != nil || soundcloud_oauth2.refreshToken != nil) && (user._willShareSoundCloud?.boolValue ?? false) && user._soundcloudID != nil
-                        
-                         let sharedPinterest = (pinterest_oauth2.accessToken != nil || pinterest_oauth2.refreshToken != nil) && (user._willSharePinterest?.boolValue ?? false) && user._pinterestID != nil
-                        
-                         let sharedGitHub = (github_oauth2.accessToken != nil || github_oauth2.refreshToken != nil) && (user._willShareGitHub?.boolValue ?? false) && user._githubID != nil
-                        
-                         let sharedVimeo = (vimeo_oauth2.accessToken != nil || vimeo_oauth2.refreshToken != nil) && (user._willShareVimeo?.boolValue ?? false) && user._vimeoID != nil
-                        
-                        Analytics.didSwap(byMethod: .swapcode, didShareSpotify: sharedSpotify, didSharePhone: sharedPhone, didShareEmail: sharedEmail, didShareInstagram: sharedInstagram, didShareReddit: sharedReddit, didShareTwitter: sharedTwitter, didShareYouTube: sharedYouTube, didShareSoundCloud: sharedSoundCloud, didSharePinterest: sharedPinterest, didShareGitHub: sharedGitHub, didShareVimeo: sharedVimeo)
-                        
-                        // ========= End Logging Analytics ====================================
-                        
+                        self.profilePic.isHidden = false
+                        self.confirmSwapLabel.isHidden = false
+                        self.confirmSwapButton.isHidden = false
                         
                     }
                     
@@ -201,6 +118,11 @@ class ScannerViewController: UIViewController {
                 
                 
             })
+            
+            
+            
+            
+            
             
             
         }
