@@ -22,6 +22,8 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         
+        tableView.reloadData()
+        
         blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         
         blankTableMessage?.text = "No Notifications :'("
@@ -88,10 +90,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     //table view
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2
-        
-        
-       /* if swapRequests.count == 0 && acceptedRequests.count == 0{
+        if swapRequests.count == 0 && acceptedRequests.count == 0{
             
             blankTableMessage?.isHidden = true
             
@@ -109,13 +108,12 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             
         else{
             
-            
             blankTableMessage?.isHidden = false
             self.tableView.backgroundView = blankTableMessage
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
             
             return 2
-        }*/
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -138,7 +136,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        
         if section == 0{
             return swapRequests.count
         }
@@ -154,13 +151,13 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         var hoursSinceNotification = 0
         var cell: notificationCell
         
-        if (indexPath.section == 0){
+        ///if (indexPath.section == 0){
         
             cell = tableView.dequeueReusableCell(withIdentifier: "privateSwapRequest", for: indexPath) as! notificationCell;
         
             cell.acceptButton.tag = indexPath.row
             circularImage(photoImageView: cell.profilePicture)
-        SwapUser(username: swapRequests[indexPath.item]._sender!).getInformation { (error, user) in
+            SwapUser(username: swapRequests[indexPath.item]._sender!).getInformation { (error, user) in
             
             DispatchQueue.main.async {
                 
@@ -168,7 +165,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 cell.usernameLabel.text = user?._username
                 
                  hoursSinceNotification = self.calculateHoursBetweenTwoDates(start: NSDate(timeIntervalSince1970: swapRequests[indexPath.item]._sent_at as! TimeInterval) as Date, end: Date())
-            }
+    /*        }
         }
             
             
@@ -211,6 +208,8 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             //express in weeks
         
             cell.timeLabel.text = "\(weeksSinceNotification)w"
+        }*/
+                }
         }
         return cell
         
