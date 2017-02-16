@@ -51,8 +51,12 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             
             if let aRequests = aRequests{
                 
-                acceptedRequests = aRequests
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+              
+                    acceptedRequests = aRequests
+                    self.tableView.reloadData()
+                }
+                
                 
             }
         }
