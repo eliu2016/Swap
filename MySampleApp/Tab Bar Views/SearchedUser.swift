@@ -112,17 +112,34 @@ class SearchedUser: UIViewController {
                 
             self.verifiedIcon.isHidden = !(user?._isVerified?.boolValue ?? false)
                 
-             //   self.Spotify.image = (user?._willShareSpotify?.boolValue ?? false) ? SpotifyLightImage : SpotifyLight
+            self.Spotify.image = (user?._willShareSpotify?.boolValue ?? false) ? #imageLiteral(resourceName: "SpotifyDark") : #imageLiteral(resourceName: "SpotifyLight")
                 
             self.Twitter.image = (user?._willShareTwitter?.boolValue ?? false) ? #imageLiteral(resourceName: "TwitterDark"): #imageLiteral(resourceName: "TwitterLight")
                 
             self.Instagram.image = (user?._willShareInstagram?.boolValue ?? false) ? #imageLiteral(resourceName: "InstagramDark") : #imageLiteral(resourceName: "InstagramLight")
                 
+            /* self.Reddit.image = (user?._willShareReddit?.boolValue ?? false) ? #imageLiteral(resourceName: "RedditDark") : #imageLiteral(resourceName: "RedditLight")
+                
+            self.GitHub.image = (user?._willShareGitHub?.boolValue ?? false) ? #imageLiteral(resourceName: "GithubDark"): #imageLiteral(resourceName: "GithubLight")
+                
+            self.Vimeo.image = (user?._willShareVimeo?.boolValue ?? false) ? #imageLiteral(resourceName: "VimeoDark") : #imageLiteral(resourceName: "VimeoLight")
+ */
+                
+            self.YouTube.image = (user?._willShareYouTube?.boolValue ?? false) ? #imageLiteral(resourceName: "YoutubeDark") : #imageLiteral(resourceName: "YoutubeLight")
+            
+            self.SoundCloud.image = (user?._willShareSoundCloud?.boolValue ?? false) ? #imageLiteral(resourceName: "SoundCloudDark") : #imageLiteral(resourceName: "SoundCloudLight")
+            
+            self.Pinterest.image = (user?._willSharePinterest?.boolValue ?? false) ? #imageLiteral(resourceName: "PinterestDark") : #imageLiteral(resourceName: "PinterestLight")
+
+
+
+                
+                
                 
                 
             let userWillAtLeastShareEmailOrPhoneNumber = (user?._willShareEmail?.boolValue ?? false) || (user?._willSharePhone?.boolValue ?? false)
             
-            // self.Contact.image = userWillAtLeastShareEmailOrPhoneNumber ? #imageLiteral(resourceName: "ContactDark") : ContactLight
+            self.Contact.image = userWillAtLeastShareEmailOrPhoneNumber ? #imageLiteral(resourceName: "ContactDark") : #imageLiteral(resourceName: "ContactLight")
                 
                 self.loadingView.stopAnimating()
             
