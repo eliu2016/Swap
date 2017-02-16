@@ -19,5 +19,6 @@ enum UserError: Error {
     case WillNotShareSocialMedia
     case NotConnected
     case Unknown
+    case CannotFollowSelf
     
 }
