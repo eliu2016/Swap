@@ -738,7 +738,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aQI-gv-sSM" kind="show" id="owF-mD-xHN"/>
+                                    <segue destination="aQI-gv-sSM" kind="show" identifier="showHome" id="owF-mD-xHN"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RightCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="imS-YN-6zM">
@@ -761,13 +761,45 @@
                                 <rect key="frame" x="213" y="345" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaA-uF-EVu">
+                                <rect key="frame" x="206" y="332" width="115" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didSelectYouTubePhoto:" destination="AGu-TH-KGq" eventType="touchUpInside" id="Cqv-Fk-7z5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmC-NZ-rtR">
+                                <rect key="frame" x="206" y="166" width="115" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didSelectInstagramPhoto:" destination="AGu-TH-KGq" eventType="touchUpInside" id="eJb-o8-Bdj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5g-iC-d72">
+                                <rect key="frame" x="54" y="165" width="115" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didSelectContactPhoto:" destination="AGu-TH-KGq" eventType="touchUpInside" id="bzh-oD-FmG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAu-7A-j3e">
+                                <rect key="frame" x="50" y="332" width="115" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="didSelectTwitterPhoto:" destination="AGu-TH-KGq" eventType="touchUpInside" id="Jlc-Ca-S7r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="contactButton" destination="e5g-iC-d72" id="NAc-3Z-vo3"/>
                         <outlet property="contactImageView" destination="mAX-jE-0PP" id="OIy-gs-F1o"/>
+                        <outlet property="instagramButton" destination="AmC-NZ-rtR" id="62w-kg-XQ8"/>
                         <outlet property="instagramPictureImageView" destination="b2I-q4-GWB" id="nkk-lS-nWH"/>
+                        <outlet property="twitterButton" destination="TAu-7A-j3e" id="Gr7-no-WiL"/>
                         <outlet property="twitterPictureImageView" destination="sQK-PV-pw9" id="FX1-Q4-xc9"/>
+                        <outlet property="youTubeButton" destination="aaA-uF-EVu" id="NlV-Wb-zzS"/>
                         <outlet property="youtubePictureImageView" destination="TF5-W8-IF9" id="N0S-nj-5TB"/>
                     </connections>
                 </viewController>
@@ -1231,7 +1263,7 @@
                         <inset key="imageInsets" minX="-2" minY="10" maxX="2" maxY="-10"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d3b-Y0-b5o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3b-Y0-b5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1249,7 +1281,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Zxc-qU-hxd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Q8T-Kx-S5U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q8T-Kx-S5U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1286,7 +1318,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n75-LC-Ew6">
-                                <rect key="frame" x="0.0" y="64" width="375" height="601"/>
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1341,6 +1373,7 @@
                                             <outlet property="acceptButton" destination="2Ux-nA-Olo" id="tTQ-Bj-ROL"/>
                                             <outlet property="declineButton" destination="RiH-aw-Vfh" id="i4X-FQ-h09"/>
                                             <outlet property="profilePicture" destination="klT-q3-j3A" id="2ev-zd-uON"/>
+                                            <outlet property="timeLabel" destination="vBc-5e-Enb" id="SaT-7v-xey"/>
                                             <outlet property="usernameLabel" destination="BCO-28-2hT" id="ly7-yw-OKY"/>
                                         </connections>
                                     </tableViewCell>
@@ -1386,6 +1419,7 @@
                                         <connections>
                                             <outlet property="profilePicture" destination="z95-kS-ADc" id="3m7-y4-zL2"/>
                                             <outlet property="swapButton" destination="GA5-1l-iXz" id="fuI-93-GsH"/>
+                                            <outlet property="timeLabel" destination="hZG-i6-ArB" id="rKy-Mf-yyP"/>
                                             <outlet property="usernameLabel" destination="Bfo-8c-qhL" id="vpM-gW-q14"/>
                                         </connections>
                                     </tableViewCell>
@@ -1663,7 +1697,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2b1-OV-Fx1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2b1-OV-Fx1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1944,39 +1978,39 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpotifyDark" translatesAutoresizingMaskIntoConstraints="NO" id="RT0-Rx-P4J">
-                                <rect key="frame" x="95" y="301" width="21" height="21"/>
+                                <rect key="frame" x="95" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ContactDark" translatesAutoresizingMaskIntoConstraints="NO" id="kSb-09-HnY">
-                                <rect key="frame" x="73" y="301" width="21" height="21"/>
+                                <rect key="frame" x="73" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InstagramDark" translatesAutoresizingMaskIntoConstraints="NO" id="KhP-zC-4Hd">
-                                <rect key="frame" x="118" y="301" width="21" height="21"/>
+                                <rect key="frame" x="118" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PinterestDark" translatesAutoresizingMaskIntoConstraints="NO" id="G1B-pC-DQ6">
-                                <rect key="frame" x="142" y="301" width="21" height="21"/>
+                                <rect key="frame" x="142" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoundCloudDark" translatesAutoresizingMaskIntoConstraints="NO" id="TkR-6D-isC">
-                                <rect key="frame" x="165" y="301" width="21" height="21"/>
+                                <rect key="frame" x="165" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YoutubeDark" translatesAutoresizingMaskIntoConstraints="NO" id="cVn-YE-rRx">
-                                <rect key="frame" x="189" y="301" width="21" height="21"/>
+                                <rect key="frame" x="189" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterDark" translatesAutoresizingMaskIntoConstraints="NO" id="LMP-8R-ePL">
-                                <rect key="frame" x="212" y="301" width="21" height="21"/>
+                                <rect key="frame" x="212" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedditDark" translatesAutoresizingMaskIntoConstraints="NO" id="gK3-Oo-wUe">
-                                <rect key="frame" x="235" y="301" width="21" height="21"/>
+                                <rect key="frame" x="235" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GithubDark" translatesAutoresizingMaskIntoConstraints="NO" id="iBo-z6-5eo">
-                                <rect key="frame" x="280" y="301" width="21" height="21"/>
+                                <rect key="frame" x="280" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKB-oj-Xxm">
@@ -2002,7 +2036,7 @@
                                 <color key="color" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VimeoDark" translatesAutoresizingMaskIntoConstraints="NO" id="hO3-Tz-1Md">
-                                <rect key="frame" x="258" y="301" width="21" height="21"/>
+                                <rect key="frame" x="258" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -2305,7 +2339,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="JuD-eH-h69" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wEL-zP-Ibz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEL-zP-Ibz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2715,7 +2749,7 @@
                         <inset key="imageInsets" minX="35" minY="7" maxX="-35" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mml-ww-BEp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mml-ww-BEp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2808,7 +2842,7 @@
         <image name="YoutubeDark" width="57" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="YeA-4M-5uc"/>
         <segue reference="WAy-hx-jEK"/>
-        <segue reference="awe-Xf-xUj"/>
     </inferredMetricsTieBreakers>
 </document>

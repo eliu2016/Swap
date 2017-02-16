@@ -83,17 +83,6 @@ class SwapUserHistory{
             
         })
         
-        
-        
-        
-        
-        
     }
-    
-    
-    
-    
-    
-    
     
 }
