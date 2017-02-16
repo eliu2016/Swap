@@ -202,6 +202,43 @@ class SwapUser {
         
     }
     
+    func updateProfileInfoWith(Middlename: String? = nil, Company: String? = nil, Website: String? = nil,  DidSetInformation: @escaping () -> Void? = { return nil },  CannotSetInformation: @escaping () -> Void? =  { return })  {
+        
+        // Ensures that if a value is not passed in the function, it is deleted when saved into database
+        updateMapperConfig.saveBehavior = .update
+        
+        
+        
+        self.getInformation { (error, user) in
+            
+            user?._middlename = (Middlename != nil && !((Middlename?.isEmpty)!)) ? Middlename?.trim(): nil
+            user?._website = (Website != nil && !((Website?.isEmpty)!)) ? Website?.trim(): nil
+            user?._company = (Company != nil && !((Company?.isEmpty)!)) ? Company?.trim(): nil
+            
+            self.NoSQL.save(user!, configuration: self.updateMapperConfig, completionHandler: { error in
+                
+                if error != nil{
+                    
+                    print("Can set information")
+                    CannotSetInformation()
+                }
+                    
+                else{
+                    
+                    
+                    
+                    DidSetInformation()
+                    
+                }
+                
+                
+            })
+            
+        }
+        
+        
+    }
+    
     
     func getInformation(completion: @escaping (_ error: UserError?,  _ userData: Users? ) -> Void) {
         

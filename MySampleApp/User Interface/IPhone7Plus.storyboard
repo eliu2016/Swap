@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16D17a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
+
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -449,7 +451,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="VimeoDisabled"/>
                                 <connections>
+
                                     <action selector="didTapConnectSocialMedia:" destination="lk9-BF-lYa" eventType="touchUpInside" id="coe-MT-3qK"/>
+
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nl7-Yi-fH9">
@@ -502,7 +506,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="GithubDisabled"/>
                                 <connections>
+
                                     <action selector="didTapConnectSocialMedia:" destination="lk9-BF-lYa" eventType="touchUpInside" id="FcA-gP-eb1"/>
+
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ConnectSocialMediaTutorial" translatesAutoresizingMaskIntoConstraints="NO" id="Qjp-No-3Kw">
@@ -531,6 +537,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+
                         <outlet property="Github" destination="zUk-hf-zIM" id="wnu-zx-n1N"/>
                         <outlet property="Instagram" destination="Xoz-uD-ziz" id="a9y-mV-9dW"/>
                         <outlet property="Pinterest" destination="yUk-Ab-hNK" id="CeM-xZ-G0J"/>
@@ -545,6 +552,7 @@
                         <outlet property="nextButton" destination="coz-JW-ldf" id="mvS-XG-pGr"/>
                         <outlet property="tapToConnect" destination="OBv-N6-Pws" id="Of6-60-kFN"/>
                         <segue destination="gX1-v6-TRE" kind="show" identifier="toSelectProfilePicture" id="q1N-vh-5Jb">
+
                             <nil key="action"/>
                         </segue>
                     </connections>
@@ -575,8 +583,10 @@
                                     <!--2016-12-17 22:27:51 +0000-->
                                 </date>
                             </datePicker>
+
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When's your birthday?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doh-bK-9l3">
                                 <rect key="frame" x="106.66666666666669" y="60" width="201" height="40"/>
+
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gYh-HA-CZj"/>
                                 </constraints>

@@ -266,6 +266,8 @@
 		75A81B111E44DE3700F8F62C /* TutorialPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageController.swift; sourceTree = "<group>"; };
 		75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhone7Plus.storyboard; sourceTree = "<group>"; };
 		75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneSE.storyboard; sourceTree = "<group>"; };
+
+
 		75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../Downloads/Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
