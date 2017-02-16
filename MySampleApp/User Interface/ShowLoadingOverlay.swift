@@ -28,7 +28,7 @@ class ShowLoadingOverlay {
         let image = UIImage(named: "LoadingSymbol")
         let loadingSymbol = UIImageView(image: image!)
     //    loadingSymbol.frame = CGRect(x: 171, y: 318, width: 35, height: 35)
-        loadingSymbol.frame = CGRect(x: view.frame.size.width/2, y: view.frame.size.height/2, width: 35, height: 35)
+        loadingSymbol.frame = CGRect(x: view.frame.size.width/2-20, y: view.frame.size.height/2, width: 35, height: 35)
         
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotationAnimation.fromValue = 0.0

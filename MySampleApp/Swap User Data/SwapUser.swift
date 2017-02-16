@@ -661,7 +661,7 @@ class SwapUser {
         self.getInformation { (error, thisUser) in
             
             if let thisUser = thisUser{
-                 let nameOfUser = "\(thisUser._firstname!) \(thisUser._lastname!)"
+                let nameOfUser = "\(thisUser._firstname!) \(thisUser._lastname!)"
                 let username = thisUser._username!
                 
                 
@@ -670,8 +670,7 @@ class SwapUser {
                     if let user = user {
                         if let id = user._notification_id_one_signal{
                             
-                            let nameOfUser = "\(user._firstname!) \(user._lastname!)"
-                            
+                
                             // Send Notification to User withUsername that the Swap Request has been accepted
                             
                             // Sends notification to user
@@ -957,6 +956,109 @@ class SwapUser {
         
         
     }
+    
+    func swapUserWithUsername(username: String, viewController: UIViewController){
+       
+        SwapUser(username: username).getInformation(completion: { (error, user) in
+            
+        
+            if error != nil {
+                
+                // There was an error trying to get the user from the swap code
+                
+                print("Could not get user.. Not a valid Swap Code... User does not exist...or bad internet connection")
+        
+            }
+            
+            
+            if let user = user{
+                
+                // Could get user
+                
+                let userIsPrivate = user._isPrivate as! Bool
+                
+                if userIsPrivate{
+                    
+                    SwapUser(username: getUsernameOfSignedInUser()).sendSwapRequest(toSwapUser:  SwapUser(username: user._username!), completion: { error in
+                        
+                        if error != nil {
+                            
+                         
+                        } else {
+                            
+    
+                            // Request Sent
+                            
+                            
+                            // Log analytics
+                            Analytics.didSwap(byMethod: .username, isPrivate: true)
+                            
+                        }
+                        
+                        
+                    })
+                    
+                }
+                    
+                else{
+                    //configure confirm swap screen
+                    
+                    // Share social medias
+                    shareVine(withUser: user)
+                    shareSpotify(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    createContactInPhone(withContactDataOfUser: user, completion: {_ in return })
+                    shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    shareTwitter(withUser: user)
+                    shareYouTube(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: viewController)
+                    
+                    
+                    SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
+                    
+                    
+                    // Log Analytics // If current user has social media connected and the other has the social media 'on' then essentially the user has shared that social media. +- ~3% margin error perhaps
+                    
+                    // ========= Begin Loggin Analytics ====================================
+                    let sharedSpotify = (spotify_oauth2.accessToken != nil || spotify_oauth2.refreshToken != nil) && (user._willShareSpotify?.boolValue ?? false) && (user._spotifyID != nil)
+                    
+                    let sharedPhone =  (user._willSharePhone?.boolValue ?? false)
+                    let sharedEmail =  (user._willShareEmail?.boolValue ?? false)
+                    
+                    let sharedInstagram = (instagram_oauth2.accessToken != nil || instagram_oauth2.refreshToken != nil) && (user._willShareInstagram?.boolValue ?? false) && user._instagramID != nil
+                    
+                    let sharedReddit = (reddit_oauth2.accessToken != nil || spotify_oauth2.refreshToken != nil) && (user._willShareSpotify?.boolValue ?? false) && user._redditID != nil
+                    
+                    let sharedTwitter = (getTwitterToken() != nil && getTwitterSecret() != nil ) && (user._willShareTwitter?.boolValue ?? false) && user._twitterID != nil
+                    
+                    
+                    let sharedYouTube = (youtube_oauth2.accessToken != nil || youtube_oauth2.refreshToken != nil) && (user._willShareYouTube?.boolValue ?? false) && user._youtubeID != nil
+                    
+                    let sharedSoundCloud = (soundcloud_oauth2.accessToken != nil || soundcloud_oauth2.refreshToken != nil) && (user._willShareSoundCloud?.boolValue ?? false) && user._soundcloudID != nil
+                    
+                    let sharedPinterest = (pinterest_oauth2.accessToken != nil || pinterest_oauth2.refreshToken != nil) && (user._willSharePinterest?.boolValue ?? false) && user._pinterestID != nil
+                    
+                    let sharedGitHub = (github_oauth2.accessToken != nil || github_oauth2.refreshToken != nil) && (user._willShareGitHub?.boolValue ?? false) && user._githubID != nil
+                    
+                    let sharedVimeo = (vimeo_oauth2.accessToken != nil || vimeo_oauth2.refreshToken != nil) && (user._willShareVimeo?.boolValue ?? false) && user._vimeoID != nil
+                    
+                    Analytics.didSwap(byMethod: .swapcode, didShareSpotify: sharedSpotify, didSharePhone: sharedPhone, didShareEmail: sharedEmail, didShareInstagram: sharedInstagram, didShareReddit: sharedReddit, didShareTwitter: sharedTwitter, didShareYouTube: sharedYouTube, didShareSoundCloud: sharedSoundCloud, didSharePinterest: sharedPinterest, didShareGitHub: sharedGitHub, didShareVimeo: sharedVimeo)
+                    
+                    // ========= End Logging Analytics ====================================
+                    
+                    
+                }
+                
+            }
+            
+            
+        })
+        
+    }
+    
     
 }
 

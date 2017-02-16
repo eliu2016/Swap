@@ -9,18 +9,28 @@
 import Foundation
 import SwiftQRCode
 import AVFoundation
+import Spring
 
 
 let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true) , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
 class ScannerViewController: UIViewController {
 
-    
+    @IBOutlet var confirmSwapLabel: UILabel!
+    @IBOutlet var profilePic: UIImageView!
+    @IBOutlet var confirmSwapButton: UIButton!
     @IBOutlet var enableCameraLabel: UILabel!
     @IBOutlet var enableCameraButton: UIButton!
     
+    var confirmSwapBackground: UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        circularImage(photoImageView: profilePic)
+        profilePic.isHidden = true
+        confirmSwapLabel.isHidden = true
+        confirmSwapButton.isHidden = true
         
         enableCameraLabel.isHidden = true
         enableCameraButton.isHidden = true
@@ -85,10 +95,27 @@ class ScannerViewController: UIViewController {
                                 scanner.startScan()
                                 
                             }  else{
+                                
+                                //confirm swap
+                                DispatchQueue.main.async {
+                                    
+                                    self.confirmSwapBackground = self.newConfirmView()
+                                    self.view.addSubview(self.confirmSwapBackground!)
+                                    self.view.bringSubview(toFront: self.profilePic)
+                                    self.view.bringSubview(toFront: self.confirmSwapLabel)
+                                    self.view.bringSubview(toFront: self.confirmSwapButton)
+                                
+                                    self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
+                                
+                                    self.confirmSwapLabel.text = "Request sent to " + user._firstname! + " " + user._lastname!
+                                
+                                    self.profilePic.isHidden = false
+                                    self.confirmSwapLabel.isHidden = false
+                                    self.confirmSwapButton.isHidden = false
+                                }
                                 // Request Sent
                                 
-                            
-                                scanner.startScan()
+
                                 
                                 // Log analytics
                                Analytics.didSwap(byMethod: .swapcode, isPrivate: true)
@@ -102,6 +129,24 @@ class ScannerViewController: UIViewController {
                     }
                         
                     else{
+                        //configure confirm swap screen
+                        DispatchQueue.main.async {
+                            
+                            self.confirmSwapBackground = self.newConfirmView()
+                            self.view.addSubview(self.confirmSwapBackground!)
+                            
+                            self.view.bringSubview(toFront: self.profilePic)
+                            self.view.bringSubview(toFront: self.confirmSwapLabel)
+                            self.view.bringSubview(toFront: self.confirmSwapButton)
+                        
+                            self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
+                        
+                            self.confirmSwapLabel.text =  user._firstname! + " " + user._lastname!
+                            
+                            self.profilePic.isHidden = false
+                            self.confirmSwapLabel.isHidden = false
+                            self.confirmSwapButton.isHidden = false
+                        }
                         
                         // Share social medias
                         shareVine(withUser: user)
@@ -118,9 +163,7 @@ class ScannerViewController: UIViewController {
                         
                         
                         SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
-                        // Start Scanner back
-                        scanner.startScan()
-                        
+                
                         
                         // Log Analytics // If current user has social media connected and the other has the social media 'on' then essentially the user has shared that social media. +- ~3% margin error perhaps
                         
@@ -178,6 +221,51 @@ class ScannerViewController: UIViewController {
         UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
         
     }
+    @IBAction func didPressDone(_ sender: Any) {
+        
+        profilePic.isHidden = true
+        confirmSwapLabel.isHidden = true
+        confirmSwapButton.isHidden = true
+        fall(imageView: confirmSwapBackground!)
+        
+        //restart the scanner
+        scanner.startScan()
+    }
+    func newConfirmView() -> UIImageView {
+        
+        let image = #imageLiteral(resourceName: "ConfirmSwapBackground")
+        let imageView = SpringImageView(image: image)
+        
+        let storyboardName = self.storyboard?.value(forKey: "name")
+       
+    
+        let storyboardString = storyboardName as! String
+        
+        switch storyboardString {
+        case "Main":
+            imageView.frame = CGRect(x: 99, y: 180, width: 176, height: 151)
+            break
+            
+        case "4.7in":
+            imageView.frame = CGRect(x: 70, y: 270, width: 237, height: 126)
+            break
+            
+        case "4in":
+            imageView.frame = CGRect(x: 52, y: 241, width: 219, height: 103)
+            break
+            
+        case "3.5in":
+            imageView.frame = CGRect(x: 51, y: 195, width: 219, height: 103)
+            break
+            
+        default:
+            break
+        }
+        
+        
+        return imageView
+    }
+
     
 }
 
@@ -187,4 +275,29 @@ func getUsernameFromSwapLink(swapLink: String) -> String {
     return (swapLink as NSString).lastPathComponent.lowercased()
     
     
+}
+
+func fall(imageView: UIImageView){
+    let layer = imageView as! SpringImageView
+    layer.animation = "fall"
+    layer.curve = "easeIn"
+    layer.duration = 1.0
+    layer.animate()
+}
+
+
+ func fall(button: UIButton)  {
+    let layer = button as! SpringButton
+    layer.animation = "fall"
+    layer.curve = "easeIn"
+    layer.duration = 1.0
+    layer.animate()
+}
+
+func fall(label: UILabel){
+    let layer = label as! SpringLabel
+    layer.animation = "fall"
+    layer.curve = "easeIn"
+    layer.duration = 1.0
+    layer.animate()
 }

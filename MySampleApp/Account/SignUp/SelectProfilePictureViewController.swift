@@ -21,6 +21,10 @@ class SelectProfilePictureViewController: UIViewController {
     
     @IBOutlet weak var youtubePictureImageView: UIImageView!
     
+    @IBOutlet var contactButton: UIButton!
+    @IBOutlet var instagramButton: UIButton!
+    @IBOutlet var twitterButton: UIButton!
+    @IBOutlet var youTubeButton: UIButton!
     
     
     
@@ -39,8 +43,7 @@ class SelectProfilePictureViewController: UIViewController {
         circularImage(photoImageView: youtubePictureImageView)
     
     }
-    
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,5 +73,51 @@ class SelectProfilePictureViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    @IBAction func didSelectContactPhoto(_ sender: Any) {
+        
+        let imageData = UIImageJPEGRepresentation(getContactImage()!, 1.0)
+        
+        SwapUser().uploadProfilePicture(withData: imageData!, completion: {_ in 
+        
+            self.performSegue(withIdentifier: "showHome", sender: nil)
+        
+        })
+        
+       
+    }
+    @IBAction func didSelectInstagramPhoto(_ sender: Any) {
+        
+        let imageData = NSData(contentsOf: getInstagramProfilePictureLink()!)
+        
+        SwapUser().uploadProfilePicture(withData: imageData! as Data, completion: {_ in
+            
+            self.performSegue(withIdentifier: "showHome", sender: nil)
+            
+        })
+    }
+    @IBAction func didSelectTwitterPhoto(_ sender: Any) {
+        
+        let imageData = NSData(contentsOf: getTwitterProfilePictureLink()!)
+        
+        SwapUser().uploadProfilePicture(withData: imageData! as Data, completion: {_ in
+            
+            self.performSegue(withIdentifier: "showHome", sender: nil)
+            
+        })
+
+    }
+    @IBAction func didSelectYouTubePhoto(_ sender: Any) {
+        
+        let imageData = NSData(contentsOf: getYouTubeProfilePictureLink()!)
+        
+        SwapUser().uploadProfilePicture(withData: imageData! as Data, completion: {_ in
+            
+            self.performSegue(withIdentifier: "showHome", sender: nil)
+            
+        })
+    }
+    
 
 }

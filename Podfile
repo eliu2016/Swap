@@ -26,6 +26,7 @@ pod 'Answers'
 pod 'TwitterKit'
 pod 'Crashlytics'
 pod 'PhoneNumberKit', '~> 1.2'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3’
 
 
 post_install do |installer|

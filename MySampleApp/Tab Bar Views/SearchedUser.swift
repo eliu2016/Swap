@@ -25,6 +25,9 @@ class SearchedUser: UIViewController {
     @IBOutlet var swapButton: UIButton!
     
     @IBOutlet var bioLabel: UILabel!
+    @IBOutlet var pointsNumberLabel: UILabel!
+    @IBOutlet var swappedNumberLabel: UILabel!
+    @IBOutlet var swapsNumberLabel: UILabel!
     
     @IBOutlet var Spotify: UIImageView!
     @IBOutlet var Contact: UIImageView!
@@ -44,6 +47,7 @@ class SearchedUser: UIViewController {
     
         self.tabBarController?.tabBar.backgroundImage = UIImage(named: "subheader1")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
+        self.tabBarController?.tabBar.tintColor = UIColor.white
         self.tabBarController?.tabBar.isTranslucent = false
         
         
@@ -84,6 +88,10 @@ class SearchedUser: UIViewController {
             self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
                 
             self.bioLabel.text = user?._bio
+                
+            self.pointsNumberLabel.text = "\(user?._points ?? 0)"
+            self.swappedNumberLabel.text = "\(user?._swapped ?? 0)"
+            self.swapsNumberLabel.text = "\(user?._swaps ?? 0)"
                 
                 //show the hidden views
                 
