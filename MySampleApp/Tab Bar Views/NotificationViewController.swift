@@ -164,7 +164,8 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 cell.usernameLabel.text = user?._username
                 
-                 hoursSinceNotification = self.calculateHoursBetweenTwoDates(start: NSDate(timeIntervalSince1970: swapRequests[indexPath.item]._sent_at as! TimeInterval) as Date, end: Date())
+//                 hoursSinceNotification = self.calculateHoursBetweenTwoDates(start: NSDate(timeIntervalSince1970: swapRequests[indexPath.item]._sent_at as! TimeInterval) as Date, end: Date())
+                
     /*        }
         }
             
@@ -235,12 +236,34 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var timeLabel: UILabel!
 
     @IBAction func didAcceptRequest(_ sender: Any) {
+        let usernameToSwapWith = swapRequests[(sender as AnyObject).tag]._sender!
+
         
-        
+        SwapUser().performActionOnSwapRequestFromUser(withUsername: usernameToSwapWith, doAccept: true, completion: {error  in
+            
+            
+            if error == nil{
+                // After Accepted or Rejected Swap Request
+                // Should remove cell from table view
+            }
+            
+        })
         
     }
     @IBAction func didDeclineRequest(_ sender: Any) {
         
+        let usernameToSwapWith = swapRequests[(sender as AnyObject).tag]._sender!
+        
+        
+        SwapUser().performActionOnSwapRequestFromUser(withUsername: usernameToSwapWith, doAccept: false, completion: {error  in
+            
+            
+            if error == nil{
+                // After Accepted or Rejected Swap Request
+                // SHould remove cell from table view
+            }
+            
+        })
         
     }
     @IBAction func didPressSwap(_ sender: Any) {
