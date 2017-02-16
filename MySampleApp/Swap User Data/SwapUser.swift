@@ -380,7 +380,7 @@ class SwapUser {
     /// Increments the 'swaps' value of a user. It increments by '1' by default if you do not pass anything as a parameter
     ///
     /// - Parameter byValue: 1 by default. It will decrement if you pass a negative number
-    func incrementSwaps(byValue: NSNumber = 1)  {
+    func incrementSwaps(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void)  {
         
         let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
@@ -398,14 +398,16 @@ class SwapUser {
         
         self.dynamoDB.updateItem(updateItemInput!, completionHandler: {(output, error) in
             
-            
+            DispatchQueue.main.async {
+                completion(error)
+            }
         })
         
         
         
     }
     
-    func incrementSwapped(byValue: NSNumber = 1)  {
+    func incrementSwapped(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void)  {
         
         let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
@@ -423,13 +425,15 @@ class SwapUser {
         
         self.dynamoDB.updateItem(updateItemInput!, completionHandler: {(output, error) in
             
-            
+            DispatchQueue.main.async {
+                completion(error)
+            }
         })
         
         
     }
     
-    func incrementPoints(byValue: NSNumber = 1)  {
+    func incrementPoints(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void)  {
         
         let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
@@ -447,7 +451,9 @@ class SwapUser {
         
         self.dynamoDB.updateItem(updateItemInput!, completionHandler: {(output, error) in
             
-            
+            DispatchQueue.main.async {
+                completion(error)
+            }
         })
         
     }
@@ -1035,10 +1041,18 @@ class SwapUser {
                     shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     
-                    SwapUser().incrementSwaps()
-                    SwapUser(username: user._username!).incrementSwapped()
-                    SwapUser().incrementPoints(byValue: 5)
-                    SwapUser(username: user._username!).incrementPoints(byValue: 5)
+                    SwapUser().incrementSwaps { error in
+                        
+                    }
+                    SwapUser(username: user._username!).incrementSwapped{ error in
+                        
+                    }
+                    SwapUser().incrementPoints(byValue: 5) { error in
+                        
+                    }
+                    SwapUser(username: user._username!).incrementPoints(byValue: 5){ error in
+                        
+                    }
                     SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
                     
                     
