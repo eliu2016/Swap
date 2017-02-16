@@ -1035,7 +1035,10 @@ class SwapUser {
                     shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     
-                    
+                    SwapUser().incrementSwaps()
+                    SwapUser(username: user._username!).incrementSwapped()
+                    SwapUser().incrementPoints(byValue: 5)
+                    SwapUser(username: user._username!).incrementPoints(byValue: 5)
                     SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
                     
                     
