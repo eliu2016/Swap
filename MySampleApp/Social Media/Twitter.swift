@@ -25,21 +25,36 @@ func authorizeTwitter(onViewController: UIViewController,  completion: @escaping
             
             let token = session.authToken
             let secret = session.authTokenSecret
+      
             
             saveTwitterAccount(withToken: token, andSecret: secret)
+           
             
             if error != nil{
                 completion(AuthorizationError.Unknown)
             } else{
               
-                SwapUser(username: getUsernameOfSignedInUser()).set(TwitterID: session.userID, DidSetInformation: {
+                let twitterAccount = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: getTwitterToken()!, oauthTokenSecret: getTwitterSecret()!)
+
+                twitterAccount.getTimeline(for: session.userName, success: { (json) in
                     
-                    DispatchQueue.main.async {
+                    print("\n\n\n\n\n\n\n\n the twitter json is ... \(json)")
+                    let image = json.array?[0]["user"]["profile_image_url_https"].string ?? defaultImage
+                    saveTwitterPhoto(withLink: image)
+                    
+                    SwapUser(username: getUsernameOfSignedInUser()).set(TwitterID: session.userID, DidSetInformation: {
                         
-                         completion(nil)
-                    }
+                        DispatchQueue.main.async {
+                            
+                            completion(nil)
+                        }
+                        
+                    })
+                    
                     
                 })
+                
+                
             
             }
             

@@ -77,46 +77,67 @@ class SelectProfilePictureViewController: UIViewController {
     
     @IBAction func didSelectContactPhoto(_ sender: Any) {
         
-        let imageData = UIImageJPEGRepresentation(getContactImage()!, 1.0)
+        if let contactImage = contactImageView.image{
+            
+             let imageData = UIImageJPEGRepresentation(contactImage, 1.0)
+            
+            
+            SwapUser().uploadProfilePicture(withData: imageData!, completion: {_ in
+                
+                self.performSegue(withIdentifier: "showHome", sender: nil)
+                
+            })
+        }
         
-        SwapUser().uploadProfilePicture(withData: imageData!, completion: {_ in 
+       
         
-            self.performSegue(withIdentifier: "showHome", sender: nil)
-        
-        })
         
        
     }
     @IBAction func didSelectInstagramPhoto(_ sender: Any) {
         
-        let imageData = NSData(contentsOf: getInstagramProfilePictureLink()!)
+       
+        if let instagramProfileImageLink = getInstagramProfilePictureLink(){
+            
+             let link = "\(instagramProfileImageLink)"
+            SwapUser().set(ProfileImage: link,  DidSetInformation: {
+                
+                self.performSegue(withIdentifier: "showHome", sender: nil)
+
+                
+            })
+        }
         
-        SwapUser().uploadProfilePicture(withData: imageData! as Data, completion: {_ in
-            
-            self.performSegue(withIdentifier: "showHome", sender: nil)
-            
-        })
+        
     }
     @IBAction func didSelectTwitterPhoto(_ sender: Any) {
         
-        let imageData = NSData(contentsOf: getTwitterProfilePictureLink()!)
-        
-        SwapUser().uploadProfilePicture(withData: imageData! as Data, completion: {_ in
+        if let twitterProfileImageLink = getTwitterProfilePictureLink(){
             
-            self.performSegue(withIdentifier: "showHome", sender: nil)
+            let link = "\(twitterProfileImageLink)"
             
-        })
+            SwapUser().set(ProfileImage: link,  DidSetInformation: {
+                
+                self.performSegue(withIdentifier: "showHome", sender: nil)
+                
+                
+            })
+        }
 
     }
     @IBAction func didSelectYouTubePhoto(_ sender: Any) {
         
-        let imageData = NSData(contentsOf: getYouTubeProfilePictureLink()!)
-        
-        SwapUser().uploadProfilePicture(withData: imageData! as Data, completion: {_ in
+        if let youtubeLink = getYouTubeProfilePictureLink(){
             
-            self.performSegue(withIdentifier: "showHome", sender: nil)
+              let link = "\(youtubeLink)"
             
-        })
+            SwapUser().set(ProfileImage: link,  DidSetInformation: {
+                
+                self.performSegue(withIdentifier: "showHome", sender: nil)
+                
+                
+            })
+        }
     }
     
 
