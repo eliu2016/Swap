@@ -36,7 +36,9 @@ class SearchedUser: UIViewController {
     @IBOutlet var SoundCloud: UIImageView!
     @IBOutlet var YouTube: UIImageView!
     @IBOutlet var Twitter: UIImageView!
-    
+    @IBOutlet weak var Reddit: UIImageView!
+    @IBOutlet weak var GitHub: UIImageView!
+    @IBOutlet weak var Vimeo: UIImageView!
     @IBOutlet var loadingView: UIActivityIndicatorView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,12 +120,12 @@ class SearchedUser: UIViewController {
                 
             self.Instagram.image = (user?._willShareInstagram?.boolValue ?? false) ? #imageLiteral(resourceName: "InstagramDark") : #imageLiteral(resourceName: "InstagramLight")
                 
-            /* self.Reddit.image = (user?._willShareReddit?.boolValue ?? false) ? #imageLiteral(resourceName: "RedditDark") : #imageLiteral(resourceName: "RedditLight")
+             self.Reddit.image = (user?._willShareReddit?.boolValue ?? false) ? #imageLiteral(resourceName: "RedditDark") : #imageLiteral(resourceName: "RedditLight")
                 
             self.GitHub.image = (user?._willShareGitHub?.boolValue ?? false) ? #imageLiteral(resourceName: "GithubDark"): #imageLiteral(resourceName: "GithubLight")
                 
             self.Vimeo.image = (user?._willShareVimeo?.boolValue ?? false) ? #imageLiteral(resourceName: "VimeoDark") : #imageLiteral(resourceName: "VimeoLight")
- */
+ 
                 
             self.YouTube.image = (user?._willShareYouTube?.boolValue ?? false) ? #imageLiteral(resourceName: "YoutubeDark") : #imageLiteral(resourceName: "YoutubeLight")
             

@@ -2050,11 +2050,14 @@
                         <outlet property="BlurView2" destination="VxL-mp-Evv" id="T6i-MU-4v3"/>
                         <outlet property="BlurView3" destination="zig-8i-9Zj" id="EUC-iH-ZR2"/>
                         <outlet property="Contact" destination="kSb-09-HnY" id="k2s-zp-uAa"/>
+                        <outlet property="GitHub" destination="iBo-z6-5eo" id="wps-ZJ-Pkd"/>
                         <outlet property="Instagram" destination="KhP-zC-4Hd" id="EK7-fx-r5M"/>
                         <outlet property="Pinterest" destination="G1B-pC-DQ6" id="58V-ii-nqz"/>
+                        <outlet property="Reddit" destination="gK3-Oo-wUe" id="ttA-h4-Rch"/>
                         <outlet property="SoundCloud" destination="TkR-6D-isC" id="W5R-Wp-Jt5"/>
                         <outlet property="Spotify" destination="RT0-Rx-P4J" id="IX2-FU-4OJ"/>
                         <outlet property="Twitter" destination="LMP-8R-ePL" id="RKU-PR-Sv5"/>
+                        <outlet property="Vimeo" destination="hO3-Tz-1Md" id="7Kk-NG-dee"/>
                         <outlet property="YouTube" destination="cVn-YE-rRx" id="eeH-9g-ECk"/>
                         <outlet property="bioLabel" destination="0Nk-IW-qjh" id="nZa-hG-kI6"/>
                         <outlet property="fullName" destination="kUo-tn-DTb" id="6NK-8s-cMw"/>
@@ -2749,7 +2752,7 @@
                         <inset key="imageInsets" minX="35" minY="7" maxX="-35" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mml-ww-BEp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mml-ww-BEp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

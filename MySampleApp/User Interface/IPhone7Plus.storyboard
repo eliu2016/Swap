@@ -2009,11 +2009,14 @@
                         <outlet property="BlurView2" destination="kTI-Nv-LYa" id="CB2-do-6fa"/>
                         <outlet property="BlurView3" destination="gkx-lT-Vxi" id="ru1-Cq-h7H"/>
                         <outlet property="Contact" destination="W7t-P9-hyq" id="ELz-qK-geJ"/>
+                        <outlet property="GitHub" destination="zM7-LS-5Pg" id="8Cz-hu-kod"/>
                         <outlet property="Instagram" destination="nxY-hj-BAD" id="M7S-31-Y93"/>
                         <outlet property="Pinterest" destination="VEP-af-CK8" id="vx4-N3-Ay1"/>
+                        <outlet property="Reddit" destination="bhe-wb-lpJ" id="76x-Tw-QAs"/>
                         <outlet property="SoundCloud" destination="Ltd-t6-WmV" id="kzt-Z9-Qhf"/>
                         <outlet property="Spotify" destination="kmK-BV-49f" id="2rg-rA-Z0d"/>
                         <outlet property="Twitter" destination="ZY0-BB-pgc" id="Mh3-Cd-8Ld"/>
+                        <outlet property="Vimeo" destination="exV-eq-wkk" id="gpZ-bg-EeL"/>
                         <outlet property="YouTube" destination="lKx-Bk-Utv" id="fhb-lx-j8t"/>
                         <outlet property="bioLabel" destination="ssS-i0-4B2" id="ywL-AX-vPT"/>
                         <outlet property="fullName" destination="r35-A4-2zh" id="qBa-CY-sD4"/>
