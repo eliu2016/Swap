@@ -276,7 +276,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
         let usernameToSwapWith = acceptedRequests[(sender as AnyObject).tag]._sender!
         
-        SwapUser().swapWith(userWithUsername: usernameToSwapWith, authorizeOnViewController: vc, overridePrivateAccount: true, completion: { (error, user) in
+        SwapUser().swapWith(userWithUsername: usernameToSwapWith, authorizeOnViewController: vc, overridePrivateAccount: true, method: .username, completion: { (error, user) in
             
             SwapUser().confirmSwapRequestToUser(withUsername: usernameToSwapWith)
             

@@ -957,7 +957,7 @@ class SwapUser {
         
     }
     
-    func swapWith(userWithUsername: String, authorizeOnViewController: UIViewController, overridePrivateAccount: Bool = false, completion: @escaping (_ error: Error?, _ user: Users?) -> Void){
+    func swapWith(userWithUsername: String, authorizeOnViewController: UIViewController, overridePrivateAccount: Bool = false, method: SwapMethod = .swapcode, completion: @escaping (_ error: Error?, _ user: Users?) -> Void){
        
         SwapUser(username: userWithUsername).getInformation(completion: { (error, user) in
             
@@ -1058,7 +1058,7 @@ class SwapUser {
                     
                     let sharedVimeo = (vimeo_oauth2.accessToken != nil || vimeo_oauth2.refreshToken != nil) && (user._willShareVimeo?.boolValue ?? false) && user._vimeoID != nil
                     
-                    Analytics.didSwap(byMethod: .swapcode, didShareSpotify: sharedSpotify, didSharePhone: sharedPhone, didShareEmail: sharedEmail, didShareInstagram: sharedInstagram, didShareReddit: sharedReddit, didShareTwitter: sharedTwitter, didShareYouTube: sharedYouTube, didShareSoundCloud: sharedSoundCloud, didSharePinterest: sharedPinterest, didShareGitHub: sharedGitHub, didShareVimeo: sharedVimeo)
+                    Analytics.didSwap(byMethod: method, didShareSpotify: sharedSpotify, didSharePhone: sharedPhone, didShareEmail: sharedEmail, didShareInstagram: sharedInstagram, didShareReddit: sharedReddit, didShareTwitter: sharedTwitter, didShareYouTube: sharedYouTube, didShareSoundCloud: sharedSoundCloud, didSharePinterest: sharedPinterest, didShareGitHub: sharedGitHub, didShareVimeo: sharedVimeo)
                     
                     // ========= End Logging Analytics ====================================
                     
