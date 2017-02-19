@@ -156,6 +156,18 @@ class SearchedUser: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func didTapSwap(_ sender: Any) {
+        
+       SwapUser().swapWith(userWithUsername: searchedUser, authorizeOnViewController: self) { (error, user) in
+        
+        
+            //alert the user that was swapped
+        
+        
+        }
+        
+    }
+    
     func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{
         
         blurView.layer.cornerRadius = blurView.frame.height/2
