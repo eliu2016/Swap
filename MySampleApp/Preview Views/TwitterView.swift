@@ -12,8 +12,6 @@ import TwitterKit
 var twitterUserID: String? = nil
 class TwitterView: TWTRTimelineViewController {
     
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()

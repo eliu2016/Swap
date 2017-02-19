@@ -47,10 +47,11 @@ class SearchedUser: UIViewController {
     }
     override func viewDidLoad() {
     
-        self.tabBarController?.tabBar.backgroundImage = UIImage(named: "subheader1")
+        self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
-        self.tabBarController?.tabBar.tintColor = UIColor.white
+        self.tabBarController?.tabBar.tintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
+        
         
         
         verifiedIcon.isHidden = true
@@ -153,6 +154,18 @@ class SearchedUser: UIViewController {
     @IBAction func didTapBack(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapSwap(_ sender: Any) {
+        
+       SwapUser().swapWith(userWithUsername: searchedUser, authorizeOnViewController: self) { (error, user) in
+        
+        
+            //alert the user that was swapped
+        
+        
+        }
+        
     }
     
     func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{

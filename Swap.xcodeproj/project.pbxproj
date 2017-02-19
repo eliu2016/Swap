@@ -56,12 +56,12 @@
 		752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BDD1E20D39100E6695B /* ScannerViewController.swift */; };
 		752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */; };
 		752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1941E3B115000CE5289 /* SearchedUser.swift */; };
+		7538B3971E56B80800A8953D /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7538B3901E56B64100A8953D /* SwifteriOS.framework */; };
+		7538B3981E56B80800A8953D /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7538B3901E56B64100A8953D /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75A81B101E415E6F00F8F62C /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B0F1E415E6F00F8F62C /* StoriesView.swift */; };
 		75A81B121E44DE3700F8F62C /* TutorialPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B111E44DE3700F8F62C /* TutorialPageController.swift */; };
 		75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */; };
 		75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */; };
-		75A81B711E4D348E00F8F62C /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A81B6A1E4D347D00F8F62C /* SwifteriOS.framework */; };
-		75A81B721E4D348E00F8F62C /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75A81B6A1E4D347D00F8F62C /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 751572101DFBBD3800ED4697 /* Lantinghei.ttc */; };
 		75C1EA101E021086005CB420 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C1EA0F1E021086005CB420 /* Images.xcassets */; };
 		E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E292635028900000000 /* AWSMobileClient.swift */; };
@@ -106,44 +106,44 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		75A81B671E4D347D00F8F62C /* PBXContainerItemProxy */ = {
+		7538B38D1E56B64100A8953D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */;
+			containerPortal = 7538B3851E56B64100A8953D /* Swifter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8B300C1F1944AA1A00993175;
 			remoteInfo = SwifterDemoiOS;
 		};
-		75A81B691E4D347D00F8F62C /* PBXContainerItemProxy */ = {
+		7538B38F1E56B64100A8953D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */;
+			containerPortal = 7538B3851E56B64100A8953D /* Swifter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8B9F50EE1944A5AB00894629;
 			remoteInfo = SwifteriOS;
 		};
-		75A81B6B1E4D347D00F8F62C /* PBXContainerItemProxy */ = {
+		7538B3911E56B64100A8953D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */;
+			containerPortal = 7538B3851E56B64100A8953D /* Swifter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8B9F51131944A61D00894629;
 			remoteInfo = SwifterMac;
 		};
-		75A81B6D1E4D347D00F8F62C /* PBXContainerItemProxy */ = {
+		7538B3931E56B64100A8953D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */;
+			containerPortal = 7538B3851E56B64100A8953D /* Swifter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8B300C471944AECB00993175;
 			remoteInfo = SwifterDemoMac;
 		};
-		75A81B6F1E4D347D00F8F62C /* PBXContainerItemProxy */ = {
+		7538B3951E56B64100A8953D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */;
+			containerPortal = 7538B3851E56B64100A8953D /* Swifter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F6B4D5751C7BAC4500E06514;
 			remoteInfo = SwifterTests;
 		};
-		75A81B731E4D348E00F8F62C /* PBXContainerItemProxy */ = {
+		7538B3991E56B80800A8953D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */;
+			containerPortal = 7538B3851E56B64100A8953D /* Swifter.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8B9F50ED1944A5AB00894629;
 			remoteInfo = SwifteriOS;
@@ -162,7 +162,7 @@
 				E7A30F047C603D2E00000000 /* AWSCore.framework in Embed Frameworks */,
 				E7A30F04ECDC656F00000000 /* AWSAPIGateway.framework in Embed Frameworks */,
 				E7A30F04F25438D100000000 /* AWSCognito.framework in Embed Frameworks */,
-				75A81B721E4D348E00F8F62C /* SwifteriOS.framework in Embed Frameworks */,
+				7538B3981E56B80800A8953D /* SwifteriOS.framework in Embed Frameworks */,
 				E7A30F0444558DFD00000000 /* AWSS3.framework in Embed Frameworks */,
 				E7A30F045A7EC35D00000000 /* AWSPinpoint.framework in Embed Frameworks */,
 				E7A30F045C66354800000000 /* AWSSNS.framework in Embed Frameworks */,
@@ -262,13 +262,11 @@
 		752A6BDD1E20D39100E6695B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSwapLinkView.swift; sourceTree = "<group>"; };
 		752BE1941E3B115000CE5289 /* SearchedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUser.swift; sourceTree = "<group>"; };
+		7538B3851E56B64100A8953D /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../Downloads/Swifter-master 2/Swifter.xcodeproj"; sourceTree = "<group>"; };
 		75A81B0F1E415E6F00F8F62C /* StoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoriesView.swift; path = "../User Interface/StoriesView.swift"; sourceTree = "<group>"; };
 		75A81B111E44DE3700F8F62C /* TutorialPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageController.swift; sourceTree = "<group>"; };
 		75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhone7Plus.storyboard; sourceTree = "<group>"; };
 		75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneSE.storyboard; sourceTree = "<group>"; };
-
-
-		75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../Downloads/Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -283,7 +281,7 @@
 				E7A30F047C603D2E00000001 /* AWSCore.framework in Frameworks */,
 				E7A30F0477D9B8BA00000000 /* FBSDKLoginKit.framework in Frameworks */,
 				E7A30F04ECDC656F00000001 /* AWSAPIGateway.framework in Frameworks */,
-				75A81B711E4D348E00F8F62C /* SwifteriOS.framework in Frameworks */,
+				7538B3971E56B80800A8953D /* SwifteriOS.framework in Frameworks */,
 				E7A30F04BBC5726C00000000 /* FBSDKCoreKit.framework in Frameworks */,
 				E7A30F04F25438D100000001 /* AWSCognito.framework in Frameworks */,
 				E7A30F0444558DFD00000001 /* AWSS3.framework in Frameworks */,
@@ -497,6 +495,18 @@
 			path = "../MySampleApp/Tab Bar Views";
 			sourceTree = "<group>";
 		};
+		7538B3861E56B64100A8953D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7538B38E1E56B64100A8953D /* SwifterDemoiOS.app */,
+				7538B3901E56B64100A8953D /* SwifteriOS.framework */,
+				7538B3921E56B64100A8953D /* SwifterMac.framework */,
+				7538B3941E56B64100A8953D /* SwifterDemoMac.app */,
+				7538B3961E56B64100A8953D /* SwifterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		75A81B0C1E40515400F8F62C /* Preview Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,18 +515,6 @@
 			name = "Preview Views";
 			path = "/Users/DrStephenPhD/Documents/Swap/mysampleapp/../MySampleApp/Preview Views";
 			sourceTree = "<absolute>";
-		};
-		75A81B601E4D347D00F8F62C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				75A81B681E4D347D00F8F62C /* SwifterDemoiOS.app */,
-				75A81B6A1E4D347D00F8F62C /* SwifteriOS.framework */,
-				75A81B6C1E4D347D00F8F62C /* SwifterMac.framework */,
-				75A81B6E1E4D347D00F8F62C /* SwifterDemoMac.app */,
-				75A81B701E4D347D00F8F62C /* SwifterTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
 		};
 		B401C979480EFEB400000000 /* Models */ = {
 			isa = PBXGroup;
@@ -577,7 +575,7 @@
 		B401C979887AFB9C00000000 /* mainGroup */ = {
 			isa = PBXGroup;
 			children = (
-				75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */,
+				7538B3851E56B64100A8953D /* Swifter.xcodeproj */,
 				B401C97979C12C2200000000 /* Products */,
 				B401C9798A0C4C4000000000 /* Swap */,
 				B401C97979A8598F00000000 /* Frameworks */,
@@ -683,7 +681,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				75A81B741E4D348E00F8F62C /* PBXTargetDependency */,
+				7538B39A1E56B80800A8953D /* PBXTargetDependency */,
 			);
 			name = Swap;
 			productName = MySampleApp;
@@ -730,8 +728,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 75A81B601E4D347D00F8F62C /* Products */;
-					ProjectRef = 75A81B5F1E4D347D00F8F62C /* Swifter.xcodeproj */;
+					ProductGroup = 7538B3861E56B64100A8953D /* Products */;
+					ProjectRef = 7538B3851E56B64100A8953D /* Swifter.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -742,39 +740,39 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		75A81B681E4D347D00F8F62C /* SwifterDemoiOS.app */ = {
+		7538B38E1E56B64100A8953D /* SwifterDemoiOS.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = SwifterDemoiOS.app;
-			remoteRef = 75A81B671E4D347D00F8F62C /* PBXContainerItemProxy */;
+			remoteRef = 7538B38D1E56B64100A8953D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75A81B6A1E4D347D00F8F62C /* SwifteriOS.framework */ = {
+		7538B3901E56B64100A8953D /* SwifteriOS.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwifteriOS.framework;
-			remoteRef = 75A81B691E4D347D00F8F62C /* PBXContainerItemProxy */;
+			remoteRef = 7538B38F1E56B64100A8953D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75A81B6C1E4D347D00F8F62C /* SwifterMac.framework */ = {
+		7538B3921E56B64100A8953D /* SwifterMac.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwifterMac.framework;
-			remoteRef = 75A81B6B1E4D347D00F8F62C /* PBXContainerItemProxy */;
+			remoteRef = 7538B3911E56B64100A8953D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75A81B6E1E4D347D00F8F62C /* SwifterDemoMac.app */ = {
+		7538B3941E56B64100A8953D /* SwifterDemoMac.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = SwifterDemoMac.app;
-			remoteRef = 75A81B6D1E4D347D00F8F62C /* PBXContainerItemProxy */;
+			remoteRef = 7538B3931E56B64100A8953D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75A81B701E4D347D00F8F62C /* SwifterTests.xctest */ = {
+		7538B3961E56B64100A8953D /* SwifterTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SwifterTests.xctest;
-			remoteRef = 75A81B6F1E4D347D00F8F62C /* PBXContainerItemProxy */;
+			remoteRef = 7538B3951E56B64100A8953D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -952,10 +950,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		75A81B741E4D348E00F8F62C /* PBXTargetDependency */ = {
+		7538B39A1E56B80800A8953D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwifteriOS;
-			targetProxy = 75A81B731E4D348E00F8F62C /* PBXContainerItemProxy */;
+			targetProxy = 7538B3991E56B80800A8953D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

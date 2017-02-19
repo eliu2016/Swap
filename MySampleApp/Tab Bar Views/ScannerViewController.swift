@@ -168,8 +168,8 @@ class ScannerViewController: UIViewController {
             imageView.frame = CGRect(x: 99, y: 180, width: 176, height: 151)
             break
             
-        case "4.7in":
-            imageView.frame = CGRect(x: 70, y: 270, width: 237, height: 126)
+        case "IPhone7Plus":
+            imageView.frame = CGRect(x: 113, y: 198, width: 186, height: 170)
             break
             
         case "4in":
