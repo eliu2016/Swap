@@ -506,7 +506,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ConnectSocialMediaTutorial" translatesAutoresizingMaskIntoConstraints="NO" id="Qjp-No-3Kw">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="775"/>
+                                <rect key="frame" x="-104" y="-42" width="618" height="870"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jT-au-bg8">
@@ -521,7 +521,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap To Connect!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBv-N6-Pws">
-                                <rect key="frame" x="20" y="234" width="137" height="51"/>
+                                <rect key="frame" x="43" y="275" width="137" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FZLTTHB--B51-0" family="Lantinghei TC" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -839,14 +839,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Firstname lastname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9H-iC-YJe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Firstname lastname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9H-iC-YJe" customClass="SpringLabel" customModule="Spring">
                                 <rect key="frame" x="30" y="172" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" red="0.20782439720000001" green="0.20782439720000001" blue="0.20782439720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3m1-Q0-vfJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3m1-Q0-vfJ" customClass="SpringImageView" customModule="Spring">
                                 <rect key="frame" x="42" y="82" width="76" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1279,18 +1279,11 @@
                                                     <rect key="frame" x="15" y="8" width="51" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuH-Vy-x4z">
-                                                    <rect key="frame" x="296" y="19" width="24" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="AcceptIcon"/>
-                                                    <connections>
-                                                        <action selector="didAcceptRequest:" destination="QcI-3y-pTa" eventType="touchUpInside" id="aIZ-gu-Hqq"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5Q-M7-L9D">
-                                                    <rect key="frame" x="345" y="22" width="18" height="18"/>
+                                                    <rect key="frame" x="306" y="31" width="86" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="DeclineIcon"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                                                    <state key="normal" title="Deny" backgroundImage="DenyButton"/>
                                                     <connections>
                                                         <action selector="didDeclineRequest:" destination="QcI-3y-pTa" eventType="touchUpInside" id="FDM-B6-LIv"/>
                                                     </connections>
@@ -1313,6 +1306,15 @@
                                                     <color key="textColor" red="0.39794761499999998" green="0.4018876904" blue="0.4018876904" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuH-Vy-x4z">
+                                                    <rect key="frame" x="203" y="31" width="86" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                                                    <state key="normal" title="Accept" backgroundImage="AcceptButton"/>
+                                                    <connections>
+                                                        <action selector="didAcceptRequest:" destination="QcI-3y-pTa" eventType="touchUpInside" id="aIZ-gu-Hqq"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -2749,7 +2751,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AcceptIcon" width="42" height="42"/>
+        <image name="AcceptButton" width="81" height="23"/>
         <image name="AddFriendsIcon" width="42" height="42"/>
         <image name="BlackCarrot" width="21" height="21"/>
         <image name="BlueRoundBorder" width="82" height="84"/>
@@ -2757,8 +2759,8 @@
         <image name="ConfirmSwapButton" width="211" height="72"/>
         <image name="ConnectSocialMediaTutorial" width="480" height="661"/>
         <image name="ContactDark" width="38" height="37"/>
-        <image name="DeclineIcon" width="42" height="42"/>
         <image name="DefaultProfileImage" width="120" height="117"/>
+        <image name="DenyButton" width="81" height="23"/>
         <image name="EmailDisabled" width="65" height="63"/>
         <image name="ExploreIcon" width="28" height="28"/>
         <image name="GithubDark" width="45" height="43"/>
