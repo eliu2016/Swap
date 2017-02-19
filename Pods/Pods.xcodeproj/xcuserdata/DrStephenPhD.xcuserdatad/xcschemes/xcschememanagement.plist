@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Spring.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftQRCode.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,27 +67,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08E85383B307FB359793552B78F80CA2</key>
+		<key>2DF1871AD68E70101AD255FAEDE3D162</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D35EC83074E144226EF8FCD88B2D246</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3264A3811C5E525F6FE02348BB9E02C8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>41B4EE813BF3F15B2FC9B92295F60720</key>
+		<key>4D666B5B958CA5FC484B1AF0A39DC75C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4DC059E04CBA98AEDDB5C34E02D551E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4DF2A4E449B0080D816E1CF2E964FB37</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53208A10A4FB999E611346DE4FAAA776</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,7 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7F969C87CF26AAB65DED840B228ED59</key>
+		<key>A8A22977D94CA35D30F2D2EF71B8AE61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD0A659B7CBC481F0A0CCBDD5F09204F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

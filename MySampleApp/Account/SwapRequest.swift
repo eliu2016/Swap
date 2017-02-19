@@ -16,7 +16,7 @@ class SwapRequest: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _sender_confirmed_acceptance: NSNumber?
     var _sent_at: NSNumber?
     var _status: NSNumber?
-    
+    var _requested_user_has_responded_to_request: NSNumber?
     
     class func dynamoDBTableName() -> String {
         
@@ -40,6 +40,7 @@ class SwapRequest: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_sender_confirmed_acceptance" : "sender_confirmed_acceptance",
             "_sent_at" : "sent_at",
             "_status" : "status",
+            "_requested_user_has_responded_to_request" :"requested_user_has_responded_to_request",
             
         ]
     }

@@ -603,6 +603,7 @@ class SwapUser {
         request?._sent_at = NSDate().timeIntervalSince1970 as NSNumber // Current Time
         request?._status = false // Not accepted yet
         request?._sender_confirmed_acceptance = false // Sender has not confirmed yet
+        request?._requested_user_has_responded_to_request = false
         
         updateMapperConfig.saveBehavior = .updateSkipNullAttributes
         
@@ -778,6 +779,8 @@ class SwapUser {
         
         swapRequest?._status = doAccept as NSNumber
         
+        swapRequest?._requested_user_has_responded_to_request = true as NSNumber
+        
         if !doAccept{
             // Sender rejected the Swap Request. So now, set senderConfirmed = true so that it no longer appears on their pending Swap Requests
             
@@ -806,9 +809,14 @@ class SwapUser {
         let queryExpression = AWSDynamoDBQueryExpression()
         queryExpression.indexName = "requested"
         queryExpression.keyConditionExpression = "#hashAttribute = :hashAttribute"
-        queryExpression.expressionAttributeNames = ["#hashAttribute": "requested", "#sender_confirmed_acceptance":"sender_confirmed_acceptance"]
+        
+        // Attribute Names for Query
+        queryExpression.expressionAttributeNames = ["#hashAttribute": "requested", "#requested_user_has_responded_to_request":"requested_user_has_responded_to_request"]
+        
+        // Values for Query 
+        
         queryExpression.expressionAttributeValues = [":hashAttribute": self.username, ":val": false]
-        queryExpression.filterExpression = "#sender_confirmed_acceptance = :val"
+        queryExpression.filterExpression = "#requested_user_has_responded_to_request = :val"
         
         
         self.NoSQL.query(SwapRequest.self, expression: queryExpression,  completionHandler: { (output, error) in
