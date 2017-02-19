@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16D17a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,10 +48,11 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mk-NQ-Jmx">
-                                <rect key="frame" x="107" y="368" width="160" height="49"/>
+                                <rect key="frame" x="83" y="367" width="209" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Sign In" backgroundImage="LoginButton">
-                                    <color key="titleColor" red="0.16909599304199219" green="0.73320692777633667" blue="0.80971616506576538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.15532618761062622" green="0.79313892126083374" blue="0.86397933959960938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapSignIn:" destination="qPU-JH-MZS" eventType="touchUpInside" id="mSo-E6-ZrO"/>
@@ -80,20 +81,21 @@
                                 <rect key="frame" x="94" y="304" width="186" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Y9-Id-RJL">
-                                <rect key="frame" x="105" y="450" width="165" height="49"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="emD-uQ-ZZt">
+                                <rect key="frame" x="154" y="51" width="67" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Y9-Id-RJL">
+                                <rect key="frame" x="83" y="454" width="209" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Sign Up" backgroundImage="LoginButton">
-                                    <color key="titleColor" red="0.16933181881904602" green="0.73345118761062622" blue="0.79758208990097046" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.15532618761062622" green="0.79313892126083374" blue="0.86397933959960938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="AiS-0Y-0tn" kind="show" id="R37-cR-9Wp"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="emD-uQ-ZZt">
-                                <rect key="frame" x="154" y="51" width="67" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -124,42 +126,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="3s4-ql-Ges">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="j8r-nh-TAU">
+                                <rect key="frame" x="-16" y="-168" width="406" height="1003"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="LAg-2h-Tw5">
-                                <rect key="frame" x="64" y="237" width="240" height="1"/>
+                                <rect key="frame" x="64" y="249" width="240" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="9ue-L3-Om5">
-                                <rect key="frame" x="64" y="293" width="240" height="1"/>
+                                <rect key="frame" x="64" y="305" width="240" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="ryO-0G-H62">
-                                <rect key="frame" x="66" y="137" width="239" height="1"/>
+                                <rect key="frame" x="66" y="149" width="239" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="K0K-JY-ZRM">
-                                <rect key="frame" x="65" y="187" width="240" height="1"/>
+                                <rect key="frame" x="65" y="199" width="240" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KlB-Ga-A63">
-                                <rect key="frame" x="65" y="99" width="240" height="39"/>
+                                <rect key="frame" x="65" y="111" width="240" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FZLTXHB--B51-0" family="Lantinghei TC" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eHe-go-V32">
-                                <rect key="frame" x="64" y="153" width="239" height="35"/>
+                                <rect key="frame" x="64" y="165" width="239" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FZLTXHB--B51-0" family="Lantinghei TC" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0a-bZ-t2u">
-                                <rect key="frame" x="50" y="350" width="63" height="31"/>
+                                <rect key="frame" x="50" y="353" width="63" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FZLTTHB--B51-0" family="Lantinghei TC" pointSize="17"/>
                                 <state key="normal" title="Back">
@@ -170,7 +172,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyE-9r-zNH">
-                                <rect key="frame" x="268" y="350" width="58" height="31"/>
+                                <rect key="frame" x="268" y="353" width="58" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FZLTTHB--B51-0" family="Lantinghei TC" pointSize="17"/>
                                 <state key="normal" title="Next">
@@ -181,31 +183,31 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RightCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="Zic-Hv-XcW">
-                                <rect key="frame" x="326" y="357" width="13" height="16"/>
+                                <rect key="frame" x="326" y="360" width="13" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LeftCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="pil-cp-v2i">
-                                <rect key="frame" x="39" y="357" width="13" height="16"/>
+                                <rect key="frame" x="39" y="360" width="13" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z0X-5L-YU9">
-                                <rect key="frame" x="64" y="206" width="240" height="30"/>
+                                <rect key="frame" x="64" y="218" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FZLTXHB--B51-0" family="Lantinghei TC" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Z6-y7-6nT" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
-                                <rect key="frame" x="62" y="261" width="244" height="30"/>
+                                <rect key="frame" x="62" y="273" width="244" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FZLTXHB--B51-0" family="Lantinghei TC" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPv-Ee-iMd">
-                                <rect key="frame" x="136" y="43" width="95" height="33"/>
+                                <rect key="frame" x="140" y="46" width="95" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FZLTZHB--B51-0" family="Lantinghei TC" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="23"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -482,7 +484,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dg-KV-W7N">
-                                <rect key="frame" x="194" y="331" width="43" height="43"/>
+                                <rect key="frame" x="210" y="356" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="TwitterDisabled"/>
                                 <connections>
@@ -490,7 +492,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvQ-oi-Vcs">
-                                <rect key="frame" x="166" y="198" width="43" height="43"/>
+                                <rect key="frame" x="166" y="203" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="SpotifyDisabled"/>
                                 <connections>
@@ -498,7 +500,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1w-d1-MfC">
-                                <rect key="frame" x="194" y="240" width="43" height="43"/>
+                                <rect key="frame" x="214" y="254" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="YouTubeDisabled"/>
                                 <connections>
@@ -506,7 +508,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjm-cl-WAF">
-                                <rect key="frame" x="137" y="240" width="43" height="43"/>
+                                <rect key="frame" x="166" y="254" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="VimeoDisabled"/>
                                 <connections>
@@ -514,7 +516,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2G-xh-ZUY">
-                                <rect key="frame" x="166" y="285" width="43" height="43"/>
+                                <rect key="frame" x="118" y="356" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="SoundCloudDisabled"/>
                                 <connections>
@@ -533,25 +535,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpL-7u-9Ey">
-                                <rect key="frame" x="115" y="284" width="43" height="43"/>
+                                <rect key="frame" x="118" y="254" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="PinterestDisabled"/>
                                 <connections>
                                     <action selector="didTapConnectSocialMedia:" destination="Mhr-2E-cVJ" eventType="touchUpInside" id="KbZ-zR-c7c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMw-Zk-cep">
-                                <rect key="frame" x="137" y="331" width="43" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="InstagramDisabled">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapConnectSocialMedia:" destination="Mhr-2E-cVJ" eventType="touchUpInside" id="7l4-dn-BHZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rd8-m5-LRS">
-                                <rect key="frame" x="217" y="284" width="43" height="43"/>
+                                <rect key="frame" x="192" y="305" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="RedditDisabled"/>
                                 <connections>
@@ -559,24 +551,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdf-9A-33y">
-                                <rect key="frame" x="166" y="372" width="43" height="43"/>
+                                <rect key="frame" x="164" y="356" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="GithubDisabled"/>
                                 <connections>
                                     <action selector="didTapConnectSocialMedia:" destination="Mhr-2E-cVJ" eventType="touchUpInside" id="2eX-aq-TW6"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ConnectSocialMediaTutorial" translatesAutoresizingMaskIntoConstraints="NO" id="6H7-0W-xQP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="ConnectSocialMediaTutorial" translatesAutoresizingMaskIntoConstraints="NO" id="wrh-OW-gmt">
+                                <rect key="frame" x="-4" y="-52" width="390" height="719"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap To Connect!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jc-Iq-X70">
-                                <rect key="frame" x="11" y="198" width="137" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FZLTTHB--B51-0" family="Lantinghei TC" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbl-sk-Joi">
                                 <rect key="frame" x="147" y="529" width="80" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -586,6 +571,23 @@
                                 </state>
                                 <connections>
                                     <action selector="didDismissTutorial:" destination="Mhr-2E-cVJ" eventType="touchUpInside" id="Rht-DV-DXA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap To Connect!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jc-Iq-X70">
+                                <rect key="frame" x="19" y="179" width="137" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="FZLTTHB--B51-0" family="Lantinghei TC" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMw-Zk-cep">
+                                <rect key="frame" x="141" y="305" width="43" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="InstagramDisabled">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapConnectSocialMedia:" destination="Mhr-2E-cVJ" eventType="touchUpInside" id="7l4-dn-BHZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -602,7 +604,7 @@
                         <outlet property="Vimeo" destination="qjm-cl-WAF" id="mPx-kX-sCT"/>
                         <outlet property="YouTube" destination="I1w-d1-MfC" id="igF-Vi-k3M"/>
                         <outlet property="carrot" destination="mUB-tO-Owl" id="39C-0P-EfF"/>
-                        <outlet property="connectSocialMediaTutorial" destination="6H7-0W-xQP" id="7SV-HQ-jGZ"/>
+                        <outlet property="connectSocialMediaTutorial" destination="wrh-OW-gmt" id="A7j-bo-CBZ"/>
                         <outlet property="dismissTutorial" destination="Wbl-sk-Joi" id="dPh-sg-XX8"/>
                         <outlet property="nextButton" destination="2gF-K2-03g" id="YqR-ZJ-Z7Q"/>
                         <outlet property="tapToConnect" destination="1jc-Iq-X70" id="Jvw-se-SjC"/>
@@ -636,7 +638,7 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When's your birthday?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w65-85-wOH">
-                                <rect key="frame" x="87.5" y="60" width="200.5" height="40"/>
+                                <rect key="frame" x="87" y="60" width="201" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0ed-lY-J04"/>
                                 </constraints>
@@ -876,32 +878,32 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3J-hf-ydI">
                                 <rect key="frame" x="142" y="114" width="74" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" white="0.050000000000000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swaps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCv-rI-Qvr">
                                 <rect key="frame" x="211" y="114" width="72" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swapped" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqs-Oi-B9F">
                                 <rect key="frame" x="279" y="114" width="76" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Firstname lastname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBn-OA-LiL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Firstname lastname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBn-OA-LiL" customClass="SpringLabel" customModule="Spring">
                                 <rect key="frame" x="27" y="158" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" red="0.20782439720812185" green="0.20782439720812185" blue="0.20782439720812185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lws-2V-g3I">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lws-2V-g3I" customClass="SpringImageView" customModule="Spring">
                                 <rect key="frame" x="39" y="74" width="76" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -924,7 +926,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LI-3E-R7a">
-                                <rect key="frame" x="294" y="92" width="39" height="25"/>
+                                <rect key="frame" x="295" y="92" width="39" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -1073,7 +1075,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoT-oY-KbR">
-                                <rect key="frame" x="305" y="223" width="35" height="29"/>
+                                <rect key="frame" x="300" y="213" width="35" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="InfoIcon"/>
                                 <connections>
@@ -1333,16 +1335,8 @@
                                                     <rect key="frame" x="15" y="8" width="51" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ux-nA-Olo">
-                                                    <rect key="frame" x="273" y="20" width="24" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="AcceptIcon"/>
-                                                    <connections>
-                                                        <action selector="didAcceptRequest:" destination="p8B-Zc-sPQ" eventType="touchUpInside" id="WrB-ex-ZDy"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiH-aw-Vfh">
-                                                    <rect key="frame" x="322" y="23" width="18" height="18"/>
+                                                    <rect key="frame" x="279" y="36" width="81.5" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="DeclineIcon"/>
                                                     <connections>
@@ -1350,7 +1344,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCO-28-2hT">
-                                                    <rect key="frame" x="82" y="11" width="134" height="30"/>
+                                                    <rect key="frame" x="80" y="8" width="134" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -1367,6 +1361,14 @@
                                                     <color key="textColor" red="0.39794761495968944" green="0.4018876903553299" blue="0.4018876903553299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ux-nA-Olo">
+                                                    <rect key="frame" x="182" y="36" width="81.5" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="AcceptIcon"/>
+                                                    <connections>
+                                                        <action selector="didAcceptRequest:" destination="p8B-Zc-sPQ" eventType="touchUpInside" id="WrB-ex-ZDy"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1407,7 +1409,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GA5-1l-iXz">
-                                                    <rect key="frame" x="266" y="24" width="85" height="27"/>
+                                                    <rect key="frame" x="257" y="26" width="81.5" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="SwapNotificationsButton"/>
                                                     <connections>
@@ -2025,11 +2027,6 @@
                                     <action selector="didTapBack:" destination="9FI-lo-fAf" eventType="touchUpInside" id="vTE-bk-dIB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-1L-XGO">
-                                <rect key="frame" x="142" y="360" width="90" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="SwapProfileButton"/>
-                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rHC-xc-nOo">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2039,6 +2036,11 @@
                                 <rect key="frame" x="258" y="292" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-1L-XGO">
+                                <rect key="frame" x="153" y="371" width="69" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="SwapProfileButton"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2788,15 +2790,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AcceptIcon" width="64" height="64"/>
+        <image name="AcceptIcon" width="122" height="34"/>
         <image name="AddFriendsIcon" width="64" height="64"/>
         <image name="BlackCarrot" width="32" height="32"/>
         <image name="BlueRoundBorder" width="123" height="127"/>
         <image name="CloseIcon" width="64" height="64"/>
         <image name="ConfirmSwapButton" width="317" height="108"/>
-        <image name="ConnectSocialMediaTutorial" width="360" height="632"/>
+        <image name="ConnectSocialMediaTutorial" width="720" height="992"/>
         <image name="ContactDark" width="57" height="55"/>
-        <image name="DeclineIcon" width="64" height="64"/>
+        <image name="DeclineIcon" width="122" height="34"/>
         <image name="DefaultProfileImage" width="181" height="176"/>
         <image name="EmailDisabled" width="66" height="66"/>
         <image name="ExploreIcon" width="28" height="28"/>
@@ -2810,7 +2812,7 @@
         <image name="InstagramDark" width="55" height="55"/>
         <image name="InstagramDisabled" width="66" height="66"/>
         <image name="LeftCarrot" width="32" height="32"/>
-        <image name="LoginButton" width="288" height="48"/>
+        <image name="LoginButton" width="244" height="57"/>
         <image name="Logo" width="232" height="229"/>
         <image name="MainBackground" width="378" height="666"/>
         <image name="NotificationIcon" width="27" height="27"/>
@@ -2828,7 +2830,7 @@
         <image name="SoundCloudDisabled" width="66" height="66"/>
         <image name="SpotifyDark" width="56" height="55"/>
         <image name="SpotifyDisabled" width="66" height="66"/>
-        <image name="SwapNotificationsButton" width="147" height="45"/>
+        <image name="SwapNotificationsButton" width="122" height="34"/>
         <image name="SwapProfileButton" width="169" height="62"/>
         <image name="TextfieldBottom" width="615" height="2"/>
         <image name="TranparentOverlay" width="273" height="340"/>
@@ -2846,6 +2848,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YeA-4M-5uc"/>
-        <segue reference="ra5-oL-XrE"/>
+        <segue reference="WAy-hx-jEK"/>
     </inferredMetricsTieBreakers>
 </document>

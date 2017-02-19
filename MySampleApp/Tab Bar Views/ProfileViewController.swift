@@ -9,6 +9,7 @@
 
 import UIKit
 import Kingfisher
+import Spring
 
 
 
@@ -390,9 +391,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.main.async {
+            
+            slideLeft(label: self.nameLabel)
+            slideRight(image: self.profilePicImageView)
+        
+        }
+        
         saveViewController(viewController: nil)
         
-        
+       
         //set delegates
         bioTextField.delegate = self
         
@@ -445,6 +453,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
     }
 
+    
     /*
     // MARK: - Navigation
 
@@ -455,4 +464,25 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     */
 }
+
+func slideLeft(label: UILabel){
+    
+    let layer = label as! SpringLabel
+    layer.animation = "squeezeLeft"
+    layer.curve = "easeIn"
+    layer.duration = 1.0
+    layer.animate()
+}
+
+func slideRight(image: UIImageView){
+    
+    let layer = image as! SpringImageView
+    layer.animation = "squeezRight"
+    layer.curve = "easeIn"
+    layer.duration = 1.0
+    layer.animate()
+    
+}
+
+
 
