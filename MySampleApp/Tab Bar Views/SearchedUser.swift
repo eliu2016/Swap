@@ -65,6 +65,9 @@ class SearchedUser: UIViewController {
         SoundCloud.isHidden = true
         YouTube.isHidden = true
         Twitter.isHidden = true
+        GitHub.isHidden = true
+        Vimeo.isHidden = true
+        Reddit.isHidden = true
         BlurView1.isHidden = true
         BlurView2.isHidden = true
         BlurView3.isHidden = true
@@ -108,6 +111,9 @@ class SearchedUser: UIViewController {
                 self.SoundCloud.isHidden = false
                 self.YouTube.isHidden = false
                 self.Twitter.isHidden = false
+                self.GitHub.isHidden = false
+                self.Vimeo.isHidden = false
+                self.Reddit.isHidden = false
                 self.BlurView1.isHidden = false
                 self.BlurView2.isHidden = false
                 self.BlurView3.isHidden = false
@@ -115,31 +121,25 @@ class SearchedUser: UIViewController {
                 
             self.verifiedIcon.isHidden = !(user?._isVerified?.boolValue ?? false)
                 
-            self.Spotify.image = (user?._willShareSpotify?.boolValue ?? false) ? #imageLiteral(resourceName: "SpotifyDark") : #imageLiteral(resourceName: "SpotifyLight")
+            self.Spotify.image = (user?._willShareSpotify?.boolValue ?? false && !(user?._spotifyID ?? "").isEmpty) ? #imageLiteral(resourceName: "SpotifyDark") : #imageLiteral(resourceName: "SpotifyLight")
                 
-            self.Twitter.image = (user?._willShareTwitter?.boolValue ?? false) ? #imageLiteral(resourceName: "TwitterDark"): #imageLiteral(resourceName: "TwitterLight")
+            self.Twitter.image = (user?._willShareTwitter?.boolValue ?? false && !(user?._twitterID ?? "").isEmpty) ? #imageLiteral(resourceName: "TwitterDark"): #imageLiteral(resourceName: "TwitterLight")
                 
-            self.Instagram.image = (user?._willShareInstagram?.boolValue ?? false) ? #imageLiteral(resourceName: "InstagramDark") : #imageLiteral(resourceName: "InstagramLight")
+            self.Instagram.image = (user?._willShareInstagram?.boolValue ?? false && !(user?._instagramID ?? "").isEmpty) ? #imageLiteral(resourceName: "InstagramDark") : #imageLiteral(resourceName: "InstagramLight")
                 
-             self.Reddit.image = (user?._willShareReddit?.boolValue ?? false) ? #imageLiteral(resourceName: "RedditDark") : #imageLiteral(resourceName: "RedditLight")
+             self.Reddit.image = (user?._willShareReddit?.boolValue ?? false && !(user?._redditID ?? "").isEmpty) ? #imageLiteral(resourceName: "RedditDark") : #imageLiteral(resourceName: "RedditLight")
                 
-            self.GitHub.image = (user?._willShareGitHub?.boolValue ?? false) ? #imageLiteral(resourceName: "GithubDark"): #imageLiteral(resourceName: "GithubLight")
+            self.GitHub.image = (user?._willShareGitHub?.boolValue ?? false && !(user?._githubID ?? "").isEmpty) ? #imageLiteral(resourceName: "GithubDark"): #imageLiteral(resourceName: "GithubLight")
                 
-            self.Vimeo.image = (user?._willShareVimeo?.boolValue ?? false) ? #imageLiteral(resourceName: "VimeoDark") : #imageLiteral(resourceName: "VimeoLight")
+            self.Vimeo.image = (user?._willShareVimeo?.boolValue ?? false && !(user?._vimeoID ?? "").isEmpty) ? #imageLiteral(resourceName: "VimeoDark") : #imageLiteral(resourceName: "VimeoLight")
  
                 
-            self.YouTube.image = (user?._willShareYouTube?.boolValue ?? false) ? #imageLiteral(resourceName: "YoutubeDark") : #imageLiteral(resourceName: "YoutubeLight")
+            self.YouTube.image = (user?._willShareYouTube?.boolValue ?? false && !(user?._youtubeID ?? "").isEmpty) ? #imageLiteral(resourceName: "YoutubeDark") : #imageLiteral(resourceName: "YoutubeLight")
             
-            self.SoundCloud.image = (user?._willShareSoundCloud?.boolValue ?? false) ? #imageLiteral(resourceName: "SoundCloudDark") : #imageLiteral(resourceName: "SoundCloudLight")
+            self.SoundCloud.image = (user?._willShareSoundCloud?.boolValue ?? false && !(user?._soundcloudID ?? "").isEmpty) ? #imageLiteral(resourceName: "SoundCloudDark") : #imageLiteral(resourceName: "SoundCloudLight")
             
-            self.Pinterest.image = (user?._willSharePinterest?.boolValue ?? false) ? #imageLiteral(resourceName: "PinterestDark") : #imageLiteral(resourceName: "PinterestLight")
+            self.Pinterest.image = (user?._willSharePinterest?.boolValue ?? false && !(user?._pinterestID ?? "").isEmpty) ? #imageLiteral(resourceName: "PinterestDark") : #imageLiteral(resourceName: "PinterestLight")
 
-
-
-                
-                
-                
-                
             let userWillAtLeastShareEmailOrPhoneNumber = (user?._willShareEmail?.boolValue ?? false) || (user?._willSharePhone?.boolValue ?? false)
             
             self.Contact.image = userWillAtLeastShareEmailOrPhoneNumber ? #imageLiteral(resourceName: "ContactDark") : #imageLiteral(resourceName: "ContactLight")

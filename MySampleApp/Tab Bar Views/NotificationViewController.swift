@@ -19,10 +19,12 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     var blankTableMessage: UILabel?
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var activityView: UIActivityIndicatorView!
     
     override func viewWillAppear(_ animated: Bool) {
         
 
+        
         tableView.reloadData()
         
         blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
@@ -94,28 +96,30 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     //table view
     func numberOfSections(in tableView: UITableView) -> Int {
         
+        activityView.stopAnimating()
+    
         if swapRequests.count == 0 && acceptedRequests.count == 0{
-            
-            blankTableMessage?.isHidden = true
-            
-            return 0
-        }
-        else if swapRequests.count == 0 || acceptedRequests.count == 0{
-            
             
             blankTableMessage?.isHidden = false
             self.tableView.backgroundView = blankTableMessage
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+            
+            return 0
+        }
+        else if swapRequests.count == 0{
+            
+            
+            blankTableMessage?.isHidden = true
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
             
             return 1
         }
             
         else{
             
-            blankTableMessage?.isHidden = false
-            self.tableView.backgroundView = blankTableMessage
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-            
+            blankTableMessage?.isHidden = true
+             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+ 
             return 2
         }
     }
@@ -124,8 +128,10 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
         var sectionName: String
         
+    
         switch section {
         case 0:
+            
             sectionName = "Swap Requests"
             break;
         case 1:
@@ -141,6 +147,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if section == 0{
+
             return swapRequests.count
         }
         else if section == 1{
@@ -169,7 +176,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 cell.usernameLabel.text = user?._username
                 
-                hoursSinceNotification = self.calculateHoursBetweenTwoDates(start: NSDate(timeIntervalSince1970: swapRequests[indexPath.item]._sent_at as! TimeInterval) as Date, end: Date())
                 
             }
           }
@@ -187,13 +193,13 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                     
                     cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                     cell.usernameLabel.text = user?._username
-                    
-                    hoursSinceNotification = self.calculateHoursBetweenTwoDates(start: NSDate(timeIntervalSince1970: swapRequests[indexPath.item]._sent_at  as! TimeInterval) as Date, end: Date())
-                    
+                
                 }
             }
             
         }
+        
+        hoursSinceNotification = self.calculateHoursBetweenTwoDates(start: NSDate(timeIntervalSince1970: swapRequests[indexPath.item]._sent_at  as! TimeInterval) as Date, end: Date())
         
         let daysSinceNotification = hoursSinceNotification/24
         let weeksSinceNotification = daysSinceNotification/7
@@ -218,6 +224,24 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
     }
 
+    @IBAction func didAcceptRquest(_ sender: Any) {
+        
+        let usernameToSwapWith = swapRequests[(sender as AnyObject).tag]._sender!
+        
+        
+        SwapUser().performActionOnSwapRequestFromUser(withUsername: usernameToSwapWith, doAccept: true, completion: {error  in
+            
+            
+            
+            if error == nil{
+                // After Accepted or Rejected Swap Request
+                // Should remove cell from table view
+               self.tableView.reloadData()
+            }
+            
+        })
+
+    }
 
 
     
@@ -240,18 +264,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var timeLabel: UILabel!
 
     @IBAction func didAcceptRequest(_ sender: Any) {
-        let usernameToSwapWith = swapRequests[(sender as AnyObject).tag]._sender!
-
-        
-        SwapUser().performActionOnSwapRequestFromUser(withUsername: usernameToSwapWith, doAccept: true, completion: {error  in
-            
-            
-            if error == nil{
-                // After Accepted or Rejected Swap Request
-                // Should remove cell from table view
-            }
-            
-        })
         
     }
     @IBAction func didDeclineRequest(_ sender: Any) {
@@ -262,12 +274,18 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         SwapUser().performActionOnSwapRequestFromUser(withUsername: usernameToSwapWith, doAccept: false, completion: {error  in
             
             
+            let indexPath = NotificationViewController().tableView.indexPath(for: self)
+        
             if error == nil{
                 // After Accepted or Rejected Swap Request
                 // Should remove cell from table view
+                NotificationViewController().tableView.deleteRows(at: [indexPath!], with: .automatic)
+                
             }
             
         })
+        
+        
         
     }
     @IBAction func didPressSwap(_ sender: Any) {
@@ -282,10 +300,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             
         })
         
-       //On notifications, it should swap with the user regardless if they are private or not because notifications shows approved swap requests so this is redundant
-       //if user is private
-        
-        //swapButton.setImage(#imageLiteral(resourceName: "PendingNotificationsButton"), for: .normal)
         
         ////else if user is not private
     
