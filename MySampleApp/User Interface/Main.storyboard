@@ -1345,7 +1345,7 @@
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
                                                     <state key="normal" title="Deny" backgroundImage="DenyButton"/>
                                                     <connections>
-                                                        <action selector="didDeclineRequest:" destination="p8B-Zc-sPQ" eventType="touchUpInside" id="mBy-7Y-lck"/>
+                                                        <action selector="didDeclineRequest:" destination="vkb-f7-Lx5" eventType="touchUpInside" id="ixU-R6-cbl"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCO-28-2hT">
@@ -2860,7 +2860,7 @@
         <image name="YoutubeDark" width="57" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YeA-4M-5uc"/>
+        <segue reference="F74-Hl-Lzw"/>
         <segue reference="Gud-HC-LoU"/>
     </inferredMetricsTieBreakers>
 </document>

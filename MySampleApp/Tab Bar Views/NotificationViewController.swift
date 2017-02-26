@@ -23,9 +23,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         
-
-        
-        tableView.reloadData()
+        activityView.startAnimating()
         
         blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         
@@ -43,6 +41,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 DispatchQueue.main.async {
                 
                     swapRequests = requests
+                     self.activityView.stopAnimating()
                     self.tableView.reloadData()
                 }
             }
@@ -56,6 +55,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 DispatchQueue.main.async {
               
                     acceptedRequests = aRequests
+                     self.activityView.stopAnimating()
                     self.tableView.reloadData()
                 }
                 
@@ -80,23 +80,10 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
 
     }
-    private func calculateHoursBetweenTwoDates(start: Date, end: Date) -> Int {
-        
-        let currentCalendar = Calendar.current
-        guard let start = currentCalendar.ordinality(of: .hour, in: .era, for: start) else {
-            return 0
-        }
-        guard let end = currentCalendar.ordinality(of: .hour, in: .era, for: end) else {
-            return 0
-        }
-        return end - start
-    }
-    
     
     //table view
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        activityView.stopAnimating()
     
         if swapRequests.count == 0 && acceptedRequests.count == 0{
             
@@ -106,15 +93,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             
             return 0
         }
-        else if swapRequests.count == 0{
-            
-            
-            blankTableMessage?.isHidden = true
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-            
-            return 1
-        }
-            
+       
         else{
             
             blankTableMessage?.isHidden = true
@@ -159,8 +138,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var hoursSinceNotification = 0
+     
         var cell: notificationCell
         
         if (indexPath.section == 0){
@@ -196,29 +174,9 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 
                 }
             }
-            
         }
         
-        hoursSinceNotification = self.calculateHoursBetweenTwoDates(start: NSDate(timeIntervalSince1970: swapRequests[indexPath.item]._sent_at  as! TimeInterval) as Date, end: Date())
-        
-        let daysSinceNotification = hoursSinceNotification/24
-        let weeksSinceNotification = daysSinceNotification/7
-        
-        if hoursSinceNotification < 24{
-            //express in hours
-            
-            cell.timeLabel.text = "\(hoursSinceNotification)h"
-        }
-        else if daysSinceNotification < 7{
-            //express in days
-            
-            cell.timeLabel.text = "\(daysSinceNotification)d"
-        }
-        else {
-            //express in weeks
-        
-            cell.timeLabel.text = "\(weeksSinceNotification)w"
-        }
+         cell.timeLabel.text = (swapRequests[indexPath.item]._sent_at)?.timeAgo()
         
         return cell
         
@@ -236,11 +194,38 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             if error == nil{
                 // After Accepted or Rejected Swap Request
                 // Should remove cell from table view
-               self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    
+                    swapRequests.remove(at: (sender as AnyObject).tag)
+                    self.tableView.reloadData()
+                }
             }
             
         })
 
+    }
+    @IBAction func didDeclineRequest(_ sender: Any) {
+   
+        let usernameToSwapWith = swapRequests[(sender as AnyObject).tag]._sender!
+        
+        
+        SwapUser().performActionOnSwapRequestFromUser(withUsername: usernameToSwapWith, doAccept: false, completion: {error  in
+            
+            
+            
+            if error == nil{
+                // After Accepted or Rejected Swap Request
+                // Should remove cell from table view
+                DispatchQueue.main.async {
+                    
+                    swapRequests.remove(at: (sender as AnyObject).tag)
+                    self.tableView.reloadData()
+                }
+                
+            }
+            
+        })
+        
     }
 
 
@@ -253,7 +238,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     }
 }
 
-
  class notificationCell: UITableViewCell {
     
     @IBOutlet var usernameLabel: UILabel!
@@ -263,31 +247,8 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var swapButton: UIButton!
     @IBOutlet var timeLabel: UILabel!
 
-    @IBAction func didAcceptRequest(_ sender: Any) {
-        
-    }
-    @IBAction func didDeclineRequest(_ sender: Any) {
-        
-        let usernameToSwapWith = swapRequests[(sender as AnyObject).tag]._sender!
-        
-        
-        SwapUser().performActionOnSwapRequestFromUser(withUsername: usernameToSwapWith, doAccept: false, completion: {error  in
-            
-            
-            let indexPath = NotificationViewController().tableView.indexPath(for: self)
-        
-            if error == nil{
-                // After Accepted or Rejected Swap Request
-                // Should remove cell from table view
-                NotificationViewController().tableView.deleteRows(at: [indexPath!], with: .automatic)
-                
-            }
-            
-        })
-        
-        
-        
-    }
+    
+    
     @IBAction func didPressSwap(_ sender: Any) {
         
         let vc = NotificationViewController(nibName: "NotificationView", bundle: nil)

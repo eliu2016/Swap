@@ -32,10 +32,23 @@ class SelectProfilePictureViewController: UIViewController {
         
         //Gathers profile pictures from social medias
         
-        contactImageView.image = getContactImage()
-        instagramPictureImageView.kf.setImage(with: getInstagramProfilePictureLink())
-        twitterPictureImageView.kf.setImage(with: getTwitterProfilePictureLink())
-        youtubePictureImageView.kf.setImage(with: getYouTubeProfilePictureLink())
+        contactImageView.image = getContactImage() ?? #imageLiteral(resourceName: "DefaultProfileImage")
+        
+        if let instagramPic = getInstagramProfilePictureLink(){
+            
+             instagramPictureImageView.kf.setImage(with: instagramPic)
+        }
+        
+        if let twitterPic = getTwitterProfilePictureLink(){
+            
+             twitterPictureImageView.kf.setImage(with: twitterPic)
+        }
+       
+        if let youtubePic = getYouTubeProfilePictureLink(){
+            
+            youtubePictureImageView.kf.setImage(with: youtubePic)
+        }
+        
         
         circularImage(photoImageView: contactImageView)
         circularImage(photoImageView: instagramPictureImageView)
@@ -81,18 +94,17 @@ class SelectProfilePictureViewController: UIViewController {
             
              let imageData = UIImageJPEGRepresentation(contactImage, 1.0)
             
+            disableViewWhileLoading()
             
             SwapUser().uploadProfilePicture(withData: imageData!, completion: {_ in
                 
-                self.performSegue(withIdentifier: "showHome", sender: nil)
+                DispatchQueue.main.async {
                 
+                    self.performSegue(withIdentifier: "showHome", sender: nil)
+                }
             })
         }
         
-       
-        
-        
-       
     }
     @IBAction func didSelectInstagramPhoto(_ sender: Any) {
         
@@ -100,11 +112,16 @@ class SelectProfilePictureViewController: UIViewController {
         if let instagramProfileImageLink = getInstagramProfilePictureLink(){
             
              let link = "\(instagramProfileImageLink)"
+            
+            disableViewWhileLoading()
+            
             SwapUser().set(ProfileImage: link,  DidSetInformation: {
                 
-                self.performSegue(withIdentifier: "showHome", sender: nil)
+                DispatchQueue.main.async {
+                    
+                    self.performSegue(withIdentifier: "showHome", sender: nil)
+                }
 
-                
             })
         }
         
@@ -116,28 +133,53 @@ class SelectProfilePictureViewController: UIViewController {
             
             let link = "\(twitterProfileImageLink)"
             
+            disableViewWhileLoading()
+            
             SwapUser().set(ProfileImage: link,  DidSetInformation: {
                 
-                self.performSegue(withIdentifier: "showHome", sender: nil)
-                
+                DispatchQueue.main.async {
+                    
+                    
+                    self.performSegue(withIdentifier: "showHome", sender: nil)
+                }
                 
             })
         }
 
     }
+    
     @IBAction func didSelectYouTubePhoto(_ sender: Any) {
         
         if let youtubeLink = getYouTubeProfilePictureLink(){
             
               let link = "\(youtubeLink)"
             
+            disableViewWhileLoading()
+            
             SwapUser().set(ProfileImage: link,  DidSetInformation: {
                 
-                self.performSegue(withIdentifier: "showHome", sender: nil)
-                
-                
+                DispatchQueue.main.async {
+                    
+                    self.performSegue(withIdentifier: "showHome", sender: nil)
+                }
             })
         }
+    }
+    
+    
+    func disableViewWhileLoading(){
+    
+        //show loading UI
+        view.addSubview(ShowLoadingOverlay().showBlackOverlay())
+        view.addSubview(ShowLoadingOverlay().showLoadingSymbol(view: self.view))
+        
+        //disable buttons
+        contactButton.isEnabled = false
+        instagramButton.isEnabled = false
+        twitterButton.isEnabled = false
+        youTubeButton.isEnabled = false
+        
+        
     }
     
 

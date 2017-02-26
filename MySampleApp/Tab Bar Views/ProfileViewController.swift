@@ -336,7 +336,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                             self.verifiedIcon.isHidden = false
                         }
                         
-                        
+             
+                  
                         //Gets the Profile Information from User Object
                         let firstname = user?._firstname ?? ""
                         let lastname = user?._lastname ?? ""
@@ -408,6 +409,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBackground")
         tabBarController?.tabBar.isTranslucent = false
         tabBarController?.tabBar.tintColor = UIColor.init(red: 0, green: 144, blue: 255, alpha: 1.0)
+    
+        
         if #available(iOS 10.0, *) {
             tabBarController?.tabBar.unselectedItemTintColor = UIColor.white
         }
