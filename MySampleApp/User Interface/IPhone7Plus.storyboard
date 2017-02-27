@@ -1341,7 +1341,7 @@
                                                         <color key="titleColor" red="0.2037974894" green="0.72717028859999999" blue="0.84220826630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="didPressSwap:" destination="bHE-KW-PvS" eventType="touchUpInside" id="DIV-3A-jud"/>
+                                                        <action selector="didPressSwap:" destination="lEe-t0-zLT" eventType="touchUpInside" id="C6W-GH-9OP"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

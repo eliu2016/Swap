@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                                                     break
                                                     
                                                 case "Decline":
-                                                    SwapUser(username: getUsernameOfSignedInUser()).performActionOnSwapRequestFromUser(withUsername: username, doAccept: true)
+                                                    SwapUser(username: getUsernameOfSignedInUser()).performActionOnSwapRequestFromUser(withUsername: username, doAccept: false)
                                                     break
                                                     
                                                 default: break

@@ -114,7 +114,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             sectionName = "Swap Requests"
             break;
         case 1:
-            sectionName = "Accepted Requests"
+            sectionName = "Sent Requests"
             break;
         default:
             sectionName = ""
@@ -152,7 +152,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             DispatchQueue.main.async {
                 
                 cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
-                cell.usernameLabel.text = (user?._firstname)! + (user?._lastname)!
+                cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
                 cell.timeLabel.text = (swapRequests[indexPath.item]._sent_at)?.timeAgo()
                 
             }
@@ -170,8 +170,9 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 DispatchQueue.main.async {
                     
                     cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
-                    cell.usernameLabel.text = (user?._firstname)! + (user?._lastname)!
+                    cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
                     cell.timeLabel.text = (acceptedRequests[indexPath.item]._sent_at)?.timeAgo()
+                    cell.swapButton.isEnabled = (acceptedRequests[indexPath.item]._status)!.boolValue
                 
                 }
             }
@@ -228,6 +229,30 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         })
         
     }
+    @IBAction func didPressSwap(_ sender: Any) {
+  
+     
+        
+        let usernameToSwapWith = acceptedRequests[(sender as AnyObject).tag]._requested!
+        
+        SwapUser().swapWith(userWithUsername: usernameToSwapWith, authorizeOnViewController: self, overridePrivateAccount: true, method: .username, completion: { (error, user) in
+            
+            SwapUser().confirmSwapRequestToUser(withUsername: usernameToSwapWith)
+            
+            DispatchQueue.main.async {
+                acceptedRequests.remove(at: (sender as AnyObject).tag)
+                self.tableView.reloadData()
+            }
+            
+        })
+        
+        
+        ////else if user is not private
+        
+        //swapButton.setImage(#imageLiteral(resourceName: "SwappedNotificationsButton"), for: .normal)
+        
+        
+    }
 
 
     
@@ -250,25 +275,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
 
     
     
-    @IBAction func didPressSwap(_ sender: Any) {
-        
-        let vc = NotificationViewController(nibName: "NotificationView", bundle: nil)
-        
-        let usernameToSwapWith = acceptedRequests[(sender as AnyObject).tag]._sender!
-        
-        SwapUser().swapWith(userWithUsername: usernameToSwapWith, authorizeOnViewController: vc, overridePrivateAccount: true, method: .username, completion: { (error, user) in
-            
-            SwapUser().confirmSwapRequestToUser(withUsername: usernameToSwapWith)
-            
-        })
-        
-        
-        ////else if user is not private
     
-        //swapButton.setImage(#imageLiteral(resourceName: "SwappedNotificationsButton"), for: .normal)
-        
-        
-    }
 }
 
 
