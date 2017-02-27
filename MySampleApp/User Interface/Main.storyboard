@@ -1422,7 +1422,7 @@
                                                         <color key="titleColor" red="0.20379748940467834" green="0.72717028856277466" blue="0.84220826625823975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="didPressSwap:" destination="NcM-JA-rWs" eventType="touchUpInside" id="EC4-NY-rtY"/>
+                                                        <action selector="didPressSwap:" destination="vkb-f7-Lx5" eventType="touchUpInside" id="It1-tb-feE"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2861,6 +2861,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="F74-Hl-Lzw"/>
-        <segue reference="WAy-hx-jEK"/>
+        <segue reference="ra5-oL-XrE"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -791,7 +791,11 @@ class SwapUser {
         NoSQL.save(swapRequest!, configuration: updateMapperConfig, completionHandler: { error in
             
             if error == nil {
-                self.sendNotifcationOfSwapRequestAcceptanceToUser(withUsername: withUsername)
+               
+                if doAccept {
+                    self.sendNotifcationOfSwapRequestAcceptanceToUser(withUsername: withUsername)
+                }
+                
             }
             completion(error)
             

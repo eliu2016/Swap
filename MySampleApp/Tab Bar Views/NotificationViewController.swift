@@ -9,11 +9,13 @@
 import Foundation
 
 
- var swapRequests: [SwapRequest] = []
- var acceptedRequests: [SwapRequest] = []
 
 class NotificationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
+    
+    
+    var swapRequests: [SwapRequest] = []
+    var acceptedRequests: [SwapRequest] = []
     
     var refreshControl: UIRefreshControl = UIRefreshControl()
     var blankTableMessage: UILabel?
@@ -22,6 +24,8 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var activityView: UIActivityIndicatorView!
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        tableView.reloadData()
         
         activityView.startAnimating()
         
@@ -40,7 +44,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 
                 DispatchQueue.main.async {
                 
-                    swapRequests = requests
+                    self.swapRequests = requests
                      self.activityView.stopAnimating()
                     self.tableView.reloadData()
                 }
@@ -54,7 +58,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 
                 DispatchQueue.main.async {
               
-                    acceptedRequests = aRequests
+                    self.acceptedRequests = aRequests
                      self.activityView.stopAnimating()
                     self.tableView.reloadData()
                 }
@@ -63,6 +67,18 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if swapRequests.count > 0 || acceptedRequests.count > 0 {
+            
+            blankTableMessage?.isHidden = true
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+            
+        } else {
+            blankTableMessage?.isHidden = false
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+        }
     }
     
     override func viewDidLoad() {
@@ -153,7 +169,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 
                 cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
-                cell.timeLabel.text = (swapRequests[indexPath.item]._sent_at)?.timeAgo()
+                cell.timeLabel.text = (self.swapRequests[indexPath.item]._sent_at)?.timeAgo()
                 
             }
           }
@@ -171,8 +187,8 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                     
                     cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                     cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
-                    cell.timeLabel.text = (acceptedRequests[indexPath.item]._sent_at)?.timeAgo()
-                    cell.swapButton.isEnabled = (acceptedRequests[indexPath.item]._status)!.boolValue
+                    cell.timeLabel.text = (self.acceptedRequests[indexPath.item]._sent_at)?.timeAgo()
+                    cell.swapButton.isEnabled = (self.acceptedRequests[indexPath.item]._status)!.boolValue
                 
                 }
             }
@@ -198,7 +214,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 // Should remove cell from table view
                 DispatchQueue.main.async {
                     
-                    swapRequests.remove(at: (sender as AnyObject).tag)
+                    self.swapRequests.remove(at: (sender as AnyObject).tag)
                     self.tableView.reloadData()
                 }
             }
@@ -220,7 +236,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 // Should remove cell from table view
                 DispatchQueue.main.async {
                     
-                    swapRequests.remove(at: (sender as AnyObject).tag)
+                    self.swapRequests.remove(at: (sender as AnyObject).tag)
                     self.tableView.reloadData()
                 }
                 
@@ -230,8 +246,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     @IBAction func didPressSwap(_ sender: Any) {
-  
-     
         
         let usernameToSwapWith = acceptedRequests[(sender as AnyObject).tag]._requested!
         
@@ -240,7 +254,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             SwapUser().confirmSwapRequestToUser(withUsername: usernameToSwapWith)
             
             DispatchQueue.main.async {
-                acceptedRequests.remove(at: (sender as AnyObject).tag)
+                self.acceptedRequests.remove(at: (sender as AnyObject).tag)
                 self.tableView.reloadData()
             }
             
