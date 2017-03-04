@@ -9,7 +9,7 @@ import Foundation
 import p2_OAuth2
 import Alamofire
 import SwiftyJSON
-import SwifteriOS
+import Swifter
 import Contacts
 import Kingfisher
 

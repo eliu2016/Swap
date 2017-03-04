@@ -13,7 +13,7 @@ import AWSMobileHubHelper
 import OneSignal
 import Realm
 import RealmSwift
-import SwifteriOS
+import Swifter
 
 
 /// Class for a SwapUser object
@@ -881,7 +881,7 @@ class SwapUser {
         
     }
     
-    
+    /*
     /// Downloads the social media compilation of the user
     func downloadCompilation()  {
         
@@ -973,7 +973,7 @@ class SwapUser {
         
         
         
-    }
+    } */
     
     func swapWith(userWithUsername: String, authorizeOnViewController: UIViewController, overridePrivateAccount: Bool = false, method: SwapMethod = .swapcode, completion: @escaping (_ error: Error?, _ user: Users?) -> Void){
        

@@ -7,7 +7,7 @@
 //
 import Foundation
 import RealmSwift
-
+/*
 class Compilation: Object {
     
     dynamic var id: String = ""
@@ -23,3 +23,4 @@ class Compilation: Object {
         return "id"
     }
 }
+*/

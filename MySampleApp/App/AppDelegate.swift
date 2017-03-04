@@ -12,7 +12,7 @@
 //
 import UIKit
 import IQKeyboardManagerSwift
-import SwifteriOS
+import Swifter
 import AWSCognitoIdentityProvider
 import OneSignal
 import Branch

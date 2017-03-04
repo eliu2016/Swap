@@ -26,6 +26,7 @@ PODS:
   - RealmSwift (2.4.1):
     - Realm (= 2.4.1)
   - Spring (1.0.3)
+  - Swifter (2.0.2)
   - SwiftQRCode (3.0.2)
   - SwiftyJSON (3.1.4)
   - TwitterCore (2.8.0):
@@ -46,6 +47,7 @@ DEPENDENCIES:
   - PhoneNumberKit (~> 1.2)
   - RealmSwift
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - Swifter (from `https://github.com/mattdonnelly/Swifter.git`)
   - SwiftQRCode
   - SwiftyJSON
   - TwitterKit
@@ -54,11 +56,16 @@ EXTERNAL SOURCES:
   Spring:
     :branch: swift3
     :git: https://github.com/MengTo/Spring.git
+  Swifter:
+    :git: https://github.com/mattdonnelly/Swifter.git
 
 CHECKOUT OPTIONS:
   Spring:
     :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
     :git: https://github.com/MengTo/Spring.git
+  Swifter:
+    :commit: b555f888a225399702c6deec7040e07a368a61f9
+    :git: https://github.com/mattdonnelly/Swifter.git
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
@@ -74,11 +81,12 @@ SPEC CHECKSUMS:
   Realm: 37a5198a197598d9ec0e4d1ae2f64924c86eeb9a
   RealmSwift: d69e431b79a41acdf14c404b868ae1c2458916e1
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  Swifter: ec243114356f2e4c654a1957b770c6e925d2ea75
   SwiftQRCode: 280589699d84195c2c573011aa52f2c015c31c34
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: f7b0a1adcb800f6446ff0ef70164797376522ff3
 
-PODFILE CHECKSUM: 603ab12f1f1382eec64f94d90aae9ca4592d97fd
+PODFILE CHECKSUM: 3ba61934496aa8646eb8b2603f0176000573fccb
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.0.rc.1
