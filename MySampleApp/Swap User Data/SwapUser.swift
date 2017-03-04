@@ -1056,19 +1056,40 @@ class SwapUser {
                     shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     
-                    SwapUser().incrementSwaps { error in
+                    let currentUser = SwapUser()
+                    let otherUser =   SwapUser(username: user._username!)
+                    
+                    // Check if already Swapped
+                    currentUser.hasSwapped(withUser: otherUser, result: { (didSwap) in
                         
-                    }
-                    SwapUser(username: user._username!).incrementSwapped{ error in
                         
-                    }
-                    SwapUser().incrementPoints(byValue: 5) { error in
+                        if !didSwap{
+                            
+                            // Didn't Swap Yet
+                            
+                            currentUser.incrementSwaps { error in
+                                
+                            }
+                            otherUser.incrementSwapped{ error in
+                                
+                            }
+                            currentUser.incrementPoints(byValue: 5) { error in
+                                
+                            }
+                            otherUser.incrementPoints(byValue: 5){ error in
+                                
+                            }
+                            otherUser.sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
+                            
+                            
+                            
+                            
+                            
+                            
+                        }
                         
-                    }
-                    SwapUser(username: user._username!).incrementPoints(byValue: 5){ error in
-                        
-                    }
-                    SwapUser(username: user._username!).sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
+                    })
+                   
                     
                     
                     // Log Analytics // If current user has social media connected and the other has the social media 'on' then essentially the user has shared that social media. +- ~3% margin error perhaps
