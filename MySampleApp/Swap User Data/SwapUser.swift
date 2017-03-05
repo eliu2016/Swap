@@ -1079,7 +1079,7 @@ class SwapUser {
                             otherUser.incrementPoints(byValue: 5){ error in
                                 
                             }
-                            otherUser.sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
+                            
                             
                             
                             
@@ -1090,7 +1090,7 @@ class SwapUser {
                         
                     })
                    
-                    
+                    otherUser.sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
                     
                     // Log Analytics // If current user has social media connected and the other has the social media 'on' then essentially the user has shared that social media. +- ~3% margin error perhaps
                     
