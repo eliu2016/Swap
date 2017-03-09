@@ -158,7 +158,7 @@ class SearchedUser: UIViewController {
     
     @IBAction func didTapSwap(_ sender: Any) {
         
-       SwapUser().swapWith(userWithUsername: searchedUser, authorizeOnViewController: self) { (error, user) in
+       SwapUser().swap(with: searchedUser, authorizeOnViewController: self) { (error, user) in
         
         
             //alert the user that was swapped

@@ -56,7 +56,7 @@ class ScannerViewController: UIViewController {
             
             let username = getUsernameFromSwapLink(swapLink: swapLink)
             
-            SwapUser().swapWith(userWithUsername: username, authorizeOnViewController: self, completion: { (error, user) in
+            SwapUser().swap(with: username, authorizeOnViewController: self, completion: { (error, user) in
                 
                 scanner.stopScan()
                 
