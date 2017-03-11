@@ -1166,7 +1166,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
     
    
     var store = CNContactStore()
-    let contactMatchingNumberThatAlreadyExists = lookForContact(with: user._phonenumber!)
+    let contactMatchingNumberThatAlreadyExists = lookForContact(with: user._phonenumber!, or: user._email)
     
     let contact = (contactMatchingNumberThatAlreadyExists != nil) ? contactMatchingNumberThatAlreadyExists?.mutableCopy() as! CNMutableContact :  CNMutableContact()
 

@@ -153,7 +153,7 @@ func getContact(withPhonenumber: String)  {
 
 
 
-func lookForContact(with phoneNumber: String) -> CNContact? {
+func lookForContact(with phoneNumber: String, or email: String?) -> CNContact? {
     
     
         
@@ -220,7 +220,7 @@ func lookForContact(with phoneNumber: String) -> CNContact? {
                     }
                 }
                 
-            }  else{
+            }  else if contact.phoneNumbers.count == 1{
                 // There is only ONE Phone number
                 
                 print("only one phone number")
@@ -240,13 +240,39 @@ func lookForContact(with phoneNumber: String) -> CNContact? {
                     
                     
                 }
+              
+                
                 else{
-                    print("Contact is not found yet")
+                    // nothing
+                    print("\n\n\n\n nothing in this contact \(contact)")
                 }
             }
             
+            
+             if contact.emailAddresses.count > 1 && email != nil{
+                
+                for Email in contact.emailAddresses{
+                    print("the email is ... \(Email.value)")
+                    print("looping throuhg emails")
+                    if Email.value as String == email!{
+                        print("contact is found ")
+                        
+                        contactFound = contact
+                    }
+                }
+            }
+                
+                
+            else if contact.emailAddresses.count == 1 && email != nil{
+                print("only one email which is \(contact.emailAddresses.first?.value)")
+                if contact.emailAddresses.first?.value as! String == email!{
+                    contactFound = contact
+                }
+            }
+            
+            
         }
-        
-        
+    
+    
     return contactFound
 }
