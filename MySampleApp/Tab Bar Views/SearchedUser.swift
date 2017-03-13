@@ -161,9 +161,19 @@ class SearchedUser: UIViewController {
        SwapUser().swapWith(userWithUsername: searchedUser, authorizeOnViewController: self) { (error, user) in
         
         
-            //alert the user that was swapped
+                //alert the user that was swapped
         
+            DispatchQueue.main.async {
+            
         
+                    let alert = UIAlertController(title: "Success", message: "You have just swapped \(searchedUser)", preferredStyle: .alert)
+        
+                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        
+                    self.present(alert, animated: true, completion: nil)
+            
+            }
+       
         }
         
     }

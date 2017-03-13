@@ -39,7 +39,7 @@ class SetBirthdayViewController: UIViewController {
     @IBAction func didPressContinue(_ sender: Any) {
   
         
-        //show loading overlay
+        /*show loading overlay
         let loadingOverlay = ShowLoadingOverlay()
         let blackOverlay = loadingOverlay.showBlackOverlay()
         let loadingSymbol = loadingOverlay.showLoadingSymbol(view: self.view)
@@ -47,30 +47,12 @@ class SetBirthdayViewController: UIViewController {
         view.addSubview(blackOverlay)
         view.addSubview(loadingSymbol)
         datePicker.isEnabled = false
-        continueButton.isEnabled = false
-    
-        SwapUser(username: getUsernameOfSignedInUser()).set(Birthday: datePicker.date.timeIntervalSince1970 as Double,
-                                                             
-           DidSetInformation:  {
-            
-            DispatchQueue.main.async {
-                
-                self.performSegue(withIdentifier: "connectSocialMedias", sender: self)
-            }
-            
-        },
-           
-           
-           CannotSetInformation: {
+        continueButton.isEnabled = false*/
         
-            //reset the view
-            blackOverlay.isHidden = true
-            loadingSymbol.isHidden = true
-            self.datePicker.isEnabled = true
-            self.continueButton.isEnabled = true
         
-            return nil
-        })
+        
+        UserDefaults.standard.set(datePicker.date.timeIntervalSince1970 as Double, forKey: "birthday")
+
         
     }
     

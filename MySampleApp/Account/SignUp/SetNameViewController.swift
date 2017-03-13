@@ -27,35 +27,12 @@ class SetNameViewController: UIViewController {
         
         // Sets the Swap User's initial data in the database 
         // By default, the user is NOT searchable 
-       SwapUser(username: getUsernameOfSignedInUser()).set(Firstname: firstnameField.text,  Lastname: lastnameField.text, Phonenumber: getSavedPhonenumber(), Email: getSavedEmail(), isPrivate: false, Points: 0, Swapped: 0, Swaps: 0, ProfileImage: defaultImage, QRImage: swapCodeImage,
+       
+        UserDefaults.standard.set("\(firstnameField.text)", forKey: "firstname")
                                                             
-        DidSetInformation: {
-            
-            // Go to select profile picture
-            
-            // Tries to guess the user's gender in background and sets the user's gender in database
-            guessAndSetSex(withFirstname: self.firstnameField.text!)
-            
-            DispatchQueue.main.async {
-                
-                // Go to select profile picture
-                self.performSegue(withIdentifier: "toSetBirthdayViewController", sender: nil)
-            }
-          
-            
-            return nil
-           
-        },
-        
-        
-        CannotSetInformation: {
-            
-            // Cannot set info for some reason
-            return
-        })
-        
-    }
+        UserDefaults.standard.set("\(lastnameField.text)", forKey: "lastname")
     
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         // Autofills the fields based on if the information is in the user's addressbook already 

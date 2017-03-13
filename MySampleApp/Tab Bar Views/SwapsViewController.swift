@@ -59,6 +59,13 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             circularImage(photoImageView: cell.profilePicture)
             
+            DispatchQueue.main.async {
+                
+            
+                cell.username.text = (user?._firstname)! + " " + (user?._lastname)!
+                
+            }
+            
         })
 
         

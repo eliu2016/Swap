@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -18,6 +18,7 @@ class SignInViewController: UIViewController {
     @IBOutlet var SignInButton: UIButton!
     @IBOutlet var SignUpButton: UIButton!
     
+    @IBOutlet var passwordBottom: UIImageView!
     var blackOverlay: UIImageView?
     var loadingSymbol: UIImageView?
     /// This variable should be located in whatever view controller is used to sign in
@@ -54,14 +55,45 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        usernameField.delegate = self
+        passwordField.delegate = self
         
-       
+        usernameField.becomeFirstResponder()
         
+        usernameField.attributedPlaceholder = NSAttributedString(string: "username",
+                                                               attributes: [NSForegroundColorAttributeName: UIColor.white])
         
-        
+        passwordField.attributedPlaceholder = NSAttributedString(string: "password",
+                                                                 attributes: [NSForegroundColorAttributeName: UIColor.white])
         
 
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.gray])
+        
+        SignInButton.frame = CGRect(x: SignInButton.frame.origin.x, y: SignInButton.frame.origin.y - 60, width: SignInButton.frame.width, height: SignInButton.frame.height)
+        
+        SignUpButton.frame = CGRect(x: SignUpButton.frame.origin.x, y: SignUpButton.frame.origin.y - 85, width: SignUpButton.frame.width, height: SignUpButton.frame.height)
+        
+        passwordField.frame = CGRect(x: passwordField.frame.origin.x, y: passwordField.frame.origin.y - 25, width: passwordField.frame.width, height: passwordField.frame.height)
+        passwordBottom.frame = CGRect(x: passwordBottom.frame.origin.x, y: passwordBottom.frame.origin.y - 25, width: passwordBottom.frame.width, height: passwordBottom.frame.height)
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        
+        textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.white])
+        
+         SignInButton.frame = CGRect(x: SignInButton.frame.origin.x, y: SignInButton.frame.origin.y + 60, width: SignInButton.frame.width, height: SignInButton.frame.height)
+        
+        SignUpButton.frame = CGRect(x: SignUpButton.frame.origin.x, y: SignUpButton.frame.origin.y + 85, width: SignUpButton.frame.width, height: SignUpButton.frame.height)
+        
+        passwordField.frame = CGRect(x: passwordField.frame.origin.x, y: passwordField.frame.origin.y + 25, width: passwordField.frame.width, height: passwordField.frame.height)
+        passwordBottom.frame = CGRect(x: passwordBottom.frame.origin.x, y: passwordBottom.frame.origin.y + 25, width: passwordBottom.frame.width, height: passwordBottom.frame.height)
     }
 
     override func didReceiveMemoryWarning() {

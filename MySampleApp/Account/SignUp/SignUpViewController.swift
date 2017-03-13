@@ -13,10 +13,10 @@ class SignUpViewController: UIViewController {
     
     //Text Fields
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var phonenumberField: PhoneNumberTextField!
-    @IBOutlet weak var passwordField: UITextField!
-    
+    @IBOutlet var usernameField: UITextField!
+    @IBOutlet var phonenumberField: UITextField!
+    @IBOutlet var passwordField: PhoneNumberTextField!
+
     //Buttons
     @IBOutlet var backButton: UIButton!
     @IBOutlet var nextButton: UIButton!

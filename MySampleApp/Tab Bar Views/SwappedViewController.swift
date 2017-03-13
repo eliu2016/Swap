@@ -54,8 +54,7 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let user = swappedHistoryUsers[indexPath.item]
         
-        cell.username.text = user._swap
-        
+    
         cell.swapDate.text = user._time?.timeAgo()
        
         SwapUser(username: user._swap!).getInformation(completion: {(error, user) in
@@ -63,6 +62,11 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             circularImage(photoImageView: cell.profilePicture)
             
+            DispatchQueue.main.async {
+                
+                cell.username.text = (user?._firstname)! + " " + (user?._lastname)!
+                
+            }
         })
       
     
