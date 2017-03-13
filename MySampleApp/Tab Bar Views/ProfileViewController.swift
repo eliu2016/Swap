@@ -376,7 +376,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         
                     })
                     
-                    
+                    if let notificationID = user?._notification_id_one_signal {
+                        if notificationID == "0"{
+                            
+                            SwapUser().setUpPushNotifications()
+                        }
+                    }
                 }
                 
                 
