@@ -28,6 +28,8 @@ pod 'Crashlytics'
 pod 'PhoneNumberKit', '~> 1.2'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3’
 pod 'Swifter', :git => 'https://github.com/mattdonnelly/Swifter.git'
+pod 'PullToRefresher', '~> 2.0'
+
 
 post_install do |installer|
 installer.pods_project.targets.each do |target|

@@ -179,8 +179,13 @@ class SwapUser {
             pool.getUser(self.username).update([verified!])
         }
         
+        DispatchQueue.global(qos: .userInteractive).async {
+            
         
-        NoSQL.save(user!, configuration: updateMapperConfig, completionHandler: { error in
+        self.NoSQL.save(user!, configuration: self.updateMapperConfig, completionHandler: { error in
+            
+            DispatchQueue.main.async {
+                
             
             if error != nil{
                 
@@ -195,11 +200,14 @@ class SwapUser {
                 DidSetInformation()
                 
             }
+                
+        }
             
             
         })
         
-        
+     }
+    
     }
     
     func updateProfileInfoWith(Middlename: String? = nil, Company: String? = nil, Website: String? = nil,  DidSetInformation: @escaping () -> Void? = { return nil },  CannotSetInformation: @escaping () -> Void? =  { return })  {
@@ -215,7 +223,13 @@ class SwapUser {
             user?._website = (Website != nil && !((Website?.isEmpty)!)) ? Website?.trim(): nil
             user?._company = (Company != nil && !((Company?.isEmpty)!)) ? Company?.trim(): nil
             
+            DispatchQueue.global(qos: .userInteractive).async {
+                
+            
             self.NoSQL.save(user!, configuration: self.updateMapperConfig, completionHandler: { error in
+                
+                DispatchQueue.main.async {
+                    
                 
                 if error != nil{
                     
@@ -231,9 +245,13 @@ class SwapUser {
                     
                 }
                 
+            }
+                
                 
             })
             
+    }
+        
         }
         
         
@@ -250,35 +268,42 @@ class SwapUser {
         let  config = AWSDynamoDBObjectMapperConfiguration()
         config.consistentRead = true
         
-        
-        self.NoSQL.load(Users.self, hashKey: self.username, rangeKey: nil, configuration: config, completionHandler: { (user, error) in
+        DispatchQueue.global(qos: .userInteractive).async {
             
-            if error != nil {
-                print("there was an error loading data..\nThe error is \(error.debugDescription)")
-                let usererror: UserError = UserError.CouldNotGetUser
-                completion(usererror, nil)
-            }
+            self.NoSQL.load(Users.self, hashKey: self.username, rangeKey: nil, configuration: config, completionHandler: { (user, error) in
                 
-            else{
-                // There is no error
-                
-                if user != nil{
-                    
-                    let user = user as! Users
-                    completion(nil, user)
-                    
-                } else{
-                    
+                if error != nil {
+                    print("there was an error loading data..\nThe error is \(error.debugDescription)")
                     let usererror: UserError = UserError.CouldNotGetUser
                     completion(usererror, nil)
                 }
+                    
+                else{
+                    // There is no error
+                    
+                    DispatchQueue.main.async {
+                        
+                        if user != nil{
+                            
+                            let user = user as! Users
+                            completion(nil, user)
+                            
+                        } else{
+                            
+                            let usererror: UserError = UserError.CouldNotGetUser
+                            completion(usererror, nil)
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }
                 
-                
-                
-            }
+            })
             
-        })
-        
+        }
+       
         
         
         
@@ -303,28 +328,35 @@ class SwapUser {
         queryExpression.expressionAttributeNames = ["#hashAttribute": "swapped"]
         queryExpression.expressionAttributeValues = [":hashAttribute": self.username]
         
-        
-        self.NoSQL.query(SwapHistory.self, expression: queryExpression, configuration: nil, completionHandler: { (output, error) in
+        DispatchQueue.global(qos: .userInteractive).async {
             
-            if error != nil{
-                print("error querying ... \(error)")
+            self.NoSQL.query(SwapHistory.self, expression: queryExpression, configuration: nil, completionHandler: { (output, error) in
                 
-                result(error, nil)
+                DispatchQueue.main.async {
+                    
+                    if error != nil{
+                        print("error querying ... \(error)")
+                        
+                        result(error, nil)
+                        
+                    }
+                        
+                    else{
+                        
+                        // Converts the response to an array of Swap History objects
+                        let swapHistories = output?.items as! [SwapHistory]
+                        result(nil, swapHistories)
+                        
+                        
+                        
+                        
+                    }
+                }
                 
-            }
-                
-            else{
-                
-                // Converts the response to an array of Swap History objects
-                let swapHistories = output?.items as! [SwapHistory]
-                result(nil, swapHistories)
-                
-                
-                
-                
-            }
-            
-        })
+               
+            })
+        }
+       
         
         
     }
@@ -475,25 +507,33 @@ class SwapUser {
         queryExpression.expressionAttributeNames = ["#hashAttribute": "swap"]
         queryExpression.expressionAttributeValues = [":hashAttribute": self.username]
         
-        self.NoSQL.query(SwapHistory.self, expression: queryExpression, configuration: config, completionHandler: { (output, error) in
+        DispatchQueue.global(qos: .userInteractive).async {
             
-            if error != nil{
-                print("error querying ... \(error)")
+            self.NoSQL.query(SwapHistory.self, expression: queryExpression, configuration: config, completionHandler: { (output, error) in
                 
-                result(error, nil)
+                DispatchQueue.main.async {
+                    
+                    if error != nil{
+                        print("error querying ... \(error)")
+                        
+                        result(error, nil)
+                        
+                    }
+                        
+                    else{
+                        
+                        // Converts the response to an array of Swap History objects
+                        let swapHistories = output?.items as! [SwapHistory]
+                        result(nil, swapHistories)
+                        
+                        
+                    }
+                }
+               
                 
-            }
-                
-            else{
-                
-                // Converts the response to an array of Swap History objects
-                let swapHistories = output?.items as! [SwapHistory]
-                result(nil, swapHistories)
-                
-                
-            }
-            
-        })
+            })
+        }
+       
         
         
     }
@@ -720,26 +760,33 @@ class SwapUser {
         queryExpression.expressionAttributeValues = [":hashAttribute": self.username, ":val": false]
         queryExpression.filterExpression = "#sender_confirmed_acceptance = :val"
         
+        DispatchQueue.global(qos: .userInteractive).async {
+            
+            self.NoSQL.query(SwapRequest.self, expression: queryExpression,  completionHandler: { (output, error) in
+                
+                DispatchQueue.main.async {
+                    
+                    if error != nil{
+                        
+                        
+                        result(error, nil)
+                        
+                    }
+                        
+                    else{
+                        
+                        // Converts the response to an array of Swap History objects
+                        let swapRequests = output?.items as! [SwapRequest]
+                        result(nil, swapRequests)
+                        
+                        
+                    }
+                }
+               
+                
+            })
+        }
         
-        self.NoSQL.query(SwapRequest.self, expression: queryExpression,  completionHandler: { (output, error) in
-            
-            if error != nil{
-                
-                
-                result(error, nil)
-                
-            }
-                
-            else{
-                
-                // Converts the response to an array of Swap History objects
-                let swapRequests = output?.items as! [SwapRequest]
-                result(nil, swapRequests)
-                
-                
-            }
-            
-        })
         
         
     }
