@@ -39,11 +39,10 @@ class SwapUser {
     
     
     /// Whenever a SwapUser object is created, unless otherwise specified in parameters, the object assumes it is referring to the current swap user
-    init(username: String = getUsernameOfSignedInUser(), isVerified: Bool = false, picture: URL = URL(string: defaultImage)!) {
+    init(username: String = getUsernameOfSignedInUser()) {
         
         self.username = username
-        self.profilePictureURL = picture
-        self.isVerified = isVerified
+       
         
         
     }

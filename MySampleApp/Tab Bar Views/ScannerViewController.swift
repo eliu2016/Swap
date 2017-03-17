@@ -64,7 +64,7 @@ class ScannerViewController: UIViewController {
                     
                     // There was an error trying to get the user from the swap code
                     
-                    print("Could not get user.. Not a valid Swap Code... User does not exist...or bad internet connection")
+                    
                     
                     
                     // Restart Scanner After Showing Pop Up View
