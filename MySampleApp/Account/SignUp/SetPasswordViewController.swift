@@ -15,8 +15,30 @@ class setPasswordViewController: UIViewController{
     @IBOutlet var passwordField: UITextField!
     
     
+    override func viewDidLoad() {
+        passwordField.becomeFirstResponder()
+    }
+    
+    
     @IBAction func didTapNext(_ sender: Any) {
         
-        userDefaults.standard.set(passwordField.text, forKey: "password")
+        if (passwordField.text?.length)! >= 6{
+           
+            UserDefaults.standard.set(passwordField.text, forKey: "password")
+            
+            self.performSegue(withIdentifier: "toPhoneNumberController", sender: nil)
+        }
+        else{
+          
+            UIAlertView(title: "Error",
+                        message: "Password Must Be 6 Characters",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+        }
+        
+    }
+    @IBAction func didTapBack(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
     }
 }

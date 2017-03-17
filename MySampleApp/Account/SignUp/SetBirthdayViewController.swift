@@ -50,9 +50,27 @@ class SetBirthdayViewController: UIViewController {
         continueButton.isEnabled = false*/
         
         
-        
-        UserDefaults.standard.set(datePicker.date.timeIntervalSince1970 as Double, forKey: "birthday")
+        if dateField.text == ""{
+            
+            UIAlertView(title: "Error",
+                        message: "Enter Your Birthday",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            
+        }
+        else{
+            UserDefaults.standard.set(datePicker.date.timeIntervalSince1970 as Double, forKey: "birthday")
+            
+            self.performSegue(withIdentifier: "toEmailController", sender: nil)
+        }
 
+        
+    }
+
+
+    @IBAction func didTapBack(_ sender: Any) {
+    
+        navigationController?.popViewController(animated: true)
         
     }
     
