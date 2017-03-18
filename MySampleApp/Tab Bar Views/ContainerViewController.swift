@@ -10,14 +10,16 @@
 import Foundation
 
 
+    var refreshControl: UIRefreshControl!
+
 
 class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarControllerDelegate{
     
   
- 
+    
      var scrollView: UIScrollView!
      var SwapCenterButton: UIButton!
-    
+
     
     override func viewDidLoad() {
   
@@ -25,6 +27,12 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         super.viewDidLoad();
         
         print("Container will load")
+        
+        //initialize refresh control
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .white
+        refreshControl.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
+        refreshControl.addTarget(self, action: #selector(ContainerViewController.refresh), for: .valueChanged)
         
         
         let Storyboard = self.storyboard
@@ -56,7 +64,8 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         scrollView.addSubview(BVc!.view);
         scrollView.addSubview(AVc!.view);
         
-        scrollView.bounces = false
+        scrollView.bounces = true
+        scrollView.alwaysBounceVertical = true
         scrollView.showsVerticalScrollIndicator = false
         scrollView.isPagingEnabled = true
         scrollView.isUserInteractionEnabled = true
@@ -73,6 +82,8 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         view.addSubview(scrollView)
         scrollView.delegate = self
+        
+        scrollView.addSubview(refreshControl)
         
         SwapCenterButton = UIButton(frame: CGRect(x: self.view.frame.size.width*0.42, y: self.view.frame.size.height*0.9, width: 62, height: 60))
         
@@ -91,7 +102,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         SwapCenterButton.setImage(UIImage(named: "SwapButton"), for: .normal)
         SwapCenterButton.addTarget(self, action: #selector(SwapButtonAction(sender:)), for: .touchUpInside)
         // 4) Finally set the size of the scroll view that contains the frames
-  
+    
     }
 
     
@@ -115,6 +126,10 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
+        
+        
+        SwapCenterButton.alpha =  20 + scrollView.contentOffset.y
+    
     }
 
 
@@ -123,6 +138,11 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         // Dispose of any resources that can be recreated.
     }
 
+    func refresh(){
+        
+        self.viewDidLoad()
+        refreshControl.endRefreshing()
+    }
     
 }
 

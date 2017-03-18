@@ -109,7 +109,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     */
     
-    /// Shows the loading symbol and reloads the profile data.
+       /// Shows the loading symbol and reloads the profile data.
     func loadProfile()  {
         
         // Hide UI or do whatever to show that the profile is loading

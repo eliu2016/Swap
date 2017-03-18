@@ -52,27 +52,19 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let user = swapHistoryUsers[indexPath.item]
         
-        cell.username.text = user._swapped
-        let daysSwapped = calculateDaysBetweenTwoDates(start: NSDate(timeIntervalSince1970: user._time as! TimeInterval) as Date, end: Date())
-        let weeksSwapped = daysSwapped/7
-        let yearsSwapped = weeksSwapped/52
-        
-        if (daysSwapped < 7){
-            
-            cell.swapDate.text = "\(daysSwapped)d"
-        }
-        else if (daysSwapped < 365){
-            
-            cell.swapDate.text = "\(weeksSwapped)w"
-        }
-        else{
-            cell.swapDate.text = "\(yearsSwapped)y"
-        }
+       cell.swapDate.text = user._time?.timeAgo()
         
         SwapUser(username: user._swapped!).getInformation(completion: {(error, user) in
             
             cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             circularImage(photoImageView: cell.profilePicture)
+            
+            DispatchQueue.main.async {
+                
+            
+                cell.username.text = (user?._firstname)! + " " + (user?._lastname)!
+                
+            }
             
         })
 
@@ -87,17 +79,6 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.performSegue(withIdentifier: "ShowSwapsUserProfile", sender: nil)
     }
     
-    private func calculateDaysBetweenTwoDates(start: Date, end: Date) -> Int {
-        
-        let currentCalendar = Calendar.current
-        guard let start = currentCalendar.ordinality(of: .day, in: .era, for: start) else {
-            return 0
-        }
-        guard let end = currentCalendar.ordinality(of: .day, in: .era, for: end) else {
-            return 0
-        }
-        return end - start
-    }
 }
 
 class swapsTableCell: UITableViewCell {

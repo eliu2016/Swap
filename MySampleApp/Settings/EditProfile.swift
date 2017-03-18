@@ -197,7 +197,7 @@ class EditProfileTable: UITableViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
      
         if textField.tag == 2{
-            tableView.setContentOffset(CGPoint(x: tableView.contentOffset.x, y: tableView.contentOffset.y + 50), animated: true)
+            tableView.setContentOffset(CGPoint(x: tableView.contentOffset.x, y: tableView.contentOffset.y + 70), animated: true)
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -211,7 +211,7 @@ class EditProfileTable: UITableViewController, UITextFieldDelegate {
     
         
         if textField.tag == 2{
-            tableView.setContentOffset(CGPoint(x: tableView.contentOffset.x, y: tableView.contentOffset.y - 50), animated: true)
+            tableView.setContentOffset(CGPoint(x: tableView.contentOffset.x, y: tableView.contentOffset.y - 70), animated: true)
         }
     }
     

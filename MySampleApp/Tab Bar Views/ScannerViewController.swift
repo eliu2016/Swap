@@ -14,7 +14,9 @@ import Spring
 
 let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true) , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
-class ScannerViewController: UIViewController {
+class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
+    
+    let imagePicker = UIImagePickerController()
 
     @IBOutlet var confirmSwapLabel: UILabel!
     @IBOutlet var profilePic: UIImageView!
@@ -186,6 +188,12 @@ class ScannerViewController: UIViewController {
         
         
         return imageView
+    }
+    @IBAction func uploadSwapCode(_ sender: Any) {
+        
+        
+        
+        
     }
 
     
