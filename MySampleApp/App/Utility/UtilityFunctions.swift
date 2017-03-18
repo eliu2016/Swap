@@ -63,4 +63,11 @@ extension String {
         
         return result
     }
+  
+}
+
+extension Notification.Name {
+    
+    static let reloadProfile = Notification.Name("reloadProfile")
+>
 }

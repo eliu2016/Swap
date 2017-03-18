@@ -279,6 +279,9 @@ func getUsernameOfSignedInUser() -> String {
 
 
 
+
+
+
 /// Predicts user's gender based on first name and stores their gender in database on a background thread
 ///
 /// - Parameter withFirstname: Firstname of the user

@@ -58,7 +58,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
             
             let username = getUsernameFromSwapLink(swapLink: swapLink)
             
-            SwapUser().swapWith(userWithUsername: username, authorizeOnViewController: self, completion: { (error, user) in
+            SwapUser().swap(with: username, authorizeOnViewController: self, completion: { (error, user) in
                 
                 scanner.stopScan()
                 
@@ -66,7 +66,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
                     
                     // There was an error trying to get the user from the swap code
                     
-                    print("Could not get user.. Not a valid Swap Code... User does not exist...or bad internet connection")
+                    
                     
                     
                     // Restart Scanner After Showing Pop Up View
