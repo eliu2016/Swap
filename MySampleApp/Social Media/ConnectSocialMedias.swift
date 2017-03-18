@@ -9,7 +9,7 @@ import Foundation
 import p2_OAuth2
 import Alamofire
 import SwiftyJSON
-import Swifter
+import SwifteriOS
 import Contacts
 import Kingfisher
 
@@ -1135,7 +1135,7 @@ func shareVimeo(withUser: Users?,
 
 
 ///
-/// -todo: Check if Contact already exists before adding (done March 2017 Micheal Bingham)
+/// -todo: Check if Contact already exists before adding
 /// - Parameters
 ///   - withContactDataOfUser:
 ///   - completion:
@@ -1159,24 +1159,22 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
     let UserWillShareEmail = user._willShareEmail as? Bool ?? false
     
     guard UserWillSharePhone || UserWillShareEmail else{
-      
+        
         completion(UserError.WillNotShareSocialMedia)
         return
     }
     
-   
-    var store = CNContactStore()
-    let contactMatchingNumberThatAlreadyExists = lookForContact(with: user._phonenumber!, or: user._email)
     
-    let contact = (contactMatchingNumberThatAlreadyExists != nil) ? contactMatchingNumberThatAlreadyExists?.mutableCopy() as! CNMutableContact :  CNMutableContact()
-
+    
+    var store = CNContactStore()
+    let contact = CNMutableContact()
+    
     let url = URL(string: user._profilePictureUrl!)!
     
     // Set Contact Image
     ImageDownloader.default.downloadImage(with: url , options: [], progressBlock:  nil, completionHandler: {  (image, error, url, data) in
         
         if error != nil{
-            print("can't download image")
             completion(error)
         }
             
@@ -1291,25 +1289,13 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
             }
             
             
-            print("going to try to save contact")
+            
             let request = CNSaveRequest()
             
-            if contactMatchingNumberThatAlreadyExists == nil{
-                // There was no contact that was already in the address book so we have to make a new contact
-                request.add(contact, toContainerWithIdentifier: nil)
-            } else{
-                
-                // Update existing contact instead
-                
-                request.update(contact)
-            }
-           
-            
-            
-            
+            request.add(contact, toContainerWithIdentifier: nil)
             do{
                 try store.execute(request)
-                print("Should have saved contact")
+                
                 history.didShare( EmailIs: DidShareEmail, PhonenumberIs: DidSharePhone,completion: { (error) in
                     
                     if let error = error{
@@ -1325,7 +1311,7 @@ func createContactInPhone(withContactDataOfUser: Users?, completion: @escaping (
             } catch let err{
                 
                 // Failed trying to save contact
-                print("Can't save contact with error \(err)")
+                
                 completion(err)
             }
             
