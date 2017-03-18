@@ -67,11 +67,20 @@ public enum OAuth2Error: Error, CustomStringConvertible, Equatable {
 	/// The redirect URL is invalid; with explanation.
 	case invalidRedirectURL(String)
 	
+	/// There is no access token.
+	case noAccessToken
+	
 	/// There is no refresh token.
 	case noRefreshToken
 	
 	/// There is no registration URL.
 	case noRegistrationURL
+	
+	/// The login controller does not have a valid type
+	case invalidLoginController(actualType: String, expectedType: String)
+
+	/// There is no delegate associated with the password grant flow instance.
+	case noPasswordGrantDelegate
 	
 	
 	// MARK: - Request errors
@@ -197,6 +206,10 @@ public enum OAuth2Error: Error, CustomStringConvertible, Equatable {
 			return "No username"
 		case .noPassword:
 			return "No password"
+		case .invalidLoginController(let expectedType, let actualType):
+			return "The login controller of type \(actualType) cannot be displayed. Expecting a \(expectedType)."
+		case .noPasswordGrantDelegate:
+			return "The password grant flow needs to be set a delegate to present the login controller."
 		case .alreadyAuthorizing:
 			return "The client is already authorizing, wait for it to finish or abort authorization before trying again"
 		case .noAuthorizationContext:
@@ -205,6 +218,8 @@ public enum OAuth2Error: Error, CustomStringConvertible, Equatable {
 			return "Invalid authorization context"
 		case .invalidRedirectURL(let url):
 			return "Invalid redirect URL: \(url)"
+		case .noAccessToken:
+			return "I don't have an access token, cannot sign request"
 		case .noRefreshToken:
 			return "I don't have a refresh token, not trying to refresh"
 		
@@ -239,7 +254,7 @@ public enum OAuth2Error: Error, CustomStringConvertible, Equatable {
 			return "Failed to decode given data as a UTF-8 string"
 		
 		case .unauthorizedClient:
-			return "The client is not authorized to request an access token using this method."
+			return "Unauthorized"
 		case .forbidden:
 			return "Forbidden"
 		case .wrongUsernamePassword:
@@ -277,7 +292,8 @@ public enum OAuth2Error: Error, CustomStringConvertible, Equatable {
 		case (.noAuthorizationContext, .noAuthorizationContext):                 return true
 		case (.invalidAuthorizationContext, .invalidAuthorizationContext):       return true
 		case (.invalidRedirectURL(let lhu), .invalidRedirectURL(let rhu)):       return lhu == rhu
-		case (.noRefreshToken, .noRefreshToken):			         return true
+		case (.noAccessToken, .noAccessToken):                       return true
+		case (.noRefreshToken, .noRefreshToken):                     return true
 		
 		case (.notUsingTLS, .notUsingTLS):                           return true
 		case (.unableToOpenAuthorizeURL, .unableToOpenAuthorizeURL): return true

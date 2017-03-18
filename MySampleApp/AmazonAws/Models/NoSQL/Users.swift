@@ -59,6 +59,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _willShareVimeo: NSNumber?
     var _youtubeID: String?
     var _notification_id_one_signal: String?
+    var _VPCode: String?
     
     class func dynamoDBTableName() -> String {
         
@@ -115,6 +116,7 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_willShareVimeo": "willShareVimeo",
             "_youtubeID" : "youtube_ID",
             "_notification_id_one_signal": "notification_id_one_signal",
+            "_VPCode": "VPCode"
         ]
     }
 }

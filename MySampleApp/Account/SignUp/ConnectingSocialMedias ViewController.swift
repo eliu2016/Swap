@@ -440,7 +440,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-          SwapUser(username: getUsernameOfSignedInUser()).setUpPushNotifications()
+          
         
         if !UserDefaults.standard.bool(forKey: "ConnectSocialMediaTutorialShown")
         {

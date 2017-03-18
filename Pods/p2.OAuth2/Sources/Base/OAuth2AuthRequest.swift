@@ -80,6 +80,7 @@ open class OAuth2AuthRequest {
 	/// Custom headers can be set here, they will take precedence over any built-in headers.
 	open private(set) var headers: [String: String]?
 	
+	/// Query parameters to use with the request.
 	open var params = OAuth2RequestParams()
 	
 	
@@ -186,7 +187,7 @@ open class OAuth2AuthRequest {
 		if let clientId = oauth2.clientConfig.clientId, !clientId.isEmpty, let secret = oauth2.clientConfig.clientSecret {
 			
 			// add to request body
-			if oauth2.authConfig.secretInBody {
+			if oauth2.clientConfig.secretInBody {
 				oauth2.logger?.debug("OAuth2", msg: "Adding “client_id” and “client_secret” to request body")
 				finalParams["client_id"] = clientId
 				finalParams["client_secret"] = secret
@@ -196,7 +197,7 @@ open class OAuth2AuthRequest {
 			else {
 				oauth2.logger?.debug("OAuth2", msg: "Adding “Authorization” header as “Basic client-key:client-secret”")
 				let pw = "\(clientId.wwwFormURLEncodedString):\(secret.wwwFormURLEncodedString)"
-				if let utf8 = pw.data(using: String.Encoding.utf8) {
+				if let utf8 = pw.data(using: oauth2.clientConfig.authStringEncoding) {
 					req.setValue("Basic \(utf8.base64EncodedString())", forHTTPHeaderField: "Authorization")
 				}
 				else {
@@ -220,7 +221,7 @@ open class OAuth2AuthRequest {
 				req.setValue(val, forHTTPHeaderField: key)
 			}
 		}
-		if let customParameters = oauth2.authConfig.customParameters {
+		if let customParameters = oauth2.clientConfig.customParameters {
 			for (k, v) in customParameters {
 				finalParams[k] = v
 			}

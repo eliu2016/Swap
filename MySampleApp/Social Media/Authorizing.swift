@@ -98,80 +98,78 @@ func authorizeSpotify(onViewController: UIViewController, completion: @escaping 
     
     
     // Authorizes Spotify
-    spotify_oauth2.authorize()
     
-    
-    spotify_oauth2.onAuthorize = { parameters in
+    spotify_oauth2.authorizeEmbedded(from: onViewController, callback: { (response, error) in
         
-        // Block is called whenever .authorize() is called and there is success
-        
-        // The DataLoader class ensures that a request will be made. It will authorize if needed
-        var spotifyReq = spotify_oauth2.request(forURL: URL(string: SPOTIFY_USER_URL)!)
-        spotifyReq.sign(with: spotify_oauth2)
-        let loader = OAuth2DataLoader(oauth2: spotify_oauth2)
-        loader.perform(request: spotifyReq, callback: { (response) in
+        if let error = error{
             
-            do{
-                let spotifyJSON = try response.responseJSON()
+            if error == nil{
+                // User cancelled authorizing
+                completion(AuthorizationError.Cancelled)
                 
-                
-                
-                if let id = spotifyJSON["id"] as? String{
-                    
-                    // Sets the SpotifyID in the Database
-                    
-                    SwapUser(username: getUsernameOfSignedInUser()).set(SpotifyID: id, DidSetInformation: {
-                        
-                        DispatchQueue.main.async {
-                            completion(nil)
-                        }
-                        
-                    }, CannotSetInformation: {
-                        completion(AuthorizationError.Unknown)
-                    })
-                    
-                    
-                    
-                    
-                }
-                    
-                else{
-                    // ID Not Found in Spotify Response JSON
-                    completion(AuthorizationError.IDNotFound)
-                }
-                
-            }
-                
-            catch let _ {
-                // Could not get a response for some reason.
-                
+            } else{
+                // Not sure of specific Error
                 completion(AuthorizationError.Unknown)
                 
-                
             }
             
-        })
-        
-        
-        
-    }
-    
-    
-    spotify_oauth2.onFailure = { error in
-        
-        // ERROR Failed Authorizing
-        
-        if error == nil{
-            // User cancelled authorizing
-            completion(AuthorizationError.Cancelled)
-            
         } else{
-            // Not sure of specific Error
-            completion(AuthorizationError.Unknown)
+            // Block is called whenever .authorize() is called and there is success
+            
+            // The DataLoader class ensures that a request will be made. It will authorize if needed
+            var spotifyReq = spotify_oauth2.request(forURL: URL(string: SPOTIFY_USER_URL)!)
+            try! spotifyReq.sign(with: spotify_oauth2)
+            let loader = OAuth2DataLoader(oauth2: spotify_oauth2)
+            loader.perform(request: spotifyReq, callback: { (response) in
+                
+                do{
+                    let spotifyJSON = try response.responseJSON()
+                    
+                    
+                    
+                    if let id = spotifyJSON["id"] as? String{
+                        
+                        // Sets the SpotifyID in the Database
+                        
+                        SwapUser(username: getUsernameOfSignedInUser()).set(SpotifyID: id, DidSetInformation: {
+                            
+                            DispatchQueue.main.async {
+                                completion(nil)
+                            }
+                            
+                        }, CannotSetInformation: {
+                            completion(AuthorizationError.Unknown)
+                        })
+                        
+                        
+                        
+                        
+                    }
+                        
+                    else{
+                        // ID Not Found in Spotify Response JSON
+                        completion(AuthorizationError.IDNotFound)
+                    }
+                    
+                }
+                    
+                catch let _ {
+                    // Could not get a response for some reason.
+                    
+                    completion(AuthorizationError.Unknown)
+                    
+                    
+                }
+                
+            })
             
         }
         
-    }
+    })
+  
+    
+    
+   
     
     
 }
@@ -285,9 +283,26 @@ func authorizeInstagram(onViewController: UIViewController, completion: @escapin
     
     instagram_oauth2.authConfig.ui.useSafariView = false
     
-    instagram_oauth2.authorize()
     
-    instagram_oauth2.onAuthorize = { parameters in
+    instagram_oauth2.authorizeEmbedded(from: onViewController, callback: { (parameters, error) in
+        
+        if let error = error{
+            
+            // ERROR Failed Authorizing
+            
+            if error == nil{
+                // User cancelled authorizing
+                completion(AuthorizationError.Cancelled)
+                
+            } else{
+                // Not sure of specific Error
+                completion(AuthorizationError.Unknown)
+                
+            }
+            
+        }
+        
+        else {
         
         
         let json = JSON(parameters)
@@ -315,25 +330,12 @@ func authorizeInstagram(onViewController: UIViewController, completion: @escapin
             completion(AuthorizationError.Unknown)
         })
         
-        
     }
+    })
     
-    instagram_oauth2.onFailure = { error in
-        
-        // ERROR Failed Authorizing
-        
-        if error == nil{
-            // User cancelled authorizing
-            completion(AuthorizationError.Cancelled)
-            
-        } else{
-            // Not sure of specific Error
-            completion(AuthorizationError.Unknown)
-            
-        }
-        
-    }
     
+    
+   
     
 }
 
@@ -367,97 +369,98 @@ func authorizeSoundCloud(onViewController: UIViewController, completion: @escapi
     
     
     
-    soundcloud_oauth2.authorize()
-    
-    
-    
-    
-    
-    
-    soundcloud_oauth2.onAuthorize = {
-        parameters in
+    soundcloud_oauth2.authorizeEmbedded(from: onViewController, callback:{ (parameters, error) in
         
-        
-        // The DataLoader class ensures that a request will be made. It will authorize if needed
-        var soundcloudReq = soundcloud_oauth2.request(forURL: URL(string: "https://api.soundcloud.com/me?oauth_token=\(soundcloud_oauth2.accessToken!)")!)
-        soundcloudReq.sign(with: soundcloud_oauth2)
-        let loader = OAuth2DataLoader(oauth2: soundcloud_oauth2)
-        
-        
-        loader.perform(request: soundcloudReq, callback: { (response) in
+        if let error = error{
             
-            do {
+            
+            // ERROR Failed Authorizing
+            
+            if error == nil{
+                // User cancelled authorizing
+                completion(AuthorizationError.Cancelled)
                 
-                let soundcloudJSON = try response.responseJSON()
-                
-                
-                if let SoundCloudID = soundcloudJSON["id"] as? NSNumber{
-                    
-                    
-                    SwapUser(username: getUsernameOfSignedInUser()).set( SoundCloudID: "\(SoundCloudID)",  DidSetInformation: {
-                        
-                        DispatchQueue.main.async {
-                            completion(nil)
-                        }
-                        
-                        
-                        
-                        
-                    }, CannotSetInformation: {
-                        
-                        
-                        completion(AuthorizationError.Unknown)
-                        
-                    })
-                    
-                    
-                    
-                }
-                    
-                else{
-                    
-                    completion(AuthorizationError.IDNotFound)
-                }
-                
-                
-            }
-                
-            catch _ {
-                
-                // Could not get a response
-                
+            } else{
+                // Not sure of specific Error
                 completion(AuthorizationError.Unknown)
                 
             }
             
             
-        })
-        
-        
-        
-    }
-    
-    
-    
-    soundcloud_oauth2.onFailure = {
-        error in
-        
-        
-        // ERROR Failed Authorizing
-        
-        if error == nil{
-            // User cancelled authorizing
-            completion(AuthorizationError.Cancelled)
-            
         } else{
-            // Not sure of specific Error
-            completion(AuthorizationError.Unknown)
+            
+            
+            
+            // The DataLoader class ensures that a request will be made. It will authorize if needed
+            var soundcloudReq = soundcloud_oauth2.request(forURL: URL(string: "https://api.soundcloud.com/me?oauth_token=\(soundcloud_oauth2.accessToken!)")!)
+           try! soundcloudReq.sign(with: soundcloud_oauth2)
+            let loader = OAuth2DataLoader(oauth2: soundcloud_oauth2)
+            
+            
+            loader.perform(request: soundcloudReq, callback: { (response) in
+                
+                do {
+                    
+                    let soundcloudJSON = try response.responseJSON()
+                    
+                    
+                    if let SoundCloudID = soundcloudJSON["id"] as? NSNumber{
+                        
+                        
+                        SwapUser(username: getUsernameOfSignedInUser()).set( SoundCloudID: "\(SoundCloudID)",  DidSetInformation: {
+                            
+                            DispatchQueue.main.async {
+                                completion(nil)
+                            }
+                            
+                            
+                            
+                            
+                        }, CannotSetInformation: {
+                            
+                            
+                            completion(AuthorizationError.Unknown)
+                            
+                        })
+                        
+                        
+                        
+                    }
+                        
+                    else{
+                        
+                        completion(AuthorizationError.IDNotFound)
+                    }
+                    
+                    
+                }
+                    
+                catch _ {
+                    
+                    // Could not get a response
+                    
+                    completion(AuthorizationError.Unknown)
+                    
+                }
+                
+                
+            })
+            
             
         }
         
-        
-        
-    }
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
     
 }
 
@@ -487,80 +490,85 @@ func authorizePinterest(onViewController: UIViewController, completion: @escapin
     pinterest_oauth2.authConfig.ui.useSafariView = false
     
     
-    
-    
-    pinterest_oauth2.authorize()
-    
-    pinterest_oauth2.onAuthorize = {  parameters in
+    pinterest_oauth2.authorizeEmbedded(from: onViewController, callback: { (parameters, error) in
         
-        print("the pareamters for pinterst are ... \(parameters)")
-        
-        Alamofire.request("https://api.pinterest.com/v1/me/?access_token=\(pinterest_oauth2.accessToken!)", method: .get).validate().responseJSON(completionHandler: { (response) in
+        if let error = error{
             
-            print("the response is ... \(response)")
-            if let data = response.data{
+            // ERROR Failed Authorizing
+            
+            if error == nil{
+                // User cancelled authorizing
+                completion(AuthorizationError.Cancelled)
                 
-                let json = JSON(data: data)
-                print("the pinterest json is ... \(json)")
+            } else{
+                // Not sure of specific Error
+                completion(AuthorizationError.Unknown)
                 
-                if  !(json["data"]["id"].null != nil){
+            }
+        }  else{
+            
+            
+            
+            Alamofire.request("https://api.pinterest.com/v1/me/?access_token=\(pinterest_oauth2.accessToken!)", method: .get).validate().responseJSON(completionHandler: { (response) in
+                
+                print("the response is ... \(response)")
+                if let data = response.data{
                     
-                    let PinterestID = json["data"]["id"].stringValue
+                    let json = JSON(data: data)
+                    print("the pinterest json is ... \(json)")
                     
-                    
-                    SwapUser(username: getUsernameOfSignedInUser()).set(PinterestID: PinterestID,DidSetInformation: {
+                    if  !(json["data"]["id"].null != nil){
                         
-                        DispatchQueue.main.async {
+                        let PinterestID = json["data"]["id"].stringValue
+                        
+                        
+                        SwapUser(username: getUsernameOfSignedInUser()).set(PinterestID: PinterestID,DidSetInformation: {
                             
-                            completion(nil)
-                        }
+                            DispatchQueue.main.async {
+                                
+                                completion(nil)
+                            }
+                            
+                            
+                            
+                        }, CannotSetInformation: {
+                            
+                            completion(AuthorizationError.Unknown)
+                        })
                         
                         
                         
-                    }, CannotSetInformation: {
                         
-                        completion(AuthorizationError.Unknown)
-                    })
-                    
-                    
-                    
+                        
+                    }
+                    else{
+                        
+                        completion(AuthorizationError.IDNotFound)
+                    }
                     
                     
                 }
+                    
                 else{
                     
-                    completion(AuthorizationError.IDNotFound)
+                    completion(AuthorizationError.Unknown)
                 }
                 
                 
-            }
-                
-            else{
-                
-                completion(AuthorizationError.Unknown)
-            }
+            })
             
             
-        })
-        
-    }
-    
-    
-    pinterest_oauth2.onFailure = { error in
-        
-        // ERROR Failed Authorizing
-        
-        if error == nil{
-            // User cancelled authorizing
-            completion(AuthorizationError.Cancelled)
-            
-        } else{
-            // Not sure of specific Error
-            completion(AuthorizationError.Unknown)
             
         }
         
-    }
+    })
+    
+ 
+    
+   
+    
+    
+    
     
     
 }
@@ -704,10 +712,24 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
     youtube_oauth2.authorizeEmbedded(from: onViewController) { (json, error) in
         
         
+        if let error = error {
+            
+            // ERROR Failed Authorizing
+            
+            if error == nil{
+                // User cancelled authorizing
+                completion(AuthorizationError.Cancelled)
+                
+            } else{
+                // Not sure of specific Error
+                completion(AuthorizationError.Unknown)
+                
+            }
+        } else{
         
         // The DataLoader class ensures that a request will be made. It will authorize if needed
         var youtubeReq = youtube_oauth2.request(forURL: URL(string: "https://www.googleapis.com/youtube/v3/channels?part=id&mine=true")!)
-        youtubeReq.sign(with: youtube_oauth2)
+        try! youtubeReq.sign(with: youtube_oauth2)
         let loader = OAuth2DataLoader(oauth2: youtube_oauth2)
         loader.perform(request: youtubeReq, callback: { (response) in
             
@@ -723,7 +745,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
                     if let channelID = items[0]["id"].string{
                         
                         var plusReq = youtube_oauth2.request(forURL: URL(string: "https://www.googleapis.com/plus/v1/people/me")!)
-                        plusReq.sign(with: youtube_oauth2 )
+                        try! plusReq.sign(with: youtube_oauth2 )
                         let loader = OAuth2DataLoader(oauth2: youtube_oauth2)
                         
                         loader.perform(request: plusReq, callback: { (response ) in
@@ -802,25 +824,11 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
             
         })
         
-        
-        
     }
     
-    youtube_oauth2.onFailure = { error in
-        
-        // ERROR Failed Authorizing
-        
-        if error == nil{
-            // User cancelled authorizing
-            completion(AuthorizationError.Cancelled)
-            
-        } else{
-            // Not sure of specific Error
-            completion(AuthorizationError.Unknown)
-            
-        }
-        
     }
+    
+   
     
     
     
@@ -924,7 +932,11 @@ func authorizeGitHub(onViewController: UIViewController, completion: @escaping (
     
     logoutGitHub()
     
-   
+    github_oauth2.authConfig.authorizeEmbedded = true
+    
+    github_oauth2.authConfig.authorizeContext = onViewController
+    
+    github_oauth2.authConfig.ui.useSafariView = false
     
     
     github_oauth2.authorizeEmbedded(from: onViewController, callback: { (response, error) in
@@ -1024,7 +1036,7 @@ class OAuth2RetryHandler: RequestRetrier, RequestAdapter {
         guard nil != loader.oauth2.accessToken else {
             return urlRequest
         }
-        return urlRequest.signed(with: loader.oauth2)
+        return try! urlRequest.signed(with: loader.oauth2)
     }
 }
 
