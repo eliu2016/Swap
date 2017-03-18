@@ -145,10 +145,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         //
         SwapUser(username: getUsernameOfSignedInUser()).getInformation(completion: { (error, user) in
             
+
+
             if error != nil{
                 // There is an error
                 // Note -- Micheal S. Bingham -- Should Handle this in the future
             }
+
                 
             else{
                 
@@ -238,7 +241,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
-        })
+        
 
     }
     

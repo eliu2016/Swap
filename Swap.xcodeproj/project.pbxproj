@@ -38,11 +38,20 @@
 		6337DB712712F1F8B142F0BE /* Pods_Swap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */; };
 		751B91691E5400CA0039AFA4 /* TwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B91681E5400CA0039AFA4 /* TwitterView.swift */; };
 		751B916C1E54A6470039AFA4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B916B1E54A6470039AFA4 /* NotificationViewController.swift */; };
+
+		751B91831E5BA8460039AFA4 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751B917C1E5BA7DF0039AFA4 /* SwifteriOS.framework */; };
+		751B91841E5BA8460039AFA4 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 751B917C1E5BA7DF0039AFA4 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		751B91881E68E09F0039AFA4 /* IPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751B91871E68E09F0039AFA4 /* IPad.storyboard */; };
+		751B918D1E6C97190039AFA4 /* FeaturedProfilesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B918C1E6C97190039AFA4 /* FeaturedProfilesCell.swift */; };
+
 		751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B0D1E249E5800FD515A /* SearchUsersView.swift */; };
 		751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B3F1E25C3B900FD515A /* EditProfile.swift */; };
 		751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */; };
 		751D190D1E2EEBA100DF5415 /* SettingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D190C1E2EEBA100DF5415 /* SettingUI.swift */; };
 		751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */; };
+		75207DC21E76310F00BB66F4 /* SetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */; };
+		75207DC81E76458600BB66F4 /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */; };
+		75207DCA1E77A77800BB66F4 /* setPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC91E77A77800BB66F4 /* setPhoneNumberViewController.swift */; };
 		752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B61E2AA7780054D975 /* SwapsViewController.swift */; };
 		752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B91E2B3BE60054D975 /* SwappedViewController.swift */; };
 		752111BC1E2B42F60054D975 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */; };
@@ -196,11 +205,19 @@
 		751572101DFBBD3800ED4697 /* Lantinghei.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lantinghei.ttc; sourceTree = "<group>"; };
 		751B91681E5400CA0039AFA4 /* TwitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterView.swift; path = "MySampleApp/Preview Views/TwitterView.swift"; sourceTree = SOURCE_ROOT; };
 		751B916B1E54A6470039AFA4 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+
+		751B91711E5BA7DF0039AFA4 /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../Downloads/Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
+		751B91871E68E09F0039AFA4 /* IPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPad.storyboard; sourceTree = "<group>"; };
+		751B918C1E6C97190039AFA4 /* FeaturedProfilesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedProfilesCell.swift; sourceTree = "<group>"; };
+
 		751C0B0D1E249E5800FD515A /* SearchUsersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersView.swift; sourceTree = "<group>"; };
 		751C0B3F1E25C3B900FD515A /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerSwipeExtension.swift; sourceTree = "<group>"; };
 		751D190C1E2EEBA100DF5415 /* SettingUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUI.swift; sourceTree = "<group>"; };
 		751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
+		75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetEmailViewController.swift; sourceTree = "<group>"; };
+		75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
+		75207DC91E77A77800BB66F4 /* setPhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		752111B61E2AA7780054D975 /* SwapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapsViewController.swift; sourceTree = "<group>"; };
 		752111B91E2B3BE60054D975 /* SwappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwappedViewController.swift; sourceTree = "<group>"; };
 		752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
@@ -306,6 +323,9 @@
 		2ECF28811DF90D1A00FEC5D2 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				75207DC91E77A77800BB66F4 /* setPhoneNumberViewController.swift */,
+				75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */,
+				75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */,
 				752A6BCF1E1F280700E6695B /* SignUpViewController.swift */,
 				2EFC3A2C1DF9D96000D45E7E /* ConfirmAccountViewController.swift */,
 				752A6BD41E1F497E00E6695B /* SetNameViewController.swift */,
@@ -388,6 +408,7 @@
 				751D190C1E2EEBA100DF5415 /* SettingUI.swift */,
 				752A6BCD1E1F273A00E6695B /* ShowLoadingOverlay.swift */,
 				1DD70E298866540700000000 /* Launch Screen.storyboard */,
+				751B91871E68E09F0039AFA4 /* IPad.storyboard */,
 				75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */,
 				1DD70E29DF90B53300000000 /* Main.storyboard */,
 				75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */,
@@ -431,6 +452,7 @@
 			children = (
 				752BE1941E3B115000CE5289 /* SearchedUser.swift */,
 				751C0B0D1E249E5800FD515A /* SearchUsersView.swift */,
+				751B918C1E6C97190039AFA4 /* FeaturedProfilesCell.swift */,
 				752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */,
 				75A81B0F1E415E6F00F8F62C /* StoriesView.swift */,
 				751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */,
@@ -677,6 +699,7 @@
 				75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */,
 				75C1EA101E021086005CB420 /* Images.xcassets in Resources */,
 				75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */,
+				751B91881E68E09F0039AFA4 /* IPad.storyboard in Resources */,
 				E7A30F048FA8A9CA00000000 /* Launch Screen.storyboard in Resources */,
 				E7A30F04F6E526BC00000000 /* Main.storyboard in Resources */,
 				75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */,
@@ -777,6 +800,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75207DC81E76458600BB66F4 /* SetPasswordViewController.swift in Sources */,
 				2E49B8391E4A534E005029C9 /* YouTubeMedia.swift in Sources */,
 				E7A30F04B7E56FDE00000000 /* SwapHistory.swift in Sources */,
 				752A6BD21E1F286000E6695B /* SetBirthdayViewController.swift in Sources */,
@@ -794,10 +818,12 @@
 				752A6BD81E20959500E6695B /* ProfileViewController.swift in Sources */,
 				2ECF28951DF90FE000FEC5D2 /* AuthorizationErrors.swift in Sources */,
 				752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */,
+				75207DCA1E77A77800BB66F4 /* setPhoneNumberViewController.swift in Sources */,
 				E7A30F04A0B2E49B00000000 /* UtilityFunctions.swift in Sources */,
 				751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */,
 				75A81B101E415E6F00F8F62C /* StoriesView.swift in Sources */,
 				752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */,
+				751B918D1E6C97190039AFA4 /* FeaturedProfilesCell.swift in Sources */,
 				751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */,
 				2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */,
 				2ECF288C1DF90DA900FEC5D2 /* SavingAppData.swift in Sources */,
@@ -816,6 +842,7 @@
 				2EE143BA1E370E47000EADB7 /* SearchUsers.swift in Sources */,
 				2EFC3A321DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift in Sources */,
 				2EFC3A271DF9C0C700D45E7E /* SignInViewController.swift in Sources */,
+				75207DC21E76310F00BB66F4 /* SetEmailViewController.swift in Sources */,
 				751D190D1E2EEBA100DF5415 /* SettingUI.swift in Sources */,
 				2ECF28831DF90D3E00FEC5D2 /* Account.swift in Sources */,
 				2ECF28901DF90DEF00FEC5D2 /* Custom Operators.swift in Sources */,

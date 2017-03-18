@@ -12,6 +12,12 @@ import Kingfisher
 class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
   
     
+    let featuredCellID = "FCell"
+    
+    
+    var collectionView: UICollectionView? = nil
+    
+    
     @IBOutlet var searchedUsersTable: UITableView!
    // @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var searchBar: UISearchBar!
@@ -38,16 +44,32 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         self.automaticallyAdjustsScrollViewInsets = false;
         
-     
-        /*setup collection view layout
+        
+        
+        //set up collection view and add it to the view
+        let collectionViewRect = CGRect(x: 0, y: 140, width: self.view.frame.width, height: self.view.frame.height*0.75)
+        
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        collectionView.collectionViewLayout = layout
-        collectionView.showsHorizontalScrollIndicator = false*/
+        
+        collectionView = UICollectionView(frame: collectionViewRect, collectionViewLayout: layout)
+        
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        
+        collectionView?.backgroundColor = UIColor.white
+        collectionView?.register(FeaturedProfilesCell.self, forCellWithReuseIdentifier: featuredCellID)
+        
+        self.view.addSubview(collectionView!)
         
     
     }
-    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+         collectionView?.isHidden = true
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        collectionView?.isHidden = false
+        
+    }
   
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -83,8 +105,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }
         
      }
-        
-        
+    
     }
     func scrollViewDidScroll(scrollView: UIScrollView) {
       
@@ -100,13 +121,16 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     //setup table view
- 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return returnedUsers.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! searchUsernamesCell;
+        
+        cell.selectionStyle = .none
+        
         
         cell.username.text = returnedUsers[indexPath.item].username
 
@@ -127,24 +151,25 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
  
     
     //setup collection view
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: featuredCellID, for: indexPath) as! FeaturedProfilesCell
+        
+        cell.contentView.frame = cell.bounds
+        
+        return cell
+        
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         //number of featured profiles
-        return 2
+        return 3
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featuredCell", for: indexPath) as! featuredProfilesCell
-        
-      
-        cell.contentView.frame = cell.bounds
-        cell.username.text = "featured"
-        
-        return cell
-       
+        return CGSize(width: view.frame.width, height: 130)
     }
-    
-    
+
 }
 
 class searchUsernamesCell: UITableViewCell {
@@ -155,10 +180,3 @@ class searchUsernamesCell: UITableViewCell {
     @IBOutlet var verifiedIcon: UIImageView!
     
 }
-class featuredProfilesCell: UICollectionViewCell{
-    
-    @IBOutlet var featuredProfileImage: UIImageView!
-    @IBOutlet var username: UILabel!
-    
-}
-

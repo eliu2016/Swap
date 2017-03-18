@@ -17,7 +17,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     var swapRequests: [SwapRequest] = []
     var acceptedRequests: [SwapRequest] = []
     
-    var refreshControl: UIRefreshControl = UIRefreshControl()
     var blankTableMessage: UILabel?
     
     @IBOutlet var tableView: UITableView!
@@ -89,12 +88,9 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.allowsSelection = true
         
         
-        tableView.addSubview(refreshControl)
-        self.refreshControl.tintColor = .black
-        self.refreshControl.addTarget(self, action: #selector(NotificationViewController.refreshTable), for: .valueChanged)
-        
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
 
+        
     }
     
     //table view
@@ -269,13 +265,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     }
 
 
-    
-    func refreshTable() {
-        // Code to refresh table view  
-        tableView.reloadData()
-        refreshControl.endRefreshing()
-        
-    }
 }
 
  class notificationCell: UITableViewCell {

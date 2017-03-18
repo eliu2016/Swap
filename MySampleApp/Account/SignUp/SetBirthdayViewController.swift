@@ -39,7 +39,7 @@ class SetBirthdayViewController: UIViewController {
     @IBAction func didPressContinue(_ sender: Any) {
   
         
-        //show loading overlay
+        /*show loading overlay
         let loadingOverlay = ShowLoadingOverlay()
         let blackOverlay = loadingOverlay.showBlackOverlay()
         let loadingSymbol = loadingOverlay.showLoadingSymbol(view: self.view)
@@ -47,30 +47,30 @@ class SetBirthdayViewController: UIViewController {
         view.addSubview(blackOverlay)
         view.addSubview(loadingSymbol)
         datePicker.isEnabled = false
-        continueButton.isEnabled = false
+        continueButton.isEnabled = false*/
+        
+        
+        if dateField.text == ""{
+            
+            UIAlertView(title: "Error",
+                        message: "Enter Your Birthday",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            
+        }
+        else{
+            UserDefaults.standard.set(datePicker.date.timeIntervalSince1970 as Double, forKey: "birthday")
+            
+            self.performSegue(withIdentifier: "toEmailController", sender: nil)
+        }
+
+        
+    }
+
+
+    @IBAction func didTapBack(_ sender: Any) {
     
-        SwapUser(username: getUsernameOfSignedInUser()).set(Birthday: datePicker.date.timeIntervalSince1970 as Double,
-                                                             
-           DidSetInformation:  {
-            
-            DispatchQueue.main.async {
-                
-                self.performSegue(withIdentifier: "connectSocialMedias", sender: self)
-            }
-            
-        },
-           
-           
-           CannotSetInformation: {
-        
-            //reset the view
-            blackOverlay.isHidden = true
-            loadingSymbol.isHidden = true
-            self.datePicker.isEnabled = true
-            self.continueButton.isEnabled = true
-        
-            return nil
-        })
+        navigationController?.popViewController(animated: true)
         
     }
     

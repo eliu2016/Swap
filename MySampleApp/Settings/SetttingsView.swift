@@ -84,6 +84,7 @@ class SettingsView: UITableViewController {
                         // Successfully Sign out
                         logoutSocialMediasAndClearCookies()
                         self.performSegue(withIdentifier: "signOut", sender: nil)
+                        
                     }
                 }
                 
