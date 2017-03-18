@@ -12,7 +12,7 @@
 //
 import UIKit
 import IQKeyboardManagerSwift
-import Swifter
+import SwifteriOS
 import AWSCognitoIdentityProvider
 import OneSignal
 import Branch
@@ -96,25 +96,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                     
                     if isSignedIn(){
                         let username = getUsernameFromSwapLink(swapLink: swapLink)
-                      
-                        SwapUser().getInformation(completion: { (error, user) in
-                            DispatchQueue.main.async {
-                                
+                        
+                        SwapUser(username: username).getInformation(completion: { (error, user) in
                             
                             if user != nil {
-                                // Valid Swap Link or VP Code
+                                // Valid Swap Link
                                 
-                                if let VPcode = user?._VPCode{
-                                    
-                                    if VPcode == username{
-                                        // Verify account
-                                        SwapUser().set(isVerified: true)
-                                    }
-                                }
+                                // set username to global variable
+                                searchedUser = username
                                 
                                 
-                                }
-                            
+                                
+                                // Open Profile of Swap Link User
+                                // *** HELP @DAVID SLAKTER ****
+                                
+                                // **** NEEDS MODIFICATION ....
+                                
+                                // Should open the profile of the user  with username 'searchedUser'
+                                
+                                self.window = UIWindow(frame: UIScreen.main.bounds)
+                                //   let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil) // this assumes your storyboard is titled "Main.storyboard
+                                
+                                // Reference to Searched User Profile View Controller
+                                let profileViewControllerID: String = "SearchedUserProfileViewController"
+                                let vc = storyboard.instantiateViewController(withIdentifier: profileViewControllerID)
+                                
+                                // Call View did load of the view controller
+                                
+                                
+                                self.window?.rootViewController = vc
+                                self.window?.makeKeyAndVisible()
                             }
                         })
                     }

@@ -7,9 +7,8 @@
 //
 import Foundation
 import RealmSwift
-import Swifter
+import SwifteriOS
 
-/*
 class Tweet: Object {
     
     
@@ -128,4 +127,3 @@ func returnTweets(fromJSON: SwifteriOS.JSON) -> List<Tweet>? {
     
     
 }
- */
