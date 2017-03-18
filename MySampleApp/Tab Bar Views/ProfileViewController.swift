@@ -62,13 +62,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     
     
-  
+ 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewController()
         loadProfile()
+        
+        // Listens for reloadProfile notification
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadProfile), name: .reloadProfile, object: nil)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -106,7 +109,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     */
     
-    
+    /// Shows the loading symbol and reloads the profile data.
     func loadProfile()  {
         
         // Hide UI or do whatever to show that the profile is loading
@@ -222,6 +225,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
                 
                 
+                //Stop pull refresh here . 
                 
                 
                 if let notificationID = user?._notification_id_one_signal {

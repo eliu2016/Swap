@@ -38,7 +38,7 @@ class SwapUser {
     
     
     
-    /// Whenever a SwapUser object is created, unless otherwise specified in parameters, the object assumes it is referring to the current swap user
+    /// Whenever a SwapUser object is created, unless otherwise specified in given username in the parameter, the object assumes it is referring to the current swap user
     init(username: String = getUsernameOfSignedInUser()) {
         
         self.username = username
@@ -50,13 +50,69 @@ class SwapUser {
     
     
     
-    /// Function to set a swap user's data and save it. Only pass whatever attribute(s) to save in database in this function, not all attributes have to be passed. For example, if you only want to set the lastname of a user without modifying any other attribute, call swapUserObject.set(Lastname: "LastnameValue"); however, if you would like to set firstname and lastname, call swapUserObject.set(Firstname: "Micheal", Lastname: "Bingham") where swapUserObject is an object of type 'SwapUser' that has been initalized with the username of the user.
-    /// - author: Micheal S. Bingham
-    /// - version: 2.0
-    /// - Parameters:
-    ///   - DidSetInformation: Optional completion block called when there is a success in saving the information
-    ///   - CannotSetInformation: Optional completion block called when there is a failure in saving the information
     
+    
+    
+    
+    /**
+     Sets information of a Swap User. Will only set the information of data that is passed, if a parameter is not used, that attribute will not be altered in the database. For example, if you only want to set the first and last name, call SwapUserObject.set(Firstname: "Micheal", Lastname: "Bingham").
+     
+     - Attention: Do not set values using this function if you want to remove an attribute or set an empty string as a value for an attribute; this does not delete attributes nor does it save empty values for attributes.
+     
+     - Author: Micheal S. Bingham
+     
+     - Copyright: 2017 Swap Inc.
+     
+     - Version: 2.1
+     
+     - Todo: Change email in Cognito
+     
+     - Parameter DidSetInformation:   Completion block executed when information is set.
+     - Parameter CannotSetInformation: Completion block executed when information cannot be set.
+     - Parameter Firstname: The first name of the user. `String`
+     - Parameter Middlename: The middle name of the user. `String`
+     - Parameter Lastname: The last name of the user. `String`.
+     - Parameter Phonenumber: The phone number of the user. `String`.
+     - Parameter Email: The email of the user. `String`.
+     - Parameter Website: The webste of the user. `String`.
+     - Parameter Company: Company name of the user. `String`
+     - Parameter Bio: Biographical information of user. `String`
+     - Parameter Birthday: The birthday of the user as seconds since 1970. `Double`
+     - Parameter Gender: M if male. F if female. `String`
+     - Parameter Date_Created: The date of account creation. `Double`
+     - Parameter isVerified: If the user is a `high class/verified` account. `Bool`
+     - Parameter isPrivate: Set the user's account to private. `Bool`
+     - Parameter Points: Sets the amount of swap points. Does not increment or decrement but sets the points to given amount. `Int`
+     - Parameter Swapped: Sets the amount of `Swapped` . Does not increment or decrement but sets the points to given amount. `Int`
+     - Parameter Swaps: Sets the amount of `swaps`. Does not increment or decrement but sets the points to given amount. `Int`
+     - Parameter ProfileImage: Sets the profile picture with the given image URL. `String`
+     - Parameter QRImage: Sets the swap code image with the given image URL. `String`
+     - Parameter SpotifyID: The Spotify User ID. `String`
+     - Parameter YouTubeID: The YouTube User ID. `String`
+     - Parameter VineID: The Vine User ID. `String`
+     - Parameter InstagramID: The Instagram User ID. `String`
+     - Parameter TwitterID: The Twitter User ID for the user.  `String`
+     - Parameter RedditID: The Reddit User ID for the user.  `String`
+     - Parameter PinterestID: The Pinterest User ID for the user.  `String`
+     - Parameter SoundCloudID: The SoundCloud User ID for the user.  `String`
+     - Parameter GitHubID: The GitHub User ID for the user.  `String`
+     - Parameter VimeoID: The Vimeo User ID for the user.  `String`
+     - Parameter WillShareSpotify: Whether or not the usre will share Spotify. `Bool`
+     - Parameter WillShareYouTube: Whether or not the usre will share YouTube. `Bool`
+     - Parameter WillSharePhonenumber: Whether or not the usre will share Phone Number. `Bool`
+     - Parameter WillShareVine: Whether or not the usre will share Vine. `Bool`
+     - Parameter WillShareInstagram: Whether or not the usre will share Instagram. `Bool`
+     - Parameter WillShareTwitter: Whether or not the usre will share Twitter. `Bool`
+     - Parameter WillShareEmail: Whether or not the usre will share Email. `Bool`
+     - Parameter WillShareReddit: Whether or not the usre will share Reddit. `Bool`
+     - Parameter WillSharePinterest: Whether or not the usre will share Pinterest. `Bool`
+     - Parameter WillShareSoundCloud: Whether or not the usre will share SoundCloud. `Bool`
+     - Parameter WillShareGitHub: Whether or not the usre will share GitHub. `Bool`
+     - Parameter WillShareVimeo: Whether or not the usre will share Vimeo. `Bool`
+     
+     
+     
+     */
     
     func set( Firstname: String? = nil,
               Middlename: String? = nil,
@@ -177,6 +233,33 @@ class SwapUser {
             
             pool.getUser(self.username).update([verified!])
         }
+        
+        if let email = Email{
+            
+            // Sets Email in Amazon Cognito 
+        
+            
+            let email_attribute = AWSCognitoIdentityUserAttributeType()
+            email_attribute?.name = "email"
+            email_attribute?.value = email
+            
+            pool.getUser(self.username).update([email_attribute!])
+        
+        }
+        
+        if let number = Phonenumber{
+            
+            // Sets Phonen umber in Amazon Cognito
+            
+            
+            let n = AWSCognitoIdentityUserAttributeType()
+            n?.name = "phone_number"
+            n?.value = number
+            
+            pool.getUser(self.username).update([n!])
+            
+        }
+        
         
         DispatchQueue.global(qos: .userInteractive).async {
             

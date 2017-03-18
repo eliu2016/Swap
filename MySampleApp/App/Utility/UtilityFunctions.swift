@@ -45,3 +45,9 @@ func prettyPrintJson(_ object: AnyObject?) -> String {
     }
     return prettyResult
 }
+
+
+extension Notification.Name {
+    
+    static let reloadProfile = Notification.Name("reloadProfile")
+}
