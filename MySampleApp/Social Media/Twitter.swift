@@ -8,7 +8,7 @@
 import Foundation
 import Social
 import Accounts
-import SwifteriOS
+import Swifter
 import SafariServices
 import TwitterKit
 

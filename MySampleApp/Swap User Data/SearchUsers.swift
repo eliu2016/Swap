@@ -123,11 +123,13 @@ func searchUsers(withUsername: String, completion: @escaping (_ error: Error?, _
 
 func convertCognitoUserToSwapUser(user: AWSCognitoIdentityProviderUserType ) -> SwapUser {
     
+    
     var isVerified: Bool = false
     var link: URL = URL(string: defaultImage)!
-    
     let Username = user.username!
+    var swap_user = SwapUser(username: Username)
     let attributes = user.attributes!
+    
     
     
     for attribute in attributes{
@@ -137,15 +139,19 @@ func convertCognitoUserToSwapUser(user: AWSCognitoIdentityProviderUserType ) -> 
             isVerified = true
         }
         
-        if attribute.name == "picture"{
+         if attribute.name == "picture"{
             
             link = URL(string: attribute.value!)!
         }
+        
+       
+        
     }
     
+    swap_user.isVerified =  isVerified
+    swap_user.profilePictureURL = link
     
-    
-    return SwapUser(username: Username, isVerified: isVerified, picture: link)
+    return swap_user
     
 }
 
@@ -155,7 +161,10 @@ func convertCognitoUsersArrayToSwapUsersArray(users: [AWSCognitoIdentityProvider
     
     for user in users{
         
+       if user.userStatus.rawValue == 2{
         SwapUsers.append(convertCognitoUserToSwapUser(user: user))
+        }
+        
     }
     
     return SwapUsers

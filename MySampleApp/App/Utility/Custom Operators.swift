@@ -53,6 +53,58 @@ extension String
         return Test.evaluate(with: self)
     }
     
+    func validate(completion: @escaping (_ isAValidUsername: Bool, _ errorMessage: String?) -> Void)  {
+        
+        if self.characters.count < 1{
+            let message = "Usernames must be at least one character."
+            completion(false, message)
+        }
+        
+        else if self.characters.count > 18{
+            let message = "Usernames must be less than 18 characters."
+              completion(false, message)
+        }
+        
+        else if !self.isAValidUsername(){
+            
+            let message = "Usernames cannot contain special characters."
+              completion(false, message)
+        }
+        
+        else {
+        
+        
+        pool.getUser(self.lowercased()).confirmSignUp("0").continue({  (task)  in
+            DispatchQueue.main.async {
+                
+                if let error = task.error as? NSError{
+                    
+                    
+                    if error.debugDescription.contains("Invalid code provided"){
+                        // User Exists
+                        print("user exists")
+                        let message = "Username is taken, try another."
+                          completion(false, message)
+                        
+                    } else{
+                        
+                        // User Does Not Exist
+                         completion(true, nil)
+                    }
+                    
+                }
+                
+                
+            }
+            
+            
+        })
+            
+        }
+    }
+    
+    
+    
     /// Converts a string to a Date if the date is in the form: Wed Aug 29 17:12:58 +0000 2012
        ///
     /// - Returns: The converted Date
