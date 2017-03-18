@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
         case Spotify:
             
-            DispatchQueue.global(qos: .userInteractive).async {
+            DispatchQueue.main.async {
                 
                 SwapUser(username: getUsernameOfSignedInUser()
                     ).set(WillShareSpotify: !sender.isSelected, DidSetInformation: {

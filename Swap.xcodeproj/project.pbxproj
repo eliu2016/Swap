@@ -49,6 +49,7 @@
 		751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */; };
 		75207DC21E76310F00BB66F4 /* SetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */; };
 		75207DC81E76458600BB66F4 /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */; };
+		75207DCA1E77A77800BB66F4 /* setPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC91E77A77800BB66F4 /* setPhoneNumberViewController.swift */; };
 		752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B61E2AA7780054D975 /* SwapsViewController.swift */; };
 		752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111B91E2B3BE60054D975 /* SwappedViewController.swift */; };
 		752111BC1E2B42F60054D975 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */; };
@@ -258,6 +259,7 @@
 		751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
 		75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetEmailViewController.swift; sourceTree = "<group>"; };
 		75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
+		75207DC91E77A77800BB66F4 /* setPhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		752111B61E2AA7780054D975 /* SwapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapsViewController.swift; sourceTree = "<group>"; };
 		752111B91E2B3BE60054D975 /* SwappedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwappedViewController.swift; sourceTree = "<group>"; };
 		752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		2ECF28811DF90D1A00FEC5D2 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				75207DC91E77A77800BB66F4 /* setPhoneNumberViewController.swift */,
 				75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */,
 				75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */,
 				752A6BCF1E1F280700E6695B /* SignUpViewController.swift */,
@@ -916,6 +919,7 @@
 				752A6BD81E20959500E6695B /* ProfileViewController.swift in Sources */,
 				2ECF28951DF90FE000FEC5D2 /* AuthorizationErrors.swift in Sources */,
 				752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */,
+				75207DCA1E77A77800BB66F4 /* setPhoneNumberViewController.swift in Sources */,
 				E7A30F04A0B2E49B00000000 /* UtilityFunctions.swift in Sources */,
 				751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */,
 				75A81B101E415E6F00F8F62C /* StoriesView.swift in Sources */,

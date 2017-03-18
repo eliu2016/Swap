@@ -59,7 +59,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         usernameField.delegate = self
         passwordField.delegate = self
         
-        usernameField.becomeFirstResponder()
         
         usernameField.attributedPlaceholder = NSAttributedString(string: "username",
                                                                attributes: [NSForegroundColorAttributeName: UIColor.white])
