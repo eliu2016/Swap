@@ -249,7 +249,7 @@ func isSignedIn() -> Bool {
 func signOut(didSignOut: @escaping () -> Void?  = {return} )  {
     
     SwapUser(username: getUsernameOfSignedInUser()).removePushNotificationID()
-    SwapUser(username: getUsernameOfSignedInUser()).set( WillShareSpotify: false, WillShareYouTube: false, WillSharePhonenumber: false, WillShareVine: false, WillShareInstagram: false, WillShareTwitter: false, WillShareEmail: false, WillShareReddit: false, WillSharePinterest: false, WillShareSoundCloud: false, WillShareGitHub: false, WillShareVimeo: false)
+    SwapUser(username: getUsernameOfSignedInUser()).set(Points: 0, WillShareSpotify: false, WillShareYouTube: false, WillSharePhonenumber: false, WillShareVine: false, WillShareInstagram: false, WillShareTwitter: false, WillShareEmail: false, WillShareReddit: false, WillSharePinterest: false, WillShareSoundCloud: false, WillShareGitHub: false, WillShareVimeo: false)
     AWSIdentityManager.defaultIdentityManager().logout { (result, error) in
         
         
@@ -276,9 +276,6 @@ func getUsernameOfSignedInUser() -> String {
     }
     
 }
-
-
-
 
 
 

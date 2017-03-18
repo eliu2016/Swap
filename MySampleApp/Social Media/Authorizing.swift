@@ -924,11 +924,7 @@ func authorizeGitHub(onViewController: UIViewController, completion: @escaping (
     
     logoutGitHub()
     
-    github_oauth2.authConfig.authorizeEmbedded = true
-    
-    github_oauth2.authConfig.authorizeContext = onViewController
-    
-    github_oauth2.authConfig.ui.useSafariView = false
+   
     
     
     github_oauth2.authorizeEmbedded(from: onViewController, callback: { (response, error) in

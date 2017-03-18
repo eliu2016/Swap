@@ -26,8 +26,7 @@ class SelectProfilePictureViewController: UIViewController {
     @IBOutlet var twitterButton: UIButton!
     @IBOutlet var youTubeButton: UIButton!
     
-    
-    
+  
     override func viewWillAppear(_ animated: Bool) {
         
         //Gathers profile pictures from social medias
@@ -61,6 +60,7 @@ class SelectProfilePictureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
 
@@ -184,3 +184,5 @@ class SelectProfilePictureViewController: UIViewController {
     
 
 }
+
+

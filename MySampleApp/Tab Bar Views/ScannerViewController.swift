@@ -14,7 +14,9 @@ import Spring
 
 let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true) , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
-class ScannerViewController: UIViewController {
+class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
+    
+    let imagePicker = UIImagePickerController()
 
     @IBOutlet var confirmSwapLabel: UILabel!
     @IBOutlet var profilePic: UIImageView!
@@ -56,7 +58,7 @@ class ScannerViewController: UIViewController {
             
             let username = getUsernameFromSwapLink(swapLink: swapLink)
             
-            SwapUser().swap(with: username, authorizeOnViewController: self, completion: { (error, user) in
+            SwapUser().swapWith(userWithUsername: username, authorizeOnViewController: self, completion: { (error, user) in
                 
                 scanner.stopScan()
                 
@@ -64,7 +66,7 @@ class ScannerViewController: UIViewController {
                     
                     // There was an error trying to get the user from the swap code
                     
-                    
+                    print("Could not get user.. Not a valid Swap Code... User does not exist...or bad internet connection")
                     
                     
                     // Restart Scanner After Showing Pop Up View
@@ -186,6 +188,12 @@ class ScannerViewController: UIViewController {
         
         
         return imageView
+    }
+    @IBAction func uploadSwapCode(_ sender: Any) {
+        
+        
+        
+        
     }
 
     
