@@ -229,7 +229,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 
                 
                 //Stop pull refresh here . 
-                
+                refreshControl.endRefreshing()
                 
                 if let notificationID = user?._notification_id_one_signal {
                     if notificationID == "0"{
@@ -243,6 +243,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
         
 
+    })
+        
     }
     
     

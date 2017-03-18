@@ -140,8 +140,8 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
 
     func refresh(){
         
-        self.viewDidLoad()
-        refreshControl.endRefreshing()
+        NotificationCenter.default.post(name: .reloadProfile, object: nil)
+        
     }
     
 }

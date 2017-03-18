@@ -33,13 +33,17 @@ open class OAuth2DebugURLSessionDelegate: NSObject, URLSessionDelegate {
 	/// The host to allow a self-signed SSL certificate for.
 	let host: String
 	
+	
+	/** Designated initializer.
+	
+	- parameter host: The host to which the exception should apply
+	*/
 	public init(host: String) {
 		self.host = host
 	}
 	
-	@nonobjc
 	open func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge,
-	                       completionHandler: (Foundation.URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+	                     completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
 		if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
 			if challenge.protectionSpace.host == host, let trust = challenge.protectionSpace.serverTrust {
 				let credential = URLCredential(trust: trust)
@@ -47,7 +51,7 @@ open class OAuth2DebugURLSessionDelegate: NSObject, URLSessionDelegate {
 				return
 			}
 		}
-		completionHandler(.cancelAuthenticationChallenge, nil)
+		completionHandler(.performDefaultHandling, nil)
 	}
 }
 

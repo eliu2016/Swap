@@ -38,12 +38,8 @@
 		6337DB712712F1F8B142F0BE /* Pods_Swap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */; };
 		751B91691E5400CA0039AFA4 /* TwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B91681E5400CA0039AFA4 /* TwitterView.swift */; };
 		751B916C1E54A6470039AFA4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B916B1E54A6470039AFA4 /* NotificationViewController.swift */; };
-
-		751B91831E5BA8460039AFA4 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751B917C1E5BA7DF0039AFA4 /* SwifteriOS.framework */; };
-		751B91841E5BA8460039AFA4 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 751B917C1E5BA7DF0039AFA4 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		751B91881E68E09F0039AFA4 /* IPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751B91871E68E09F0039AFA4 /* IPad.storyboard */; };
 		751B918D1E6C97190039AFA4 /* FeaturedProfilesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B918C1E6C97190039AFA4 /* FeaturedProfilesCell.swift */; };
-
 		751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B0D1E249E5800FD515A /* SearchUsersView.swift */; };
 		751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B3F1E25C3B900FD515A /* EditProfile.swift */; };
 		751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */; };
@@ -205,11 +201,8 @@
 		751572101DFBBD3800ED4697 /* Lantinghei.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lantinghei.ttc; sourceTree = "<group>"; };
 		751B91681E5400CA0039AFA4 /* TwitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterView.swift; path = "MySampleApp/Preview Views/TwitterView.swift"; sourceTree = SOURCE_ROOT; };
 		751B916B1E54A6470039AFA4 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-
-		751B91711E5BA7DF0039AFA4 /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../Downloads/Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
 		751B91871E68E09F0039AFA4 /* IPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPad.storyboard; sourceTree = "<group>"; };
 		751B918C1E6C97190039AFA4 /* FeaturedProfilesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedProfilesCell.swift; sourceTree = "<group>"; };
-
 		751C0B0D1E249E5800FD515A /* SearchUsersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersView.swift; sourceTree = "<group>"; };
 		751C0B3F1E25C3B900FD515A /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerSwipeExtension.swift; sourceTree = "<group>"; };
@@ -954,7 +947,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = swap.co;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
