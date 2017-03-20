@@ -121,12 +121,6 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
                 
             })
             
-            
-            
-            
-            
-            
-            
         }
         
         scanner.scanFrame = view.bounds

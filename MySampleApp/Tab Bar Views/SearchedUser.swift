@@ -41,18 +41,13 @@ class SearchedUser: UIViewController {
     @IBOutlet weak var Vimeo: UIImageView!
     @IBOutlet var loadingView: UIActivityIndicatorView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-       
-    }
+   
     override func viewDidLoad() {
     
         self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
         self.tabBarController?.tabBar.tintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
-        
-        
         
         verifiedIcon.isHidden = true
         profilePicture.isHidden = true
@@ -79,11 +74,14 @@ class SearchedUser: UIViewController {
        MakeBlurViewCircular(blurView: BlurView3)
         
         usernameLabel.text = searchedUser
+    
         
         
         SwapUser(username: searchedUser).getInformation { (error, user) in
-       
+            
+           
              DispatchQueue.main.async {
+                
             
             self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             circularImage(photoImageView: self.profilePicture)
@@ -99,8 +97,38 @@ class SearchedUser: UIViewController {
             self.swappedNumberLabel.text = "\(user?._swapped ?? 0)"
             self.swapsNumberLabel.text = "\(user?._swaps ?? 0)"
                 
-                //show the hidden views
+    
                 
+               if (user?._isPrivate as? Bool)!{
+                
+                //change to private swap button
+                    self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "PrivateSwapButton"), for: .normal)
+                   self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 13, height: self.swapButton.frame.height)
+                   self.swapButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 10)
+                
+                
+                SwapUser(username: getUsernameOfSignedInUser()).getPendingSentSwapRequests(result: { (error, requests) in
+                    
+                    if let error = error{
+                        
+                        print(error.localizedDescription)
+                        
+                    }
+                    else{
+                        for user in requests! {
+                            
+                            if (user._requested == searchedUser){
+                                self.makeSwapButtonRequested()
+                            }
+                        }
+                    }
+                })
+                    
+  
+                
+                }
+                
+                   //show the hidden views
                 self.profilePicture.isHidden = false
                 self.bioLabel.isHidden = false
                 self.fullName.isHidden = false
@@ -161,21 +189,43 @@ class SearchedUser: UIViewController {
        SwapUser().swap(with: searchedUser, authorizeOnViewController: self) { (error, user) in
         
         
-                //alert the user that was swapped
-        
-            DispatchQueue.main.async {
+        if let error = error{
             
+            print("Error Trying to Swap");
+            
+        }
+        else {
         
+                if (user?._isPrivate as? Bool)!{
+                    
+                    self.makeSwapButtonRequested()
+                }
+    
+                else{
+                    
+                    self.swapButton.isEnabled = false
+                    self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+                    
                     let alert = UIAlertController(title: "Success", message: "You have just swapped \(searchedUser)", preferredStyle: .alert)
-        
                     alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-        
                     self.present(alert, animated: true, completion: nil)
-            
+                    
+                }
+                
             }
        
         }
         
+        
+    }
+    
+    func makeSwapButtonRequested(){
+     
+        self.swapButton.isEnabled = false
+        self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+        self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "RequestedSwapButton"), for: .normal)
+        self.swapButton.setTitle("Requested", for: .normal)
+        self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x - 12, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 26, height: self.swapButton.frame.height)
     }
     
     func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{

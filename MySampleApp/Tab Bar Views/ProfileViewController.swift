@@ -112,6 +112,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     /// Shows the loading symbol and reloads the profile data.
     func loadProfile()  {
         
+        isRefreshing = false
+        
         // Hide UI or do whatever to show that the profile is loading
         self.loadingIndicator.startAnimating()
         

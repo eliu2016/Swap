@@ -11,7 +11,6 @@ use_frameworks!
 
 # Pods for Swap
 
-
 pod 'p2.OAuth2’ 
 pod 'Alamofire'  #, '~> 4.2.0'
 pod 'SwiftyJSON'  #, '~> 3.1.3'
@@ -25,11 +24,11 @@ pod 'Fabric'
 pod 'Answers'
 pod 'TwitterKit'
 pod 'Crashlytics'
+pod 'CountryPickerSwift'
 pod 'PhoneNumberKit', '~> 1.2'
 
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 pod 'Swifter', :git => 'https://github.com/mattdonnelly/Swifter.git'
-
 
 
 post_install do |installer|

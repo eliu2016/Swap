@@ -11,7 +11,7 @@ import Foundation
 
 
     var refreshControl: UIRefreshControl!
-
+    var isRefreshing = false
 
 class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarControllerDelegate{
     
@@ -31,6 +31,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         //initialize refresh control
         refreshControl = UIRefreshControl()
         refreshControl.tintColor = .white
+        refreshControl.isHidden == true
         refreshControl.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
         refreshControl.addTarget(self, action: #selector(ContainerViewController.refresh), for: .valueChanged)
         
@@ -129,6 +130,14 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         
         SwapCenterButton.alpha =  20 + scrollView.contentOffset.y
+        
+        if scrollView.contentOffset.y > 100{
+            
+            scrollView.bounces = false
+        }
+        else{
+            scrollView.bounces = true
+        }
     
     }
 
@@ -140,7 +149,48 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
 
     func refresh(){
         
-        NotificationCenter.default.post(name: .reloadProfile, object: nil)
+       NotificationCenter.default.post(name: .reloadProfile, object: nil)
+       animateRefresh()
+     
+       var deadline = DispatchTime.now() + .seconds(5)
+        
+   
+        DispatchQueue.main.asyncAfter(deadline: deadline){
+        
+            refreshControl.endRefreshing()
+        
+        }
+        
+        
+        
+        
+    }
+    
+    func animateRefresh(){
+        
+        var colorArray = [UIColor.yellow, UIColor.blue, UIColor.red, UIColor.green, UIColor.purple, UIColor.darkGray]
+        
+        struct ColorIndex{
+            static var colorIndex = 0
+        }
+        
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            
+            refreshControl.backgroundColor = colorArray[ColorIndex.colorIndex]
+            ColorIndex.colorIndex = (ColorIndex.colorIndex + 1) % colorArray.count
+            
+            
+        }) { finished in
+            
+            if (refreshControl.isRefreshing){
+                self.animateRefresh()
+            }
+            else{
+                  refreshControl.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
+            }
+        
+        }
         
     }
     

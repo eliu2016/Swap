@@ -7,6 +7,7 @@ PODS:
     - Branch/without-IDFA (= 0.13.5)
   - Branch/Core (0.13.5)
   - Branch/without-IDFA (0.13.5)
+  - CountryPickerSwift (1.4.0)
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - Alamofire
   - Answers
   - Branch
+  - CountryPickerSwift
   - Crashlytics
   - Fabric
   - IQKeyboardManagerSwift
@@ -71,6 +73,7 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Answers: 6a4d22973d8550808630a55f526055c9eb6d39a2
   Branch: 08e40d84f20b188443fd808fe01dadcc13d1727e
+  CountryPickerSwift: f6a2202071f2627ea6b22f7bc6b130c6582efca3
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
@@ -87,6 +90,6 @@ SPEC CHECKSUMS:
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: b62f83de78a723a8c194b73ab1692b7c0c2eb16e
+PODFILE CHECKSUM: 4ad3fddf5c41b064cf504b97bd131deb4177c0d1
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.2.0
