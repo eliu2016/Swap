@@ -296,6 +296,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     func toogleSocialMedia(sender: UIButton)  {
         
+        let status: Bool = !sender.isSelected
         sender.isSelected = !sender.isSelected
         
       switch sender  {
@@ -306,7 +307,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
            
             
             SwapUser(username: getUsernameOfSignedInUser()
-            ).set(WillShareSpotify: !sender.isSelected, DidSetInformation: {
+            ).set(WillShareSpotify: status, DidSetInformation: {
             
          
             
@@ -324,7 +325,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
            
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePhonenumber: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePhonenumber: status, DidSetInformation: {
             
            
             return nil
@@ -340,7 +341,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
           
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareEmail: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareEmail: status, DidSetInformation: {
             
            
             return nil
@@ -359,7 +360,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             SwapUser(username: getUsernameOfSignedInUser()
-            ).set(WillShareReddit: !sender.isSelected, DidSetInformation: {
+            ).set(WillShareReddit: status, DidSetInformation: {
             
             
             return nil
@@ -377,7 +378,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
        
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareInstagram: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareInstagram: status, DidSetInformation: {
             
           
             return nil
@@ -393,7 +394,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
         
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareTwitter: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareTwitter: status, DidSetInformation: {
             
             
             return nil
@@ -411,7 +412,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             SwapUser(username: getUsernameOfSignedInUser()
-            ).set(WillShareYouTube: !sender.isSelected, DidSetInformation: {
+            ).set(WillShareYouTube: status, DidSetInformation: {
             
             
             return nil
@@ -429,7 +430,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareSoundCloud: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareSoundCloud: status, DidSetInformation: {
             
       
             return nil
@@ -445,7 +446,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePinterest: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePinterest: status, DidSetInformation: {
             
            
             return nil
@@ -461,7 +462,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
    
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareVimeo: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareVimeo: status, DidSetInformation: {
             
             
             return nil
@@ -477,7 +478,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareGitHub: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareGitHub: status, DidSetInformation: {
             
            
             return nil
