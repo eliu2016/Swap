@@ -12,9 +12,9 @@ use_frameworks!
 # Pods for Swap
 
 pod 'p2.OAuth2’ 
-pod 'Alamofire'  #, '~> 4.2.0'
-pod 'SwiftyJSON'  #, '~> 3.1.3'
-pod 'Kingfisher'#, '~> 3.2.2'
+pod 'Alamofire'
+pod 'SwiftyJSON'
+pod 'Kingfisher'
 pod 'IQKeyboardManagerSwift'
 pod 'SwiftQRCode'
 pod 'Branch'

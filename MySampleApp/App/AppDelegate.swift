@@ -230,11 +230,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         switch (screenHeight) {
         // iPhone 4s
         case 480:
-            storyboard = UIStoryboard(name: "3.5in", bundle: nil)
+            storyboard = UIStoryboard(name: "IPad", bundle: nil)
             break
         // iPhone 5s
         case 568:
-            storyboard = UIStoryboard(name: "4in", bundle: nil)
+            storyboard = UIStoryboard(name: "IPhoneSE", bundle: nil)
         // iPhone 6
         case 667:
             storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -244,7 +244,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
             storyboard = UIStoryboard(name: "IPhone7Plus", bundle: nil)
             
         default:
-            storyboard = UIStoryboard(name: "3.5in", bundle: nil)
+            storyboard = UIStoryboard(name: "IPad", bundle: nil)
             // it's an iPad
             break
         }

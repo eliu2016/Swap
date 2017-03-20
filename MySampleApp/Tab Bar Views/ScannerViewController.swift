@@ -130,7 +130,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        scanner.startScan()
+        
        
     }
     

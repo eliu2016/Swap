@@ -112,7 +112,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     /// Shows the loading symbol and reloads the profile data.
     func loadProfile()  {
         
-        isRefreshing = false
+        
         
         // Hide UI or do whatever to show that the profile is loading
         self.loadingIndicator.startAnimating()
@@ -296,6 +296,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     func toogleSocialMedia(sender: UIButton)  {
         
+        sender.isSelected = !sender.isSelected
+        
       switch sender  {
             
             
@@ -307,8 +309,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             ).set(WillShareSpotify: !sender.isSelected, DidSetInformation: {
             
          
-            sender.isSelected = !sender.isSelected
             
+            return nil
             
             
             })
@@ -325,7 +327,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePhonenumber: !sender.isSelected, DidSetInformation: {
             
            
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             })
@@ -341,7 +343,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             SwapUser(username: getUsernameOfSignedInUser()).set(WillShareEmail: !sender.isSelected, DidSetInformation: {
             
            
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             })
@@ -360,7 +362,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             ).set(WillShareReddit: !sender.isSelected, DidSetInformation: {
             
             
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             
@@ -378,7 +380,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             SwapUser(username: getUsernameOfSignedInUser()).set(WillShareInstagram: !sender.isSelected, DidSetInformation: {
             
           
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             })
@@ -394,7 +396,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             SwapUser(username: getUsernameOfSignedInUser()).set(WillShareTwitter: !sender.isSelected, DidSetInformation: {
             
             
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             })
@@ -412,7 +414,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             ).set(WillShareYouTube: !sender.isSelected, DidSetInformation: {
             
             
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             
@@ -430,7 +432,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             SwapUser(username: getUsernameOfSignedInUser()).set(WillShareSoundCloud: !sender.isSelected, DidSetInformation: {
             
       
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             })
@@ -446,7 +448,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePinterest: !sender.isSelected, DidSetInformation: {
             
            
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             })
@@ -462,7 +464,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             SwapUser(username: getUsernameOfSignedInUser()).set(WillShareVimeo: !sender.isSelected, DidSetInformation: {
             
             
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             })
@@ -478,7 +480,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             SwapUser(username: getUsernameOfSignedInUser()).set(WillShareGitHub: !sender.isSelected, DidSetInformation: {
             
            
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             })

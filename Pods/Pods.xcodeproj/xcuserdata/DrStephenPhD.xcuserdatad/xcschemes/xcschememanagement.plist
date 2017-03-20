@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CountryPickerSwift-CountryPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CountryPickerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,7 +82,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03FA91CED029CD9C030E2DFF292A3462</key>
+		<key>268A71D30599FF8C5ABD72B58A1F273B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B5969D81A2F93656B9F496B8AB5CCD6</key>
+		<key>3D9CB9317177B3C56E518BEB23C45315</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4523E43292DF0CA4016D280093FE1E11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4B557D2EDCBE426311AAD8E2E86CEDDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,6 +117,21 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5B9A544927D9ED12AD3F9525E2E37D39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6358B5D5FFF46F0FA47ACED1DA42C085</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87B516D9B3F613F7DAEABF177DB0CE35</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
@@ -107,32 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B8F44FC4E1ED4CD3462475A6FBCE4F4</key>
+		<key>A649D6EE874D95D4D7E4E78AF8455B6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B39AC8D548D8099AC24C7EF796950294</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BF905F83F085AEBEA47E03023A6C66ED</key>
+		<key>C0E5A851C6CE6EF8E4966C457FDE009D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C4944FEC314D1A66588651D006273ADE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DD2BEF957D3D6535D17A9453EC9F823E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC9DCB62B624A5EB3232C26730CCD6A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

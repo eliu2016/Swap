@@ -19,7 +19,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
     
      var scrollView: UIScrollView!
      var SwapCenterButton: UIButton!
-
+     var lastContentOffset: CGFloat!
     
     override func viewDidLoad() {
   
@@ -114,16 +114,47 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         if scrollView.contentOffset.y != scrollViewOffset{
            
             //show camera
+            scanner.startScan()
             scrollView.setContentOffset(CGPoint(x: 0, y: self.view.frame.height), animated: true)
-            print("scroll up")
+            
+            
         }
         else {
             //reset to default position
+            scanner.stopScan()
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            
         }
         
         
     }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        self.lastContentOffset = scrollView.contentOffset.y;
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        if (self.lastContentOffset < scrollView.contentOffset.y) {
+            
+           // print("On scanner")
+            scanner.startScan()
+            
+        } else if (self.lastContentOffset > scrollView.contentOffset.y) {
+            
+           //print("On Profile")
+            //Stop Scanner 
+            scanner.stopScan()
+            
+            
+        } else {
+            // didn't move
+            
+            
+        }
+    }
+
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
@@ -149,17 +180,11 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
 
     func refresh(){
         
+        animateRefresh()
        NotificationCenter.default.post(name: .reloadProfile, object: nil)
-       animateRefresh()
+       
      
-       var deadline = DispatchTime.now() + .seconds(5)
-        
-   
-        DispatchQueue.main.asyncAfter(deadline: deadline){
-        
-            refreshControl.endRefreshing()
-        
-        }
+
         
         
         
@@ -175,7 +200,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         }
         
         
-        UIView.animate(withDuration: 0.4, animations: {
+        UIView.animate(withDuration: 1, animations: {
             
             refreshControl.backgroundColor = colorArray[ColorIndex.colorIndex]
             ColorIndex.colorIndex = (ColorIndex.colorIndex + 1) % colorArray.count

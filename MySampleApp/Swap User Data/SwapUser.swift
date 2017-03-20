@@ -14,7 +14,7 @@ import OneSignal
 import Realm
 import RealmSwift
 import Swifter
-
+import AudioToolbox
 
 /// Class for a SwapUser object
 class SwapUser {
@@ -1158,6 +1158,7 @@ class SwapUser {
                             
                              DispatchQueue.main.async {
                                 
+                               AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                                 completion(nil, user)
                             }
                             
@@ -1171,6 +1172,9 @@ class SwapUser {
                     
                 else{
                     //configure confirm swap screen
+                    
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        
                     
                     // Share social medias
                     shareVine(withUser: user)
@@ -1251,10 +1255,13 @@ class SwapUser {
                     // ========= End Logging Analytics ====================================
                     
                     DispatchQueue.main.async {
+                        
+                        
+                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                             completion(nil, user)
                     }
                 
-                    
+                    }
                 }
                 
             }
