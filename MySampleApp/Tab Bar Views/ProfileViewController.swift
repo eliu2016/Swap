@@ -314,6 +314,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -331,6 +334,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -347,6 +353,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -367,6 +376,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -384,6 +396,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -400,6 +415,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -419,6 +437,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -436,6 +457,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -452,6 +476,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -468,6 +495,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -484,6 +514,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
