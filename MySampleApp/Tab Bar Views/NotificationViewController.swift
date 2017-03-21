@@ -251,6 +251,10 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
         SwapUser(username: getUsernameOfSignedInUser()).getRequestedSwaps { (error, requests) in
             
+            guard error == nil else {
+                refreshControl.endRefreshing()
+                return 
+            }
             if let requests = requests{
                 
                 

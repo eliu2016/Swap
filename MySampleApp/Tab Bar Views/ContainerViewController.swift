@@ -224,7 +224,10 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
             case .NotificationsScreen:
                 NotificationCenter.default.post(name: .reloadNotifications, object: nil)
             case .SearchedUserProfileScreen:
-                NotificationCenter.default.post(name: .reloadSearchedUserProfile, object: nil)
+                //NotificationCenter.default.post(name: .reloadSearchedUserProfile, object: nil)
+                // Will add notification later, pull to refresh isn't enabled on SeaarchedUserProfile yet
+                refreshControl.endRefreshing()
+                
             default:
                 break
             }

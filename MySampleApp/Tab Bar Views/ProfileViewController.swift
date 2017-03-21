@@ -156,6 +156,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             if error != nil{
                 // There is an error
                 // Note -- Micheal S. Bingham -- Should Handle this in the future
+                refreshControl.endRefreshing()
             }
 
             else{
