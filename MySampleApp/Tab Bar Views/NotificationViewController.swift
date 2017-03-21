@@ -60,7 +60,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
         if swapRequests.count == 0 && acceptedRequests.count == 0{
             
-            blankTableMessage?.isHidden = false
+          
             self.tableView.backgroundView = blankTableMessage
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
             
@@ -69,7 +69,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
        
         else{
             
-            blankTableMessage?.isHidden = true
+            
              self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
  
             return 2
@@ -274,12 +274,16 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                             
                             if self.swapRequests.count > 0 || self.acceptedRequests.count > 0 {
                                 
+                                
                                 self.blankTableMessage?.isHidden = true
                                 self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
                                 
+                                
                             } else {
+                                
                                 self.blankTableMessage?.isHidden = false
                                 self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+                                
                             }
                             
                             
