@@ -2229,6 +2229,7 @@
                         <outlet property="swapsNumberLabel" destination="lVA-dB-VWG" id="snm-Wz-dbM"/>
                         <outlet property="usernameLabel" destination="I6M-PO-hew" id="sGp-OS-7En"/>
                         <outlet property="verifiedIcon" destination="q7F-RU-Fgg" id="wis-tg-RKP"/>
+                        <segue destination="aQI-gv-sSM" kind="presentation" identifier="fromSearchUsersToProfile" id="7cT-Je-Nm9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Is7-Na-MAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3177,7 +3178,8 @@
         <image name="YoutubeDark" width="57" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YeA-4M-5uc"/>
         <segue reference="WAy-hx-jEK"/>
+        <segue reference="YeA-4M-5uc"/>
+        <segue reference="7cT-Je-Nm9"/>
     </inferredMetricsTieBreakers>
 </document>
