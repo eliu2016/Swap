@@ -24,6 +24,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         
+
        
         
     }
@@ -32,10 +33,12 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
     
     override func viewDidAppear(_ animated: Bool) {
+
         
         save(screen: .NotificationsScreen)
         
         
+
         
     }
     
@@ -276,7 +279,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                                 
                             } else {
                                 self.blankTableMessage?.isHidden = false
-                                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+                                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
                             }
                             
                             

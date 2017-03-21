@@ -158,12 +158,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 // Note -- Micheal S. Bingham -- Should Handle this in the future
             }
 
-                
             else{
-                
-                
-                
-                
+        
                 // Data is now loaded so stop any loading UI
                 self.loadingIndicator.isHidden = true
                 
