@@ -19,7 +19,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="UXg-dO-ouK">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="qPU-JH-MZS" customClass="SignInViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginHome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qPU-JH-MZS" customClass="SignInViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Izm-75-sVj"/>
                         <viewControllerLayoutGuide type="bottom" id="CEi-11-22O"/>
@@ -124,7 +124,7 @@
         <!--Set Email View Controller-->
         <scene sceneID="QLK-33-0Hr">
             <objects>
-                <viewController id="Mub-8L-eIl" customClass="setEmailViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enterEmail" id="Mub-8L-eIl" customClass="setEmailViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aMa-3A-jfh"/>
                         <viewControllerLayoutGuide type="bottom" id="mIj-c4-HHa"/>
@@ -313,7 +313,7 @@
         <!--Confirm Account View Controller-->
         <scene sceneID="jAD-mb-rBH">
             <objects>
-                <viewController storyboardIdentifier="ConfirmAccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7fK-u4-Cwb" customClass="ConfirmAccountViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="confirmAccount" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7fK-u4-Cwb" customClass="ConfirmAccountViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hEe-Jq-B1y"/>
                         <viewControllerLayoutGuide type="bottom" id="0Tf-ze-n3r"/>
@@ -456,7 +456,7 @@
         <!--Set Name View Controller-->
         <scene sceneID="5Kk-Yx-9bg">
             <objects>
-                <viewController storyboardIdentifier="SetProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yx8-aH-kFY" customClass="SetNameViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="setName" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yx8-aH-kFY" customClass="SetNameViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sdP-0K-g2x"/>
                         <viewControllerLayoutGuide type="bottom" id="mdj-mE-ltA"/>
@@ -707,7 +707,7 @@
         <!--Set Birthday View Controller-->
         <scene sceneID="7Dv-RK-zz1">
             <objects>
-                <viewController id="LwH-a1-bJN" customClass="SetBirthdayViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="setBirthday" id="LwH-a1-bJN" customClass="SetBirthdayViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qb9-AV-EAu"/>
                         <viewControllerLayoutGuide type="bottom" id="QHd-Yv-1wF"/>
@@ -1388,20 +1388,45 @@
                                 <color key="textColor" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ReN-qN-3gj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="npW-4Y-Sg9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="0.93290692557058252" green="0.99108461721182695" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="blurView" destination="ReN-qN-3gj" id="FNk-bs-OoM"/>
                         <outlet property="confirmSwapButton" destination="DU9-U3-8wp" id="nqw-G6-CIm"/>
                         <outlet property="confirmSwapLabel" destination="IAf-Sx-3hm" id="1X4-Im-NLj"/>
+                        <outlet property="confirmSwapView" destination="Hrv-xF-q9W" id="Ycj-A1-gYC"/>
                         <outlet property="enableCameraButton" destination="dap-Fa-aPj" id="JhW-aD-vPx"/>
                         <outlet property="enableCameraLabel" destination="Ex6-hP-FgT" id="TrI-dQ-iCS"/>
                         <outlet property="profilePic" destination="mwg-HX-FyR" id="E7e-yS-Foq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LX-I5-QWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Hrv-xF-q9W">
+                    <rect key="frame" x="0.0" y="0.0" width="229" height="125"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tM7-AU-d78">
+                            <rect key="frame" x="74" y="20" width="81" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="-1066.4000000000001" y="2578.5607196401802"/>
+            <point key="canvasLocation" x="-1066" y="2887"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Pj-B7-Yk8">
@@ -1564,6 +1589,7 @@
                                                     <rect key="frame" x="262" y="26" width="81.5" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
                                                     <state key="normal" title="Swap" backgroundImage="SwapNotificationsButton">
                                                         <color key="titleColor" red="0.20379748940467834" green="0.72717028856277466" blue="0.84220826625823975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -1998,7 +2024,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="CzA-ti-uTI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="CzA-ti-uTI">
                                 <rect key="frame" x="146" y="100" width="87" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -2919,7 +2945,7 @@
         <!--Set Password View Controller-->
         <scene sceneID="2Cb-CB-wD9">
             <objects>
-                <viewController id="IGV-gp-hGh" customClass="setPasswordViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enterPassword" id="IGV-gp-hGh" customClass="setPasswordViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2qy-q4-r5L"/>
                         <viewControllerLayoutGuide type="bottom" id="fIS-qU-hI1"/>
@@ -2995,7 +3021,7 @@
         <!--Set Phone Number View Controller-->
         <scene sceneID="Afk-yt-smh">
             <objects>
-                <viewController id="KdT-Yu-W6r" customClass="setPhoneNumberViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enterPhonenumber" id="KdT-Yu-W6r" customClass="setPhoneNumberViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GL0-Gn-X72"/>
                         <viewControllerLayoutGuide type="bottom" id="mXq-Te-898"/>
@@ -3136,7 +3162,7 @@
         <image name="SoundCloudDisabled" width="66" height="66"/>
         <image name="SpotifyDark" width="56" height="55"/>
         <image name="SpotifyDisabled" width="66" height="66"/>
-        <image name="SwapNotificationsButton" width="122" height="34"/>
+        <image name="SwapNotificationsButton" width="555" height="182"/>
         <image name="TextfieldBottom" width="615" height="2"/>
         <image name="TranparentOverlay" width="273" height="340"/>
         <image name="TwitterBlackIcon" width="35" height="30"/>

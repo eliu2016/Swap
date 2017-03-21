@@ -12,6 +12,7 @@ import AVFoundation
 import Spring
 
 
+
 let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true) , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
 class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
@@ -25,6 +26,11 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
     @IBOutlet var enableCameraButton: UIButton!
     
     var confirmSwapBackground: UIImageView?
+    
+    @IBOutlet var confirmSwapView: UIView!
+    @IBOutlet var blurView: UIVisualEffectView!
+
+    var effect: UIVisualEffect!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,13 +131,18 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
         
         scanner.scanFrame = view.bounds
         
+        
+       
+        
     }
    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         
-       
+        effect = blurView.effect
+        blurView.effect = nil
+        blurView.isHidden = true
     }
     
     @IBAction func enableCamera(_ sender: Any) {
@@ -185,14 +196,36 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
     }
     @IBAction func uploadSwapCode(_ sender: Any) {
         
-        
-        
+          animateInSwapView()
         
     }
-
+    func animateInSwapView(){
+        
+        self.blurView.isHidden = false
+        
     
-}
+        confirmSwapView.center = self.view.center
+       
+        
+        confirmSwapView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        confirmSwapView.alpha = 0
+        
+         self.view.addSubview(confirmSwapView)
+         self.view.bringSubview(toFront: self.confirmSwapView)
+        
+        UIView.animate(withDuration: 0.4){
+            
+            self.blurView.effect = self.effect
+            
+            
+            self.confirmSwapView.alpha = 1
+            self.confirmSwapView.transform = CGAffineTransform.identity
+        }
+        
+    }
+    
 
+}
 
 func getUsernameFromSwapLink(swapLink: String) -> String {
     

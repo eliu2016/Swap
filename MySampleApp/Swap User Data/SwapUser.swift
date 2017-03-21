@@ -47,13 +47,6 @@ class SwapUser {
         
     }
     
-    
-    
-    
-    
-    
-    
-    
     /**
      Sets information of a Swap User. Will only set the information of data that is passed, if a parameter is not used, that attribute will not be altered in the database. For example, if you only want to set the first and last name, call SwapUserObject.set(Firstname: "Micheal", Lastname: "Bingham").
      
