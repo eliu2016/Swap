@@ -254,6 +254,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                         else {
                             
                             let username = getUsernameFromSwapLink(swapLink: swapLink)
+                            
+                            guard username != "swapapp.co" else {
+                                
+                                self.determineWhatScreenToShow(on: storyboard)
+                                
+                                return 
+                            }
                             searchedUser = username // Pass the username to the searched user view controller
                             
                             let TabBarVC = storyboard.instantiateViewController(withIdentifier: "SearchUsersTabBarController")

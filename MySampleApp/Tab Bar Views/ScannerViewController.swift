@@ -35,101 +35,12 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        circularImage(photoImageView: profilePic)
-        profilePic.isHidden = true
-        confirmSwapLabel.isHidden = true
-        confirmSwapButton.isHidden = true
+        setupViewController()
+      
+        handleCaseOfDisabledCamera()
         
-        enableCameraLabel.isHidden = true
-        enableCameraButton.isHidden = true
+        setupSwapScanner()
         
-        let authStatus = AVCaptureDevice.authorizationStatus(forMediaType:
-            AVMediaTypeVideo)
-        
-        switch authStatus {
-        case .authorized: break
-        case .denied:
-            
-            enableCameraLabel.isHidden = false
-            enableCameraButton.isHidden = false
-            
-            break
-            
-        default: break
-        }
-        
-        
-        scanner.prepareScan(self.view){ (swapLink) in
-            
-            
-            let username = getUsernameFromSwapLink(swapLink: swapLink)
-            
-            SwapUser().swap(with: username, authorizeOnViewController: self, completion: { (error, user) in
-                
-                scanner.stopScan()
-                
-                if error != nil {
-                    
-                    // There was an error trying to get the user from the swap code
-                    
-                    
-                    
-                    
-                    // Restart Scanner After Showing Pop Up View
-                    scanner.startScan()
-                    
-                }
-                
-                
-                
-                
-                if let user = user {
-                    
-                    if user._isPrivate?.boolValue ?? false{
-                        
-                        self.confirmSwapBackground = self.newConfirmView()
-                        self.view.addSubview(self.confirmSwapBackground!)
-                        self.view.bringSubview(toFront: self.profilePic)
-                        self.view.bringSubview(toFront: self.confirmSwapLabel)
-                        self.view.bringSubview(toFront: self.confirmSwapButton)
-                        
-                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
-                        
-                        self.confirmSwapLabel.text = "Request sent to " + user._firstname! + " " + user._lastname!
-                        
-                        self.profilePic.isHidden = false
-                        self.confirmSwapLabel.isHidden = false
-                        self.confirmSwapButton.isHidden = false
-                        
-                    }
-                    
-                    else{
-                        
-                        self.confirmSwapBackground = self.newConfirmView()
-                        self.view.addSubview(self.confirmSwapBackground!)
-                        
-                        self.view.bringSubview(toFront: self.profilePic)
-                        self.view.bringSubview(toFront: self.confirmSwapLabel)
-                        self.view.bringSubview(toFront: self.confirmSwapButton)
-                        
-                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
-                        
-                        self.confirmSwapLabel.text =  user._firstname! + " " + user._lastname!
-                        
-                        self.profilePic.isHidden = false
-                        self.confirmSwapLabel.isHidden = false
-                        self.confirmSwapButton.isHidden = false
-                        
-                    }
-                    
-                }
-                
-                
-            })
-            
-        }
-        
-        scanner.scanFrame = view.bounds
         
         
        
@@ -224,6 +135,111 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
         
     }
     
+    
+    func setupViewController()  {
+        
+        circularImage(photoImageView: profilePic)
+        profilePic.isHidden = true
+        confirmSwapLabel.isHidden = true
+        confirmSwapButton.isHidden = true
+        
+        enableCameraLabel.isHidden = true
+        enableCameraButton.isHidden = true
+    }
+    
+    func handleCaseOfDisabledCamera()  {
+        
+        
+        let authStatus = AVCaptureDevice.authorizationStatus(forMediaType:
+            AVMediaTypeVideo)
+        
+        switch authStatus {
+        case .authorized: break
+        case .denied:
+            
+            enableCameraLabel.isHidden = false
+            enableCameraButton.isHidden = false
+            
+            break
+            
+        default: break
+        }
+    }
+    
+    func setupSwapScanner()  {
+        
+        scanner.prepareScan(self.view){ (swapLink) in
+            
+            
+            let username = getUsernameFromSwapLink(swapLink: swapLink)
+            
+            SwapUser().swap(with: username, authorizeOnViewController: self, completion: { (error, user) in
+                
+                scanner.stopScan()
+                
+                if error != nil {
+                    
+                    // There was an error trying to get the user from the swap code
+                    
+                    
+                    
+                    
+                    // Restart Scanner After Showing Pop Up View
+                    scanner.startScan()
+                    
+                }
+                
+                
+                
+                
+                if let user = user {
+                    
+                    if user._isPrivate?.boolValue ?? false{
+                        
+                        self.confirmSwapBackground = self.newConfirmView()
+                        self.view.addSubview(self.confirmSwapBackground!)
+                        self.view.bringSubview(toFront: self.profilePic)
+                        self.view.bringSubview(toFront: self.confirmSwapLabel)
+                        self.view.bringSubview(toFront: self.confirmSwapButton)
+                        
+                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
+                        
+                        self.confirmSwapLabel.text = "Request sent to " + user._firstname! + " " + user._lastname!
+                        
+                        self.profilePic.isHidden = false
+                        self.confirmSwapLabel.isHidden = false
+                        self.confirmSwapButton.isHidden = false
+                        
+                    }
+                        
+                    else{
+                        
+                        self.confirmSwapBackground = self.newConfirmView()
+                        self.view.addSubview(self.confirmSwapBackground!)
+                        
+                        self.view.bringSubview(toFront: self.profilePic)
+                        self.view.bringSubview(toFront: self.confirmSwapLabel)
+                        self.view.bringSubview(toFront: self.confirmSwapButton)
+                        
+                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
+                        
+                        self.confirmSwapLabel.text =  user._firstname! + " " + user._lastname!
+                        
+                        self.profilePic.isHidden = false
+                        self.confirmSwapLabel.isHidden = false
+                        self.confirmSwapButton.isHidden = false
+                        
+                    }
+                    
+                }
+                
+                
+            })
+            
+        }
+        
+        scanner.scanFrame = view.bounds
+    }
 
 }
 
