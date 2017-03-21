@@ -42,17 +42,95 @@ class SearchedUser: UIViewController {
     @IBOutlet var loadingView: UIActivityIndicatorView!
     
    
+    override func viewDidAppear(_ animated: Bool) {
+        save(screen: .SearchedUserProfileScreen)
+    }
+    
+    
     override func viewDidLoad() {
+    
+    
+        setupViewController()
+        loadProfile()
         
-        //set up the preview tab bar
+        // Listens for reloadSearchedUserProfile notification
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadProfile), name: .reloadSearchedUserProfile, object: nil)
+
+    }
+    
+    @IBAction func didTapBack(_ sender: Any) {
+        
+       exitProfile()
+    }
+    
+    
+    
+    @IBAction func didTapSwap(_ sender: Any) {
+        
+       SwapUser().swap(with: searchedUser, authorizeOnViewController: self) { (error, user) in
+        
+        
+        if let error = error{
+            
+            print("Error Trying to Swap");
+            
+        }
+        else {
+        
+                if (user?._isPrivate as? Bool)!{
+                    
+                    self.makeSwapButtonRequested()
+                }
+    
+                else{
+                    
+                    self.swapButton.isEnabled = false
+                    self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+                    
+                    let alert = UIAlertController(title: "Success", message: "You have just Swapped™ \(user?._firstname!) \(user?._lastname!)", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+                
+            }
+       
+        }
+        
+        
+    }
+    
+    func makeSwapButtonRequested(){
+     
+        self.swapButton.isEnabled = false
+        self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+        self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "RequestedSwapButton"), for: .normal)
+        self.swapButton.setTitle("Requested", for: .normal)
+        self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x - 12, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 26, height: self.swapButton.frame.height)
+    }
+    
+    func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{
+        
+        blurView.layer.cornerRadius = blurView.frame.height/2
+        blurView.layer.masksToBounds = false
+        blurView.clipsToBounds = true
+        blurView.contentMode = .scaleAspectFill
+        blurView.layer.frame = blurView.layer.frame.insetBy(dx: 0, dy: 0)
+        
+        return blurView
+    }
+    
+    
+    
+    
+    
+    func setupViewController()  {
+        
+        
         self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
         self.tabBarController?.tabBar.tintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
-        
-        
-        //initially hide views while loading
-        usernameLabel.text = searchedUser
         
         verifiedIcon.isHidden = true
         profilePicture.isHidden = true
@@ -73,24 +151,43 @@ class SearchedUser: UIViewController {
         BlurView3.isHidden = true
         swapButton.isHidden = true
         
+        
         MakeBlurViewCircular(blurView: BlurView1)
         MakeBlurViewCircular(blurView: BlurView2)
         MakeBlurViewCircular(blurView: BlurView3)
         
+        usernameLabel.text = searchedUser
+    }
+    
+    
+    
+    
+    
+    
+    
+    func loadProfile()  {
+        
+        self.loadingView.startAnimating()
         
         SwapUser(username: searchedUser).getInformation { (error, user) in
             
-
-            DispatchQueue.main.async {
-
-                self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             
+            guard error == nil else{
+                
+                self.performSegue(withIdentifier: "fromSearchUsersToProfile", sender: nil)
+                
+                return
+            }
+            
+            DispatchQueue.main.async {
+                
+                
+                self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 circularImage(photoImageView: self.profilePicture)
                 
-           
                 // Send the Twitter ID to the Twitter Preview View Controller
                 twitterUserID = user?._twitterID ?? ""
-            
+                
                 self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
                 
                 self.bioLabel.text = user?._bio
@@ -99,52 +196,36 @@ class SearchedUser: UIViewController {
                 self.swappedNumberLabel.text = "\(user?._swapped ?? 0)"
                 self.swapsNumberLabel.text = "\(user?._swaps ?? 0)"
                 
-    
-                if (user?._isPrivate as? Bool)!{
                 
+                
+                if (user?._isPrivate as? Bool)!{
+                    
                     //change to private swap button
-                    self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "PrivateSwapButton"), for: .normal)
+                   // self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "PrivateSwapButton"), for: .normal)
                     self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 13, height: self.swapButton.frame.height)
                     self.swapButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 10)
-            
-                }
-                
-                //determine if searched profile is the user
-                if searchedUser == getUsernameOfSignedInUser(){
                     
-                    self.disableSwapButton()
-                }
-                
-                //determine if the searched user has a pending request
-                else{
-                
+                    
                     SwapUser(username: getUsernameOfSignedInUser()).getPendingSentSwapRequests(result: { (error, requests) in
-                    
-                    
+                        
                         if let error = error{
-                        
-                            print(error.localizedDescription)
-                        
-                        }
-                  
-                        else{
-                        
-                            for user in requests! {
                             
-                                if (user._requested == searchedUser){
-                                
-                                    self.makeSwapButtonRequested()
-                           
-                                }
-                        
-                            }
-                   
+                            print(error.localizedDescription)
+                            
                         }
-               
+                        else{
+                            for user in requests! {
+                                
+                                if (user._requested == searchedUser){
+                                    self.makeSwapButtonRequested()
+                                }
+                            }
+                        }
                     })
                     
+                    
+                    
                 }
-                
                 
                 //show the hidden views
                 self.profilePicture.isHidden = false
@@ -178,89 +259,38 @@ class SearchedUser: UIViewController {
                 self.GitHub.image = (user?._willShareGitHub?.boolValue ?? false && !(user?._githubID ?? "").isEmpty) ? #imageLiteral(resourceName: "GithubDark"): #imageLiteral(resourceName: "GithubLight")
                 
                 self.Vimeo.image = (user?._willShareVimeo?.boolValue ?? false && !(user?._vimeoID ?? "").isEmpty) ? #imageLiteral(resourceName: "VimeoDark") : #imageLiteral(resourceName: "VimeoLight")
- 
+                
                 
                 self.YouTube.image = (user?._willShareYouTube?.boolValue ?? false && !(user?._youtubeID ?? "").isEmpty) ? #imageLiteral(resourceName: "YoutubeDark") : #imageLiteral(resourceName: "YoutubeLight")
-            
+                
                 self.SoundCloud.image = (user?._willShareSoundCloud?.boolValue ?? false && !(user?._soundcloudID ?? "").isEmpty) ? #imageLiteral(resourceName: "SoundCloudDark") : #imageLiteral(resourceName: "SoundCloudLight")
-            
+                
                 self.Pinterest.image = (user?._willSharePinterest?.boolValue ?? false && !(user?._pinterestID ?? "").isEmpty) ? #imageLiteral(resourceName: "PinterestDark") : #imageLiteral(resourceName: "PinterestLight")
                 
                 let userWillAtLeastShareEmailOrPhoneNumber = (user?._willShareEmail?.boolValue ?? false) || (user?._willSharePhone?.boolValue ?? false)
-            
+                
                 self.Contact.image = userWillAtLeastShareEmailOrPhoneNumber ? #imageLiteral(resourceName: "ContactDark") : #imageLiteral(resourceName: "ContactLight")
                 
                 self.loadingView.stopAnimating()
-            
-            }
-        }
-
-    }
-    
-    @IBAction func didTapBack(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func didTapSwap(_ sender: Any) {
-        
-       SwapUser().swap(with: searchedUser, authorizeOnViewController: self) { (error, user) in
-        
-        
-        if let error = error{
-            
-            print("Error Trying to Swap");
-            
-        }
-        else {
-        
-                if (user?._isPrivate as? Bool)!{
-                    
-                    self.makeSwapButtonRequested()
-                }
-    
-                else{
-                    
-                    self.disableSwapButton()
-                    
-                    let alert = UIAlertController(title: "Success", message: "You have just swapped \(user?._firstname!) \(user?._lastname!)", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    
-                }
                 
             }
-       
         }
-        
     }
     
-    func makeSwapButtonRequested(){
-     
-        self.swapButton.isEnabled = false
-        self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
-        self.swapButton.titleLabel?.alpha = 0.4
-        self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "RequestedSwapButton"), for: .normal)
-        self.swapButton.setTitle("Requested", for: .normal)
-        self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x - 12, y:
-            self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 26, height: self.swapButton.frame.height)
-    }
     
-    func disableSwapButton(){
-        
-        self.swapButton.isEnabled = false
-        self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
-        self.swapButton.titleLabel?.alpha = 0.4
-    }
     
-    func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{
+    
+    
+    
+    
+    func exitProfile()  {
         
-        blurView.layer.cornerRadius = blurView.frame.height/2
-        blurView.layer.masksToBounds = false
-        blurView.clipsToBounds = true
-        blurView.contentMode = .scaleAspectFill
-        blurView.layer.frame = blurView.layer.frame.insetBy(dx: 0, dy: 0)
-        
-        return blurView
+        if self.presentingViewController == nil{
+            
+            self.performSegue(withIdentifier: "fromSearchUsersToProfile", sender: nil)
+            
+        } else{
+            dismiss(animated: true, completion: nil)
+        }
     }
 }

@@ -139,7 +139,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         if (self.lastContentOffset < scrollView.contentOffset.y) {
             
            // print("On scanner")
-            scanner.startScan()
+           scanner.startScan()
             
         } else if (self.lastContentOffset > scrollView.contentOffset.y) {
             
@@ -181,13 +181,8 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
     func refresh(){
         
         animateRefresh()
-       NotificationCenter.default.post(name: .reloadProfile, object: nil)
+        postNotificationToReloadScreens()
        
-     
-
-        
-        
-        
         
     }
     
@@ -217,6 +212,23 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         }
         
+    }
+    
+    func postNotificationToReloadScreens()  {
+        
+        if let screen = getLastScreen(){
+            
+            switch screen {
+            case .UserProfileScreen:
+                NotificationCenter.default.post(name: .reloadProfile, object: nil)
+            case .NotificationsScreen:
+                NotificationCenter.default.post(name: .reloadNotifications, object: nil)
+            case .SearchedUserProfileScreen:
+                NotificationCenter.default.post(name: .reloadSearchedUserProfile, object: nil)
+            default:
+                break
+            }
+        }
     }
     
 }
