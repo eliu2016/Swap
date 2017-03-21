@@ -24,70 +24,30 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         
-        tableView.reloadData()
-        
-        activityView.startAnimating()
-        
-        blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
-        
-        blankTableMessage?.text = "No Notifications :'("
-        blankTableMessage?.textColor = .black
-        blankTableMessage?.textAlignment = NSTextAlignment.center
-        blankTableMessage?.font = UIFont(name: "Avenir-Next", size: 20)
-        blankTableMessage?.sizeToFit()
-        blankTableMessage?.isHidden = true
        
-        SwapUser(username: getUsernameOfSignedInUser()).getRequestedSwaps { (error, requests) in
-            
-            if let requests = requests{
-                
-                DispatchQueue.main.async {
-                
-                    self.swapRequests = requests
-                     self.activityView.stopAnimating()
-                    self.tableView.reloadData()
-                }
-            }
-        }
-        
-        SwapUser().getPendingSentSwapRequests { (error, aRequests) in
-            
-            
-            if let aRequests = aRequests{
-                
-                DispatchQueue.main.async {
-              
-                    self.acceptedRequests = aRequests
-                     self.activityView.stopAnimating()
-                    self.tableView.reloadData()
-                }
-                
-                
-            }
-        }
         
     }
+    
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         
-        if swapRequests.count > 0 || acceptedRequests.count > 0 {
-            
-            blankTableMessage?.isHidden = true
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-            
-        } else {
-            blankTableMessage?.isHidden = false
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-        }
+        save(screen: .NotificationsScreen)
+        
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-    
-        self.tableView.allowsSelection = false
-        self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
-
+        setupViewController()
+        loadNotifications()
+        
+        // Listens for reload notifications notification
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadNotifications), name: .reloadNotifications, object: nil)
+        
         
     }
     
@@ -256,6 +216,83 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     }
 
 
+    func setupViewController()  {
+        
+        tableView.delegate = self
+        
+        self.tableView.allowsSelection = false
+        self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
+    }
+    
+    
+    
+    
+    
+    
+    
+    func loadNotifications()  {
+        
+        
+        tableView.reloadData()
+        
+        activityView.startAnimating()
+        
+        blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+        
+        blankTableMessage?.text = "No Notifications :'("
+        blankTableMessage?.textColor = .black
+        blankTableMessage?.textAlignment = NSTextAlignment.center
+        blankTableMessage?.font = UIFont(name: "Avenir-Next", size: 20)
+        blankTableMessage?.sizeToFit()
+        blankTableMessage?.isHidden = true
+        
+        SwapUser(username: getUsernameOfSignedInUser()).getRequestedSwaps { (error, requests) in
+            
+            if let requests = requests{
+                
+                
+                self.swapRequests = requests
+                
+                
+                SwapUser().getPendingSentSwapRequests { (error, aRequests) in
+                    
+                    
+                    if let aRequests = aRequests{
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.acceptedRequests = aRequests
+                            self.activityView.stopAnimating()
+                            self.tableView.reloadData()
+                            
+                            refreshControl.endRefreshing()
+                            
+                            
+                            
+                            if self.swapRequests.count > 0 || self.acceptedRequests.count > 0 {
+                                
+                                self.blankTableMessage?.isHidden = true
+                                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+                                
+                            } else {
+                                self.blankTableMessage?.isHidden = false
+                                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+                            }
+                            
+                            
+                            
+                        }
+                        
+                        
+                    }
+                }
+                
+                
+            }
+        }
+        
+        
+    }
 }
 
  class notificationCell: UITableViewCell {

@@ -69,5 +69,7 @@ extension String {
 extension Notification.Name {
     
     static let reloadProfile = Notification.Name("reloadProfile")
+    static let reloadSearchedUserProfile = Notification.Name("reloadSearchedUserProfile")
+    static let reloadNotifications = Notification.Name("reloadNotifications")
 
 }

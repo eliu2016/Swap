@@ -967,7 +967,7 @@ class SwapUser {
     }
     
     /// Use this function to check if user has swapped another user. 
-    func hasSwapped(withUser: SwapUser, result: @escaping (_ canViewProfile: Bool) -> Void)  {
+    func hasSwapped(withUser: SwapUser, result: @escaping (_ hasSwapped: Bool) -> Void)  {
         
         // hashKey/swap = self
         // rangeKey/swapped = withUser
@@ -1186,10 +1186,10 @@ class SwapUser {
                     let otherUser =   SwapUser(username: user._username!)
                     
                     // Check if already Swapped
-                    currentUser.hasSwapped(withUser: otherUser, result: { (didSwap) in
+                    currentUser.hasSwapped(withUser: otherUser, result: { (hasSwapped) in
                         
                         
-                        if !didSwap{
+                        if !hasSwapped{
                             
                             // Didn't Swap Yet
                             

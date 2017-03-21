@@ -292,3 +292,84 @@ func getVinePassword() -> String? {
     return UserDefaults.standard.string(forKey: "VinePassword")
     
 }
+
+
+/// Use this on viewdidappear in order to make note of the last active screen the user was on. (Used in order to determine what screen the user is on when they are pulling to refresh)
+///
+/// - Parameter screen: Screen the user is on
+func save(screen: Screen){
+    
+    var screenString = ""
+    
+    switch screen{
+        case .UserProfileScreen:
+        screenString = "UserProfileScreen"
+        break
+    case .SearchedUserProfileScreen:
+        screenString = "SearchedUserProfileScreen"
+        break
+        
+    case .NotificationsScreen:
+        screenString = "NotificationsScreen"
+        break
+    
+    case .SwapScreen:
+        screenString = "SwapScreen"
+        break
+        
+    case .SwappedScreen:
+        screenString = "SwappedScreen"
+        break
+        
+        
+    }
+    
+    UserDefaults.standard.set(screenString, forKey: "LastScreen")
+    UserDefaults.standard.synchronize()
+}
+
+/// Use this in order to determine what screen the user is currently on in order to determine what screen to refresh when the user pulls to refresh
+func getLastScreen() -> Screen?{
+    
+    if let  screenString  = UserDefaults.standard.string(forKey: "LastScreen"){
+        
+        switch screenString {
+        case "UserProfileScreen":
+            
+            return .UserProfileScreen
+            
+        case "SearchedUserProfileScreen":
+            return .SearchedUserProfileScreen
+            
+        case "NotificationsScreen":
+            return .NotificationsScreen
+            
+        case "SwapScreen":
+            return .SwapScreen
+            
+        case "SwappedScreen":
+            return .SwappedScreen
+            
+            
+        default:
+            return nil
+        }
+        
+    } else {
+        return nil
+    }
+    
+    
+}
+
+/// Enum containing the type of screens the user was last active on
+enum Screen{
+    
+    case UserProfileScreen
+    case SearchedUserProfileScreen
+    case NotificationsScreen
+    case SwapScreen
+    case SwappedScreen
+    
+    
+}
