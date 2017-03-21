@@ -160,7 +160,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         view.endEditing(true)
         
         
-        SwapCenterButton.alpha =  20 + scrollView.contentOffset.y
+        SwapCenterButton.alpha =  1 + (0.2*scrollView.contentOffset.y)
         
         if scrollView.contentOffset.y > 100{
             

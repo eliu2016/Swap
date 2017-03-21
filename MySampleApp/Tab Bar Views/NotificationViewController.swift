@@ -24,7 +24,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         
-        tableView.reloadData()
         
         activityView.startAnimating()
         
@@ -68,7 +67,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     override func viewDidAppear(_ animated: Bool) {
-        
+       
         if swapRequests.count > 0 || acceptedRequests.count > 0 {
             
             blankTableMessage?.isHidden = true
@@ -76,8 +75,9 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             
         } else {
             blankTableMessage?.isHidden = false
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         }
+        
     }
     
     override func viewDidLoad() {

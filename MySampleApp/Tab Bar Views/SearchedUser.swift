@@ -43,11 +43,16 @@ class SearchedUser: UIViewController {
     
    
     override func viewDidLoad() {
-    
+        
+        //set up the preview tab bar
         self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
         self.tabBarController?.tabBar.tintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
+        
+        
+        //initially hide views while loading
+        usernameLabel.text = searchedUser
         
         verifiedIcon.isHidden = true
         profilePicture.isHidden = true
@@ -68,67 +73,80 @@ class SearchedUser: UIViewController {
         BlurView3.isHidden = true
         swapButton.isHidden = true
         
-        
-       MakeBlurViewCircular(blurView: BlurView1)
-       MakeBlurViewCircular(blurView: BlurView2)
-       MakeBlurViewCircular(blurView: BlurView3)
-        
-        usernameLabel.text = searchedUser
-    
+        MakeBlurViewCircular(blurView: BlurView1)
+        MakeBlurViewCircular(blurView: BlurView2)
+        MakeBlurViewCircular(blurView: BlurView3)
         
         
         SwapUser(username: searchedUser).getInformation { (error, user) in
             
+
+            DispatchQueue.main.async {
+
+                self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
+            
+                circularImage(photoImageView: self.profilePicture)
+                
            
-             DispatchQueue.main.async {
-                
+                // Send the Twitter ID to the Twitter Preview View Controller
+                twitterUserID = user?._twitterID ?? ""
             
-            self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
-            circularImage(photoImageView: self.profilePicture)
+                self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
                 
-            // Send the Twitter ID to the Twitter Preview View Controller 
-            twitterUserID = user?._twitterID ?? ""
-            
-            self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
+                self.bioLabel.text = user?._bio
                 
-            self.bioLabel.text = user?._bio
-                
-            self.pointsNumberLabel.text = "\(user?._points ?? 0)"
-            self.swappedNumberLabel.text = "\(user?._swapped ?? 0)"
-            self.swapsNumberLabel.text = "\(user?._swaps ?? 0)"
+                self.pointsNumberLabel.text = "\(user?._points ?? 0)"
+                self.swappedNumberLabel.text = "\(user?._swapped ?? 0)"
+                self.swapsNumberLabel.text = "\(user?._swaps ?? 0)"
                 
     
+                if (user?._isPrivate as? Bool)!{
                 
-               if (user?._isPrivate as? Bool)!{
-                
-                //change to private swap button
+                    //change to private swap button
                     self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "PrivateSwapButton"), for: .normal)
-                   self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 13, height: self.swapButton.frame.height)
-                   self.swapButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 10)
-                
-                
-                SwapUser(username: getUsernameOfSignedInUser()).getPendingSentSwapRequests(result: { (error, requests) in
-                    
-                    if let error = error{
-                        
-                        print(error.localizedDescription)
-                        
-                    }
-                    else{
-                        for user in requests! {
-                            
-                            if (user._requested == searchedUser){
-                                self.makeSwapButtonRequested()
-                            }
-                        }
-                    }
-                })
-                    
-  
-                
+                    self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 13, height: self.swapButton.frame.height)
+                    self.swapButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 10)
+            
                 }
                 
-                   //show the hidden views
+                //determine if searched profile is the user
+                if searchedUser == getUsernameOfSignedInUser(){
+                    
+                    self.disableSwapButton()
+                }
+                
+                //determine if the searched user has a pending request
+                else{
+                
+                    SwapUser(username: getUsernameOfSignedInUser()).getPendingSentSwapRequests(result: { (error, requests) in
+                    
+                    
+                        if let error = error{
+                        
+                            print(error.localizedDescription)
+                        
+                        }
+                  
+                        else{
+                        
+                            for user in requests! {
+                            
+                                if (user._requested == searchedUser){
+                                
+                                    self.makeSwapButtonRequested()
+                           
+                                }
+                        
+                            }
+                   
+                        }
+               
+                    })
+                    
+                }
+                
+                
+                //show the hidden views
                 self.profilePicture.isHidden = false
                 self.bioLabel.isHidden = false
                 self.fullName.isHidden = false
@@ -147,30 +165,30 @@ class SearchedUser: UIViewController {
                 self.BlurView3.isHidden = false
                 self.swapButton.isHidden = false
                 
-            self.verifiedIcon.isHidden = !(user?._isVerified?.boolValue ?? false)
+                self.verifiedIcon.isHidden = !(user?._isVerified?.boolValue ?? false)
                 
-            self.Spotify.image = (user?._willShareSpotify?.boolValue ?? false && !(user?._spotifyID ?? "").isEmpty) ? #imageLiteral(resourceName: "SpotifyDark") : #imageLiteral(resourceName: "SpotifyLight")
+                self.Spotify.image = (user?._willShareSpotify?.boolValue ?? false && !(user?._spotifyID ?? "").isEmpty) ? #imageLiteral(resourceName: "SpotifyDark") : #imageLiteral(resourceName: "SpotifyLight")
                 
-            self.Twitter.image = (user?._willShareTwitter?.boolValue ?? false && !(user?._twitterID ?? "").isEmpty) ? #imageLiteral(resourceName: "TwitterDark"): #imageLiteral(resourceName: "TwitterLight")
+                self.Twitter.image = (user?._willShareTwitter?.boolValue ?? false && !(user?._twitterID ?? "").isEmpty) ? #imageLiteral(resourceName: "TwitterDark"): #imageLiteral(resourceName: "TwitterLight")
                 
-            self.Instagram.image = (user?._willShareInstagram?.boolValue ?? false && !(user?._instagramID ?? "").isEmpty) ? #imageLiteral(resourceName: "InstagramDark") : #imageLiteral(resourceName: "InstagramLight")
+                self.Instagram.image = (user?._willShareInstagram?.boolValue ?? false && !(user?._instagramID ?? "").isEmpty) ? #imageLiteral(resourceName: "InstagramDark") : #imageLiteral(resourceName: "InstagramLight")
                 
-             self.Reddit.image = (user?._willShareReddit?.boolValue ?? false && !(user?._redditID ?? "").isEmpty) ? #imageLiteral(resourceName: "RedditDark") : #imageLiteral(resourceName: "RedditLight")
+                self.Reddit.image = (user?._willShareReddit?.boolValue ?? false && !(user?._redditID ?? "").isEmpty) ? #imageLiteral(resourceName: "RedditDark") : #imageLiteral(resourceName: "RedditLight")
                 
-            self.GitHub.image = (user?._willShareGitHub?.boolValue ?? false && !(user?._githubID ?? "").isEmpty) ? #imageLiteral(resourceName: "GithubDark"): #imageLiteral(resourceName: "GithubLight")
+                self.GitHub.image = (user?._willShareGitHub?.boolValue ?? false && !(user?._githubID ?? "").isEmpty) ? #imageLiteral(resourceName: "GithubDark"): #imageLiteral(resourceName: "GithubLight")
                 
-            self.Vimeo.image = (user?._willShareVimeo?.boolValue ?? false && !(user?._vimeoID ?? "").isEmpty) ? #imageLiteral(resourceName: "VimeoDark") : #imageLiteral(resourceName: "VimeoLight")
+                self.Vimeo.image = (user?._willShareVimeo?.boolValue ?? false && !(user?._vimeoID ?? "").isEmpty) ? #imageLiteral(resourceName: "VimeoDark") : #imageLiteral(resourceName: "VimeoLight")
  
                 
-            self.YouTube.image = (user?._willShareYouTube?.boolValue ?? false && !(user?._youtubeID ?? "").isEmpty) ? #imageLiteral(resourceName: "YoutubeDark") : #imageLiteral(resourceName: "YoutubeLight")
+                self.YouTube.image = (user?._willShareYouTube?.boolValue ?? false && !(user?._youtubeID ?? "").isEmpty) ? #imageLiteral(resourceName: "YoutubeDark") : #imageLiteral(resourceName: "YoutubeLight")
             
-            self.SoundCloud.image = (user?._willShareSoundCloud?.boolValue ?? false && !(user?._soundcloudID ?? "").isEmpty) ? #imageLiteral(resourceName: "SoundCloudDark") : #imageLiteral(resourceName: "SoundCloudLight")
+                self.SoundCloud.image = (user?._willShareSoundCloud?.boolValue ?? false && !(user?._soundcloudID ?? "").isEmpty) ? #imageLiteral(resourceName: "SoundCloudDark") : #imageLiteral(resourceName: "SoundCloudLight")
             
-            self.Pinterest.image = (user?._willSharePinterest?.boolValue ?? false && !(user?._pinterestID ?? "").isEmpty) ? #imageLiteral(resourceName: "PinterestDark") : #imageLiteral(resourceName: "PinterestLight")
-
-            let userWillAtLeastShareEmailOrPhoneNumber = (user?._willShareEmail?.boolValue ?? false) || (user?._willSharePhone?.boolValue ?? false)
+                self.Pinterest.image = (user?._willSharePinterest?.boolValue ?? false && !(user?._pinterestID ?? "").isEmpty) ? #imageLiteral(resourceName: "PinterestDark") : #imageLiteral(resourceName: "PinterestLight")
+                
+                let userWillAtLeastShareEmailOrPhoneNumber = (user?._willShareEmail?.boolValue ?? false) || (user?._willSharePhone?.boolValue ?? false)
             
-            self.Contact.image = userWillAtLeastShareEmailOrPhoneNumber ? #imageLiteral(resourceName: "ContactDark") : #imageLiteral(resourceName: "ContactLight")
+                self.Contact.image = userWillAtLeastShareEmailOrPhoneNumber ? #imageLiteral(resourceName: "ContactDark") : #imageLiteral(resourceName: "ContactLight")
                 
                 self.loadingView.stopAnimating()
             
@@ -203,10 +221,9 @@ class SearchedUser: UIViewController {
     
                 else{
                     
-                    self.swapButton.isEnabled = false
-                    self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+                    self.disableSwapButton()
                     
-                    let alert = UIAlertController(title: "Success", message: "You have just swapped \(searchedUser)", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Success", message: "You have just swapped \(user?._firstname!) \(user?._lastname!)", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
@@ -216,16 +233,24 @@ class SearchedUser: UIViewController {
        
         }
         
-        
     }
     
     func makeSwapButtonRequested(){
      
         self.swapButton.isEnabled = false
         self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+        self.swapButton.titleLabel?.alpha = 0.4
         self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "RequestedSwapButton"), for: .normal)
         self.swapButton.setTitle("Requested", for: .normal)
-        self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x - 12, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 26, height: self.swapButton.frame.height)
+        self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x - 12, y:
+            self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 26, height: self.swapButton.frame.height)
+    }
+    
+    func disableSwapButton(){
+        
+        self.swapButton.isEnabled = false
+        self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+        self.swapButton.titleLabel?.alpha = 0.4
     }
     
     func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{
