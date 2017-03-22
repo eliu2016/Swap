@@ -115,7 +115,7 @@ extension SignInViewController: AWSCognitoUserPoolsSignInHandler {
     /// Edit this function in order to customize what happens if the user does 'NOT' enter a username and password at sign in.
     func handleUserPoolSignInFlowStart() {
         // check if both username and password fields are provided
-        guard let username = self.usernameField.text?.lowercased(), !username.isEmpty,
+        guard let username = self.usernameField.text?.lowercased().toUsernameSignInAlias(), !username.isEmpty,
             let password = self.passwordField.text, !password.isEmpty else {
                 DispatchQueue.main.async(execute: {
                     
