@@ -8,9 +8,15 @@
 
 import UIKit
 
-class ConfirmAccountViewController: UIViewController {
+class ConfirmAccountViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var confirmationCode: UITextField!
+
+    @IBOutlet var field1: UITextField!
+    @IBOutlet var field2: UITextField!
+    @IBOutlet var field3: UITextField!
+    @IBOutlet var field4: UITextField!
+    @IBOutlet var field5: UITextField!
+    @IBOutlet var field6: UITextField!
     
     @IBOutlet var resendButton: UIButton!
     @IBOutlet var confirmButton: UIButton!
@@ -21,19 +27,41 @@ class ConfirmAccountViewController: UIViewController {
 
     
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        saveViewController(viewController: self)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        // Do any additional setup after loading the view.
+        field1.delegate = self
+        field2.delegate = self
+        field3.delegate = self
+        field4.delegate = self
+        field5.delegate = self
+        field6.delegate = self
+        
+        
+        field1.becomeFirstResponder()
+    }
+    
+    @IBAction func didTapCancel(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func didTapResendConfirmationCode(_ sender: UIButton) {
         
         resendConfirmationCode(toUserWithUsername: getSavedUsername()!)
     }
     
-    @IBAction func didTapCancel(_ sender: Any) {
-        
-        navigationController?.popToRootViewController(animated: true)
-        
-    }
+    
     @IBAction func didConfirmCode(_ sender: UIButton) {
         
-        confirmUser(withCode: confirmationCode.text, username: getSavedUsername()!,
+      /*  confirmUser(withCode: confirmationCode.text, username: getSavedUsername()!,
                     
         failed:{
             
@@ -55,30 +83,45 @@ class ConfirmAccountViewController: UIViewController {
             }
             
             
-        })
+        })*/
     }
     
    
     
-    override func viewDidAppear(_ animated: Bool) {
-        saveViewController(viewController: self)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
-        // Do any additional setup after loading the view.
-        
-        confirmationCode.becomeFirstResponder()
-    }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        textField.text = ""
+    }
+    
+    @IBAction func enteredFirst(_ sender: Any) {
+        
+        field2.becomeFirstResponder()
+    }
 
+    @IBAction func enteredSecond(_ sender: Any) {
+        field3.becomeFirstResponder()
+    }
+    @IBAction func enteredThird(_ sender: Any) {
+        field4.becomeFirstResponder()
+    }
+    @IBAction func enteredFourth(_ sender: Any) {
+        field5.becomeFirstResponder()
+    }
+    @IBAction func enteredFifth(_ sender: Any) {
+        field6.becomeFirstResponder()
+    }
+    @IBAction func enteredSixth(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     /*
     // MARK: - Navigation
 

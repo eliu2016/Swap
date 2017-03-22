@@ -84,9 +84,7 @@ class SearchedUser: UIViewController {
     
                 else{
                     
-                    self.swapButton.isEnabled = false
-                    self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
-                    
+                    self.disableSwapButton()
                     let alert = UIAlertController(title: "Success", message: "You have just Swapped™ \(user?._firstname!) \(user?._lastname!)", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
@@ -108,6 +106,11 @@ class SearchedUser: UIViewController {
         self.swapButton.setTitle("Requested", for: .normal)
         self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x - 12, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 26, height: self.swapButton.frame.height)
     }
+    func disableSwapButton (){
+        
+        self.swapButton.isEnabled = false
+        self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+    }
     
     func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{
         
@@ -119,9 +122,6 @@ class SearchedUser: UIViewController {
         
         return blurView
     }
-    
-    
-    
     
     
     func setupViewController()  {
@@ -161,10 +161,6 @@ class SearchedUser: UIViewController {
     
     
     
-    
-    
-    
-    
     func loadProfile()  {
         
         self.loadingView.startAnimating()
@@ -181,7 +177,7 @@ class SearchedUser: UIViewController {
             
             DispatchQueue.main.async {
                 
-                
+                    
                 self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 circularImage(photoImageView: self.profilePicture)
                 
@@ -196,34 +192,42 @@ class SearchedUser: UIViewController {
                 self.swappedNumberLabel.text = "\(user?._swapped ?? 0)"
                 self.swapsNumberLabel.text = "\(user?._swaps ?? 0)"
                 
-                
+            
                 
                 if (user?._isPrivate as? Bool)!{
                     
                     //change to private swap button
-                   // self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "PrivateSwapButton"), for: .normal)
+                    self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "PrivateSwapButton"), for: .normal)
                     self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 13, height: self.swapButton.frame.height)
                     self.swapButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 10)
                     
                     
-                    SwapUser(username: getUsernameOfSignedInUser()).getPendingSentSwapRequests(result: { (error, requests) in
+                    //check if the searched user is the signed in user
+                    if searchedUser == getUsernameOfSignedInUser() {
                         
-                        if let error = error{
+                        self.disableSwapButton()
+                        
+                    }
+                    else {
+                       
+                        //check if the searched user has a pending swap by the signed in user.
+                        SwapUser(username: getUsernameOfSignedInUser()).getPendingSentSwapRequests(result: { (error, requests) in
+                        
+                            if let error = error{
                             
-                            print(error.localizedDescription)
+                                print(error.localizedDescription)
                             
-                        }
-                        else{
-                            for user in requests! {
+                            }
+                            else{
+                                for user in requests! {
                                 
-                                if (user._requested == searchedUser){
-                                    self.makeSwapButtonRequested()
+                                    if (user._requested == searchedUser){
+                                        self.makeSwapButtonRequested()
+                                    }
                                 }
                             }
-                        }
-                    })
-                    
-                    
+                        })
+                    }
                     
                 }
                 
@@ -276,11 +280,6 @@ class SearchedUser: UIViewController {
             }
         }
     }
-    
-    
-    
-    
-    
     
     
     func exitProfile()  {

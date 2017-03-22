@@ -29,16 +29,10 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     
-    
-    
-    
     override func viewDidAppear(_ animated: Bool) {
 
         
         save(screen: .NotificationsScreen)
-        
-        
-
         
     }
     
