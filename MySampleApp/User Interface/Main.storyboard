@@ -3190,8 +3190,8 @@
         <image name="InstagramDark" width="55" height="55"/>
         <image name="InstagramDisabled" width="66" height="66"/>
         <image name="LeftCarrot" width="32" height="32"/>
-        <image name="LoginButton" width="104" height="14"/>
-        <image name="LogoNoBorder" width="100" height="98"/>
+        <image name="LoginButton" width="1039" height="145"/>
+        <image name="LogoNoBorder" width="271" height="282"/>
         <image name="MainBackground" width="378" height="666"/>
         <image name="NotificationIcon" width="27" height="27"/>
         <image name="PhoneDisabled" width="66" height="66"/>
@@ -3229,6 +3229,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="WAy-hx-jEK"/>
         <segue reference="YeA-4M-5uc"/>
-        <segue reference="7cT-Je-Nm9"/>
+        <segue reference="owF-mD-xHN"/>
     </inferredMetricsTieBreakers>
 </document>

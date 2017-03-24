@@ -63,7 +63,7 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
         popUp.center = self.view.center
         popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         popUp.alpha = 0
-        popUpLabel.text = "Send Confirmation Code to \(phone_number)?"
+        popUpLabel.text = "Send Confirmation Code to \(phoneNumber!)?"
         
         UIView.animate(withDuration: 0.4){
             
