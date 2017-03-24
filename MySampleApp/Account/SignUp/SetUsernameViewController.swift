@@ -15,6 +15,8 @@ class SetUsernameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var availabilityView: UIView!
     @IBOutlet var availabilityLabel: UILabel!
     
+    var canUseUsername: Bool = false
+    
     override func viewDidLoad() {
         
         usernameTextField.becomeFirstResponder()
@@ -25,17 +27,31 @@ class SetUsernameViewController: UIViewController, UITextFieldDelegate {
     @IBAction func didChangeUsername(_ sender: Any) {
         
          availabilityLabel.isHidden = false
+    
+        usernameTextField.text?.validate(completion: { (isValid, text) in
+            
+            DispatchQueue.main.async {
+                
+                if isValid {
+                    
+                    self.canUseUsername = true
+                    self.availabilityView.backgroundColor = UIColor.green
+                    self.availabilityLabel.text = "Username is avaliable."
+                    
+                } else{
+                    
+                    self.canUseUsername = false
+                    self.availabilityView.backgroundColor = UIColor.red
+                    self.availabilityLabel.text = text
+                }
+                
+            }
+           
+            
+        })
         
-        if (usernameTextField.text?.isAValidUsername())!{
-            
-            availabilityView.backgroundColor = UIColor.green
-            availabilityLabel.text = "Username is available"
-        }
-        else{
-            
-            availabilityView.backgroundColor = UIColor.red
-            availabilityLabel.text = "Username not available"
-        }
+        
+        
         
     }
     
@@ -43,7 +59,14 @@ class SetUsernameViewController: UIViewController, UITextFieldDelegate {
         
         //save the username
         
-        self.performSegue(withIdentifier: "toPasswordController", sender: nil)
+        if canUseUsername{
+            
+            
+            self.performSegue(withIdentifier: "toPasswordController", sender: nil)
+            save(preferredUsername: usernameTextField.text)
+        }
+        
+        
         
     }
     @IBAction func didTapBack(_ sender: Any) {

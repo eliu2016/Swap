@@ -31,11 +31,14 @@ class SetNameViewController: UIViewController {
         
         if (firstnameField.text != "" && lastnameField.text != ""){
             
-            UserDefaults.standard.set("\(firstnameField.text!.capitalized)", forKey: "firstname")
-                                                            
-            UserDefaults.standard.set("\(lastnameField.text!.capitalized)", forKey: "lastname")
+            
+            
+            saveFirstname(name: firstnameField.text!.capitalized)
+            saveLastname(name: lastnameField.text!.capitalized)
             
             self.performSegue(withIdentifier: "toBirthdayController", sender: nil)
+            
+            print("the saved firstname is \(getSavedFirstname()) ")
         }
         else{
           

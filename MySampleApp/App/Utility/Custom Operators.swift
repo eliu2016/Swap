@@ -99,7 +99,7 @@ extension String
               completion(false, message)
         }
         
-        else if !self.isAValidUsername(){
+        else if !self.lowercased().isAValidUsername(){
             
             let message = "Usernames cannot contain special characters."
               completion(false, message)

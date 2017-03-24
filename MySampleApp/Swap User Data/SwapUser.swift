@@ -11,8 +11,8 @@ import AWSCognitoIdentityProvider
 import AWSCore
 import AWSMobileHubHelper
 import OneSignal
-import Realm
-import RealmSwift
+//import Realm
+//import RealmSwift
 import Swifter
 import AudioToolbox
 

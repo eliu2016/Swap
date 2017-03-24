@@ -293,6 +293,51 @@ func getVinePassword() -> String? {
     
 }
 
+func save(birthday: Double?)  {
+    
+    UserDefaults.standard.set(birthday, forKey: "birthday")
+    UserDefaults.standard.synchronize()
+}
+
+func getBirthday() -> Double {
+    
+    return UserDefaults.standard.double(forKey: "birthday")
+}
+
+func save(password: String?)  {
+    
+    UserDefaults.standard.set(password, forKey: "password")
+    UserDefaults.standard.synchronize()
+}
+
+func getPassword() -> String? {
+    
+    return UserDefaults.standard.string(forKey: "password")
+}
+
+func save(phoneNumber: String?)  {
+    
+    UserDefaults.standard.set(phoneNumber, forKey: "phonenumber")
+    UserDefaults.standard.synchronize()
+}
+
+func getPhoneNumber() -> String? {
+    
+    return UserDefaults.standard.string(forKey: "phonenumber")
+    
+}
+
+func save(preferredUsername: String?)  {
+    
+    UserDefaults.standard.set(preferredUsername, forKey: "PreferredUsername")
+    UserDefaults.standard.synchronize()
+}
+
+func getPreferredUsername() -> String? {
+    
+    return UserDefaults.standard.string(forKey: "PreferredUsername")
+    
+}
 
 /// Use this on viewdidappear in order to make note of the last active screen the user was on. (Used in order to determine what screen the user is on when they are pulling to refresh)
 ///

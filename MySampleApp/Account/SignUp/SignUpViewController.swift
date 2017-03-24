@@ -65,7 +65,7 @@ class SignUpViewController: UIViewController {
             case .EmptyFields:
                 // Tell the user to enter required fields 
                 UIAlertView(title: "Could Not Create Account",
-                            message: "Please enter a valid phone number.",
+                            message: "Please ensure you completed the sign up process and try again.",
                             delegate: nil,
                             cancelButtonTitle: "Ok").show()
                 break

@@ -23,7 +23,7 @@ class setEmailViewController: UIViewController {
         
         if (emailField.text?.isValidEmail())!{
                 
-                UserDefaults.standard.set(emailField.text, forKey: "email")
+                saveEmail(email: emailField.text!)
             
                 self.performSegue(withIdentifier: "toUsernameController", sender: nil)
                 

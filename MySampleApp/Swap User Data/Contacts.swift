@@ -39,10 +39,10 @@ func getContact(withPhonenumber: String)  {
                     let imageData = contactFound?.imageData
                     
                     
-                    // Save it
-                    saveFirstname(name: firstname)
+                    // Save it , don't save firstname and lastname anymore because it'll cause problems signing up
+                //    saveFirstname(name: firstname)
                     saveMiddlename(name: middlename)
-                    saveLastname(name: lastname)
+                //    saveLastname(name: lastname)
                     saveWebsite(name: website)
                     saveCompany(name: company)
                     saveContactImage(imageData: imageData)
