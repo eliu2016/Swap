@@ -28,6 +28,8 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
     var phoneNumber: String!
     var PhoneCode: String!
     
+    var COUNTRYCODE: String!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -61,7 +63,7 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
         popUp.center = self.view.center
         popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         popUp.alpha = 0
-        popUpLabel.text = "Send Confirmation to " + phoneNumber + "?"
+        popUpLabel.text = "Send Confirmation Code to \(phone_number)?"
         
         UIView.animate(withDuration: 0.4){
             
@@ -73,9 +75,9 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
         
     }
     @IBAction func didTapSendSMS(_ sender: Any) {
-        
+        // save phone number
         self.performSegue(withIdentifier: "toConfirmAccount", sender: nil)
-        
+
         
     }
     @IBAction func didTapCancel(_ sender: Any) {
@@ -104,8 +106,27 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
         
         PhoneCode = phoneCode
         countryCodeButton.setTitle(countryCode + " " + phoneCode, for: .normal)
+        COUNTRYCODE = phoneCode
         
     }
     
     
+}
+
+
+extension String {
+    
+    var isPhoneNumber: Bool {
+        do {
+            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
+            let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, self.characters.count))
+            if let res = matches.first {
+                return res.resultType == .phoneNumber && res.range.location == 0 && res.range.length == self.characters.count
+            } else {
+                return false
+            }
+        } catch {
+            return false
+        }
+    }
 }

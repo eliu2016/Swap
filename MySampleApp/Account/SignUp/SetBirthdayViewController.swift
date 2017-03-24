@@ -49,20 +49,20 @@ class SetBirthdayViewController: UIViewController {
         datePicker.isEnabled = false
         continueButton.isEnabled = false*/
         
-        
-        if dateField.text == ""{
+        guard datePicker.date.age >= 13 else{
             
-            UIAlertView(title: "Error",
-                        message: "Enter Your Birthday",
+            
+            UIAlertView(title: "Sorry",
+                        message: "You must be at least 13 years old to use Swap.",
                         delegate: nil,
                         cancelButtonTitle: "Ok").show()
             
-        }
-        else{
-            UserDefaults.standard.set(datePicker.date.timeIntervalSince1970 as Double, forKey: "birthday")
+            return
             
-            self.performSegue(withIdentifier: "toEmailController", sender: nil)
         }
+        // save birthday
+        self.performSegue(withIdentifier: "toEmailController", sender: nil)
+
 
         
     }

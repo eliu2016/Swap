@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PhoneNumberKit
 
 // declaring custom operator
 infix operator ~ { associativity left precedence 160 }
@@ -41,18 +42,51 @@ extension String {
 // Mark: - Extension to trim whitespace
 extension String
 {
+    
+    
+    /// Converts the input to a username or a phone number. Since a user can sign in with a username or password, this returns the usenrame they entered or phone number that they entered so that it is properly passed into sign in functions.
+    func toUsernameSignInAlias() -> String {
+        
+        let username = ""
+        
+        let phoneNumberKit = PhoneNumberKit()
+        var formattedPhoneNumber = ""
+        
+        do {
+            let phoneNumber = try phoneNumberKit.parse(self)
+            return phoneNumberKit.format(phoneNumber, toType: .e164)
+        }
+        catch {
+            
+            return self
+            
+        }
+        
+        
+        
+    }
+    
+    
     func trim() -> String
     {
         return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
     }
     
-    
+    /// Do not use this to validate a username. Use 'validate' instead
     func isAValidUsername() -> Bool {
         let RegEx = "\\A\\w{1,18}\\z"
         let Test = NSPredicate(format:"SELF MATCHES %@", RegEx)
         return Test.evaluate(with: self)
     }
     
+    /// Property that tests if a string contains all numbers
+    var isNumber : Bool {
+        get{
+            return !self.isEmpty && self.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+        }
+    }
+    
+    /// Returns a boolean that determines if the username is valid and available. Also returns a string for the reason why the username was not valid
     func validate(completion: @escaping (_ isAValidUsername: Bool, _ errorMessage: String?) -> Void)  {
         
         if self.characters.count < 1{
@@ -69,6 +103,11 @@ extension String
             
             let message = "Usernames cannot contain special characters."
               completion(false, message)
+        }
+            
+        else if self.isNumber{
+            let message = "Usernames cannot contain all numbers."
+            completion(false, message)
         }
         
         else {
@@ -123,6 +162,19 @@ extension String
             
         return date!
         }
+    
+    
+    func isValidEmail() -> Bool {
+        
+        
+        
+        let types: NSTextCheckingResult.CheckingType = [.link]
+        let linkDetector = try? NSDataDetector(types: types.rawValue)
+        let range = NSRange(location: 0, length: self.characters.count)
+        let result = linkDetector?.firstMatch(in: self, options: .reportCompletion, range: range)
+        let scheme = result?.url?.scheme ?? ""
+        return scheme == "mailto" && result?.range.length == self.characters.count
+    }
 }
 
 extension NSNumber{
@@ -139,11 +191,16 @@ extension NSNumber{
 
 
 extension Date{
-    
+    /// Returns string representing time passed since, example: '2h ago' etc
     func timeAgo() -> String {
         
         
         return timeAgoSinceDate(date: self as NSDate, numericDates: false)
+    }
+    
+    /// Gets the number of years since the date. 
+    var age: Int {
+        return Calendar.current.dateComponents([.year], from: self, to: Date()).year!
     }
 }
 
