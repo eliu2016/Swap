@@ -35,29 +35,19 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        blurView.isHidden = true
+        
         setupViewController()
       
         handleCaseOfDisabledCamera()
         
         setupSwapScanner()
-        
-        
-        
-       
-        
-    }
-   
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-        effect = blurView.effect
-        blurView.effect = nil
-        blurView.isHidden = true
+
     }
     
     @IBAction func enableCamera(_ sender: Any) {
-        
+    
         UIApplication.shared.openURL(NSURL(string:UIApplicationOpenSettingsURLString)! as URL)
         
     }
@@ -111,26 +101,18 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
         
     }
     func animateInSwapView(){
-        
-        self.blurView.isHidden = false
-        
     
-        confirmSwapView.center = self.view.center
+        confirmSwapView.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 200)
        
-        
-        confirmSwapView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        confirmSwapView.alpha = 0
-        
+         confirmSwapView.alpha = 0
          self.view.addSubview(confirmSwapView)
          self.view.bringSubview(toFront: self.confirmSwapView)
         
         UIView.animate(withDuration: 0.4){
             
-            self.blurView.effect = self.effect
-            
-            
+            self.blurView.isHidden = false
             self.confirmSwapView.alpha = 1
-            self.confirmSwapView.transform = CGAffineTransform.identity
+             self.confirmSwapView.transform = CGAffineTransform.init(translationX: 0, y: -200)
         }
         
     }
@@ -246,7 +228,6 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
 func getUsernameFromSwapLink(swapLink: String) -> String {
     
     return (swapLink as NSString).lastPathComponent.lowercased()
-    
     
 }
 

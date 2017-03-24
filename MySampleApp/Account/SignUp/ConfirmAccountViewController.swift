@@ -48,11 +48,6 @@ class ConfirmAccountViewController: UIViewController, UITextFieldDelegate {
         field1.becomeFirstResponder()
     }
     
-    @IBAction func didTapCancel(_ sender: Any) {
-        
-        navigationController?.popViewController(animated: true)
-    }
-    
     @IBAction func didTapResendConfirmationCode(_ sender: UIButton) {
         
         resendConfirmationCode(toUserWithUsername: getSavedUsername()!)

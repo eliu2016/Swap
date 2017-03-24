@@ -109,7 +109,7 @@ class SearchedUser: UIViewController {
     func disableSwapButton (){
         
         self.swapButton.isEnabled = false
-        self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+        self.swapButton.titleLabel?.alpha = 0.4
     }
     
     func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{

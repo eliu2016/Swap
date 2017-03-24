@@ -26,6 +26,7 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
     @IBOutlet var popUpLabel: UILabel!
     
     var phoneNumber: String!
+    var PhoneCode: String!
     
     override func viewDidLoad() {
         
@@ -52,7 +53,7 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
     }
     @IBAction func didTapNext(_ sender: Any) {
         
-        phoneNumber = (countryCodeButton.titleLabel?.text)! +  phoneNumberField.text!
+        phoneNumber = PhoneCode +  phoneNumberField.text!
         
         view.endEditing(true)
         self.view.addSubview(popUp)
@@ -65,6 +66,7 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
         UIView.animate(withDuration: 0.4){
             
             self.blurView.isHidden = false
+            self.blurView.alpha = 0.5
             self.popUp.alpha = 1
             self.popUp.transform = CGAffineTransform.identity
         }
@@ -78,7 +80,7 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
     }
     @IBAction func didTapCancel(_ sender: Any) {
     
-        UIView.animate(withDuration: 0.3){
+        UIView.animate(withDuration: 0.2){
             
             self.popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.popUp.alpha = 0
@@ -100,6 +102,7 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
     // a picker item was selected
     public func countryPhoneCodePicker(_ picker: CountryPicker, didSelectCountryWithName name: String, countryCode: String, phoneCode: String, flag: UIImage) {
         
+        PhoneCode = phoneCode
         countryCodeButton.setTitle(countryCode + " " + phoneCode, for: .normal)
         
     }

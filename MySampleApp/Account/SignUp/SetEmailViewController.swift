@@ -25,7 +25,7 @@ class setEmailViewController: UIViewController {
                 
                 UserDefaults.standard.set(emailField.text, forKey: "email")
             
-                self.performSegue(withIdentifier: "toPasswordController", sender: nil)
+                self.performSegue(withIdentifier: "toUsernameController", sender: nil)
                 
            }
         else{
