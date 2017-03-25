@@ -276,7 +276,7 @@ extension ConfirmAccountViewController: AWSCognitoUserPoolsSignInHandler {
    
       
         // set the task completion result as an object of AWSCognitoIdentityPasswordAuthenticationDetails with username and password that the app user provides
-        self.passwordAuthenticationCompletion?.setResult(AWSCognitoIdentityPasswordAuthenticationDetails(username: getPreferredUsername() ?? "", password: getPassword() ?? ""))
+        self.passwordAuthenticationCompletion?.setResult(AWSCognitoIdentityPasswordAuthenticationDetails(username: getUsernameOfSignedInUser(), password: getPassword() ?? ""))
     }
 }
 

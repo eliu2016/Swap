@@ -63,7 +63,7 @@ class SetUsernameViewController: UIViewController, UITextFieldDelegate {
             
             
             self.performSegue(withIdentifier: "toPasswordController", sender: nil)
-            save(preferredUsername: usernameTextField.text)
+            saveUsername(username: usernameTextField.text)
         }
         
         

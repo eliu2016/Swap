@@ -13,7 +13,7 @@ import Foundation
 ///
 /// - Parameter username: Username to save.
 func saveUsername(username: String?) {
-    UserDefaults.standard.set(username, forKey: "username")
+    UserDefaults.standard.set((username ?? "").lowercased(), forKey: "username")
     UserDefaults.standard.synchronize()
 }
 
@@ -327,17 +327,6 @@ func getPhoneNumber() -> String? {
     
 }
 
-func save(preferredUsername: String?)  {
-    
-    UserDefaults.standard.set(preferredUsername, forKey: "PreferredUsername")
-    UserDefaults.standard.synchronize()
-}
-
-func getPreferredUsername() -> String? {
-    
-    return UserDefaults.standard.string(forKey: "PreferredUsername")
-    
-}
 
 /// Use this on viewdidappear in order to make note of the last active screen the user was on. (Used in order to determine what screen the user is on when they are pulling to refresh)
 ///

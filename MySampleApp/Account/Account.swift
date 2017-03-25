@@ -272,13 +272,9 @@ func getUsernameOfSignedInUser() -> String {
         return username
     }  else{
         
-        if let username = getSavedUsername()?.lowercased().trim(){
-            return username
-        } else {
-            
-            return getPreferredUsername()!.lowercased().trim()
-            
-        }
+         return getSavedUsername() ?? ""
+        
+    
         
     }
     

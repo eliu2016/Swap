@@ -50,7 +50,7 @@ class ConfirmAccountViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didTapResendConfirmationCode(_ sender: UIButton) {
         
-        resendConfirmationCode(toUserWithUsername: (getPreferredUsername()?.lowercased() ?? ""))
+        resendConfirmationCode(toUserWithUsername: getUsernameOfSignedInUser())
     }
     
     

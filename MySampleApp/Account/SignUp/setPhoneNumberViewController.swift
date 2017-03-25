@@ -91,7 +91,7 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
         
         
         // Create an account 
-        createAccount(username: getPreferredUsername()?.lowercased(), password: getPassword(), email: getSavedEmail(), phonenumber: getPhoneNumber(), failedToCreateAccount: { signUpError in
+        createAccount(username: getUsernameOfSignedInUser(), password: getPassword(), email: getSavedEmail(), phonenumber: getPhoneNumber(), failedToCreateAccount: { signUpError in
             
             DispatchQueue.main.async {
                 
