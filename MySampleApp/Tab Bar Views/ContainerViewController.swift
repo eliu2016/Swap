@@ -182,8 +182,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         animateRefresh()
         postNotificationToReloadScreens()
-       
-        
+
     }
     
     func animateRefresh(){

@@ -62,6 +62,7 @@
 		752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */; };
 		752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1941E3B115000CE5289 /* SearchedUser.swift */; };
 		755CAD701E840F18008E94E3 /* SetUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */; };
+		755CAD721E856190008E94E3 /* ProfilePicturePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */; };
 		75A81B101E415E6F00F8F62C /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B0F1E415E6F00F8F62C /* StoriesView.swift */; };
 		75A81B121E44DE3700F8F62C /* TutorialPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B111E44DE3700F8F62C /* TutorialPageController.swift */; };
 		75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */; };
@@ -226,6 +227,7 @@
 		752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSwapLinkView.swift; sourceTree = "<group>"; };
 		752BE1941E3B115000CE5289 /* SearchedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUser.swift; sourceTree = "<group>"; };
 		755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetUsernameViewController.swift; path = MySampleApp/Account/SignUp/SetUsernameViewController.swift; sourceTree = SOURCE_ROOT; };
+		755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePicturePageController.swift; path = MySampleApp/Account/SignUp/ProfilePicturePageController.swift; sourceTree = SOURCE_ROOT; };
 		75A81B0F1E415E6F00F8F62C /* StoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoriesView.swift; path = "../User Interface/StoriesView.swift"; sourceTree = "<group>"; };
 		75A81B111E44DE3700F8F62C /* TutorialPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageController.swift; sourceTree = "<group>"; };
 		75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhone7Plus.storyboard; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				2EFC3A311DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift */,
 				755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */,
 				2EFC3A331DFA27F800D45E7E /* SelectProfilePictureViewController.swift */,
+				755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -859,6 +862,7 @@
 				2E49B8371E4A52E8005029C9 /* YouTubeUser.swift in Sources */,
 				E7A30F04D052C5D100000000 /* AWSAPI_0MZ6OXIFT5_RequestSchema.m in Sources */,
 				752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */,
+				755CAD721E856190008E94E3 /* ProfilePicturePageController.swift in Sources */,
 				E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

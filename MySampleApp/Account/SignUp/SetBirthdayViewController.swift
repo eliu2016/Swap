@@ -63,10 +63,7 @@ class SetBirthdayViewController: UIViewController {
         // save birthday
         self.performSegue(withIdentifier: "toEmailController", sender: nil)
 
-
-        
     }
-
 
     @IBAction func didTapBack(_ sender: Any) {
     

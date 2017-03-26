@@ -22,12 +22,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var tableView: UITableView!
     @IBOutlet var activityView: UIActivityIndicatorView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-
-       
-        
-    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
 
@@ -44,8 +39,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
         // Listens for reload notifications notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadNotifications), name: .reloadNotifications, object: nil)
-        
-        
+    
     }
     
     //table view
@@ -54,7 +48,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
         if swapRequests.count == 0 && acceptedRequests.count == 0{
             
-          
             self.tableView.backgroundView = blankTableMessage
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
             
@@ -62,7 +55,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         }
        
         else{
-            
             
              self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
  
@@ -308,10 +300,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var declineButton: UIButton!
     @IBOutlet var swapButton: UIButton!
     @IBOutlet var timeLabel: UILabel!
-
-    
-    
-    
+  
 }
 
 

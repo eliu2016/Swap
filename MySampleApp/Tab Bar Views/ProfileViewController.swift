@@ -241,10 +241,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
-            
-            
-            
-        
+
 
     })
         
@@ -528,7 +525,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             break
         }
     }
-    
     
 }
 

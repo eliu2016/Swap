@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         //make UI changes
         UIApplication.shared.statusBarStyle = .lightContent
         
-        var storyboard: UIStoryboard = self.grabStoryboard()
+        var storyboard: UIStoryboard = grabStoryboard()
         
         Fabric.with([Crashlytics.self(), Twitter.self(), Answers.self()])
         Fabric.sharedSDK().debug = true
@@ -322,43 +322,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     
+}
+
+func grabStoryboard() -> UIStoryboard {
+    // determine screen size
+    let screenHeight = UIScreen.main.bounds.size.height
+    var storyboard: UIStoryboard! = nil
     
-    
-    func grabStoryboard() -> UIStoryboard {
-        // determine screen size
-        let screenHeight = UIScreen.main.bounds.size.height
-        var storyboard: UIStoryboard! = nil
+    switch (screenHeight) {
+    // iPhone 4s
+    case 480:
+        storyboard = UIStoryboard(name: "IPad", bundle: nil)
+        break
+    // iPhone 5s
+    case 568:
+        storyboard = UIStoryboard(name: "IPhoneSE", bundle: nil)
+    // iPhone 6
+    case 667:
+        storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        switch (screenHeight) {
-        // iPhone 4s
-        case 480:
-            storyboard = UIStoryboard(name: "IPad", bundle: nil)
-            break
-        // iPhone 5s
-        case 568:
-            storyboard = UIStoryboard(name: "IPhoneSE", bundle: nil)
-        // iPhone 6
-        case 667:
-            storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-        // iPhone 6 Plus
-        case 736:
-            storyboard = UIStoryboard(name: "IPhone7Plus", bundle: nil)
-            
-        default:
-            storyboard = UIStoryboard(name: "IPad", bundle: nil)
-            // it's an iPad
-            break
-        }
+    // iPhone 6 Plus
+    case 736:
+        storyboard = UIStoryboard(name: "IPhone7Plus", bundle: nil)
         
-        return storyboard
+    default:
+        storyboard = UIStoryboard(name: "IPad", bundle: nil)
+        // it's an iPad
+        break
     }
     
-    
-    
-    
-    
+    return storyboard
 }
+
+
 
 
 
