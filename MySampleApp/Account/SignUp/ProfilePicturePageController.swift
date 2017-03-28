@@ -158,7 +158,7 @@ class SelectProfilePicViewController: UIViewController {
     
     
     var currentImage: UIImage?
-    var link: String?
+    var link: URL?
     
     override func viewDidLoad() {
         
@@ -177,13 +177,13 @@ class SelectProfilePicViewController: UIViewController {
         
         switch currentIndex {
         case 0:
-            link = "\(getInstagramProfilePictureLink())"
+            link = getInstagramProfilePictureLink()
             break
         case 1:
-            link = "\(getTwitterProfilePictureLink())"
+            link = getTwitterProfilePictureLink()
             break
         case 2:
-            link = "\(getYouTubeProfilePictureLink())"
+            link = getYouTubeProfilePictureLink()
             break
         case 3:
             currentImage = getContactImage() ?? #imageLiteral(resourceName: "DefaultProfileImage")
@@ -194,7 +194,7 @@ class SelectProfilePicViewController: UIViewController {
         
         if let selectedLink = link{
             
-            SwapUser().set(ProfileImage: selectedLink,  DidSetInformation: {
+            SwapUser().set(ProfileImage: "\(selectedLink)",  DidSetInformation: {
 
                 DispatchQueue.main.async {
 
