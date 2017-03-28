@@ -7,32 +7,32 @@
 //
 
 import Foundation
+import Kingfisher
 
 
-class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSource {
+var currentIndex = 0
+
+class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    weak var pageControlDelegate: ProfilePicPageControlDelegate?
     
     var instagramPicView = grabStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
     var twitterPicView = grabStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
     var youtubePicView = grabStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
     var contactPicView = grabStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
-    
-     let pageControl = UIPageControl()
+ 
     
     var pictureViews = [UIViewController]()
-    
+ 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-       
         if let instagramPic = getInstagramProfilePictureLink(){
             
             instagramPicView.imageURL = instagramPic
         }
         
-       if let twitterPic = getTwitterProfilePictureLink(){
+        if let twitterPic = getTwitterProfilePictureLink(){
             
             twitterPicView.imageURL = twitterPic
         }
@@ -43,13 +43,10 @@ class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSo
         }
         
        // contactPicView.imageURL  =  getContactImage()
-        
-        
         pictureViews = [instagramPicView, twitterPicView, youtubePicView, contactPicView]
         
         dataSource = self
-        
-        pageControlDelegate?.PageViewController(PageViewController: self, didUpdatePageCount: pictureViews.count)
+        delegate = self
         
         if let firstViewController = pictureViews.first {
             
@@ -57,12 +54,19 @@ class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSo
         }
    
     }
+
     
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        if completed{
+            
+            currentIndex = pictureViews.index(of: (viewControllers?.first)!)!
+            
+            NotificationCenter.default.post(name: .updatePageControl, object: nil)
+        }
+    }
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
      
-        
-        pageControl.currentPage -= 1
-    
         guard let viewControllerIndex = pictureViews.index(of: viewController) else {
             
             return nil
@@ -71,7 +75,7 @@ class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSo
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            
+      
             return pictureViews.last
         }
         
@@ -81,14 +85,12 @@ class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSo
         }
         
   
-        
         return pictureViews[previousIndex]
        
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
        
-        pageControl.currentPage += 1
         
         guard let viewControllerIndex = pictureViews.index(of: viewController) else {
             
@@ -99,6 +101,7 @@ class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSo
         let pictureViewsCount = pictureViews.count
         
         guard pictureViewsCount != nextIndex else{
+            
             return pictureViews.first
         }
         
@@ -106,49 +109,14 @@ class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSo
             return nil
         }
     
-        
         return pictureViews[nextIndex]
     
     }
     
-}
 
-extension ProfilePicPageController: UIPageViewControllerDelegate {
-    
-    private func pageViewController(pageViewController: UIPageViewController,
-                            didFinishAnimating finished: Bool,
-                            previousViewControllers: [UIViewController],
-                            transitionCompleted completed: Bool) {
-        
-        if let firstViewController = viewControllers?.first,
-            let index = pictureViews.index(of: firstViewController) {
-            pageControlDelegate?.PageViewController(PageViewController: self, didUpdatePageIndex: index)
-        }
-    }
     
 }
 
-protocol ProfilePicPageControlDelegate: class {
-    
-    /**
-     Called when the number of pages is updated.
-     
-     - parameter tutorialPageViewController: the TutorialPageViewController instance
-     - parameter count: the total number of pages.
-     */
-    func PageViewController(PageViewController: ProfilePicPageController,
-                                    didUpdatePageCount count: Int)
-    
-    /**
-     Called when the current index is updated.
-     
-     - parameter tutorialPageViewController: the TutorialPageViewController instance
-     - parameter index: the index of the currently visible page.
-     */
-    func PageViewController(PageViewController: ProfilePicPageController,
-                                    didUpdatePageIndex index: Int)
-    
-}
 
 class ProfilePicView: UIViewController {
     
@@ -181,41 +149,65 @@ class SelectProfilePicViewController: UIViewController {
     @IBOutlet var containerView: UIView!
     @IBOutlet var pageControl: UIPageControl!
     
+    
     var currentImage: UIImage?
+    var link: String?
     
+    override func viewDidLoad() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updatePageControl), name: .updatePageControl, object: nil)
+    }
+   
+        
     
-  // pageControlDelegate = self
+    func updatePageControl(){
+        
+        pageControl.currentPage = currentIndex
+    }
+    
        
     @IBAction func didSelectPicture(_ sender: Any) {
         
+        switch currentIndex {
+        case 0:
+            link = "\(getInstagramProfilePictureLink())"
+            break
+        case 1:
+            link = "\(getTwitterProfilePictureLink())"
+            break
+        case 2:
+            link = "\(getYouTubeProfilePictureLink())"
+            break
+        case 3:
+            currentImage = getContactImage() ?? #imageLiteral(resourceName: "DefaultProfileImage")
+            break
+        default:
+            currentImage = #imageLiteral(resourceName: "DefaultProfileImage")
+        }
         
-        let imageData = UIImageJPEGRepresentation(currentImage!, 1.0)
+        if let selectedLink = link{
         
-        SwapUser().uploadProfilePicture(withData: imageData!, completion: {_ in
-            
-            DispatchQueue.main.async {
-                
-                self.performSegue(withIdentifier: "showHome", sender: nil)
-            }
-        })
+            SwapUser().set(ProfileImage: link,  DidSetInformation: {
         
-    }
-    
-    
-}
+                DispatchQueue.main.async {
 
-extension SelectProfilePicViewController: ProfilePicPageControlDelegate {
+                    self.performSegue(withIdentifier: "showHome", sender: nil)
+                }
+            })
+        }
+        else {
+            
+            let imageData = UIImageJPEGRepresentation(currentImage!, 1.0)
+            SwapUser().uploadProfilePicture(withData: imageData!, completion: {_ in 
+            
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "showHome", sender: nil)
+                }
+            })
+        }
     
-    func PageViewController(PageViewController: ProfilePicPageController,
-                            didUpdatePageCount count: Int){
-    
-        pageControl.numberOfPages = count
-    }
-    
-    func PageViewController(PageViewController: ProfilePicPageController,
-                            didUpdatePageIndex index: Int) {
         
-        pageControl.currentPage = index
     }
+
 }
 

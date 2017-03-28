@@ -847,7 +847,7 @@
                                     <segue destination="9S9-U8-ilf" kind="embed" id="t0f-A7-ey9"/>
                                 </connections>
                             </containerView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Mnc-c2-iv2">
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mnc-c2-iv2">
                                 <rect key="frame" x="168" y="411" width="39" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
