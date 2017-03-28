@@ -4,7 +4,7 @@
 //
 //  Created by David Slakter on 3/24/17.
 //
-//
+//  File holds all the classes neccessay for the user to select a profile picture from the available logged in social medias. 
 
 import Foundation
 import Kingfisher
@@ -12,6 +12,7 @@ import Kingfisher
 
 var currentIndex = 0
 
+//view that holds all the available profile pictures in a PageViewController
 class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     
@@ -41,30 +42,33 @@ class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSo
             
             youtubePicView.imageURL = youtubePic
         }
-        
-       // contactPicView.imageURL  =  getContactImage()
+     
         pictureViews = [instagramPicView, twitterPicView, youtubePicView, contactPicView]
         
         dataSource = self
         delegate = self
         
+        //set the first controller in the pageViewController
         if let firstViewController = pictureViews.first {
             
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
    
     }
-
     
+     /*Delegate function*/
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
+        //only execute if the transition from one page to the next is completed
         if completed{
             
+            //update the current index and the page Control
             currentIndex = pictureViews.index(of: (viewControllers?.first)!)!
-            
             NotificationCenter.default.post(name: .updatePageControl, object: nil)
         }
     }
+    
+    /*Data Source Function*/
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
      
         guard let viewControllerIndex = pictureViews.index(of: viewController) else {
@@ -144,6 +148,9 @@ class ProfilePicView: UIViewController {
     
 }
 
+
+
+//View that holds the pageViewController
 class SelectProfilePicViewController: UIViewController {
     
     @IBOutlet var containerView: UIView!
@@ -165,7 +172,7 @@ class SelectProfilePicViewController: UIViewController {
         pageControl.currentPage = currentIndex
     }
     
-       
+    
     @IBAction func didSelectPicture(_ sender: Any) {
         
         switch currentIndex {
@@ -186,9 +193,9 @@ class SelectProfilePicViewController: UIViewController {
         }
         
         if let selectedLink = link{
-        
-            SwapUser().set(ProfileImage: link,  DidSetInformation: {
-        
+            
+            SwapUser().set(ProfileImage: selectedLink,  DidSetInformation: {
+
                 DispatchQueue.main.async {
 
                     self.performSegue(withIdentifier: "showHome", sender: nil)
@@ -196,7 +203,7 @@ class SelectProfilePicViewController: UIViewController {
             })
         }
         else {
-            
+    
             let imageData = UIImageJPEGRepresentation(currentImage!, 1.0)
             SwapUser().uploadProfilePicture(withData: imageData!, completion: {_ in 
             

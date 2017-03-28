@@ -1319,7 +1319,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.20125022501694348" green="0.57892739772796631" blue="0.57545518835498877" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="blurView" destination="HLf-23-4vn" id="2Ar-OQ-S8f"/>
@@ -1347,7 +1347,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1066.4000000000001" y="2886.2068965517242"/>
+            <point key="canvasLocation" x="-1066" y="2731"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Pj-B7-Yk8">
@@ -3179,8 +3179,8 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RQz-Ee-5ke"/>
-        <segue reference="hOk-qE-IeD"/>
-        <segue reference="YeA-4M-5uc"/>
+        <segue reference="ra5-oL-XrE"/>
+        <segue reference="F74-Hl-Lzw"/>
+        <segue reference="7cT-Je-Nm9"/>
     </inferredMetricsTieBreakers>
 </document>
