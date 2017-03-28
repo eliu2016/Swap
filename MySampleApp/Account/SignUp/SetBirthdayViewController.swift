@@ -61,6 +61,7 @@ class SetBirthdayViewController: UIViewController {
             
         }
         // save birthday
+        save(birthday: datePicker.date.timeIntervalSince1970 as Double)
         self.performSegue(withIdentifier: "toEmailController", sender: nil)
 
     }

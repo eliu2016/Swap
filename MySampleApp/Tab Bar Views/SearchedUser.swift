@@ -85,7 +85,7 @@ class SearchedUser: UIViewController {
                 else{
                     
                     self.disableSwapButton()
-                    let alert = UIAlertController(title: "Success", message: "You have just Swapped™ \(user?._firstname!) \(user?._lastname!)", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Success", message: "You have just Swapped™ \(user?._firstname! ?? "") \(user?._lastname ?? "")", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     

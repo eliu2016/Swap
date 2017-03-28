@@ -21,11 +21,6 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (1.2.2)
   - PhoneNumberKit/UIKit (1.2.2):
     - PhoneNumberKit/PhoneNumberKitCore
-  - Realm (2.4.4):
-    - Realm/Headers (= 2.4.4)
-  - Realm/Headers (2.4.4)
-  - RealmSwift (2.4.4):
-    - Realm (= 2.4.4)
   - Spring (1.0.3)
   - Swifter (2.0.2)
   - SwiftQRCode (3.0.2)
@@ -47,7 +42,6 @@ DEPENDENCIES:
   - OneSignal
   - p2.OAuth2
   - PhoneNumberKit (~> 1.2)
-  - RealmSwift
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - Swifter (from `https://github.com/mattdonnelly/Swifter.git`)
   - SwiftQRCode
@@ -81,8 +75,6 @@ SPEC CHECKSUMS:
   OneSignal: a94d1ca53d05c29de4f4b150bad8ff9c4cc34f67
   p2.OAuth2: 63d8d3e366ac2c43bfe8bfa13b42cfeb908c314e
   PhoneNumberKit: ffae8f18fb78c1425c7af973711b0b0fd4f4104f
-  Realm: 5a280a1f5a9a3c267bebf4f41ee47911137703d7
-  RealmSwift: 0c02b9f2d4be4301c497ed10e53a0580584eb1dd
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   Swifter: ec243114356f2e4c654a1957b770c6e925d2ea75
   SwiftQRCode: 280589699d84195c2c573011aa52f2c015c31c34
@@ -90,6 +82,6 @@ SPEC CHECKSUMS:
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: c2289887755e3250edfd2a441abb623e9ce6f4d7
+PODFILE CHECKSUM: 48c97b010da80eae2b13371340274e2c0d7ac859
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.0.rc.1

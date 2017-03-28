@@ -13,7 +13,7 @@ import Foundation
 ///
 /// - Parameter username: Username to save.
 func saveUsername(username: String?) {
-    UserDefaults.standard.set(username, forKey: "username")
+    UserDefaults.standard.set((username ?? "").lowercased(), forKey: "username")
     UserDefaults.standard.synchronize()
 }
 
@@ -290,6 +290,40 @@ func getVineUsername() -> String? {
 func getVinePassword() -> String? {
     
     return UserDefaults.standard.string(forKey: "VinePassword")
+    
+}
+
+func save(birthday: Double?)  {
+    
+    UserDefaults.standard.set(birthday, forKey: "birthday")
+    UserDefaults.standard.synchronize()
+}
+
+func getBirthday() -> Double {
+    
+    return UserDefaults.standard.double(forKey: "birthday")
+}
+
+func save(password: String?)  {
+    
+    UserDefaults.standard.set(password, forKey: "password")
+    UserDefaults.standard.synchronize()
+}
+
+func getPassword() -> String? {
+    
+    return UserDefaults.standard.string(forKey: "password")
+}
+
+func save(phoneNumber: String?)  {
+    
+    UserDefaults.standard.set(phoneNumber, forKey: "phonenumber")
+    UserDefaults.standard.synchronize()
+}
+
+func getPhoneNumber() -> String? {
+    
+    return UserDefaults.standard.string(forKey: "phonenumber")
     
 }
 

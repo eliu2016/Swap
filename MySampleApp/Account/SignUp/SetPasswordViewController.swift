@@ -24,7 +24,8 @@ class setPasswordViewController: UIViewController{
         
         if (passwordField.text?.length)! >= 6{
            
-            UserDefaults.standard.set(passwordField.text, forKey: "password")
+            
+            savePassword(password: passwordField.text)
             
             self.performSegue(withIdentifier: "toPhoneNumberController", sender: nil)
         }

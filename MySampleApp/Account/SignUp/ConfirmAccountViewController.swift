@@ -50,13 +50,19 @@ class ConfirmAccountViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didTapResendConfirmationCode(_ sender: UIButton) {
         
-        resendConfirmationCode(toUserWithUsername: getSavedUsername()!)
+        resendConfirmationCode(toUserWithUsername: getUsernameOfSignedInUser())
     }
     
     
     @IBAction func didConfirmCode(_ sender: UIButton) {
         
-      /*  confirmUser(withCode: confirmationCode.text, username: getSavedUsername()!,
+        guard  let number1 = field1.text, let number2 = field2.text, let number3 = field3.text, let number4 = field4.text, let number5 = field5.text, let number6 = field6.text else{
+            
+            return
+        }
+        
+        let code = number1+number2+number3+number4+number5+number6
+        confirmUser(withCode: code, username: getSavedUsername()!,
                     
         failed:{
             
@@ -78,7 +84,7 @@ class ConfirmAccountViewController: UIViewController, UITextFieldDelegate {
             }
             
             
-        })*/
+        })
     }
     
    
