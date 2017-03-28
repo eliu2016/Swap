@@ -21,6 +21,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordBottom: UIImageView!
     var blackOverlay: UIImageView?
     var loadingSymbol: UIImageView?
+    
+    @IBOutlet var orLabel: UILabel!
+    
     /// This variable should be located in whatever view controller is used to sign in
     var passwordAuthenticationCompletion: AWSTaskCompletionSource<AnyObject>?
     
@@ -72,6 +75,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
+        orLabel.isHidden = true
+        
         textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.gray])
         
         SignInButton.frame = CGRect(x: SignInButton.frame.origin.x, y: SignInButton.frame.origin.y - 60, width: SignInButton.frame.width, height: SignInButton.frame.height)
@@ -84,6 +89,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        
+        orLabel.isHidden = false
         
         textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.white])
         

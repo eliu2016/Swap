@@ -33,6 +33,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         refreshControl.tintColor = .white
         refreshControl.isHidden == true
         refreshControl.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
         refreshControl.addTarget(self, action: #selector(ContainerViewController.refresh), for: .valueChanged)
         
         
@@ -102,7 +103,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         SwapCenterButton.setImage(UIImage(named: "SwapButton"), for: .normal)
         SwapCenterButton.addTarget(self, action: #selector(SwapButtonAction(sender:)), for: .touchUpInside)
-        // 4) Finally set the size of the scroll view that contains the frames
+   
     
     }
 
@@ -182,8 +183,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         animateRefresh()
         postNotificationToReloadScreens()
-       
-        
+
     }
     
     func animateRefresh(){
@@ -198,6 +198,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         UIView.animate(withDuration: 1, animations: {
             
             refreshControl.backgroundColor = colorArray[ColorIndex.colorIndex]
+             self.view.backgroundColor = colorArray[ColorIndex.colorIndex]
             ColorIndex.colorIndex = (ColorIndex.colorIndex + 1) % colorArray.count
             
             
@@ -208,6 +209,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
             }
             else{
                   refreshControl.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
+                  self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
             }
         
         }

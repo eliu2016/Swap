@@ -63,8 +63,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     
  
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewController()
@@ -241,10 +239,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
-            
-            
-            
-        
+
 
     })
         
@@ -528,7 +523,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             break
         }
     }
-    
     
 }
 

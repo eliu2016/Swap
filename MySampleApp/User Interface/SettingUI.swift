@@ -18,3 +18,4 @@ func circularImage(photoImageView: UIImageView?)
     photoImageView!.layer.borderWidth = 1.0
     photoImageView!.contentMode = UIViewContentMode.scaleAspectFill
 }
+
