@@ -81,11 +81,22 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
         return sectionName
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       
+        if section == 0{
+            if swapRequests.count == 0{
+                return 0
+            }
+        }
+        
+        return UITableViewAutomaticDimension
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if section == 0{
-
+            
             return swapRequests.count
         }
         else if section == 1{
@@ -135,7 +146,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 }
             }
         }
-        
         
         
         return cell
@@ -214,10 +224,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     
-    
-    
-    
-    
+
     
     func loadNotifications()  {
         

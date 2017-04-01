@@ -22,7 +22,7 @@ class ShareSwapLinkView: UIViewController{
         
         swapLink.text = "swapapp.co/\(getUsernameOfSignedInUser())"
         
-        let shareVC = UIActivityViewController(activityItems: ["Go here to Swap with me: " + swapLink.text!], applicationActivities: nil)
+        let shareVC = UIActivityViewController(activityItems: ["Swap with me! " + swapLink.text!], applicationActivities: nil)
         present(shareVC, animated: true, completion: {
             
             self.loadingView?.isHidden = true

@@ -101,7 +101,7 @@ class SearchedUser: UIViewController {
     func makeSwapButtonRequested(){
      
         self.swapButton.isEnabled = false
-        self.swapButton.setTitleColor(UIColor.darkGray, for: .normal)
+        self.swapButton.titleLabel?.alpha = 0.4
         self.swapButton.setBackgroundImage(#imageLiteral(resourceName: "RequestedSwapButton"), for: .normal)
         self.swapButton.setTitle("Requested", for: .normal)
         self.swapButton.frame = CGRect(x: self.swapButton.frame.origin.x - 12, y: self.swapButton.frame.origin.y, width: self.swapButton.frame.width + 26, height: self.swapButton.frame.height)

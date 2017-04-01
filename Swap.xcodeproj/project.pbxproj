@@ -33,7 +33,6 @@
 		2EFC3A291DF9C37100D45E7E /* ExtensionsSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A281DF9C37100D45E7E /* ExtensionsSignIn.swift */; };
 		2EFC3A2D1DF9D96000D45E7E /* ConfirmAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A2C1DF9D96000D45E7E /* ConfirmAccountViewController.swift */; };
 		2EFC3A321DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A311DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift */; };
-		2EFC3A341DFA27F800D45E7E /* SelectProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A331DFA27F800D45E7E /* SelectProfilePictureViewController.swift */; };
 		2EFC3A391DFA2D6400D45E7E /* User Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A381DFA2D6400D45E7E /* User Errors.swift */; };
 		6337DB712712F1F8B142F0BE /* Pods_Swap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */; };
 		751B91691E5400CA0039AFA4 /* TwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B91681E5400CA0039AFA4 /* TwitterView.swift */; };
@@ -198,7 +197,6 @@
 		2EFC3A281DF9C37100D45E7E /* ExtensionsSignIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsSignIn.swift; sourceTree = "<group>"; };
 		2EFC3A2C1DF9D96000D45E7E /* ConfirmAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmAccountViewController.swift; sourceTree = "<group>"; };
 		2EFC3A311DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConnectingSocialMedias ViewController.swift"; sourceTree = "<group>"; };
-		2EFC3A331DFA27F800D45E7E /* SelectProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectProfilePictureViewController.swift; sourceTree = "<group>"; };
 		2EFC3A381DFA2D6400D45E7E /* User Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User Errors.swift"; sourceTree = "<group>"; };
 		751572101DFBBD3800ED4697 /* Lantinghei.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lantinghei.ttc; sourceTree = "<group>"; };
 		751B91681E5400CA0039AFA4 /* TwitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterView.swift; path = "MySampleApp/Preview Views/TwitterView.swift"; sourceTree = SOURCE_ROOT; };
@@ -329,7 +327,6 @@
 				752A6BD11E1F286000E6695B /* SetBirthdayViewController.swift */,
 				2EFC3A311DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift */,
 				755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */,
-				2EFC3A331DFA27F800D45E7E /* SelectProfilePictureViewController.swift */,
 				755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */,
 			);
 			path = SignUp;
@@ -807,7 +804,6 @@
 				2EC5652C1DF924FA00D587EB /* Constants.swift in Sources */,
 				2EE143C31E371F85000EADB7 /* Compilation.swift in Sources */,
 				752A6BDC1E20D21F00E6695B /* ContainerViewController.swift in Sources */,
-				2EFC3A341DFA27F800D45E7E /* SelectProfilePictureViewController.swift in Sources */,
 				E7A30F04571346AE00000000 /* AppDelegate.swift in Sources */,
 				75A81B121E44DE3700F8F62C /* TutorialPageController.swift in Sources */,
 				751B91691E5400CA0039AFA4 /* TwitterView.swift in Sources */,

@@ -127,14 +127,13 @@ class ProfilePicView: UIViewController {
     @IBOutlet var picture: UIImageView!
     
     var imageURL: URL!
-    var image: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         if imageURL == nil{
             
-            picture.image = #imageLiteral(resourceName: "DefaultProfileImage")
+            picture.image = getContactImage() ?? #imageLiteral(resourceName: "DefaultProfileImage")
         }
         else{
             
@@ -143,12 +142,9 @@ class ProfilePicView: UIViewController {
         
         circularImage(photoImageView: picture)
         
-        image = picture.image
     }
     
 }
-
-
 
 //View that holds the pageViewController
 class SelectProfilePicViewController: UIViewController {
@@ -161,7 +157,7 @@ class SelectProfilePicViewController: UIViewController {
     var link: URL?
     
     override func viewDidLoad() {
-        
+        currentIndex = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.updatePageControl), name: .updatePageControl, object: nil)
     }
    
@@ -204,7 +200,7 @@ class SelectProfilePicViewController: UIViewController {
         }
         else {
     
-            let imageData = UIImageJPEGRepresentation(currentImage!, 1.0)
+            let imageData = UIImageJPEGRepresentation(currentImage ?? #imageLiteral(resourceName: "DefaultProfileImage"), 1.0)
             SwapUser().uploadProfilePicture(withData: imageData!, completion: {_ in 
             
                 DispatchQueue.main.async {
