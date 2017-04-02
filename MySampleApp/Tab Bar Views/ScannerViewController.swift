@@ -28,7 +28,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
     var confirmSwapBackground: UIImageView?
     
     @IBOutlet var confirmSwapView: UIView!
-    @IBOutlet var blurView: UIVisualEffectView!
+   // @IBOutlet var blurView: UIVisualEffectView!
 
     var effect: UIVisualEffect!
     
@@ -36,7 +36,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
         super.viewDidLoad()
         
         
-        blurView.isHidden = true
+      //  blurView.isHidden = true
         
         setupViewController()
       
@@ -101,19 +101,20 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
         
     }
     func animateInSwapView(){
-    
-        confirmSwapView.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 200)
-       
-         confirmSwapView.alpha = 0
+        
+   //     blurView.isHidden = false
+        confirmSwapView.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
+        confirmSwapView.isHidden = false
+     
          self.view.addSubview(confirmSwapView)
          self.view.bringSubview(toFront: self.confirmSwapView)
         
-        UIView.animate(withDuration: 0.4){
+      /*  UIView.animate(withDuration: 0.4){
             
             self.blurView.isHidden = false
             self.confirmSwapView.alpha = 1
              self.confirmSwapView.transform = CGAffineTransform.init(translationX: 0, y: -200)
-        }
+        }*/
         
     }
     
@@ -170,8 +171,6 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate{
                     scanner.startScan()
                     
                 }
-                
-                
                 
                 
                 if let user = user {

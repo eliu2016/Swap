@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -826,11 +826,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RightCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="JVi-h3-SMo">
-                                <rect key="frame" x="244" y="523" width="13" height="15"/>
+                                <rect key="frame" x="244" y="520" width="13" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lD-2x-RJd">
-                                <rect key="frame" x="127" y="505" width="120" height="51"/>
+                                <rect key="frame" x="127" y="502" width="120" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
                                 <state key="normal" title="Set Picture">
@@ -852,6 +852,17 @@
                                 <rect key="frame" x="168" y="411" width="39" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmG-re-kXN">
+                                <rect key="frame" x="150" y="564" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="aQI-gv-sSM" kind="show" id="XeN-Uv-uGi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -863,7 +874,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlS-uA-Lr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5732" y="363"/>
+            <point key="canvasLocation" x="5732" y="362.96851574212894"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="Aq8-Wj-azY">
@@ -1297,33 +1308,10 @@
                                 <color key="textColor" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLf-23-4vn">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="UAK-OF-kRp">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05D-Kf-rvD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="JsJ-6e-gsX">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <vibrancyEffect>
-                                                <blurEffect style="light"/>
-                                            </vibrancyEffect>
-                                        </visualEffectView>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="0.20125022501694348" green="0.57892739772796631" blue="0.57545518835498877" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="blurView" destination="HLf-23-4vn" id="2Ar-OQ-S8f"/>
                         <outlet property="confirmSwapButton" destination="DU9-U3-8wp" id="nqw-G6-CIm"/>
                         <outlet property="confirmSwapLabel" destination="IAf-Sx-3hm" id="1X4-Im-NLj"/>
                         <outlet property="confirmSwapView" destination="Hrv-xF-q9W" id="Ycj-A1-gYC"/>
@@ -1337,11 +1325,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="229" height="125"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tM7-AU-d78">
-                            <rect key="frame" x="74" y="20" width="81" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <nil key="textColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zht-1l-zZB">
+                            <rect key="frame" x="52" y="40" width="125" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.37426867161839361" green="0.3779743020304569" blue="0.3779743020304569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -1358,7 +1346,7 @@
                         <inset key="imageInsets" minX="-2" minY="10" maxX="2" maxY="-10"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3b-Y0-b5o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d3b-Y0-b5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1376,7 +1364,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Zxc-qU-hxd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q8T-Kx-S5U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Q8T-Kx-S5U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1803,7 +1791,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2b1-OV-Fx1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2b1-OV-Fx1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1833,7 +1821,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V4p-D6-RZp">
-                                <rect key="frame" x="-2" y="152" width="377" height="515"/>
+                                <rect key="frame" x="-2" y="152" width="377" height="466"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2260,7 +2248,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="76z-Br-5kh">
-                                <rect key="frame" x="0.0" y="61" width="375" height="606"/>
+                                <rect key="frame" x="0.0" y="61" width="375" height="557"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2276,14 +2264,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T7-xC-ssa">
-                                                    <rect key="frame" x="76" y="26" width="197" height="21"/>
+                                                    <rect key="frame" x="76" y="15" width="197" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZk-QK-Kap">
-                                                    <rect key="frame" x="81" y="46" width="162" height="21"/>
+                                                    <rect key="frame" x="81" y="36" width="162" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                     <color key="textColor" red="0.38733343908629436" green="0.38733343908629436" blue="0.38733343908629436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2293,10 +2281,60 @@
                                                     <rect key="frame" x="11" y="15" width="57" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JDy-1q-WZW">
+                                                    <rect key="frame" x="101" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InstagramBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="FVU-dN-sFY">
+                                                    <rect key="frame" x="77" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProfileBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5aI-nx-0ya">
+                                                    <rect key="frame" x="122" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YouTubeBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="41P-Yd-lFt">
+                                                    <rect key="frame" x="145" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoundCloudBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9Pw-Of-OQf">
+                                                    <rect key="frame" x="193" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedditBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-U0-wWf">
+                                                    <rect key="frame" x="213" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PinterestBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="cqN-Y8-aaF">
+                                                    <rect key="frame" x="234" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpotifyBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="603-oZ-Uyd">
+                                                    <rect key="frame" x="254" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GithubBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bTW-d8-f5q">
+                                                    <rect key="frame" x="275" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VimeoBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ICp-lD-ywB">
+                                                    <rect key="frame" x="169" y="63" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="profilePicture" destination="0i9-qy-Rgy" id="La8-IK-X2a"/>
+                                            <outlet property="socialMedia1" destination="FVU-dN-sFY" id="cv7-oG-JQs"/>
+                                            <outlet property="socialMedia10" destination="bTW-d8-f5q" id="k1J-5Z-hmg"/>
+                                            <outlet property="socialMedia2" destination="JDy-1q-WZW" id="9Zr-a8-7XR"/>
+                                            <outlet property="socialMedia3" destination="5aI-nx-0ya" id="6PA-nc-jRq"/>
+                                            <outlet property="socialMedia4" destination="41P-Yd-lFt" id="cEU-78-ddM"/>
+                                            <outlet property="socialMedia5" destination="ICp-lD-ywB" id="jWv-8R-jZX"/>
+                                            <outlet property="socialMedia6" destination="9Pw-Of-OQf" id="vDe-SI-LiC"/>
+                                            <outlet property="socialMedia7" destination="ePX-U0-wWf" id="Cdv-La-cmQ"/>
+                                            <outlet property="socialMedia8" destination="cqN-Y8-aaF" id="1Kf-kq-boV"/>
+                                            <outlet property="socialMedia9" destination="603-oZ-Uyd" id="Nvb-6D-FQG"/>
                                             <outlet property="swapDate" destination="OZk-QK-Kap" id="kLI-tw-701"/>
                                             <outlet property="username" destination="5T7-xC-ssa" id="Wok-ob-zWX"/>
                                         </connections>
@@ -2307,17 +2345,23 @@
                                     <outlet property="delegate" destination="uk7-cp-m3y" id="VI1-Xu-7Iw"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6vk-cS-raj">
+                                <rect key="frame" x="335" y="30" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="activityView" destination="6vk-cS-raj" id="tcb-Gz-zhK"/>
                         <outlet property="tableView" destination="76z-Br-5kh" id="zrF-ip-Emc"/>
                         <segue destination="NoF-RS-s3A" kind="presentation" identifier="ShowSwapsUserProfile" id="awe-Xf-xUj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWm-tc-dg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3488.8000000000002" y="1800.4497751124438"/>
+            <point key="canvasLocation" x="3489" y="1801"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="F5p-WE-o91">
@@ -2421,7 +2465,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="JuD-eH-h69" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEL-zP-Ibz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wEL-zP-Ibz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2763,8 +2807,13 @@
                                 <rect key="frame" x="6" y="33" width="13" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7mb-LE-qcb">
+                                <rect key="frame" x="337" y="29" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZBM-sb-Wh4">
-                                <rect key="frame" x="0.0" y="61" width="375" height="606"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="557"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2776,31 +2825,81 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlackCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="1rV-Sk-o3Q">
-                                                    <rect key="frame" x="341" y="35" width="13" height="17"/>
+                                                    <rect key="frame" x="341" y="28" width="13" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBQ-0s-MFc">
-                                                    <rect key="frame" x="84" y="25" width="173" height="21"/>
+                                                    <rect key="frame" x="76" y="13" width="173" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="32 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKH-xx-eY3">
-                                                    <rect key="frame" x="90" y="48" width="172" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" red="0.38733343910000001" green="0.38733343910000001" blue="0.38733343910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="aBg-HH-ryb">
                                                     <rect key="frame" x="11" y="15" width="57" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ZYq-cV-BIL">
+                                                    <rect key="frame" x="104" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InstagramBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="kxj-n3-ycj">
+                                                    <rect key="frame" x="80" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProfileBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="EQV-3Q-5ed">
+                                                    <rect key="frame" x="125" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YouTubeBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="3as-sa-1im">
+                                                    <rect key="frame" x="148" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoundCloudBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Qiy-N9-GJE">
+                                                    <rect key="frame" x="196" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedditBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0uV-J8-82g">
+                                                    <rect key="frame" x="216" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PinterestBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Glw-SW-Z2O">
+                                                    <rect key="frame" x="237" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpotifyBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0Yh-Ti-9No">
+                                                    <rect key="frame" x="257" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="32 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKH-xx-eY3">
+                                                    <rect key="frame" x="89" y="36" width="172" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                    <color key="textColor" red="0.38733343910000001" green="0.38733343910000001" blue="0.38733343910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VimeoBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="glF-36-pzY">
+                                                    <rect key="frame" x="172" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GithubBlackIcon" translatesAutoresizingMaskIntoConstraints="NO" id="jq3-fW-Csj">
+                                                    <rect key="frame" x="278" y="61" width="16" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="profilePicture" destination="aBg-HH-ryb" id="x0q-nW-pwG"/>
+                                            <outlet property="socialMedia1" destination="kxj-n3-ycj" id="G1b-Nj-qV9"/>
+                                            <outlet property="socialMedia10" destination="jq3-fW-Csj" id="Mp2-eC-R96"/>
+                                            <outlet property="socialMedia2" destination="ZYq-cV-BIL" id="Yjy-Yx-wp0"/>
+                                            <outlet property="socialMedia3" destination="EQV-3Q-5ed" id="sPw-qz-oDU"/>
+                                            <outlet property="socialMedia4" destination="3as-sa-1im" id="VLe-hE-1vc"/>
+                                            <outlet property="socialMedia5" destination="glF-36-pzY" id="PlG-TH-mnK"/>
+                                            <outlet property="socialMedia6" destination="Qiy-N9-GJE" id="dY9-Qf-Gow"/>
+                                            <outlet property="socialMedia7" destination="0uV-J8-82g" id="oe6-Iz-aFq"/>
+                                            <outlet property="socialMedia8" destination="Glw-SW-Z2O" id="tb1-vp-xLh"/>
+                                            <outlet property="socialMedia9" destination="0Yh-Ti-9No" id="F4X-Aa-7Ck"/>
                                             <outlet property="swapDate" destination="CKH-xx-eY3" id="h07-QX-kfF"/>
                                             <outlet property="username" destination="gBQ-0s-MFc" id="tJA-op-QFx"/>
                                         </connections>
@@ -2815,6 +2914,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="7mb-LE-qcb" id="6tU-en-Qcy"/>
                         <outlet property="tableView" destination="ZBM-sb-Wh4" id="mPq-7v-boT"/>
                         <segue destination="NoF-RS-s3A" kind="presentation" identifier="ShowSwappedUserProfile" id="F74-Hl-Lzw"/>
                     </connections>
@@ -2831,7 +2931,7 @@
                         <inset key="imageInsets" minX="35" minY="7" maxX="-35" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mml-ww-BEp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mml-ww-BEp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2847,7 +2947,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="gYP-cj-W0A">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="NoF-RS-s3A" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SearchUsersTabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NoF-RS-s3A" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="O7g-h9-2dA">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -3134,6 +3234,7 @@
         <image name="DenyButton" width="122" height="34"/>
         <image name="EmailDisabled" width="66" height="66"/>
         <image name="ExploreIcon" width="28" height="28"/>
+        <image name="GithubBlackIcon" width="64" height="64"/>
         <image name="GithubDark" width="45" height="43"/>
         <image name="GithubDisabled" width="66" height="66"/>
         <image name="Header1" width="522" height="67"/>
@@ -3148,10 +3249,12 @@
         <image name="MainBackground" width="378" height="666"/>
         <image name="NotificationIcon" width="27" height="27"/>
         <image name="PhoneDisabled" width="66" height="66"/>
+        <image name="PinterestBlackIcon" width="64" height="64"/>
         <image name="PinterestDark" width="55" height="54"/>
         <image name="PinterestDisabled" width="66" height="66"/>
         <image name="ProfileBlackIcon" width="28" height="29"/>
         <image name="PublicSwapButton" width="136" height="46"/>
+        <image name="RedditBlackIcon" width="64" height="64"/>
         <image name="RedditDark" width="43" height="42"/>
         <image name="RedditDisabled" width="66" height="66"/>
         <image name="RightCarrot" width="32" height="32"/>
@@ -3159,8 +3262,10 @@
         <image name="SendCodeButton" width="95" height="17"/>
         <image name="SettingsIcon" width="102" height="99"/>
         <image name="ShareIcon" width="64" height="64"/>
+        <image name="SoundCloudBlackIcon" width="64" height="64"/>
         <image name="SoundCloudDark" width="56" height="54"/>
         <image name="SoundCloudDisabled" width="66" height="66"/>
+        <image name="SpotifyBlackIcon" width="64" height="64"/>
         <image name="SpotifyDark" width="56" height="55"/>
         <image name="SpotifyDisabled" width="66" height="66"/>
         <image name="SwapNotificationsButton" width="122" height="40"/>
@@ -3171,6 +3276,7 @@
         <image name="TwitterDisabled" width="66" height="66"/>
         <image name="UploadIcon" width="64" height="64"/>
         <image name="VerifiedIcon" width="27" height="27"/>
+        <image name="VimeoBlackIcon" width="64" height="64"/>
         <image name="VimeoDark" width="31" height="31"/>
         <image name="VimeoDisabled" width="66" height="66"/>
         <image name="YouTubeBlackIcon" width="37" height="25"/>
@@ -3180,8 +3286,8 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YeA-4M-5uc"/>
+        <segue reference="awe-Xf-xUj"/>
         <segue reference="ra5-oL-XrE"/>
-        <segue reference="7cT-Je-Nm9"/>
+        <segue reference="XeN-Uv-uGi"/>
     </inferredMetricsTieBreakers>
 </document>
