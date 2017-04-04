@@ -149,6 +149,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.nameLabel.text = "User Not Found"
                     self.bioLabel.text = ""
                     self.verifiedIcon.isHidden = true
+                    self.profilePic.image = #imageLiteral(resourceName: "DefaultProfileImage")
                     
                     
                     // Restart Scanner After Showing Pop Up View
@@ -253,6 +254,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.nameLabel.text = "User Not Found"
                     self.bioLabel.text = ""
                     self.verifiedIcon.isHidden = true
+                    self.profilePic.image = #imageLiteral(resourceName: "DefaultProfileImage")
                     
                     return
                 }
