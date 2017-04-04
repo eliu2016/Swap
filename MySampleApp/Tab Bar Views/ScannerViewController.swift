@@ -84,7 +84,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         blurView.isHidden = true
         
         // User has tapped the screen
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             
             self.confirmSwapView.alpha = 0
             self.confirmSwapView.transform = CGAffineTransform.init(translationX: 0, y: 200)
@@ -100,7 +100,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         blurView.isHidden = false
         
-        UIView.animate(withDuration: 0.2){
+        UIView.animate(withDuration: 0.3){
             
             self.confirmSwapView.alpha = 1
             self.confirmSwapView.transform = CGAffineTransform.init(translationX: 0, y: -200)
@@ -166,7 +166,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         let lockedImageString = NSAttributedString(attachment: lockedImageAttachment)
                         
                         
-                        let nameString = NSMutableAttributedString(string: "\(user._firstname ?? "") \(user._lastname ?? "")")
+                        let nameString = NSMutableAttributedString(string: " \(user._firstname ?? "") \(user._lastname ?? "")")
                         
                         fullString.append(lockedImageString)
                         fullString.append(nameString)
@@ -224,27 +224,3 @@ func getUsernameFromSwapLink(swapLink: String) -> String {
     
 }
 
-func fall(imageView: UIImageView){
-    let layer = imageView as! SpringImageView
-    layer.animation = "fall"
-    layer.curve = "easeIn"
-    layer.duration = 1.0
-    layer.animate()
-}
-
-
- func fall(button: UIButton)  {
-    let layer = button as! SpringButton
-    layer.animation = "fall"
-    layer.curve = "easeIn"
-    layer.duration = 1.0
-    layer.animate()
-}
-
-func fall(label: UILabel){
-    let layer = label as! SpringLabel
-    layer.animation = "fall"
-    layer.curve = "easeIn"
-    layer.duration = 1.0
-    layer.animate()
-}
