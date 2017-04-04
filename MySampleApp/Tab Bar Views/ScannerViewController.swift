@@ -84,7 +84,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         blurView.isHidden = true
         
         // User has tapped the screen
-        UIView.animate(withDuration: 0.4, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             
             self.confirmSwapView.alpha = 0
             self.confirmSwapView.transform = CGAffineTransform.init(translationX: 0, y: 200)
@@ -100,7 +100,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         blurView.isHidden = false
         
-        UIView.animate(withDuration: 0.4){
+        UIView.animate(withDuration: 0.2){
             
             self.confirmSwapView.alpha = 1
             self.confirmSwapView.transform = CGAffineTransform.init(translationX: 0, y: -200)

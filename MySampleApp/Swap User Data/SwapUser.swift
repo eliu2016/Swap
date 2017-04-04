@@ -1147,7 +1147,7 @@ class SwapUser {
                             
                             
                             // Log analytics
-                            Analytics.didSwap(byMethod: .username, isPrivate: true)
+                            Analytics.didSwap(byMethod: method, isPrivate: true)
                             
                              DispatchQueue.main.async {
                                 
@@ -1182,7 +1182,7 @@ class SwapUser {
                     shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                     
-                    let currentUser = SwapUser()
+                    let currentUser = self
                     let otherUser =   SwapUser(username: user._username!)
                     
                     // Check if already Swapped
