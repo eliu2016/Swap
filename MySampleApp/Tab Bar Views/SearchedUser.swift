@@ -67,7 +67,7 @@ class SearchedUser: UIViewController {
     
     @IBAction func didTapSwap(_ sender: Any) {
         
-       SwapUser().swap(with: searchedUser, authorizeOnViewController: self) { (error, user) in
+        SwapUser().swap(with: searchedUser, authorizeOnViewController: self, method: .username) { (error, user) in
         
         
         if let error = error{
