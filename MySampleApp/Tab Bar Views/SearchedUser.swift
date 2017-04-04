@@ -227,7 +227,7 @@ class SearchedUser: UIViewController {
                             }
                         })
                     }
-                    
+                
                 
                 //show the hidden views
                 self.profilePicture.isHidden = false
