@@ -60,7 +60,7 @@ CHECKOUT OPTIONS:
     :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
     :git: https://github.com/MengTo/Spring.git
   Swifter:
-    :commit: b555f888a225399702c6deec7040e07a368a61f9
+    :commit: 6d15237f58a1c4d65d8686978dfb9e0132e625b5
     :git: https://github.com/mattdonnelly/Swifter.git
 
 SPEC CHECKSUMS:
@@ -84,4 +84,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 48c97b010da80eae2b13371340274e2c0d7ac859
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.0.rc.1
