@@ -146,7 +146,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     
                     // There was an error trying to get the user from the swap code
                     self.animateInSwapView()
-                    self.nameLabel.text = "Error Getting User"
+                    self.nameLabel.text = "User Not Found"
                     self.bioLabel.text = ""
                     self.verifiedIcon.isHidden = true
                     
@@ -237,15 +237,89 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if let pickedimage = info[UIImagePickerControllerEditedImage] as? UIImage {
             
+            
+            
             let swapLink = swapCodeLinkFrom(Image: pickedimage)
-            
-            print("THE SWAP LINK IS ... \(swapLink)")
-            
             let usernameFromSwapCode = getUsernameFromSwapLink(swapLink: swapLink)
             
-            print("THE USERNAME IS ... \(usernameFromSwapCode)")
             
             
+            SwapUser().swap(with: usernameFromSwapCode, authorizeOnViewController: self, completion: { (error, user) in
+                
+                guard error == nil, let user = user else {
+                    // User Not Found
+                    // There was an error trying to get the user from the swap code
+                    self.animateInSwapView()
+                    self.nameLabel.text = "User Not Found"
+                    self.bioLabel.text = ""
+                    self.verifiedIcon.isHidden = true
+                    
+                    return
+                }
+                
+                
+                if user._isPrivate?.boolValue ?? false{
+                    
+                    //the user is private; notify the user that a request was sent.
+                    self.animateInSwapView()
+                    
+                    let fullString = NSMutableAttributedString(string: "")
+                    
+                    let lockedImageAttachment = NSTextAttachment()
+                    lockedImageAttachment.image =  #imageLiteral(resourceName: "LockIcon")
+                    
+                    let lockedImageString = NSAttributedString(attachment: lockedImageAttachment)
+                    
+                    
+                    let nameString = NSMutableAttributedString(string: " \(user._firstname ?? "") \(user._lastname ?? "")")
+                    
+                    fullString.append(lockedImageString)
+                    fullString.append(nameString)
+                    
+                    
+                    
+                    self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
+                    
+                    self.nameLabel.attributedText = fullString
+                    
+                    self.bioLabel.text = user._bio ?? ""
+                    
+                    if !(user._isVerified as? Bool ?? false){
+                        
+                        self.verifiedIcon.isHidden = true
+                    }
+                    else{
+                        self.verifiedIcon.isHidden = false
+                    }
+                    
+                }
+                    
+                else{
+                    
+                    
+                    //notify the user that swap was sucessful
+                    self.animateInSwapView()
+                    
+                    
+                    self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
+                    
+                    self.nameLabel.text = "\(user._firstname ?? "") \(user._lastname ?? "")"
+                    
+                    self.bioLabel.text = user._bio ?? ""
+                    
+                    if !(user._isVerified as? Bool ?? false){
+                        
+                        self.verifiedIcon.isHidden = true
+                    }
+                    else{
+                        self.verifiedIcon.isHidden = false
+                    }
+                    
+                }
+                
+                
+                
+            })
             
             
         }
