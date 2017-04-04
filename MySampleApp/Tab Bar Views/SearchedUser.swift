@@ -192,6 +192,12 @@ class SearchedUser: UIViewController {
                 self.swappedNumberLabel.text = "\(user?._swapped ?? 0)"
                 self.swapsNumberLabel.text = "\(user?._swaps ?? 0)"
                 
+                //check if the searched user is the signed in user
+                if searchedUser == getUsernameOfSignedInUser() {
+                    
+                    self.disableSwapButton()
+                    
+                }
             
                 
                 if (user?._isPrivate as? Bool)!{
@@ -202,14 +208,7 @@ class SearchedUser: UIViewController {
                     self.swapButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 10)
                     
                     
-                    //check if the searched user is the signed in user
-                    if searchedUser == getUsernameOfSignedInUser() {
-                        
-                        self.disableSwapButton()
-                        
-                    }
-                    else {
-                       
+                   
                         //check if the searched user has a pending swap by the signed in user.
                         SwapUser(username: getUsernameOfSignedInUser()).getPendingSentSwapRequests(result: { (error, requests) in
                         
@@ -229,7 +228,6 @@ class SearchedUser: UIViewController {
                         })
                     }
                     
-                }
                 
                 //show the hidden views
                 self.profilePicture.isHidden = false
