@@ -29,6 +29,12 @@ class ShareSwapLinkView: UIViewController{
             
         })
     }
+
+    @IBAction func copyLink(_ sender: Any) {
+        
+        UIPasteboard.general.string = swapLink.text
+        
+    }
     
     @IBAction func didTapBack(_ sender: Any) {
         

@@ -19,6 +19,7 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+    
         
         SwapUser().getSwappedHistory { (error, swappedHistory) in
             
@@ -54,6 +55,8 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "swappedCell", for: indexPath) as! swappedTableCell;
+        
+        cell.selectionStyle = .none
         
         let user = swappedHistoryUsers[indexPath.item]
         

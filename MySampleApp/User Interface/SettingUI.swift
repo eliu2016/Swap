@@ -18,4 +18,12 @@ func circularImage(photoImageView: UIImageView?)
     photoImageView!.layer.borderWidth = 1.0
     photoImageView!.contentMode = UIViewContentMode.scaleAspectFill
 }
-
+func circularImageNoBorder(photoImageView: UIImageView?){
+    photoImageView!.layer.frame = photoImageView!.layer.frame.insetBy(dx: 0, dy: 0)
+    photoImageView!.layer.borderColor = (UIColor.clear).cgColor
+    photoImageView!.layer.cornerRadius = photoImageView!.frame.height/2
+    photoImageView!.layer.masksToBounds = false
+    photoImageView!.clipsToBounds = true
+    photoImageView!.layer.borderWidth = 1.0
+    photoImageView!.contentMode = UIViewContentMode.scaleAspectFill
+}

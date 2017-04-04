@@ -87,7 +87,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         scrollView.addSubview(refreshControl)
         
-        SwapCenterButton = UIButton(frame: CGRect(x: self.view.frame.size.width*0.42, y: self.view.frame.size.height*0.9, width: 62, height: 60))
+        SwapCenterButton = UIButton(frame: getSwapButtonFrame())
         
       /*  var menuButtonFrame = SwapCenterButton.frame
         menuButtonFrame.origin.y = view.bounds.height - menuButtonFrame.height
@@ -96,7 +96,6 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         
       //  SwapCenterButton.layer.cornerRadius = SwapCenterButton.height/2
-        
         SwapCenterButton.layer.zPosition = 2
         
         view.addSubview(SwapCenterButton)
@@ -105,6 +104,30 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         SwapCenterButton.addTarget(self, action: #selector(SwapButtonAction(sender:)), for: .touchUpInside)
    
     
+    }
+    func getSwapButtonFrame() -> CGRect{
+        
+        var buttonRect: CGRect?
+        
+        switch(self.storyboard?.value(forKey: "name") as! String){
+            
+            case "Main":
+                buttonRect = CGRect(x: self.view.frame.size.width*0.42, y: self.view.frame.size.height*0.9, width: 62, height: 60)
+                break
+            case "IPhone7Plus":
+                buttonRect = CGRect(x: 177, y: 665, width: 65, height: 65)
+                break
+            case "IPhoneSE":
+                break
+            case "IPad":
+                break
+            default:
+                 buttonRect = CGRect(x: self.view.frame.size.width*0.42, y: self.view.frame.size.height*0.9, width: 62, height: 60)
+                break
+            
+            
+        }
+        return buttonRect!
     }
 
     

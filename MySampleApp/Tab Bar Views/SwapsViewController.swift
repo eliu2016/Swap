@@ -16,8 +16,9 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var swapHistoryUsers: [SwapHistory] = []
     var sharedSocialMedias: [UIImage] = []
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
         
+        super.viewWillAppear(animated)
         
         SwapUser().getSwapHistory { (error, swapHistory) in
             
@@ -48,6 +49,8 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "swapsCell", for: indexPath) as! swapsTableCell;
+        
+         cell.selectionStyle = .none
         
         let user = swapHistoryUsers[indexPath.item]
         
