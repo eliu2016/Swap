@@ -483,7 +483,11 @@ func authorizePinterest(onViewController: UIViewController, completion: @escapin
     
     logoutPinterest()
     
+    pinterest_oauth2.authConfig.authorizeEmbedded = true
     
+    pinterest_oauth2.authConfig.authorizeContext = onViewController
+    
+    pinterest_oauth2.authConfig.ui.useSafariView = false
     
     pinterest_oauth2.authorizeEmbedded(from: onViewController, callback: { (parameters, error) in
         
