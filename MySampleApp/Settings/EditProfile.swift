@@ -24,6 +24,8 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
     @IBOutlet var activityView: UIActivityIndicatorView!
     @IBOutlet var doneActivityView: UIActivityIndicatorView!
     
+    var didChangeProfilePicture: Bool = false
+    
     
     override func viewDidLoad() {
         
@@ -55,6 +57,8 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
 
     @IBAction func didPressDone(_ sender: Any) {
     
+        print("DID CHANGE PROFILE PICTURE: \(didChangeProfilePicture)")
+        
         let firstName = editProfileFirstName
         let lastName = editProfileLastName
         let email = editProfileEmail
@@ -65,23 +69,42 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
         doneActivityView.startAnimating()
         doneButton.isHidden = true
         
-            SwapUser().uploadProfilePicture(withData: imageData!, completion:
-            {_ in
-                
-                SwapUser().set(Firstname: firstName, Lastname: lastName, Email: email, Birthday: birthday,  DidSetInformation: {
+        if didChangeProfilePicture{
             
-                    DispatchQueue.main.async {
+            SwapUser().uploadProfilePicture(withData: imageData!, completion:
+                {_ in
+                    
+                    SwapUser().set(Firstname: firstName, Lastname: lastName, Email: email, Birthday: birthday,  DidSetInformation: {
                         
-                    self.navigationController?.popViewController(animated: true)
+                        DispatchQueue.main.async {
+                            
+                            self.navigationController?.popViewController(animated: true)
+                            NotificationCenter.default.post(name: .reloadProfile, object: nil)
+                        }
                         
-                    }
-                 
-                }, CannotSetInformation: {
-        
-                    print("error setting basic profile info")
-                })
-        
+                    }, CannotSetInformation: {
+                        
+                        print("error setting basic profile info")
+                    })
+                    
             })
+        }
+        
+        SwapUser().set(Firstname: firstName, Lastname: lastName, Email: email, Birthday: birthday,  DidSetInformation: {
+            
+            DispatchQueue.main.async {
+                
+                self.navigationController?.popViewController(animated: true)
+                NotificationCenter.default.post(name: .reloadProfile, object: nil)
+                
+            }
+            
+        }, CannotSetInformation: {
+            
+            print("error setting basic profile info")
+        })
+       
+        
     }
     
     @IBAction func changePicture(_ sender: Any) {
@@ -98,6 +121,8 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
         self.dismiss(animated: true, completion: nil)
         
         if let pickedimage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            
+            didChangeProfilePicture = true
             profilePicture.image = pickedimage
         }
         else{

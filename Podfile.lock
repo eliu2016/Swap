@@ -57,7 +57,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Spring:
-    :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
+    :commit: 8201b5c93bd7ebdf4cd18160bcde1e6e88c2be64
     :git: https://github.com/MengTo/Spring.git
   Swifter:
     :commit: 6d15237f58a1c4d65d8686978dfb9e0132e625b5
@@ -84,4 +84,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b779304adb6e52898adf8b8a9d3358576d0ded77
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.0.rc.1

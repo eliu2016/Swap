@@ -46,7 +46,7 @@ class SettingsView: UITableViewController {
     @IBAction func closeSettings(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
-        NotificationCenter.default.post(name: .reloadProfile, object: nil)
+        
         
     }
     

@@ -55,7 +55,9 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBAction func uploadSwapCode(_ sender: Any) {
         
+        imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
+        
         present(imagePicker, animated: true, completion: nil)
     }
    
@@ -225,6 +227,34 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         scanner.scanFrame = view.bounds
     }
+    
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        
+        self.dismiss(animated: true, completion: nil)
+        
+        if let pickedimage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            
+            let swapLink = swapCodeLinkFrom(Image: pickedimage)
+            
+            print("THE SWAP LINK IS ... \(swapLink)")
+            
+            let usernameFromSwapCode = getUsernameFromSwapLink(swapLink: swapLink)
+            
+            print("THE USERNAME IS ... \(usernameFromSwapCode)")
+            
+            
+            
+            
+        }
+        else{
+            print("error selecting picture")
+        }
+
+        
+    }
 
 }
 
@@ -233,18 +263,36 @@ func getUsernameFromSwapLink(swapLink: String) -> String {
     return (swapLink as NSString).lastPathComponent.lowercased()
     
 }
-func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+
+
+/// Returns the swap link from a Swap Code read from an UIImage. Will return "" if none is      found.
+func swapCodeLinkFrom(Image image: UIImage) -> String {
     
-  
-    if let pickedimage = info[UIImagePickerControllerEditedImage] as? NSData {
+    var swapLink = ""
+    
+    
+    var detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+    
+    if let detector = detector{
         
-        //swap code image as nsdata for micheal to upload
+        
+        if let ciimage = CIImage(image: image){
+            
+            var features = detector.features(in: ciimage)
+            
+            for feature in features{
+                
+                let decodedCode = (feature as! CIQRCodeFeature).messageString
+                
+                swapLink = decodedCode ?? ""
+            }
+            
+        }
+        
+        
     }
-    else{
-        print("error selecting picture")
-    }
+    
+    return swapLink
     
 }
-
-
-
