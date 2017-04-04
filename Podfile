@@ -15,7 +15,6 @@ pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'Kingfisher'
 pod 'IQKeyboardManagerSwift'
-
 pod 'Branch'
 pod 'OneSignal'
 pod 'Fabric'

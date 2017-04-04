@@ -15,7 +15,7 @@ import Spring
 
 let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true) , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
-class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate{
+class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate, UINavigationControllerDelegate{
     
     let imagePicker = UIImagePickerController()
 
@@ -37,6 +37,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        imagePicker.delegate = self
         
         setupViewController()
       
@@ -54,7 +55,8 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBAction func uploadSwapCode(_ sender: Any) {
         
-        
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
    
     func setupViewController()  {
@@ -141,8 +143,10 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                 if error != nil {
                     
                     // There was an error trying to get the user from the swap code
-                    
-                    
+                    self.animateInSwapView()
+                    self.nameLabel.text = "Error Getting User"
+                    self.bioLabel.text = ""
+                    self.verifiedIcon.isHidden = true
                     
                     
                     // Restart Scanner After Showing Pop Up View
@@ -183,6 +187,9 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                             
                             self.verifiedIcon.isHidden = true
                         }
+                        else{
+                            self.verifiedIcon.isHidden = false
+                        }
             
                     }
                         
@@ -202,6 +209,9 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         if !(user._isVerified as? Bool ?? false){
                             
                             self.verifiedIcon.isHidden = true
+                        }
+                        else{
+                            self.verifiedIcon.isHidden = false
                         }
 
                     }
@@ -223,4 +233,18 @@ func getUsernameFromSwapLink(swapLink: String) -> String {
     return (swapLink as NSString).lastPathComponent.lowercased()
     
 }
+func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+  
+    if let pickedimage = info[UIImagePickerControllerEditedImage] as? NSData {
+        
+        //swap code image as nsdata for micheal to upload
+    }
+    else{
+        print("error selecting picture")
+    }
+    
+}
+
+
 
