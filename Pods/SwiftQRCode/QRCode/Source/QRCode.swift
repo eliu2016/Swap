@@ -26,6 +26,8 @@ open class QRCode: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     /// the scan rect, default is the bounds of the scan view, can modify it if need
     open var scanFrame: CGRect = CGRect.zero
     
+    var scannerIsActive: Bool = true
+    
     ///  init function
     ///
     ///  - returns: the scanner object
@@ -148,6 +150,7 @@ open class QRCode: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
     /// start scan
     open func startScan() {
+        scannerIsActive = true
         if session.isRunning {
             print("the  capture session is running")
             
@@ -158,6 +161,7 @@ open class QRCode: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
     /// stop scan
     open func stopScan() {
+        scannerIsActive = false
         if !session.isRunning {
             print("the capture session is not running")
             
@@ -198,6 +202,10 @@ open class QRCode: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
     open func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
+        guard self.scannerIsActive else{
+            return
+        }
+        
         clearDrawLayer()
         
         for dataObject in metadataObjects {
@@ -208,7 +216,8 @@ open class QRCode: NSObject, AVCaptureMetadataOutputObjectsDelegate {
                 if scanFrame.contains(obj.bounds) {
                     currentDetectedCount = currentDetectedCount + 1
                     if currentDetectedCount > maxDetectedCount {
-                        session.stopRunning()
+                        //session.stopRunning()
+                        scannerIsActive = false
                         
                         completedCallBack!(codeObject.stringValue)
                         

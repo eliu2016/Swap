@@ -136,7 +136,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             SwapUser().swap(with: username, authorizeOnViewController: self, completion: { (error, user) in
                 
-                scanner.stopScan()
+              
                 
                 if error != nil {
                     
@@ -163,16 +163,16 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         lockedImageAttachment.image =  #imageLiteral(resourceName: "LockIcon")
                         let lockString = NSAttributedString(attachment: lockedImageAttachment)
                         let nameString = NSMutableAttributedString(string: "\(lockString)")
-                         let name = NSAttributedString(string: user._firstname! + " " + user._lastname!)
+                         let name = NSAttributedString(string: "\(user._firstname ?? "") \(user._lastname ?? "")")
                         print("THIS IS THE STRING \(nameString)")
                         //nameString.append(name)
                         
                        
-                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
+                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
                         
                         self.nameLabel.attributedText = nameString
                         
-                        self.bioLabel.text = user._bio!
+                        self.bioLabel.text = user._bio ?? ""
                         
                         if !(user._isVerified as? Bool ?? false){
                             
@@ -188,11 +188,11 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         self.animateInSwapView()
                     
                         
-                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl!))
+                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
                         
-                        self.nameLabel.text = "\(user._firstname!) \(user._lastname!)"
+                        self.nameLabel.text = "\(user._firstname ?? "") \(user._lastname ?? "")"
                         
-                        self.bioLabel.text = user._bio!
+                        self.bioLabel.text = user._bio ?? ""
                         
                         if !(user._isVerified as? Bool ?? false){
                             
