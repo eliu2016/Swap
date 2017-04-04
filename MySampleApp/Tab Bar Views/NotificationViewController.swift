@@ -116,7 +116,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             cell = tableView.dequeueReusableCell(withIdentifier: "privateSwapRequest", for: indexPath) as! notificationCell;
         
             cell.acceptButton.tag = indexPath.row
-            circularImage(photoImageView: cell.profilePicture)
+            circularImageNoBorder(photoImageView: cell.profilePicture)
             SwapUser(username: swapRequests[indexPath.item]._sender!).getInformation { (error, user) in
             
             DispatchQueue.main.async {
@@ -134,7 +134,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 cell = tableView.dequeueReusableCell(withIdentifier: "acceptedSwapRequest", for: indexPath) as! notificationCell;
             
                 cell.swapButton.tag = indexPath.row
-                circularImage(photoImageView: cell.profilePicture)
+                circularImageNoBorder(photoImageView: cell.profilePicture)
                 SwapUser(username: acceptedRequests[indexPath.item]._requested!).getInformation { (error, user) in
                 
                 DispatchQueue.main.async {
