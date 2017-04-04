@@ -31,7 +31,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         //initialize refresh control
         refreshControl = UIRefreshControl()
         refreshControl.tintColor = .white
-        refreshControl.isHidden == true
+        refreshControl.isHidden = true
         refreshControl.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
         refreshControl.addTarget(self, action: #selector(ContainerViewController.refresh), for: .valueChanged)

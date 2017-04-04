@@ -65,8 +65,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupViewController()
         loadProfile()
+        setupSwapCodeGestureRecognizer()
         
         // Listens for reloadProfile notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadProfile), name: .reloadProfile, object: nil)
@@ -522,6 +524,88 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             default:
             break
         }
+    }
+    
+    
+    
+    
+    
+    
+    
+    /// Sets up the gesture recognizer for the Swap Code
+    func setupSwapCodeGestureRecognizer()  {
+        
+        swapCodeImageView.isUserInteractionEnabled = true
+      
+        //now you need a tap gesture recognizer
+        //note that target and action point to what happens when the action is recognized.
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.doubleTappedSwapCode(_:)))
+        tapRecognizer.numberOfTapsRequired = 2
+        //Add the recognizer to your view.
+        swapCodeImageView.addGestureRecognizer(tapRecognizer)
+    }
+    
+    /// Called when the Swap Code is Double Tapped. Should turn on/off all permissions.
+    func doubleTappedSwapCode(_ gestureRecognizer: UITapGestureRecognizer) {
+        
+        var countOfTrue = 0
+    
+        let buttons: [UIButton] = [Reddit, Spotify, Phone, Email, Instagram, Github, Vimeo, Twitter, YouTube, SoundCloud, Pinterest]
+        
+        for button in buttons{
+            if button.isSelected  {
+                
+                countOfTrue += 1
+            }
+        }
+        
+        if countOfTrue >= 6 {
+            
+            // More enabled buttons than disabled  so turn off all
+            
+            // Toggle Permissions
+            toggleAllPermissions(as: false)
+            
+        } else{
+            // turn on
+            
+            // Toggle Permissions
+            toggleAllPermissions(as: true)
+        }
+        
+        
+    }
+    
+    /// Turns on/off all permissions in database and in UI.
+    func toggleAllPermissions(as state: Bool)  {
+        
+        
+        SwapUser().set( WillShareSpotify: state, WillShareYouTube: state, WillSharePhonenumber: state, WillShareVine: state, WillShareInstagram: state, WillShareTwitter: state, WillShareEmail: state, WillShareReddit: state, WillSharePinterest: state, WillShareSoundCloud: state, WillShareGitHub: state, WillShareVimeo: state, DidSetInformation:{
+            
+            // Turn on all buttons
+            
+           self.toggleAllButtons(as: state)
+            
+        })
+    }
+    
+    
+    
+    /// Toggles buttons on or off given the state. Does NOT alter information in database!
+    func toggleAllButtons(as state:  Bool)  {
+        
+        Reddit.isSelected = state
+        Spotify.isSelected = state
+        Phone.isSelected = state
+        Email.isSelected = state
+        Instagram.isSelected = state
+        Github.isSelected = state
+        Vimeo.isSelected = state
+        Twitter.isSelected = state
+        YouTube.isSelected = state
+        SoundCloud.isSelected = state
+        Pinterest.isSelected = state
+        
     }
     
 }

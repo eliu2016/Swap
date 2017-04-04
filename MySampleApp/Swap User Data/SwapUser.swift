@@ -1169,18 +1169,7 @@ class SwapUser {
                     DispatchQueue.global(qos: .userInitiated).async {
                         
                     
-                    // Share social medias
-                    shareVine(withUser: user)
-                    shareSpotify(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    createContactInPhone(withContactDataOfUser: user, completion: {_ in return })
-                    shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareTwitter(withUser: user)
-                    shareYouTube(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                   
                     
                     let currentUser = self
                     let otherUser =   SwapUser(username: user._username!)
@@ -1215,6 +1204,21 @@ class SwapUser {
                         }
                         
                     })
+                        let history = SwapUserHistory(swap: self.username, swapped: userWithUsername)
+                        history.didShare()
+                        
+                        // Share social medias
+                        shareVine(withUser: user)
+                        shareSpotify(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        createContactInPhone(withContactDataOfUser: user, completion: {_ in return })
+                        shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareTwitter(withUser: user)
+                        shareYouTube(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                    
                     otherUser.sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
                     
