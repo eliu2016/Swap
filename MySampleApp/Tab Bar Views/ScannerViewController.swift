@@ -158,19 +158,24 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         //the user is private; notify the user that a request was sent.
                         self.animateInSwapView()
                         
+                        let fullString = NSMutableAttributedString(string: "")
                         
                         let lockedImageAttachment = NSTextAttachment()
                         lockedImageAttachment.image =  #imageLiteral(resourceName: "LockIcon")
-                        let lockString = NSAttributedString(attachment: lockedImageAttachment)
-                        let nameString = NSMutableAttributedString(string: "\(lockString)")
-                         let name = NSAttributedString(string: "\(user._firstname ?? "") \(user._lastname ?? "")")
-                        print("THIS IS THE STRING \(nameString)")
-                        //nameString.append(name)
                         
+                        let lockedImageString = NSAttributedString(attachment: lockedImageAttachment)
+                        
+                        
+                        let nameString = NSMutableAttributedString(string: "\(user._firstname ?? "") \(user._lastname ?? "")")
+                        
+                        fullString.append(lockedImageString)
+                        fullString.append(nameString)
+                        
+                       
                        
                         self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
                         
-                        self.nameLabel.attributedText = nameString
+                        self.nameLabel.attributedText = fullString
                         
                         self.bioLabel.text = user._bio ?? ""
                         
