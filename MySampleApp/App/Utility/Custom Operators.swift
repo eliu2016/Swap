@@ -204,7 +204,11 @@ extension Date{
     }
 }
 
-
+extension Bool {
+    static func random() -> Bool {
+        return arc4random_uniform(2) == 0
+    }
+}
 
 
 func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
