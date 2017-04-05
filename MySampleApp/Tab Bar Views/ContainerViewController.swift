@@ -242,7 +242,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
     func postNotificationToReloadScreens()  {
         
         if let screen = getLastScreen(){
-            
+            print("\nthe screen is .. \(screen)")
             switch screen {
             case .UserProfileScreen:
                 NotificationCenter.default.post(name: .reloadProfile, object: nil)
@@ -252,10 +252,17 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
                 //NotificationCenter.default.post(name: .reloadSearchedUserProfile, object: nil)
                 // Will add notification later, pull to refresh isn't enabled on SeaarchedUserProfile yet
                 refreshControl.endRefreshing()
+            case .SwappedScreen:
+                NotificationCenter.default.post(name: .reloadSwapped, object: nil)
+            case .SwapsScreen:
+                NotificationCenter.default.post(name: .reloadSwaps, object: nil)
                 
             default:
                 break
             }
+        } else{
+            
+            refreshControl.endRefreshing()
         }
     }
     

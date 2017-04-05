@@ -56,6 +56,8 @@ extension Notification.Name {
     static let reloadProfile = Notification.Name("reloadProfile")
     static let reloadSearchedUserProfile = Notification.Name("reloadSearchedUserProfile")
     static let reloadNotifications = Notification.Name("reloadNotifications")
+    static let reloadSwaps = Notification.Name("reloadSwaps")
+    static let reloadSwapped = Notification.Name("reloadSwapped")
     
     //page control notifications
     static let updatePageControl = Notification.Name("updatePageControl")

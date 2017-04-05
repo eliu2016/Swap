@@ -16,31 +16,25 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var swapHistoryUsers: [SwapHistory] = []
     var sharedSocialMedias: [UIImage] = []
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         
-        super.viewWillAppear(animated)
+        save(screen: .SwapsScreen)
+        loadSwaps()
         
-        SwapUser().getSwapHistory { (error, swapHistory) in
-            
-            if error != nil{
-                
-                print("error retriving swap history")
-            }
-            else{
-
-                DispatchQueue.main.async {
-                    
-                    self.activityView.isHidden = true
-                    self.swapHistoryUsers = swapHistory!
-                    self.tableView.reloadData()
-                }
-            }
-        }
+        // Listens for reloadSwaps notification
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadSwaps), name: .reloadSwaps, object: nil)
+        
     }
+    
+   
+    
     @IBAction func didTapBack(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
     }
+    
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return swapHistoryUsers.count
@@ -51,7 +45,7 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "swapsCell", for: indexPath) as! swapsTableCell;
         
          cell.selectionStyle = .none
-        
+        cell.profilePicture.kf.indicatorType = .activity
         let user = swapHistoryUsers[indexPath.item]
         
         sharedSocialMedias = getSharedSocialMedias(currentUser: user)
@@ -122,7 +116,7 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
        cell.swapDate.text = user._time?.timeAgo()
         
         SwapUser(username: user._swapped!).getInformation(completion: {(error, user) in
-            cell.profilePicture.kf.indicatorType = .activity
+            
             cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             circularImage(photoImageView: cell.profilePicture)
             
@@ -182,6 +176,32 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return images
     }
     
+    
+    
+    func loadSwaps()  {
+        
+        SwapUser().getSwapHistory { (error, swapHistory) in
+            
+            if error != nil{
+                
+                print("error retriving swap history")
+                refreshControl.endRefreshing()
+            }
+            else{
+                
+                DispatchQueue.main.async {
+                    
+                    self.activityView.isHidden = true
+                    self.swapHistoryUsers = swapHistory!
+                    refreshControl.endRefreshing()
+                    self.tableView.reloadData()
+                    
+                }
+            }
+        }
+        
+        
+    }
 }
 
 class swapsTableCell: UITableViewCell {

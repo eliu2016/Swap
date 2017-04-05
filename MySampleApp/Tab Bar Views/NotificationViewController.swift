@@ -117,11 +117,12 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
             cell.acceptButton.tag = indexPath.row
             circularImageNoBorder(photoImageView: cell.profilePicture)
+            cell.profilePicture.kf.indicatorType = .activity
             SwapUser(username: swapRequests[indexPath.item]._sender!).getInformation { (error, user) in
             
             DispatchQueue.main.async {
                 
-                cell.profilePicture.kf.indicatorType = .activity
+                
                 cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
                 cell.timeLabel.text = (self.swapRequests[indexPath.item]._sent_at)?.timeAgo()
@@ -136,11 +137,12 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             
                 cell.swapButton.tag = indexPath.row
                 circularImageNoBorder(photoImageView: cell.profilePicture)
+                cell.profilePicture.kf.indicatorType = .activity
                 SwapUser(username: acceptedRequests[indexPath.item]._requested!).getInformation { (error, user) in
                 
                 DispatchQueue.main.async {
                     
-                    cell.profilePicture.kf.indicatorType = .activity
+                    
                     cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                     cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
                     cell.timeLabel.text = (self.acceptedRequests[indexPath.item]._sent_at)?.timeAgo()

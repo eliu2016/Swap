@@ -347,8 +347,8 @@ func save(screen: Screen){
         screenString = "NotificationsScreen"
         break
     
-    case .SwapScreen:
-        screenString = "SwapScreen"
+    case .SwapsScreen:
+        screenString = "SwapsScreen"
         break
         
     case .SwappedScreen:
@@ -378,8 +378,8 @@ func getLastScreen() -> Screen?{
         case "NotificationsScreen":
             return .NotificationsScreen
             
-        case "SwapScreen":
-            return .SwapScreen
+        case "SwapsScreen":
+            return .SwapsScreen
             
         case "SwappedScreen":
             return .SwappedScreen
@@ -402,7 +402,7 @@ enum Screen{
     case UserProfileScreen
     case SearchedUserProfileScreen
     case NotificationsScreen
-    case SwapScreen
+    case SwapsScreen
     case SwappedScreen
     
     

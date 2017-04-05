@@ -16,16 +16,30 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
     var swappedHistoryUsers: [SwapHistory] = []
     var sharedSocialMedias: [UIImage] = []
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(animated)
     
+    override func viewDidLoad() {
+        save(screen: .SwappedScreen)
+        loadSwapped()
+        
+        // Listens for reloadSwapped notification
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadSwapped), name: .reloadSwapped, object: nil)
+    }
+    
+   
+    @IBAction func didTapBack(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    func loadSwapped()  {
         
         SwapUser().getSwappedHistory { (error, swappedHistory) in
             
             if error != nil{
                 
                 print("error retriving swapped history")
+                refreshControl.endRefreshing()
             }
             else{
                 
@@ -33,7 +47,9 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                     self.activityIndicator.isHidden = true
                     self.swappedHistoryUsers = swappedHistory!
+                    refreshControl.endRefreshing()
                     self.tableView.reloadData()
+                    
                     
                 }
                 
@@ -41,11 +57,6 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             
         }
-        
-    }
-    @IBAction func didTapBack(_ sender: Any) {
-        
-        navigationController?.popViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,7 +68,7 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "swappedCell", for: indexPath) as! swappedTableCell;
         
         cell.selectionStyle = .none
-        
+        cell.profilePicture.kf.indicatorType = .activity
         let user = swappedHistoryUsers[indexPath.item]
         
         sharedSocialMedias = getSharedSocialMedias(currentUser: user)
@@ -128,7 +139,7 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.swapDate.text = user._time?.timeAgo()
        
         SwapUser(username: user._swap!).getInformation(completion: {(error, user) in
-            cell.profilePicture.kf.indicatorType = .activity
+            
             cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             circularImage(photoImageView: cell.profilePicture)
        
