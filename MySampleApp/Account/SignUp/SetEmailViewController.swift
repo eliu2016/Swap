@@ -30,8 +30,8 @@ class setEmailViewController: UIViewController {
            }
         else{
             
-            UIAlertView(title: "Error",
-                        message: "Must Enter Valid Email",
+            UIAlertView(title: "Invalid Email",
+                        message: "Please Enter A Valid Email Address",
                         delegate: nil,
                         cancelButtonTitle: "Ok").show()
         }

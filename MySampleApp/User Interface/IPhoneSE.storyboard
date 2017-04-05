@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16D17a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1235,7 +1235,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Dcf-Ux-SBb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fDg-wo-h3P">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fDg-wo-h3P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2300,7 +2300,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="Y7a-yc-fsq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9fe-Nz-tMh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9fe-Nz-tMh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2710,7 +2710,7 @@
                         <inset key="imageInsets" minX="35" minY="7" maxX="-35" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rwH-ZQ-hUK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rwH-ZQ-hUK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2764,18 +2764,18 @@
         <image name="Header1" width="522" height="67"/>
         <image name="HomeIcon" width="45" height="45"/>
         <image name="InfoIcon" width="95" height="80"/>
-        <image name="InstagramBlackIcon" width="32" height="30"/>
+        <image name="InstagramBlackIcon" width="27" height="26"/>
         <image name="InstagramDark" width="55" height="55"/>
         <image name="InstagramDisabled" width="66" height="66"/>
         <image name="LeftCarrot" width="32" height="32"/>
-        <image name="LoginButton" width="244" height="57"/>
+        <image name="LoginButton" width="1039" height="145"/>
         <image name="Logo" width="232" height="229"/>
         <image name="MainBackground" width="378" height="666"/>
         <image name="NotificationIcon" width="27" height="27"/>
         <image name="PhoneDisabled" width="66" height="66"/>
         <image name="PinterestDark" width="55" height="54"/>
         <image name="PinterestDisabled" width="66" height="66"/>
-        <image name="ProfileBlackIcon" width="27" height="31"/>
+        <image name="ProfileBlackIcon" width="28" height="29"/>
         <image name="RedditDark" width="43" height="42"/>
         <image name="RedditDisabled" width="66" height="66"/>
         <image name="RightCarrot" width="32" height="32"/>
@@ -2786,8 +2786,8 @@
         <image name="SoundCloudDisabled" width="66" height="66"/>
         <image name="SpotifyDark" width="56" height="55"/>
         <image name="SpotifyDisabled" width="66" height="66"/>
-        <image name="SwapNotificationsButton" width="122" height="34"/>
-        <image name="SwapProfileButton" width="169" height="62"/>
+        <image name="SwapNotificationsButton" width="122" height="40"/>
+        <image name="SwapProfileButton" width="75" height="26"/>
         <image name="TextfieldBottom" width="615" height="2"/>
         <image name="TranparentOverlay" width="273" height="340"/>
         <image name="TwitterBlackIcon" width="35" height="30"/>

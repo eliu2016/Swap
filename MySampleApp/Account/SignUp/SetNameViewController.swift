@@ -42,8 +42,8 @@ class SetNameViewController: UIViewController {
         }
         else{
           
-            UIAlertView(title: "Error",
-                       message: "First Name And Last Name Are Required",
+            UIAlertView(title: "Cannot Continue",
+                       message: "Please Enter Your First And Last Names",
                        delegate: nil,
                        cancelButtonTitle: "Ok").show()
         }
