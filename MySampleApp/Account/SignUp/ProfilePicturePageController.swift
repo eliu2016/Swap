@@ -28,21 +28,16 @@ class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSo
         
         super.viewDidLoad()
         
-        if let instagramPic = getInstagramProfilePictureLink(){
-            
-            instagramPicView.imageURL = instagramPic
-        }
+        instagramPicView.imageURL = getInstagramProfilePictureLink() ?? URL(string: defaultImage)!
+        twitterPicView.imageURL = getTwitterProfilePictureLink() ?? URL(string: defaultImage)!
+        youtubePicView.imageURL = getYouTubeProfilePictureLink() ?? URL(string: defaultImage)!
+        contactPicView.imageURL = (getContactImage() != nil) ? nil : URL(string: defaultImage)!
         
-        if let twitterPic = getTwitterProfilePictureLink(){
-            
-            twitterPicView.imageURL = twitterPic
-        }
         
-        if let youtubePic = getYouTubeProfilePictureLink(){
-            
-            youtubePicView.imageURL = youtubePic
-        }
+        
+        
      
+       
         pictureViews = [instagramPicView, twitterPicView, youtubePicView, contactPicView]
         
         dataSource = self
@@ -126,7 +121,7 @@ class ProfilePicView: UIViewController {
     
     @IBOutlet var picture: UIImageView!
     
-    var imageURL: URL!
+    var imageURL: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()

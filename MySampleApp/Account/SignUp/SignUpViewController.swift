@@ -151,7 +151,7 @@ class SignUpViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        saveViewController(viewController: nil)
+        
     }
     
     

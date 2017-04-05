@@ -9,7 +9,7 @@
 import UIKit
 
 /// Default Profile Picture Image URL String
-let defaultImage: String = "http://bsccongress.com/im4/teamstijl-person-icon-blue-clip-art.png"
+let defaultImage: String = "https://s3.amazonaws.com/swap-userfiles-mobilehub-1081613436/default/DefaultProfilePicSwap.png"
 
 class SetNameViewController: UIViewController {
 
@@ -63,7 +63,7 @@ class SetNameViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        saveViewController(viewController: self)
+        
         
         firstnameField.becomeFirstResponder()
     }
