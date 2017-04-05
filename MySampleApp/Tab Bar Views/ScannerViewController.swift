@@ -245,7 +245,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             
             
-            SwapUser().swap(with: usernameFromSwapCode, authorizeOnViewController: self, completion: { (error, user) in
+            SwapUser().swap(with: usernameFromSwapCode, authorizeOnViewController: self, method: .upload, completion: { (error, user) in
                 
                 guard error == nil, let user = user else {
                     // User Not Found

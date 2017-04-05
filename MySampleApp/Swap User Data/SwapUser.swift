@@ -1100,7 +1100,7 @@ class SwapUser {
         
     } */
     
-    func swap(with userWithUsername: String, authorizeOnViewController: UIViewController, overridePrivateAccount: Bool = false, method: SwapMethod = .swapcode, completion: @escaping (_ error: Error?, _ user: Users?) -> Void){
+    func swap(with userWithUsername: String, authorizeOnViewController: UIViewController, overridePrivateAccount: Bool = false, method: SwapMethod = .scan, completion: @escaping (_ error: Error?, _ user: Users?) -> Void){
        
         guard self.username != userWithUsername else{
             

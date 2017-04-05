@@ -39,8 +39,11 @@ class Analytics {
         var method = ""
         if byMethod == .username{
             method = "Username"
-        } else if byMethod == .swapcode{
-            method = "Swap Code"
+        } else if byMethod == .scan{
+            method = "Scan"
+        }
+        else if byMethod == .upload{
+            method = "Upload"
         }
         
         if isPrivate{
@@ -66,7 +69,8 @@ class Analytics {
             "SoundCloud": didShareSoundCloud.toString(),
             "Pinterest": didSharePinterest.toString(),
             "GitHub": didShareGitHub.toString(),
-            "Vimeo": didShareVimeo.toString()
+            "Vimeo": didShareVimeo.toString(),
+            "Private Swap Request" : false.toString()
             
 
             ])
@@ -81,7 +85,8 @@ class Analytics {
 
 enum SwapMethod {
     case username
-    case swapcode
+    case scan
+    case upload
 }
 
 
