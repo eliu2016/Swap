@@ -128,7 +128,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         
         cell.username.text = returnedUsers[indexPath.item].username
-
+        cell.profileImage.kf.indicatorType = .activity
         cell.profileImage.kf.setImage(with: returnedUsers[indexPath.item].profilePictureURL)
         circularImage(photoImageView: cell.profileImage)
         

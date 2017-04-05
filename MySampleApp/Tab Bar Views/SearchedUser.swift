@@ -178,7 +178,7 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
             
             DispatchQueue.main.async {
                 
-                    
+                self.profilePicture.kf.indicatorType = .activity
                 self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 circularImage(photoImageView: self.profilePicture)
                 

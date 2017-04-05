@@ -122,7 +122,7 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
        cell.swapDate.text = user._time?.timeAgo()
         
         SwapUser(username: user._swapped!).getInformation(completion: {(error, user) in
-            
+            cell.profilePicture.kf.indicatorType = .activity
             cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
             circularImage(photoImageView: cell.profilePicture)
             

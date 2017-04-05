@@ -223,8 +223,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 self.Pinterest.isSelected = (user?._willSharePinterest as? Bool) ?? false
                 self.Vimeo.isSelected = (user?._willShareVimeo as? Bool) ?? false
                 self.Github.isSelected = (user?._willShareGitHub as? Bool) ?? false
+                self.profilePicImageView.kf.indicatorType = .activity
                 self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
                 circularImage(photoImageView: self.profilePicImageView)
+                self.swapCodeImageView.kf.indicatorType = .activity
                 self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
                 
                 

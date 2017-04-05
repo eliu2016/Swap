@@ -121,6 +121,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             
             DispatchQueue.main.async {
                 
+                cell.profilePicture.kf.indicatorType = .activity
                 cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
                 cell.timeLabel.text = (self.swapRequests[indexPath.item]._sent_at)?.timeAgo()
@@ -139,6 +140,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 
                 DispatchQueue.main.async {
                     
+                    cell.profilePicture.kf.indicatorType = .activity
                     cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                     cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
                     cell.timeLabel.text = (self.acceptedRequests[indexPath.item]._sent_at)?.timeAgo()

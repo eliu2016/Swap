@@ -132,6 +132,7 @@ class ProfilePicView: UIViewController {
         }
         else{
             
+            picture.kf.indicatorType = .activity
             picture.kf.setImage(with: imageURL)
         }
         

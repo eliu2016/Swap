@@ -179,7 +179,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         fullString.append(nameString)
                         
                        
-                       
+                        self.profilePic.kf.indicatorType = .activity
                         self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
                         
                         self.nameLabel.attributedText = fullString
@@ -202,7 +202,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         //notify the user that swap was sucessful
                         self.animateInSwapView()
                     
-                        
+                         self.profilePic.kf.indicatorType = .activity
                         self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
                         
                         self.nameLabel.text = "\(user._firstname ?? "") \(user._lastname ?? "")"
@@ -279,7 +279,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     fullString.append(nameString)
                     
                     
-                    
+                    self.profilePic.kf.indicatorType = .activity
                     self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
                     
                     self.nameLabel.attributedText = fullString
@@ -302,7 +302,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     //notify the user that swap was sucessful
                     self.animateInSwapView()
                     
-                    
+                     self.profilePic.kf.indicatorType = .activity
                     self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
                     
                     self.nameLabel.text = "\(user._firstname ?? "") \(user._lastname ?? "")"
