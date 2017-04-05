@@ -12,7 +12,7 @@ import Kingfisher
 
 var searchedUser = ""
 
-class SearchedUser: UIViewController {
+class SearchedUser: UIViewController, UITabBarControllerDelegate {
     
     @IBOutlet var BlurView1: UIVisualEffectView!
     @IBOutlet var BlurView2: UIVisualEffectView!
@@ -48,6 +48,7 @@ class SearchedUser: UIViewController {
     
     
     override func viewDidLoad() {
+    
     
     
         setupViewController()
@@ -126,11 +127,11 @@ class SearchedUser: UIViewController {
     
     func setupViewController()  {
         
-        
         self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
         self.tabBarController?.tabBar.tintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
+        self.tabBarController?.delegate = self
         
         verifiedIcon.isHidden = true
         profilePicture.isHidden = true
@@ -290,4 +291,14 @@ class SearchedUser: UIViewController {
             dismiss(animated: true, completion: nil)
         }
     }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.viewControllers?.index(of: viewController) == 0{
+            tabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
+        }
+        else{
+            tabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "TextfieldBottom")
+        }
+    }
+    
 }

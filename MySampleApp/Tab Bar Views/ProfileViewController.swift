@@ -224,7 +224,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 self.Vimeo.isSelected = (user?._willShareVimeo as? Bool) ?? false
                 self.Github.isSelected = (user?._willShareGitHub as? Bool) ?? false
                 self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
-                circularImageNoBorder(photoImageView: self.profilePicImageView)
+                circularImage(photoImageView: self.profilePicImageView)
                 self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
                 
                 
