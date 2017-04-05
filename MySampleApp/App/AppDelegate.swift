@@ -162,10 +162,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     func configureRemoteNotificationsSettings(with launchOptions: [UIApplicationLaunchOptionsKey: Any]?)  {
         
-        OneSignal.initWithLaunchOptions(launchOptions, appId: ONE_SIGNAL_APP_ID, handleNotificationReceived: { notification in
-            
-            
-        },
+       
+        
+        OneSignal.initWithLaunchOptions(launchOptions, appId: ONE_SIGNAL_APP_ID,
                                         handleNotificationAction: {
                                             (result) in
                                             
@@ -195,7 +194,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                                             }
                                             
                                             
-        }, settings: [kOSSettingsKeyInFocusDisplayOption:OSNotificationDisplayType.none.rawValue])
+        }, settings: [:])
+        
+     
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
     }
     
     

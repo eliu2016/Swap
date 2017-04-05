@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1B1D8E1E958CAF002A2B13 /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B1D8D1E958CAF002A2B13 /* Scanner.swift */; };
 		2E4041DB1E43D892003C23F3 /* IGUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041DA1E43D892003C23F3 /* IGUser.swift */; };
 		2E4041DD1E43D982003C23F3 /* IGMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041DC1E43D982003C23F3 /* IGMedia.swift */; };
 		2E4041DF1E43DD82003C23F3 /* IGComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041DE1E43DD82003C23F3 /* IGComment.swift */; };
@@ -170,6 +171,7 @@
 		1DD70E29D44DF82800000000 /* AWSPinpoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSPinpoint.framework; path = MySampleApp/Sdk/Aws/AWSPinpoint.framework; sourceTree = "<group>"; };
 		1DD70E29DF90B53300000000 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "MySampleApp/User Interface/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		1DD70E29ED4914FA00000000 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2E1B1D8D1E958CAF002A2B13 /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scanner.swift; path = MySampleApp/App/Utility/Scanner.swift; sourceTree = SOURCE_ROOT; };
 		2E4041DA1E43D892003C23F3 /* IGUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGUser.swift; sourceTree = "<group>"; };
 		2E4041DC1E43D982003C23F3 /* IGMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGMedia.swift; sourceTree = "<group>"; };
 		2E4041DE1E43DD82003C23F3 /* IGComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGComment.swift; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 			children = (
 				1DD70E2980412A4200000000 /* UtilityFunctions.swift */,
 				2ECF288F1DF90DEF00FEC5D2 /* Custom Operators.swift */,
+				2E1B1D8D1E958CAF002A2B13 /* Scanner.swift */,
 			);
 			name = Utility;
 			path = mysampleapp/app/utility;
@@ -854,6 +857,7 @@
 				E7A30F04ABEB1F8300000000 /* AWSConfiguration.swift in Sources */,
 				2EFC3A241DF9B8ED00D45E7E /* Authorizing.swift in Sources */,
 				2ECF28871DF90D7200FEC5D2 /* AccountErrors.swift in Sources */,
+				2E1B1D8E1E958CAF002A2B13 /* Scanner.swift in Sources */,
 				751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */,
 				2E49B8371E4A52E8005029C9 /* YouTubeUser.swift in Sources */,
 				E7A30F04D052C5D100000000 /* AWSAPI_0MZ6OXIFT5_RequestSchema.m in Sources */,

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftQRCode
 import AVFoundation
 import Spring
 
