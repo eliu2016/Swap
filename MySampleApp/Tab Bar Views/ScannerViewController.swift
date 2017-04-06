@@ -139,87 +139,91 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             SwapUser().swap(with: username, authorizeOnViewController: self, completion: { (error, user) in
                 
+                DispatchQueue.main.async {
+                    
+                    
+                    if error != nil {
+                        
+                        // There was an error trying to get the user from the swap code
+                        self.animateInSwapView()
+                        self.nameLabel.text = "User Not Found"
+                        self.bioLabel.text = ""
+                        self.verifiedIcon.isHidden = true
+                        self.profilePic.image = #imageLiteral(resourceName: "DefaultProfileImage")
+                        
+                        
+                        // Restart Scanner After Showing Pop Up View
+                        scanner.startScan()
+                        
+                    }
+                    
+                    
+                    if let user = user {
+                        
+                        if user._isPrivate?.boolValue ?? false{
+                            
+                            //the user is private; notify the user that a request was sent.
+                            self.animateInSwapView()
+                            
+                            let fullString = NSMutableAttributedString(string: "")
+                            
+                            let lockedImageAttachment = NSTextAttachment()
+                            lockedImageAttachment.image =  #imageLiteral(resourceName: "LockIcon")
+                            
+                            let lockedImageString = NSAttributedString(attachment: lockedImageAttachment)
+                            
+                            
+                            let nameString = NSMutableAttributedString(string: " \(user._firstname ?? "") \(user._lastname ?? "")")
+                            
+                            fullString.append(lockedImageString)
+                            fullString.append(nameString)
+                            
+                            
+                            self.profilePic.kf.indicatorType = .activity
+                            self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
+                            
+                            self.nameLabel.attributedText = fullString
+                            
+                            self.bioLabel.text = user._bio ?? ""
+                            
+                            if !(user._isVerified as? Bool ?? false){
+                                
+                                self.verifiedIcon.isHidden = true
+                            }
+                            else{
+                                self.verifiedIcon.isHidden = false
+                            }
+                            
+                        }
+                            
+                        else{
+                            
+                            
+                            //notify the user that swap was sucessful
+                            self.animateInSwapView()
+                            
+                            self.profilePic.kf.indicatorType = .activity
+                            self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
+                            
+                            self.nameLabel.text = "\(user._firstname ?? "") \(user._lastname ?? "")"
+                            
+                            self.bioLabel.text = user._bio ?? ""
+                            
+                            if !(user._isVerified as? Bool ?? false){
+                                
+                                self.verifiedIcon.isHidden = true
+                            }
+                            else{
+                                self.verifiedIcon.isHidden = false
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
               
-                
-                if error != nil {
-                    
-                    // There was an error trying to get the user from the swap code
-                    self.animateInSwapView()
-                    self.nameLabel.text = "User Not Found"
-                    self.bioLabel.text = ""
-                    self.verifiedIcon.isHidden = true
-                    self.profilePic.image = #imageLiteral(resourceName: "DefaultProfileImage")
-                    
-                    
-                    // Restart Scanner After Showing Pop Up View
-                    scanner.startScan()
-                    
-                }
-                
-                
-                if let user = user {
-                    
-                    if user._isPrivate?.boolValue ?? false{
-                        
-                        //the user is private; notify the user that a request was sent.
-                        self.animateInSwapView()
-                        
-                        let fullString = NSMutableAttributedString(string: "")
-                        
-                        let lockedImageAttachment = NSTextAttachment()
-                        lockedImageAttachment.image =  #imageLiteral(resourceName: "LockIcon")
-                        
-                        let lockedImageString = NSAttributedString(attachment: lockedImageAttachment)
-                        
-                        
-                        let nameString = NSMutableAttributedString(string: " \(user._firstname ?? "") \(user._lastname ?? "")")
-                        
-                        fullString.append(lockedImageString)
-                        fullString.append(nameString)
-                        
-                       
-                        self.profilePic.kf.indicatorType = .activity
-                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
-                        
-                        self.nameLabel.attributedText = fullString
-                        
-                        self.bioLabel.text = user._bio ?? ""
-                        
-                        if !(user._isVerified as? Bool ?? false){
-                            
-                            self.verifiedIcon.isHidden = true
-                        }
-                        else{
-                            self.verifiedIcon.isHidden = false
-                        }
-            
-                    }
-                        
-                    else{
-                        
-                        
-                        //notify the user that swap was sucessful
-                        self.animateInSwapView()
-                    
-                         self.profilePic.kf.indicatorType = .activity
-                        self.profilePic.kf.setImage(with: URL(string: user._profilePictureUrl ?? defaultImage))
-                        
-                        self.nameLabel.text = "\(user._firstname ?? "") \(user._lastname ?? "")"
-                        
-                        self.bioLabel.text = user._bio ?? ""
-                        
-                        if !(user._isVerified as? Bool ?? false){
-                            
-                            self.verifiedIcon.isHidden = true
-                        }
-                        else{
-                            self.verifiedIcon.isHidden = false
-                        }
-
-                    }
-                    
-                }
-                
                 
             })
             
@@ -258,6 +262,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     return
                 }
                 
+                DispatchQueue.main.async {
                 
                 if user._isPrivate?.boolValue ?? false{
                     
@@ -318,7 +323,8 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     
                 }
                 
-                
+            }
+            
                 
             })
             

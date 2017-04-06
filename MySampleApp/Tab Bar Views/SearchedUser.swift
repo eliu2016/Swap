@@ -77,6 +77,8 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
             
         }
         else {
+            
+            DispatchQueue.main.async{
         
                 if (user?._isPrivate as? Bool)!{
                     
@@ -93,6 +95,8 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
                 }
                 
             }
+            
+        }
        
         }
         
