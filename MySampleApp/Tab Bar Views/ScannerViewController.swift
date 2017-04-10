@@ -109,6 +109,8 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             self.confirmSwapView.alpha = 1
             self.confirmSwapView.transform = CGAffineTransform.init(translationX: 0, y: -200)
+            self.nameLabel.adjustsFontSizeToFitWidth = true
+            self.bioLabel.adjustsFontSizeToFitWidth = true
         }
         
     }
@@ -350,6 +352,9 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         
     }
+    
+    
+    
 
 }
 

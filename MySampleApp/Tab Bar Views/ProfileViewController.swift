@@ -258,6 +258,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     func setupViewController()  {
         
+        removePlaceHoldersAndAdjustFontsByLabelWidth()
+        
         DispatchQueue.main.async {
             
             slideLeft(label: self.nameLabel)
@@ -616,6 +618,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    func removePlaceHoldersAndAdjustFontsByLabelWidth()  {
+        
+        nameLabel.shouldHidePlaceholderText = true
+        nameLabel.adjustsFontSizeToFitWidth = true
+        pointsNumberLabel.adjustsFontSizeToFitWidth = true
+        swapsNumberLabel.adjustsFontSizeToFitWidth = true
+        swappedNumberLabel.adjustsFontSizeToFitWidth = true
+    }
     
 }
 
