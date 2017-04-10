@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E1B1D8E1E958CAF002A2B13 /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B1D8D1E958CAF002A2B13 /* Scanner.swift */; };
 		2E4041DB1E43D892003C23F3 /* IGUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041DA1E43D892003C23F3 /* IGUser.swift */; };
 		2E4041DD1E43D982003C23F3 /* IGMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041DC1E43D982003C23F3 /* IGMedia.swift */; };
 		2E4041DF1E43DD82003C23F3 /* IGComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4041DE1E43DD82003C23F3 /* IGComment.swift */; };
@@ -36,6 +35,7 @@
 		2EFC3A321DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A311DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift */; };
 		2EFC3A391DFA2D6400D45E7E /* User Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A381DFA2D6400D45E7E /* User Errors.swift */; };
 		6337DB712712F1F8B142F0BE /* Pods_Swap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */; };
+		7514499E1E9723CE0041C49C /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7514499D1E9723CE0041C49C /* Scanner.swift */; };
 		751B91691E5400CA0039AFA4 /* TwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B91681E5400CA0039AFA4 /* TwitterView.swift */; };
 		751B916C1E54A6470039AFA4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B916B1E54A6470039AFA4 /* NotificationViewController.swift */; };
 		751B91881E68E09F0039AFA4 /* IPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751B91871E68E09F0039AFA4 /* IPad.storyboard */; };
@@ -171,7 +171,6 @@
 		1DD70E29D44DF82800000000 /* AWSPinpoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSPinpoint.framework; path = MySampleApp/Sdk/Aws/AWSPinpoint.framework; sourceTree = "<group>"; };
 		1DD70E29DF90B53300000000 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "MySampleApp/User Interface/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		1DD70E29ED4914FA00000000 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		2E1B1D8D1E958CAF002A2B13 /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scanner.swift; path = MySampleApp/App/Utility/Scanner.swift; sourceTree = SOURCE_ROOT; };
 		2E4041DA1E43D892003C23F3 /* IGUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGUser.swift; sourceTree = "<group>"; };
 		2E4041DC1E43D982003C23F3 /* IGMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGMedia.swift; sourceTree = "<group>"; };
 		2E4041DE1E43DD82003C23F3 /* IGComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGComment.swift; sourceTree = "<group>"; };
@@ -200,6 +199,7 @@
 		2EFC3A2C1DF9D96000D45E7E /* ConfirmAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmAccountViewController.swift; sourceTree = "<group>"; };
 		2EFC3A311DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConnectingSocialMedias ViewController.swift"; sourceTree = "<group>"; };
 		2EFC3A381DFA2D6400D45E7E /* User Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User Errors.swift"; sourceTree = "<group>"; };
+		7514499D1E9723CE0041C49C /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scanner.swift; path = MySampleApp/App/Utility/Scanner.swift; sourceTree = SOURCE_ROOT; };
 		751572101DFBBD3800ED4697 /* Lantinghei.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lantinghei.ttc; sourceTree = "<group>"; };
 		751B91681E5400CA0039AFA4 /* TwitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterView.swift; path = "MySampleApp/Preview Views/TwitterView.swift"; sourceTree = SOURCE_ROOT; };
 		751B916B1E54A6470039AFA4 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -587,7 +587,7 @@
 			children = (
 				1DD70E2980412A4200000000 /* UtilityFunctions.swift */,
 				2ECF288F1DF90DEF00FEC5D2 /* Custom Operators.swift */,
-				2E1B1D8D1E958CAF002A2B13 /* Scanner.swift */,
+				7514499D1E9723CE0041C49C /* Scanner.swift */,
 			);
 			name = Utility;
 			path = mysampleapp/app/utility;
@@ -857,7 +857,7 @@
 				E7A30F04ABEB1F8300000000 /* AWSConfiguration.swift in Sources */,
 				2EFC3A241DF9B8ED00D45E7E /* Authorizing.swift in Sources */,
 				2ECF28871DF90D7200FEC5D2 /* AccountErrors.swift in Sources */,
-				2E1B1D8E1E958CAF002A2B13 /* Scanner.swift in Sources */,
+				7514499E1E9723CE0041C49C /* Scanner.swift in Sources */,
 				751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */,
 				2E49B8371E4A52E8005029C9 /* YouTubeUser.swift in Sources */,
 				E7A30F04D052C5D100000000 /* AWSAPI_0MZ6OXIFT5_RequestSchema.m in Sources */,

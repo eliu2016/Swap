@@ -56,6 +56,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
        
         else{
             
+             self.tableView.backgroundView = nil
              self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
  
             return 2

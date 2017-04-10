@@ -132,7 +132,11 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
     func setupViewController()  {
         
         self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
-        self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
+        if #available(iOS 10.0, *) {
+            self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
+        } else {
+            // Fallback on earlier versions
+        }
         self.tabBarController?.tabBar.tintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
         self.tabBarController?.delegate = self

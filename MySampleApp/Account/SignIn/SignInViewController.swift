@@ -88,6 +88,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @available(iOS 10.0, *)
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         
         orLabel.isHidden = false

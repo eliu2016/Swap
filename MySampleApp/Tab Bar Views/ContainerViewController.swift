@@ -118,9 +118,11 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
                 buttonRect = CGRect(x: 177, y: 665, width: 65, height: 65)
                 break
             case "IPhoneSE":
+                buttonRect = CGRect(x: 138, y: 516, width: 45, height: 44)
                 break
             case "IPad":
-                break
+                   buttonRect = CGRect(x: 135, y: 422, width: 51, height: 50)
+            break
             default:
                  buttonRect = CGRect(x: self.view.frame.size.width*0.42, y: self.view.frame.size.height*0.9, width: 62, height: 60)
                 break

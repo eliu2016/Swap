@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var swapCodeImageView: UIImageView!
     @IBOutlet var GradientBottomLine: UIImageView!
     @IBOutlet var verifiedIcon: UIImageView!
+    @IBOutlet var header: UIImageView!
    
     
     
@@ -117,6 +118,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
         // Hide UI or do whatever to show that the profile is loading
         self.loadingIndicator.startAnimating()
+        self.header.backgroundColor = self.view.backgroundColor
+        self.header.image = nil
         
         self.nameLabel.isHidden = true
         self.pointsLabel.isHidden = true
@@ -154,6 +157,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 // There is an error
                 // Note -- Micheal S. Bingham -- Should Handle this in the future
                 refreshControl.endRefreshing()
+                self.header.backgroundColor = nil
+                self.header.image = #imageLiteral(resourceName: "Header1")
             }
 
             else{
@@ -232,6 +237,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 
                 //Stop pull refresh here . 
                 refreshControl.endRefreshing()
+                self.header.backgroundColor = nil
+                self.header.image = #imageLiteral(resourceName: "Header1")
+                self.view.sendSubview(toBack: self.header)
                 
                 if let notificationID = user?._notification_id_one_signal {
                     if notificationID == "0"{
