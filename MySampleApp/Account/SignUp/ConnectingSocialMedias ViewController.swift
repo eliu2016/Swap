@@ -419,7 +419,16 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     override func viewDidAppear(_ animated: Bool) {
         saveViewController(viewController: self)
         
-      
+
+  
+    }
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+          
         
         // Selects the social media icons if they are connected
         
@@ -432,15 +441,6 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         Reddit.isSelected = ( (reddit_oauth2.accessToken != nil) || (reddit_oauth2.refreshToken != nil) )
         Github.isSelected = ( (github_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) )
         Vimeo.isSelected = ( (vimeo_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) )
-  
-    }
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-          
         
         if !UserDefaults.standard.bool(forKey: "ConnectSocialMediaTutorialShown")
         {
