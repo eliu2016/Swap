@@ -102,6 +102,10 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         SwapCenterButton.setImage(UIImage(named: "SwapButton"), for: .normal)
         SwapCenterButton.addTarget(self, action: #selector(SwapButtonAction(sender:)), for: .touchUpInside)
+        
+        
+        //notification listens when to disable reloading
+        NotificationCenter.default.addObserver(self, selector: #selector(self.disableReloading), name: .disableReloading, object: nil)
    
     
     }
@@ -118,7 +122,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
                 buttonRect = CGRect(x: 177, y: 665, width: 65, height: 65)
                 break
             case "IPhoneSE":
-                buttonRect = CGRect(x: 138, y: 516, width: 45, height: 44)
+                buttonRect = CGRect(x: 134, y: 510, width: 56, height: 55)
                 break
             case "IPad":
                    buttonRect = CGRect(x: 135, y: 422, width: 51, height: 50)
@@ -266,6 +270,14 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
             
             refreshControl.endRefreshing()
         }
+    }
+    
+    func disableReloading(){
+        scrollView.alwaysBounceVertical = false
+        scrollView.bounces = false
+    }
+    func enableReloading(){
+        scrollView.alwaysBounceVertical = true
     }
     
 }
