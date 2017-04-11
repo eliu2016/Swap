@@ -33,6 +33,8 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     var effect: UIVisualEffect!
     
+    var loadingSymbol: UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -107,6 +109,8 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             self.confirmSwapView.alpha = 1
             self.confirmSwapView.transform = CGAffineTransform.init(translationX: 0, y: -200)
+            self.nameLabel.adjustsFontSizeToFitWidth = true
+            self.bioLabel.adjustsFontSizeToFitWidth = true
         }
         
     }
@@ -132,8 +136,18 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func setupSwapScanner()  {
         
+        let loadingOverlay = ShowLoadingOverlay()
+        
         scanner.prepareScan(self.view){ (swapLink) in
             
+            self.nameLabel.isHidden = true
+            self.bioLabel.isHidden = true
+            self.verifiedIcon.isHidden = true
+            self.profilePic.isHidden = true
+            self.animateInSwapView()
+            self.loadingSymbol = loadingOverlay.showLoadingSymbol(view: self.view, shouldCenter: true)
+            
+            self.view.addSubview(self.loadingSymbol!)
             
             let username = getUsernameFromSwapLink(swapLink: swapLink)
             
@@ -141,6 +155,10 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 DispatchQueue.main.async {
                     
+                    self.nameLabel.isHidden = false
+                    self.bioLabel.isHidden = false
+                    self.profilePic.isHidden = false
+                      self.loadingSymbol?.isHidden = true
                     
                     if error != nil {
                         
@@ -152,8 +170,6 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         self.profilePic.image = #imageLiteral(resourceName: "DefaultProfileImage")
                         
                         
-                        // Restart Scanner After Showing Pop Up View
-                        scanner.startScan()
                         
                     }
                     
@@ -336,6 +352,9 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         
     }
+    
+    
+    
 
 }
 

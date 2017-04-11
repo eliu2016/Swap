@@ -22,6 +22,8 @@ class SetUsernameViewController: UIViewController, UITextFieldDelegate {
         usernameTextField.becomeFirstResponder()
         availabilityLabel.isHidden = true
         usernameTextField.delegate = self
+        availabilityLabel.adjustsFontSizeToFitWidth = true
+        
     
     }
     @IBAction func didChangeUsername(_ sender: Any) {
