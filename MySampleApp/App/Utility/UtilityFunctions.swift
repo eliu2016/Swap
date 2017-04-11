@@ -58,6 +58,7 @@ extension Notification.Name {
     static let reloadNotifications = Notification.Name("reloadNotifications")
     static let reloadSwaps = Notification.Name("reloadSwaps")
     static let reloadSwapped = Notification.Name("reloadSwapped")
+    static let disableReloading = Notification.Name("disableReloading")
     
     //page control notifications
     static let updatePageControl = Notification.Name("updatePageControl")
