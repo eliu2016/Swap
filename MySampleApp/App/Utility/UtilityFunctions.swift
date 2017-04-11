@@ -49,25 +49,19 @@ func prettyPrintJson(_ object: AnyObject?) -> String {
 }
 
 
-extension String {
-   
-    func isValidEmail() -> Bool {
-       
-    
-     
-        let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&'*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&'*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
-        
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        
-        let result = emailTest.evaluate(with: self)
-        
-        return result
-    }
-  
-}
 
 extension Notification.Name {
     
+    //reload notifications
     static let reloadProfile = Notification.Name("reloadProfile")
+    static let reloadSearchedUserProfile = Notification.Name("reloadSearchedUserProfile")
+    static let reloadNotifications = Notification.Name("reloadNotifications")
+    static let reloadSwaps = Notification.Name("reloadSwaps")
+    static let reloadSwapped = Notification.Name("reloadSwapped")
+    static let disableReloading = Notification.Name("disableReloading")
+    
+    //page control notifications
+    static let updatePageControl = Notification.Name("updatePageControl")
+  
 
 }

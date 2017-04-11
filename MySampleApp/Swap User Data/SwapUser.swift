@@ -11,10 +11,10 @@ import AWSCognitoIdentityProvider
 import AWSCore
 import AWSMobileHubHelper
 import OneSignal
-import Realm
-import RealmSwift
+//import Realm
+//import RealmSwift
 import Swifter
-
+import AudioToolbox
 
 /// Class for a SwapUser object
 class SwapUser {
@@ -46,13 +46,6 @@ class SwapUser {
         
         
     }
-    
-    
-    
-    
-    
-    
-    
     
     /**
      Sets information of a Swap User. Will only set the information of data that is passed, if a parameter is not used, that attribute will not be altered in the database. For example, if you only want to set the first and last name, call SwapUserObject.set(Firstname: "Micheal", Lastname: "Bingham").
@@ -974,7 +967,7 @@ class SwapUser {
     }
     
     /// Use this function to check if user has swapped another user. 
-    func hasSwapped(withUser: SwapUser, result: @escaping (_ canViewProfile: Bool) -> Void)  {
+    func hasSwapped(withUser: SwapUser, result: @escaping (_ hasSwapped: Bool) -> Void)  {
         
         // hashKey/swap = self
         // rangeKey/swapped = withUser
@@ -1107,7 +1100,7 @@ class SwapUser {
         
     } */
     
-    func swap(with userWithUsername: String, authorizeOnViewController: UIViewController, overridePrivateAccount: Bool = false, method: SwapMethod = .swapcode, completion: @escaping (_ error: Error?, _ user: Users?) -> Void){
+    func swap(with userWithUsername: String, authorizeOnViewController: UIViewController, overridePrivateAccount: Bool = false, method: SwapMethod = .scan, completion: @escaping (_ error: Error?, _ user: Users?) -> Void){
        
         guard self.username != userWithUsername else{
             
@@ -1154,10 +1147,11 @@ class SwapUser {
                             
                             
                             // Log analytics
-                            Analytics.didSwap(byMethod: .username, isPrivate: true)
+                            Analytics.didSwap(byMethod: method, isPrivate: true)
                             
                              DispatchQueue.main.async {
                                 
+                               AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                                 completion(nil, user)
                             }
                             
@@ -1172,27 +1166,19 @@ class SwapUser {
                 else{
                     //configure confirm swap screen
                     
-                    // Share social medias
-                    shareVine(withUser: user)
-                    shareSpotify(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    createContactInPhone(withContactDataOfUser: user, completion: {_ in return })
-                    shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareTwitter(withUser: user)
-                    shareYouTube(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                    shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        
                     
-                    let currentUser = SwapUser()
+                   
+                    
+                    let currentUser = self
                     let otherUser =   SwapUser(username: user._username!)
                     
                     // Check if already Swapped
-                    currentUser.hasSwapped(withUser: otherUser, result: { (didSwap) in
+                    currentUser.hasSwapped(withUser: otherUser, result: { (hasSwapped) in
                         
                         
-                        if !didSwap{
+                        if !hasSwapped{
                             
                             // Didn't Swap Yet
                             
@@ -1218,6 +1204,21 @@ class SwapUser {
                         }
                         
                     })
+                        let history = SwapUserHistory(swap: self.username, swapped: userWithUsername)
+                        history.didShare()
+                        
+                        // Share social medias
+                        shareVine(withUser: user)
+                        shareSpotify(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        createContactInPhone(withContactDataOfUser: user, completion: {_ in return })
+                        shareInstagram(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareTwitter(withUser: user)
+                        shareYouTube(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareSoundCloud(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        sharePinterest(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
+                        shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                    
                     otherUser.sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
                     
@@ -1251,10 +1252,13 @@ class SwapUser {
                     // ========= End Logging Analytics ====================================
                     
                     DispatchQueue.main.async {
+                        
+                        
+                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                             completion(nil, user)
                     }
                 
-                    
+                    }
                 }
                 
             }

@@ -115,7 +115,7 @@ extension SignInViewController: AWSCognitoUserPoolsSignInHandler {
     /// Edit this function in order to customize what happens if the user does 'NOT' enter a username and password at sign in.
     func handleUserPoolSignInFlowStart() {
         // check if both username and password fields are provided
-        guard let username = self.usernameField.text?.lowercased(), !username.isEmpty,
+        guard let username = self.usernameField.text?.lowercased().toUsernameSignInAlias(), !username.isEmpty,
             let password = self.passwordField.text, !password.isEmpty else {
                 DispatchQueue.main.async(execute: {
                     
@@ -187,11 +187,23 @@ extension ConfirmAccountViewController {
                 DispatchQueue.main.async(execute: {
                     
                     // Do whatever needs to be done after a succesful login (i.e. go to profile view controller)
+                    let me = SwapUser(username: getUsernameOfSignedInUser())
+                    print("the get saved first name is .. \(getSavedFirstname())")
+                    me.set(Firstname: getSavedFirstname() ?? "John",  Lastname: getSavedLastname() ?? "Doe", Phonenumber: getPhoneNumber() ?? "+15555555555", Email: getSavedEmail() ?? "change@me.com",  Birthday: getBirthday(), Date_Created: Date().timeIntervalSince1970 as Double, isVerified: false, isPrivate: false, Points: 0, Swapped: 0, Swaps: 0, ProfileImage: defaultImage, QRImage: "https://dashboard.unitag.io/qreator/generate?setting=%7B%22LAYOUT%22%3A%7B%22COLORBG%22%3A%22ffffff%22%2C%22COLOR1%22%3A%221fbcd3%22%7D%2C%22EYES%22%3A%7B%22EYE_TYPE%22%3A%22Grid%22%7D%2C%22BODY_TYPE%22%3A5%2C%22E%22%3A%22H%22%2C%22LOGO%22%3A%7B%22L_NAME%22%3A%22https%3A%2F%2Fstatic-unitag.com%2Ffile%2Ffreeqr%2Fcfc031a5ddb114b66233e4e1762b93cb.png%22%2C%22EXCAVATE%22%3Atrue%2C%22L_X_Norm%22%3A0.4%2C%22L_Y_Norm%22%3A0.396%2C%22L_WIDTH%22%3A0.2%2C%22L_LENGTH%22%3A0.208%7D%7D&data=%7B%22TYPE%22%3A%22text%22%2C%22DATA%22%3A%7B%22TEXT%22%3A%22http://swapapp.co/\(getUsernameOfSignedInUser())%22%2C%22URL%22%3A%22%22%7D%7D", WillShareSpotify: false, WillShareYouTube: false, WillSharePhonenumber: false, WillShareVine: false, WillShareInstagram: false, WillShareTwitter: false, WillShareEmail: false, WillShareReddit: false, WillSharePinterest: false, WillShareSoundCloud: false, WillShareGitHub: false, WillShareVimeo: false, DidSetInformation: {
+                        
+                       me.setUpPushNotifications()
+                        
+                        DispatchQueue.main.async {
+                            
+                             self.performSegue(withIdentifier: "toConnectSocialMedias", sender: nil)
+                        }
+                        
+                        return nil
+                    })
                     
-                    // Register User For Push Notifications
-                    OneSignal.registerForPushNotifications()
                     
-                    self.performSegue(withIdentifier: "toSetProfileViewController", sender: nil)
+                    
+                   
                     
                     
                     
@@ -264,7 +276,7 @@ extension ConfirmAccountViewController: AWSCognitoUserPoolsSignInHandler {
    
       
         // set the task completion result as an object of AWSCognitoIdentityPasswordAuthenticationDetails with username and password that the app user provides
-        self.passwordAuthenticationCompletion?.setResult(AWSCognitoIdentityPasswordAuthenticationDetails(username: getSavedUsername()!, password: getSavedPassword()!))
+        self.passwordAuthenticationCompletion?.setResult(AWSCognitoIdentityPasswordAuthenticationDetails(username: getUsernameOfSignedInUser(), password: getPassword() ?? ""))
     }
 }
 

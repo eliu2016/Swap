@@ -272,7 +272,10 @@ func getUsernameOfSignedInUser() -> String {
         return username
     }  else{
         
-        return getSavedUsername()!
+         return getSavedUsername() ?? ""
+        
+    
+        
     }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 /// Default Profile Picture Image URL String
-let defaultImage: String = "http://bsccongress.com/im4/teamstijl-person-icon-blue-clip-art.png"
+let defaultImage: String = "https://s3.amazonaws.com/swap-userfiles-mobilehub-1081613436/default/DefaultProfilePicSwap.png"
 
 class SetNameViewController: UIViewController {
 
@@ -31,16 +31,19 @@ class SetNameViewController: UIViewController {
         
         if (firstnameField.text != "" && lastnameField.text != ""){
             
-            UserDefaults.standard.set("\(firstnameField.text!.capitalized)", forKey: "firstname")
-                                                            
-            UserDefaults.standard.set("\(lastnameField.text!.capitalized)", forKey: "lastname")
+            
+            
+            saveFirstname(name: firstnameField.text!.capitalized)
+            saveLastname(name: lastnameField.text!.capitalized)
             
             self.performSegue(withIdentifier: "toBirthdayController", sender: nil)
+            
+            print("the saved firstname is \(getSavedFirstname()) ")
         }
         else{
           
-            UIAlertView(title: "Error",
-                       message: "First Name And Last Name Are Required",
+            UIAlertView(title: "Cannot Continue",
+                       message: "Please Enter Your First And Last Names",
                        delegate: nil,
                        cancelButtonTitle: "Ok").show()
         }
@@ -60,7 +63,7 @@ class SetNameViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        saveViewController(viewController: self)
+        
         
         firstnameField.becomeFirstResponder()
     }

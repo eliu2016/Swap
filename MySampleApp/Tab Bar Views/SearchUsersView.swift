@@ -34,7 +34,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
             self.tableView.deselectRow(at: indexpath, animated: true)
             
         }*/
-        
+            
     }
     override func viewDidLoad() {
     
@@ -61,13 +61,14 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         self.view.addSubview(collectionView!)
         
-    
+        collectionView?.isHidden = true
+       
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
          collectionView?.isHidden = true
     }
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        collectionView?.isHidden = false
+       // collectionView?.isHidden = false
         
     }
   
@@ -83,8 +84,6 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         searchLabel.text = searchText
         
-        
-        
      searchUsers(withUsername: searchBar.text!) { (error, users) in
         
         if error != nil{
@@ -96,12 +95,8 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 
                 self.returnedUsers = users ?? []
                 
-                
                 self.searchedUsersTable.reloadData()
-                
             }
-            
-           
         }
         
      }
@@ -133,7 +128,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         
         cell.username.text = returnedUsers[indexPath.item].username
-
+        cell.profileImage.kf.indicatorType = .activity
         cell.profileImage.kf.setImage(with: returnedUsers[indexPath.item].profilePictureURL)
         circularImage(photoImageView: cell.profileImage)
         

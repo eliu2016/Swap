@@ -13,7 +13,7 @@ import Foundation
 ///
 /// - Parameter username: Username to save.
 func saveUsername(username: String?) {
-    UserDefaults.standard.set(username, forKey: "username")
+    UserDefaults.standard.set((username ?? "").lowercased(), forKey: "username")
     UserDefaults.standard.synchronize()
 }
 
@@ -290,5 +290,120 @@ func getVineUsername() -> String? {
 func getVinePassword() -> String? {
     
     return UserDefaults.standard.string(forKey: "VinePassword")
+    
+}
+
+func save(birthday: Double?)  {
+    
+    UserDefaults.standard.set(birthday, forKey: "birthday")
+    UserDefaults.standard.synchronize()
+}
+
+func getBirthday() -> Double {
+    
+    return UserDefaults.standard.double(forKey: "birthday")
+}
+
+func save(password: String?)  {
+    
+    UserDefaults.standard.set(password, forKey: "password")
+    UserDefaults.standard.synchronize()
+}
+
+func getPassword() -> String? {
+    
+    return UserDefaults.standard.string(forKey: "password")
+}
+
+func save(phoneNumber: String?)  {
+    
+    UserDefaults.standard.set(phoneNumber, forKey: "phonenumber")
+    UserDefaults.standard.synchronize()
+}
+
+func getPhoneNumber() -> String? {
+    
+    return UserDefaults.standard.string(forKey: "phonenumber")
+    
+}
+
+
+/// Use this on viewdidappear in order to make note of the last active screen the user was on. (Used in order to determine what screen the user is on when they are pulling to refresh)
+///
+/// - Parameter screen: Screen the user is on
+func save(screen: Screen){
+    
+    var screenString = ""
+    
+    switch screen{
+        case .UserProfileScreen:
+        screenString = "UserProfileScreen"
+        break
+    case .SearchedUserProfileScreen:
+        screenString = "SearchedUserProfileScreen"
+        break
+        
+    case .NotificationsScreen:
+        screenString = "NotificationsScreen"
+        break
+    
+    case .SwapsScreen:
+        screenString = "SwapsScreen"
+        break
+        
+    case .SwappedScreen:
+        screenString = "SwappedScreen"
+        break
+        
+        
+    }
+    
+    UserDefaults.standard.set(screenString, forKey: "LastScreen")
+    UserDefaults.standard.synchronize()
+}
+
+/// Use this in order to determine what screen the user is currently on in order to determine what screen to refresh when the user pulls to refresh
+func getLastScreen() -> Screen?{
+    
+    if let  screenString  = UserDefaults.standard.string(forKey: "LastScreen"){
+        
+        switch screenString {
+        case "UserProfileScreen":
+            
+            return .UserProfileScreen
+            
+        case "SearchedUserProfileScreen":
+            return .SearchedUserProfileScreen
+            
+        case "NotificationsScreen":
+            return .NotificationsScreen
+            
+        case "SwapsScreen":
+            return .SwapsScreen
+            
+        case "SwappedScreen":
+            return .SwappedScreen
+            
+            
+        default:
+            return nil
+        }
+        
+    } else {
+        return nil
+    }
+    
+    
+}
+
+/// Enum containing the type of screens the user was last active on
+enum Screen{
+    
+    case UserProfileScreen
+    case SearchedUserProfileScreen
+    case NotificationsScreen
+    case SwapsScreen
+    case SwappedScreen
+    
     
 }

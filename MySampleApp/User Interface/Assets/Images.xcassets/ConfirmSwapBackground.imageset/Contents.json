@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "PickYourProfileDropdownOpen-2.png",
+      "filename" : "PopUpSwap.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "PickYourProfileDropdownOpen-3.png",
+      "filename" : "PopUpSwap-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "PickYourProfileDropdownOpen-4.png",
+      "filename" : "PopUpSwap-2.png",
       "scale" : "3x"
     }
   ],

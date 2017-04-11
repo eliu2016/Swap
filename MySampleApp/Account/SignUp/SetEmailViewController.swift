@@ -23,15 +23,15 @@ class setEmailViewController: UIViewController {
         
         if (emailField.text?.isValidEmail())!{
                 
-                UserDefaults.standard.set(emailField.text, forKey: "email")
+                saveEmail(email: emailField.text!)
             
-                self.performSegue(withIdentifier: "toPasswordController", sender: nil)
+                self.performSegue(withIdentifier: "toUsernameController", sender: nil)
                 
            }
         else{
             
-            UIAlertView(title: "Error",
-                        message: "Must Enter Valid Email",
+            UIAlertView(title: "Invalid Email",
+                        message: "Please Enter A Valid Email Address",
                         delegate: nil,
                         cancelButtonTitle: "Ok").show()
         }

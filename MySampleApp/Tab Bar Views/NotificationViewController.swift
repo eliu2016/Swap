@@ -22,75 +22,24 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var tableView: UITableView!
     @IBOutlet var activityView: UIActivityIndicatorView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        tableView.reloadData()
-        
-        activityView.startAnimating()
-        
-        blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
-        
-        blankTableMessage?.text = "No Notifications :'("
-        blankTableMessage?.textColor = .black
-        blankTableMessage?.textAlignment = NSTextAlignment.center
-        blankTableMessage?.font = UIFont(name: "Avenir-Next", size: 20)
-        blankTableMessage?.sizeToFit()
-        blankTableMessage?.isHidden = true
-       
-        SwapUser(username: getUsernameOfSignedInUser()).getRequestedSwaps { (error, requests) in
-            
-            if let requests = requests{
-                
-                DispatchQueue.main.async {
-                
-                    self.swapRequests = requests
-                     self.activityView.stopAnimating()
-                    self.tableView.reloadData()
-                }
-            }
-        }
-        
-        SwapUser().getPendingSentSwapRequests { (error, aRequests) in
-            
-            
-            if let aRequests = aRequests{
-                
-                DispatchQueue.main.async {
-              
-                    self.acceptedRequests = aRequests
-                     self.activityView.stopAnimating()
-                    self.tableView.reloadData()
-                }
-                
-                
-            }
-        }
-        
-    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
+
         
-        if swapRequests.count > 0 || acceptedRequests.count > 0 {
-            
-            blankTableMessage?.isHidden = true
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-            
-        } else {
-            blankTableMessage?.isHidden = false
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-        }
+        save(screen: .NotificationsScreen)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
+        setupViewController()
+        loadNotifications()
+        
+        // Listens for reload notifications notification
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadNotifications), name: .reloadNotifications, object: nil)
     
-        self.tableView.allowsSelection = true
-        
-        
-        self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
-
-        
     }
     
     //table view
@@ -99,7 +48,6 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     
         if swapRequests.count == 0 && acceptedRequests.count == 0{
             
-            blankTableMessage?.isHidden = false
             self.tableView.backgroundView = blankTableMessage
             self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
             
@@ -108,7 +56,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
        
         else{
             
-            blankTableMessage?.isHidden = true
+             self.tableView.backgroundView = nil
              self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
  
             return 2
@@ -134,11 +82,22 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
         return sectionName
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       
+        if section == 0{
+            if swapRequests.count == 0{
+                return 0
+            }
+        }
+        
+        return UITableViewAutomaticDimension
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if section == 0{
-
+            
             return swapRequests.count
         }
         else if section == 1{
@@ -158,10 +117,12 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             cell = tableView.dequeueReusableCell(withIdentifier: "privateSwapRequest", for: indexPath) as! notificationCell;
         
             cell.acceptButton.tag = indexPath.row
-            circularImage(photoImageView: cell.profilePicture)
+            circularImageNoBorder(photoImageView: cell.profilePicture)
+            cell.profilePicture.kf.indicatorType = .activity
             SwapUser(username: swapRequests[indexPath.item]._sender!).getInformation { (error, user) in
             
             DispatchQueue.main.async {
+                
                 
                 cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
@@ -176,20 +137,20 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 cell = tableView.dequeueReusableCell(withIdentifier: "acceptedSwapRequest", for: indexPath) as! notificationCell;
             
                 cell.swapButton.tag = indexPath.row
-                circularImage(photoImageView: cell.profilePicture)
+                circularImageNoBorder(photoImageView: cell.profilePicture)
+                cell.profilePicture.kf.indicatorType = .activity
                 SwapUser(username: acceptedRequests[indexPath.item]._requested!).getInformation { (error, user) in
                 
                 DispatchQueue.main.async {
                     
+                    
                     cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                     cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
                     cell.timeLabel.text = (self.acceptedRequests[indexPath.item]._sent_at)?.timeAgo()
-                    cell.swapButton.isEnabled = (self.acceptedRequests[indexPath.item]._status)!.boolValue
-                
+                    if !(self.acceptedRequests[indexPath.item]._status)!.boolValue{ cell.swapButton.isHidden = true } else { cell.swapButton.isHidden = false }
                 }
             }
         }
-        
         
         
         return cell
@@ -255,16 +216,92 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             }
             
         })
-        
-        
-        ////else if user is not private
-        
-        //swapButton.setImage(#imageLiteral(resourceName: "SwappedNotificationsButton"), for: .normal)
-        
-        
+    
     }
 
 
+    func setupViewController()  {
+        
+        tableView.delegate = self
+        
+        self.tableView.allowsSelection = false
+        self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
+    }
+    
+    
+
+    
+    func loadNotifications()  {
+        
+        
+        tableView.reloadData()
+        
+        activityView.startAnimating()
+        
+        blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+        
+        blankTableMessage?.text = "No Notifications :'("
+        blankTableMessage?.textColor = .black
+        blankTableMessage?.textAlignment = NSTextAlignment.center
+        blankTableMessage?.font = UIFont(name: "Avenir-Next", size: 20)
+        blankTableMessage?.sizeToFit()
+        blankTableMessage?.isHidden = true
+        
+        SwapUser(username: getUsernameOfSignedInUser()).getRequestedSwaps { (error, requests) in
+            
+            guard error == nil else {
+                refreshControl.endRefreshing()
+                return 
+            }
+            if let requests = requests{
+                
+                
+                self.swapRequests = requests
+                
+                
+                SwapUser().getPendingSentSwapRequests { (error, aRequests) in
+                    
+                    
+                    if let aRequests = aRequests{
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.acceptedRequests = aRequests
+                            self.activityView.stopAnimating()
+                            self.tableView.reloadData()
+                            
+                            refreshControl.endRefreshing()
+                            
+                            
+                            
+                            if self.swapRequests.count > 0 || self.acceptedRequests.count > 0 {
+                                
+                                
+                                self.blankTableMessage?.isHidden = true
+                                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+                                
+                                
+                            } else {
+                                
+                                self.blankTableMessage?.isHidden = false
+                                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+                                
+                            }
+                            
+                            
+                            
+                        }
+                        
+                        
+                    }
+                }
+                
+                
+            }
+        }
+        
+        
+    }
 }
 
  class notificationCell: UITableViewCell {
@@ -275,10 +312,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var declineButton: UIButton!
     @IBOutlet var swapButton: UIButton!
     @IBOutlet var timeLabel: UILabel!
-
-    
-    
-    
+  
 }
 
 

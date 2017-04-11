@@ -15,27 +15,21 @@ class SettingsView: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-     
-            
-   
-       
+    
         SwapUser().getInformation { (error, user) in
             
             DispatchQueue.main.async {
                 
-            
-            if let user = user{
+                if let user = user{
                 
-             let isPrivate  = user._isPrivate as? Bool ?? false
+                    let isPrivate  = user._isPrivate as? Bool ?? false
                 
-            self.privateAccountSwitch.isOn = isPrivate
+                    self.privateAccountSwitch.isOn = isPrivate
                 
-            }
+                }
                 
             }
         }
-      
-     
         
     }
     
@@ -52,6 +46,7 @@ class SettingsView: UITableViewController {
     @IBAction func closeSettings(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
+        
         
     }
     

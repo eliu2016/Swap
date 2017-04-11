@@ -11,7 +11,7 @@ import Foundation
 
 
     var refreshControl: UIRefreshControl!
-
+    var isRefreshing = false
 
 class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarControllerDelegate{
     
@@ -19,7 +19,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
     
      var scrollView: UIScrollView!
      var SwapCenterButton: UIButton!
-
+     var lastContentOffset: CGFloat!
     
     override func viewDidLoad() {
   
@@ -31,7 +31,9 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         //initialize refresh control
         refreshControl = UIRefreshControl()
         refreshControl.tintColor = .white
+        refreshControl.isHidden = true
         refreshControl.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
         refreshControl.addTarget(self, action: #selector(ContainerViewController.refresh), for: .valueChanged)
         
         
@@ -85,7 +87,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         scrollView.addSubview(refreshControl)
         
-        SwapCenterButton = UIButton(frame: CGRect(x: self.view.frame.size.width*0.42, y: self.view.frame.size.height*0.9, width: 62, height: 60))
+        SwapCenterButton = UIButton(frame: getSwapButtonFrame())
         
       /*  var menuButtonFrame = SwapCenterButton.frame
         menuButtonFrame.origin.y = view.bounds.height - menuButtonFrame.height
@@ -94,15 +96,44 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         
       //  SwapCenterButton.layer.cornerRadius = SwapCenterButton.height/2
-        
         SwapCenterButton.layer.zPosition = 2
         
         view.addSubview(SwapCenterButton)
         
         SwapCenterButton.setImage(UIImage(named: "SwapButton"), for: .normal)
         SwapCenterButton.addTarget(self, action: #selector(SwapButtonAction(sender:)), for: .touchUpInside)
-        // 4) Finally set the size of the scroll view that contains the frames
+        
+        
+        //notification listens when to disable reloading
+        NotificationCenter.default.addObserver(self, selector: #selector(self.disableReloading), name: .disableReloading, object: nil)
+   
     
+    }
+    func getSwapButtonFrame() -> CGRect{
+        
+        var buttonRect: CGRect?
+        
+        switch(self.storyboard?.value(forKey: "name") as! String){
+            
+            case "Main":
+                buttonRect = CGRect(x: self.view.frame.size.width*0.42, y: self.view.frame.size.height*0.9, width: 62, height: 60)
+                break
+            case "IPhone7Plus":
+                buttonRect = CGRect(x: 177, y: 665, width: 65, height: 65)
+                break
+            case "IPhoneSE":
+                buttonRect = CGRect(x: 134, y: 510, width: 56, height: 55)
+                break
+            case "IPad":
+                   buttonRect = CGRect(x: 135, y: 422, width: 51, height: 50)
+            break
+            default:
+                 buttonRect = CGRect(x: self.view.frame.size.width*0.42, y: self.view.frame.size.height*0.9, width: 62, height: 60)
+                break
+            
+            
+        }
+        return buttonRect!
     }
 
     
@@ -113,22 +144,61 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         if scrollView.contentOffset.y != scrollViewOffset{
            
             //show camera
+            scanner.startScan()
             scrollView.setContentOffset(CGPoint(x: 0, y: self.view.frame.height), animated: true)
-            print("scroll up")
+            
+            
         }
         else {
             //reset to default position
+            scanner.stopScan()
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            
         }
         
         
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        self.lastContentOffset = scrollView.contentOffset.y;
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        if (self.lastContentOffset < scrollView.contentOffset.y) {
+            
+           // print("On scanner")
+           scanner.startScan()
+            
+        } else if (self.lastContentOffset > scrollView.contentOffset.y) {
+            
+           //print("On Profile")
+            //Stop Scanner 
+            scanner.stopScan()
+            
+            
+        } else {
+            // didn't move
+            
+            
+        }
+    }
+
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
         
         
-        SwapCenterButton.alpha =  20 + scrollView.contentOffset.y
+        SwapCenterButton.alpha =  1 + (0.2*scrollView.contentOffset.y)
+        
+        if scrollView.contentOffset.y > 100{
+            
+            scrollView.bounces = false
+        }
+        else{
+            scrollView.bounces = true
+        }
     
     }
 
@@ -140,8 +210,74 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
 
     func refresh(){
         
-        NotificationCenter.default.post(name: .reloadProfile, object: nil)
+        animateRefresh()
+        postNotificationToReloadScreens()
+
+    }
+    
+    func animateRefresh(){
         
+        var colorArray = [UIColor.yellow, UIColor.blue, UIColor.red, UIColor.green, UIColor.purple, UIColor.darkGray]
+        
+        struct ColorIndex{
+            static var colorIndex = 0
+        }
+        
+        
+        UIView.animate(withDuration: 1, animations: {
+            
+            refreshControl.backgroundColor = colorArray[ColorIndex.colorIndex]
+             self.view.backgroundColor = colorArray[ColorIndex.colorIndex]
+            ColorIndex.colorIndex = (ColorIndex.colorIndex + 1) % colorArray.count
+            
+            
+        }) { finished in
+            
+            if (refreshControl.isRefreshing){
+                self.animateRefresh()
+            }
+            else{
+                  refreshControl.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
+                  self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
+            }
+        
+        }
+        
+    }
+    
+    func postNotificationToReloadScreens()  {
+        
+        if let screen = getLastScreen(){
+            print("\nthe screen is .. \(screen)")
+            switch screen {
+            case .UserProfileScreen:
+                NotificationCenter.default.post(name: .reloadProfile, object: nil)
+            case .NotificationsScreen:
+                NotificationCenter.default.post(name: .reloadNotifications, object: nil)
+            case .SearchedUserProfileScreen:
+                //NotificationCenter.default.post(name: .reloadSearchedUserProfile, object: nil)
+                // Will add notification later, pull to refresh isn't enabled on SeaarchedUserProfile yet
+                refreshControl.endRefreshing()
+            case .SwappedScreen:
+                NotificationCenter.default.post(name: .reloadSwapped, object: nil)
+            case .SwapsScreen:
+                NotificationCenter.default.post(name: .reloadSwaps, object: nil)
+                
+            default:
+                break
+            }
+        } else{
+            
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    func disableReloading(){
+        scrollView.alwaysBounceVertical = false
+        scrollView.bounces = false
+    }
+    func enableReloading(){
+        scrollView.alwaysBounceVertical = true
     }
     
 }

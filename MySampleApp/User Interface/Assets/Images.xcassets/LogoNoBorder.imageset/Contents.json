@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2016-08-27 at 2.12.56 PM-2.png",
+      "filename" : "swapLogoSignup-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2016-08-27 at 2.12.56 PM.png",
+      "filename" : "swapLogoSignup.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2016-08-27 at 2.12.56 PM-1.png",
+      "filename" : "swapLogoSignup-2.png",
       "scale" : "3x"
     }
   ],

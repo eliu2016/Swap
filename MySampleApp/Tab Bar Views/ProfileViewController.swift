@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var swapCodeImageView: UIImageView!
     @IBOutlet var GradientBottomLine: UIImageView!
     @IBOutlet var verifiedIcon: UIImageView!
+    @IBOutlet var header: UIImageView!
    
     
     
@@ -60,15 +61,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
-    
- 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupViewController()
         loadProfile()
+        setupSwapCodeGestureRecognizer()
         
         // Listens for reloadProfile notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadProfile), name: .reloadProfile, object: nil)
@@ -93,7 +91,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
 
    
-
+    override func viewDidAppear(_ animated: Bool) {
+        save(screen: .UserProfileScreen)
+        
+        
+    }
     
     
     
@@ -112,8 +114,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     /// Shows the loading symbol and reloads the profile data.
     func loadProfile()  {
         
+        
+        
         // Hide UI or do whatever to show that the profile is loading
         self.loadingIndicator.startAnimating()
+        self.header.backgroundColor = self.view.backgroundColor
+        self.header.image = nil
         
         self.nameLabel.isHidden = true
         self.pointsLabel.isHidden = true
@@ -150,14 +156,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             if error != nil{
                 // There is an error
                 // Note -- Micheal S. Bingham -- Should Handle this in the future
+                refreshControl.endRefreshing()
+                self.header.backgroundColor = nil
+                self.header.image = #imageLiteral(resourceName: "Header1")
             }
 
-                
             else{
-                
-                
-                
-                
+        
                 // Data is now loaded so stop any loading UI
                 self.loadingIndicator.isHidden = true
                 
@@ -223,13 +228,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 self.Pinterest.isSelected = (user?._willSharePinterest as? Bool) ?? false
                 self.Vimeo.isSelected = (user?._willShareVimeo as? Bool) ?? false
                 self.Github.isSelected = (user?._willShareGitHub as? Bool) ?? false
+                self.profilePicImageView.kf.indicatorType = .activity
                 self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
                 circularImage(photoImageView: self.profilePicImageView)
+                self.swapCodeImageView.kf.indicatorType = .activity
                 self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
                 
                 
                 //Stop pull refresh here . 
                 refreshControl.endRefreshing()
+                self.header.backgroundColor = nil
+                self.header.image = #imageLiteral(resourceName: "Header1")
+                self.view.sendSubview(toBack: self.header)
                 
                 if let notificationID = user?._notification_id_one_signal {
                     if notificationID == "0"{
@@ -238,10 +248,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
-            
-            
-            
-        
+
 
     })
         
@@ -250,6 +257,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     
     func setupViewController()  {
+        
+        removePlaceHoldersAndAdjustFontsByLabelWidth()
         
         DispatchQueue.main.async {
             
@@ -294,6 +303,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     func toogleSocialMedia(sender: UIButton)  {
         
+        let status: Bool = !sender.isSelected
+        sender.isSelected = !sender.isSelected
+        
       switch sender  {
             
             
@@ -302,13 +314,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
            
             
             SwapUser(username: getUsernameOfSignedInUser()
-            ).set(WillShareSpotify: !sender.isSelected, DidSetInformation: {
+            ).set(WillShareSpotify: status, DidSetInformation: {
             
          
-            sender.isSelected = !sender.isSelected
+            
+            return nil
             
             
-            
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -320,12 +335,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
            
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePhonenumber: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePhonenumber: status, DidSetInformation: {
             
            
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -336,12 +354,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
           
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareEmail: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareEmail: status, DidSetInformation: {
             
            
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -355,13 +376,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             SwapUser(username: getUsernameOfSignedInUser()
-            ).set(WillShareReddit: !sender.isSelected, DidSetInformation: {
+            ).set(WillShareReddit: status, DidSetInformation: {
             
             
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -373,12 +397,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
        
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareInstagram: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareInstagram: status, DidSetInformation: {
             
           
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -389,12 +416,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
         
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareTwitter: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareTwitter: status, DidSetInformation: {
             
             
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -407,13 +437,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             SwapUser(username: getUsernameOfSignedInUser()
-            ).set(WillShareYouTube: !sender.isSelected, DidSetInformation: {
+            ).set(WillShareYouTube: status, DidSetInformation: {
             
             
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -425,12 +458,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareSoundCloud: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareSoundCloud: status, DidSetInformation: {
             
       
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -441,12 +477,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePinterest: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillSharePinterest: status, DidSetInformation: {
             
            
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -457,12 +496,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
    
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareVimeo: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareVimeo: status, DidSetInformation: {
             
             
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -473,12 +515,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             
             
             
-            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareGitHub: !sender.isSelected, DidSetInformation: {
+            SwapUser(username: getUsernameOfSignedInUser()).set(WillShareGitHub: status, DidSetInformation: {
             
            
-            sender.isSelected = !sender.isSelected
+            return nil
             
             
+            }, CannotSetInformation: {
+                
+                sender.isSelected = !sender.isSelected
             })
             
             
@@ -490,6 +535,97 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+    
+    
+    
+    
+    
+    /// Sets up the gesture recognizer for the Swap Code
+    func setupSwapCodeGestureRecognizer()  {
+        
+        swapCodeImageView.isUserInteractionEnabled = true
+      
+        //now you need a tap gesture recognizer
+        //note that target and action point to what happens when the action is recognized.
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.doubleTappedSwapCode(_:)))
+        tapRecognizer.numberOfTapsRequired = 2
+        //Add the recognizer to your view.
+        swapCodeImageView.addGestureRecognizer(tapRecognizer)
+    }
+    
+    /// Called when the Swap Code is Double Tapped. Should turn on/off all permissions.
+    func doubleTappedSwapCode(_ gestureRecognizer: UITapGestureRecognizer) {
+        
+        var countOfTrue = 0
+    
+        let buttons: [UIButton] = [Reddit, Spotify, Phone, Email, Instagram, Github, Vimeo, Twitter, YouTube, SoundCloud, Pinterest]
+        
+        for button in buttons{
+            if button.isSelected  {
+                
+                countOfTrue += 1
+            }
+        }
+        
+        if countOfTrue >= 6 {
+            
+            // More enabled buttons than disabled  so turn off all
+            
+            // Toggle Permissions
+            toggleAllPermissions(as: false)
+            
+        } else{
+            // turn on
+            
+            // Toggle Permissions
+            toggleAllPermissions(as: true)
+        }
+        
+        
+    }
+    
+    /// Turns on/off all permissions in database and in UI.
+    func toggleAllPermissions(as state: Bool)  {
+        
+        
+        SwapUser().set( WillShareSpotify: state, WillShareYouTube: state, WillSharePhonenumber: state, WillShareVine: state, WillShareInstagram: state, WillShareTwitter: state, WillShareEmail: state, WillShareReddit: state, WillSharePinterest: state, WillShareSoundCloud: state, WillShareGitHub: state, WillShareVimeo: state, DidSetInformation:{
+            
+            // Turn on all buttons
+            
+           self.toggleAllButtons(as: state)
+            
+        })
+    }
+    
+    
+    
+    /// Toggles buttons on or off given the state. Does NOT alter information in database!
+    func toggleAllButtons(as state:  Bool)  {
+        
+        Reddit.isSelected = state
+        Spotify.isSelected = state
+        Phone.isSelected = state
+        Email.isSelected = state
+        Instagram.isSelected = state
+        Github.isSelected = state
+        Vimeo.isSelected = state
+        Twitter.isSelected = state
+        YouTube.isSelected = state
+        SoundCloud.isSelected = state
+        Pinterest.isSelected = state
+        
+    }
+    
+    
+    func removePlaceHoldersAndAdjustFontsByLabelWidth()  {
+        
+        nameLabel.shouldHidePlaceholderText = true
+        nameLabel.adjustsFontSizeToFitWidth = true
+        pointsNumberLabel.adjustsFontSizeToFitWidth = true
+        swapsNumberLabel.adjustsFontSizeToFitWidth = true
+        swappedNumberLabel.adjustsFontSizeToFitWidth = true
+    }
     
 }
 

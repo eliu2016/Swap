@@ -24,14 +24,15 @@ class setPasswordViewController: UIViewController{
         
         if (passwordField.text?.length)! >= 6{
            
-            UserDefaults.standard.set(passwordField.text, forKey: "password")
+            
+            savePassword(password: passwordField.text)
             
             self.performSegue(withIdentifier: "toPhoneNumberController", sender: nil)
         }
         else{
           
-            UIAlertView(title: "Error",
-                        message: "Password Must Be 6 Characters",
+            UIAlertView(title: "Invalid Password",
+                        message: "Password Must Be At Least 6 Characters",
                         delegate: nil,
                         cancelButtonTitle: "Ok").show()
         }
