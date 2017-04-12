@@ -39,6 +39,9 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
     @IBOutlet weak var Reddit: UIImageView!
     @IBOutlet weak var GitHub: UIImageView!
     @IBOutlet weak var Vimeo: UIImageView!
+    
+    @IBOutlet var popUp: UIView!
+ 
     @IBOutlet var loadingView: UIActivityIndicatorView!
     
    
@@ -88,10 +91,7 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
                 else{
                     
                     self.disableSwapButton()
-                    let alert = UIAlertController(title: "Success", message: "You have just Swapped™ \(user?._firstname! ?? "") \(user?._lastname ?? "")", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    
+                    self.showPopUp()
                 }
                 
             }
@@ -117,6 +117,25 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
         self.swapButton.titleLabel?.alpha = 0.4
     }
     
+    func showPopUp(){
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            
+             self.popUp.transform = CGAffineTransform.init(translationX: 0, y: -400)
+            
+        
+        }) { (completed) in
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(500), execute: { () -> Void in
+                UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                    
+                    self.popUp.alpha = 0
+                    
+                })
+            })
+        }
+    }
+    
     func MakeBlurViewCircular(blurView: UIVisualEffectView) -> UIVisualEffectView{
         
         blurView.layer.cornerRadius = blurView.frame.height/2
@@ -132,11 +151,7 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
     func setupViewController()  {
         
         self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
-        if #available(iOS 10.0, *) {
-            self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
-        } else {
-            // Fallback on earlier versions
-        }
+        self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
         self.tabBarController?.tabBar.tintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
         self.tabBarController?.delegate = self
@@ -164,6 +179,10 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
         MakeBlurViewCircular(blurView: BlurView1)
         MakeBlurViewCircular(blurView: BlurView2)
         MakeBlurViewCircular(blurView: BlurView3)
+        
+        self.view.addSubview(popUp)
+        popUp.backgroundColor = UIColor.clear
+        popUp.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 400)
         
         usernameLabel.text = searchedUser
     }

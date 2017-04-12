@@ -1394,7 +1394,7 @@
                         <inset key="imageInsets" minX="-2" minY="10" maxX="2" maxY="-10"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d3b-Y0-b5o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3b-Y0-b5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1412,7 +1412,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Zxc-qU-hxd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Q8T-Kx-S5U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q8T-Kx-S5U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1835,7 +1835,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2b1-OV-Fx1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2b1-OV-Fx1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2177,6 +2177,7 @@
                         <outlet property="fullName" destination="kUo-tn-DTb" id="6NK-8s-cMw"/>
                         <outlet property="loadingView" destination="rHC-xc-nOo" id="hQu-9g-UKB"/>
                         <outlet property="pointsNumberLabel" destination="w6y-or-6Z4" id="KFn-kM-umL"/>
+                        <outlet property="popUp" destination="zR4-cT-lbU" id="Oyn-AG-e9M"/>
                         <outlet property="profilePicture" destination="CzA-ti-uTI" id="UE7-ob-vTL"/>
                         <outlet property="swapButton" destination="8uh-1L-XGO" id="hZ2-us-F03"/>
                         <outlet property="swappedNumberLabel" destination="C5f-ot-uUi" id="IeK-Gl-r4B"/>
@@ -2187,8 +2188,30 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Is7-Na-MAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="zR4-cT-lbU">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="172"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ConfirmSwapBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Xqy-HM-jUB">
+                            <rect key="frame" x="28" y="13" width="184" height="139"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swap Success" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLF-G9-gru">
+                            <rect key="frame" x="37" y="95" width="166" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
+                            <color key="textColor" red="0.13125347800000001" green="0.1364213198" blue="0.1339323946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="O8u-Jp-VZW">
+                            <rect key="frame" x="86" y="27" width="68" height="68"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.87839943827423805" blue="0.25527077266912701" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="3560.8000000000002" y="2578.5607196401802"/>
+            <point key="canvasLocation" x="3560.8000000000002" y="2668.5157421289359"/>
         </scene>
         <!--Twitter View-->
         <scene sceneID="aLB-3Y-Lut">
@@ -2209,7 +2232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WvG-cg-eyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560.8000000000002" y="3292.8035982008996"/>
+            <point key="canvasLocation" x="3561" y="3460"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="B3d-py-UYI">
@@ -2230,7 +2253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCB-uK-zHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3561" y="4030"/>
+            <point key="canvasLocation" x="3561" y="4192"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pIv-bt-exu">
@@ -2251,7 +2274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hb6-bH-RHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3561" y="4746"/>
+            <point key="canvasLocation" x="3561" y="4974"/>
         </scene>
         <!--Swaps View Controller-->
         <scene sceneID="pal-IC-nlV">
@@ -2509,7 +2532,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="JuD-eH-h69" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wEL-zP-Ibz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEL-zP-Ibz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2975,7 +2998,7 @@
                         <inset key="imageInsets" minX="35" minY="7" maxX="-35" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mml-ww-BEp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mml-ww-BEp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3327,6 +3350,7 @@
         <image name="YouTubeBlackIcon" width="37" height="25"/>
         <image name="YouTubeDisabled" width="66" height="66"/>
         <image name="YoutubeDark" width="57" height="56"/>
+        <image name="checkIcon" width="64" height="64"/>
         <image name="sendSMSButton" width="950" height="140"/>
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>

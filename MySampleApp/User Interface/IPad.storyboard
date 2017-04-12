@@ -2167,6 +2167,7 @@
                         <outlet property="fullName" destination="Q18-M1-eSy" id="VaC-LR-DgW"/>
                         <outlet property="loadingView" destination="55Q-uk-q1A" id="3PM-UD-dYa"/>
                         <outlet property="pointsNumberLabel" destination="g4K-Dg-1gs" id="h3y-TM-FyJ"/>
+                        <outlet property="popUp" destination="YCt-5z-QXS" id="eCL-ZY-JnY"/>
                         <outlet property="profilePicture" destination="4Cc-aM-tBx" id="ear-vl-v9U"/>
                         <outlet property="swapButton" destination="sRR-cM-XC3" id="XHe-O7-Cgc"/>
                         <outlet property="swappedNumberLabel" destination="8bX-aA-Wca" id="rVF-XI-Np6"/>
@@ -2177,6 +2178,28 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I99-SN-H2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="YCt-5z-QXS">
+                    <rect key="frame" x="0.0" y="0.0" width="198" height="172"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ConfirmSwapBackground" translatesAutoresizingMaskIntoConstraints="NO" id="TJM-HQ-Mvf">
+                            <rect key="frame" x="22" y="13" width="153" height="129"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ZV5-57-RTv">
+                            <rect key="frame" x="69" y="29" width="61" height="59"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swap Success" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pD9-vZ-1OI">
+                            <rect key="frame" x="26" y="95" width="151" height="39"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
+                            <color key="textColor" red="0.13125347800000001" green="0.1364213198" blue="0.1339323946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.8783994383" blue="0.25527077269999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="3560.625" y="2577.5"/>
         </scene>
@@ -3323,6 +3346,7 @@
         <image name="YouTubeBlackIcon" width="37" height="25"/>
         <image name="YouTubeDisabled" width="66" height="66"/>
         <image name="YoutubeDark" width="57" height="56"/>
+        <image name="checkIcon" width="64" height="64"/>
         <image name="sendSMSButton" width="950" height="140"/>
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>

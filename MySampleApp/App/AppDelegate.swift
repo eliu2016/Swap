@@ -151,15 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         return true
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     func configureRemoteNotificationsSettings(with launchOptions: [UIApplicationLaunchOptionsKey: Any]?)  {
         
        
@@ -194,22 +186,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                                             }
                                             
                                             
-        }, settings: [:])
+        }, settings: [kOSSettingsKeyInFocusDisplayOption:OSNotificationDisplayType.notification.rawValue])
         
      
         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     func configureUniversalLinksAndSwapLinks(with launchOptions: [UIApplicationLaunchOptionsKey: Any]?, and storyboard: UIStoryboard)  {
         
@@ -293,8 +277,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
 
     }
-    
-    
     
     
     

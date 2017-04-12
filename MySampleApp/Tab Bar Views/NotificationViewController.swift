@@ -147,7 +147,8 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                     cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                     cell.usernameLabel.text = (user?._firstname)! + " " + (user?._lastname)!
                     cell.timeLabel.text = (self.acceptedRequests[indexPath.item]._sent_at)?.timeAgo()
-                    if !(self.acceptedRequests[indexPath.item]._status)!.boolValue{ cell.swapButton.isHidden = true } else { cell.swapButton.isHidden = false }
+                    cell.swapButton.isHidden = true
+                    if (self.acceptedRequests[indexPath.item]._status)!.boolValue{ cell.swapButton.isHidden = false}
                 }
             }
         }

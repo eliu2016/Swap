@@ -74,7 +74,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapScreen))
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGestureRecognizer)
-        
+
         
         circularImageNoBorder(photoImageView: profilePic)
 
@@ -168,7 +168,6 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                         self.bioLabel.text = ""
                         self.verifiedIcon.isHidden = true
                         self.profilePic.image = #imageLiteral(resourceName: "DefaultProfileImage")
-                        
                         
                         
                     }
