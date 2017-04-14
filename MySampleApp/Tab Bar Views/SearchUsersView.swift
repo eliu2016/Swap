@@ -29,6 +29,8 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     override func viewWillAppear(_ animated: Bool) {
         
+        searchBar.becomeFirstResponder()
+        
       /*  for indexpath in self.tableView.indexPathsForVisibleRows!{
             
             self.tableView.deselectRow(at: indexpath, animated: true)
@@ -39,6 +41,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     override func viewDidLoad() {
     
         searchBar.delegate = self
+        
         
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
         

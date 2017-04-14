@@ -44,6 +44,9 @@
 		751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B3F1E25C3B900FD515A /* EditProfile.swift */; };
 		751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */; };
 		751D190D1E2EEBA100DF5415 /* SettingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D190C1E2EEBA100DF5415 /* SettingUI.swift */; };
+		751E75B01EA05B1C005BB48C /* EnterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E75AF1EA05B1C005BB48C /* EnterUserViewController.swift */; };
+		751E75B21EA05C3E005BB48C /* verificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E75B11EA05C3E005BB48C /* verificationViewController.swift */; };
+		751E75B41EA05C4F005BB48C /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E75B31EA05C4F005BB48C /* NewPasswordViewController.swift */; };
 		751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */; };
 		75207DC21E76310F00BB66F4 /* SetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */; };
 		75207DC81E76458600BB66F4 /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */; };
@@ -209,6 +212,9 @@
 		751C0B3F1E25C3B900FD515A /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerSwipeExtension.swift; sourceTree = "<group>"; };
 		751D190C1E2EEBA100DF5415 /* SettingUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingUI.swift; sourceTree = "<group>"; };
+		751E75AF1EA05B1C005BB48C /* EnterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterUserViewController.swift; sourceTree = "<group>"; };
+		751E75B11EA05C3E005BB48C /* verificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = verificationViewController.swift; sourceTree = "<group>"; };
+		751E75B31EA05C4F005BB48C /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
 		75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetEmailViewController.swift; sourceTree = "<group>"; };
 		75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -445,6 +451,17 @@
 			path = ../MySampleApp/Settings;
 			sourceTree = "<group>";
 		};
+		751E75AE1EA05ADC005BB48C /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				751E75AF1EA05B1C005BB48C /* EnterUserViewController.swift */,
+				751E75B11EA05C3E005BB48C /* verificationViewController.swift */,
+				751E75B31EA05C4F005BB48C /* NewPasswordViewController.swift */,
+			);
+			name = "Forgot Password";
+			path = "../MySampleApp/User Interface";
+			sourceTree = "<group>";
+		};
 		752A6BD31E1F30D700E6695B /* Tab Bar Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +567,7 @@
 				2ECF287F1DF90D0C00FEC5D2 /* Account */,
 				2ECF287E1DF8F58800FEC5D2 /* Swap.entitlements */,
 				751C0B3E1E25C38600FD515A /* Settings */,
+				751E75AE1EA05ADC005BB48C /* Forgot Password */,
 				752A6BD31E1F30D700E6695B /* Tab Bar Views */,
 				75A81B0C1E40515400F8F62C /* Preview Views */,
 				7515720D1DFA5F0B00ED4697 /* User Interface */,
@@ -837,6 +855,7 @@
 				2E4041DB1E43D892003C23F3 /* IGUser.swift in Sources */,
 				755CAD701E840F18008E94E3 /* SetUsernameViewController.swift in Sources */,
 				2EFC3A291DF9C37100D45E7E /* ExtensionsSignIn.swift in Sources */,
+				751E75B41EA05C4F005BB48C /* NewPasswordViewController.swift in Sources */,
 				2EE143B81E370D5E000EADB7 /* SwapUser.swift in Sources */,
 				2EE143BA1E370E47000EADB7 /* SearchUsers.swift in Sources */,
 				2EFC3A321DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift in Sources */,
@@ -851,6 +870,7 @@
 				752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */,
 				752A6BDA1E20975E00E6695B /* SetttingsView.swift in Sources */,
 				2EFC3A2D1DF9D96000D45E7E /* ConfirmAccountViewController.swift in Sources */,
+				751E75B01EA05B1C005BB48C /* EnterUserViewController.swift in Sources */,
 				2EE143C91E3726ED000EADB7 /* SwapRequest.swift in Sources */,
 				752A6BD51E1F497E00E6695B /* SetNameViewController.swift in Sources */,
 				752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */,
@@ -863,6 +883,7 @@
 				E7A30F04D052C5D100000000 /* AWSAPI_0MZ6OXIFT5_RequestSchema.m in Sources */,
 				752111BA1E2B3BE60054D975 /* SwappedViewController.swift in Sources */,
 				755CAD721E856190008E94E3 /* ProfilePicturePageController.swift in Sources */,
+				751E75B21EA05C3E005BB48C /* verificationViewController.swift in Sources */,
 				E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

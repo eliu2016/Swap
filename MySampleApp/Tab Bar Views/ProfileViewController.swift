@@ -119,7 +119,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         // Hide UI or do whatever to show that the profile is loading
         self.loadingIndicator.startAnimating()
         self.header.backgroundColor = self.view.backgroundColor
-        self.header.image = nil
         
         self.nameLabel.isHidden = true
         self.pointsLabel.isHidden = true
