@@ -327,6 +327,18 @@ func getPhoneNumber() -> String? {
     
 }
 
+func save(verificationCode: String?)  {
+    
+    UserDefaults.standard.set(verificationCode, forKey: "verificationCodeForForgotPassword")
+    UserDefaults.standard.synchronize()
+}
+
+func getVerificationCodeForForgotPassword() -> String? {
+    
+    return UserDefaults.standard.string(forKey: "verificationCodeForForgotPassword")
+    
+}
+
 
 /// Use this on viewdidappear in order to make note of the last active screen the user was on. (Used in order to determine what screen the user is on when they are pulling to refresh)
 ///

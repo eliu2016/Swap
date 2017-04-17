@@ -53,9 +53,75 @@ class verificationViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didTapNext(_ sender: Any) {
         
+        guard  let number1 = firstNumberField.text, let number2 = secondNumberField.text, let number3 = thirdNumberField.text, let number4 = forthNumberField.text, let number5 = fifthNumberField.text, let number6 = sixthNumberField.text else{
+            
+            return
+        }
+        
+        
+        
+        let code = number1+number2+number3+number4+number5+number6
+       
+        
+        guard code.characters.count == 6 else {
+            
+            return
+        }
+        
+        save(verificationCode: code)
+        
+        self.performSegue(withIdentifier: "showEnterNewPassword", sender: nil)
     
     }
     @IBAction func didTapSendCode(_ sender: Any) {
+        
+        guard getSavedUsername() != nil else {
+            
+            return
+        }
+        
+        
+        forgotPassword(username:  getSavedUsername() ?? "" ) { (isSuccess, destination) in
+            
+            
+            guard isSuccess && destination != nil else {
+                
+                // Tell the user that the username/phone number account could not be found
+                
+                UIAlertView(title: "Invalid Username or Phone Number", message: "Sorry, could not find that account.", delegate:nil, cancelButtonTitle: "Ok").show()
+                
+                return
+            }
+            
+            
+            if isSuccess{
+                
+                print("is a success ! ")
+                // Will send verification code
+                // The string 'destination' is the email address or phone number the code was sent to
+                
+                
+                let message = UIAlertController(title: "Reset Passord", message: "We sent a verification code to \(destination!)", preferredStyle: .alert)
+                
+                
+                message.addAction(UIAlertAction(title: "Ok", style: .default){ (action) in
+                    
+                    
+                    // Now go to the verification page
+                    
+                    DispatchQueue.main.async {
+                        
+                        
+                    }
+                    
+                    
+                    
+                })
+                
+                self.present(message, animated: true, completion: nil)
+                
+            }
+        }
         
         
     }
