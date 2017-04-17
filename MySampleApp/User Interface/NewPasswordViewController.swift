@@ -36,6 +36,7 @@ class NewPasswordViewController: UIViewController{
     }
     @IBAction func didTapDone(_ sender: Any) {
         
+
         
         guard  (newPasswordField.text != nil) && (newPasswordField.text?.characters.count)! >= 6 else {
             
@@ -62,8 +63,8 @@ class NewPasswordViewController: UIViewController{
                     // Go back to sign in screen
                     
                     
-                   self.performSegue(withIdentifier: "leaveForgotPassword", sender: nil)
-                    
+                  // self.performSegue(withIdentifier: "leaveForgotPassword", sender: nil)
+                    navigationController?.popToRootViewController(animated: true)  
                     
                 }
                 
@@ -87,8 +88,8 @@ class NewPasswordViewController: UIViewController{
                         
                         // Go back to sign in screen
                         
-                        
-                        self.performSegue(withIdentifier: "leaveForgotPassword", sender: nil)
+                          // self.performSegue(withIdentifier: "leaveForgotPassword", sender: nil)
+                        navigationController?.popToRootViewController(animated: true)
                         
                     }
                     
@@ -102,6 +103,6 @@ class NewPasswordViewController: UIViewController{
             }
         }
         
-        
+
     }
 }

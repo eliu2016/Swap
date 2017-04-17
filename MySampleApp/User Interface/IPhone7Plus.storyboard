@@ -1268,14 +1268,6 @@
                                 <rect key="frame" x="82" y="172" width="250" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lw4-Cs-kDS">
-                                <rect key="frame" x="379" y="28" width="23" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="ShareIcon"/>
-                                <connections>
-                                    <action selector="didTapShare:" destination="XqX-w2-y4V" eventType="touchUpInside" id="IJX-CI-dZY"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swapapp.co/username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6j-QH-JrE">
                                 <rect key="frame" x="73" y="137" width="269" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1283,6 +1275,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lw4-Cs-kDS">
+                                <rect key="frame" x="371" y="28" width="23" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ShareIcon"/>
+                                <connections>
+                                    <action selector="didTapShare:" destination="XqX-w2-y4V" eventType="touchUpInside" id="IJX-CI-dZY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1292,7 +1292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="434-u9-1OV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2627.536231884058" y="1805.7065217391305"/>
+            <point key="canvasLocation" x="2626.0869565217395" y="1805.7065217391305"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aSP-bj-xfw">
@@ -2218,7 +2218,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QpK-3L-F0t">
-                                <rect key="frame" x="0.0" y="61" width="414" height="675"/>
+                                <rect key="frame" x="0.0" y="61" width="414" height="626"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2241,7 +2241,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ny-vx-V8Y">
-                                                    <rect key="frame" x="82" y="37" width="162" height="21"/>
+                                                    <rect key="frame" x="76" y="37" width="162" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                     <color key="textColor" red="0.38733343910000001" green="0.38733343910000001" blue="0.38733343910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2780,7 +2780,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HSD-Za-QSU">
-                                <rect key="frame" x="0.0" y="62" width="414" height="674"/>
+                                <rect key="frame" x="0.0" y="62" width="414" height="625"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -2799,7 +2799,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="32 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccX-yq-fco">
-                                                    <rect key="frame" x="90" y="40" width="172" height="18"/>
+                                                    <rect key="frame" x="84" y="40" width="172" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                     <color key="textColor" red="0.38733343910000001" green="0.38733343910000001" blue="0.38733343910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2900,7 +2900,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1L-4z-QB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4294" y="1800"/>
+            <point key="canvasLocation" x="4292.753623188406" y="1800.0000000000002"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9mq-Ke-r5q">
@@ -3606,7 +3606,6 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapDone:" destination="z4j-iN-oEi" eventType="touchUpInside" id="GO1-4j-mhc"/>
-                                    <action selector="didTapNext:" destination="z4j-iN-oEi" eventType="touchUpInside" id="b5q-SF-bP5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auM-fD-eAc">
@@ -3676,7 +3675,7 @@
         <image name="SearchIcon" width="28" height="28"/>
         <image name="SendCodeButton" width="63" height="11"/>
         <image name="SettingsIcon" width="68" height="66"/>
-        <image name="ShareIcon" width="42" height="42"/>
+        <image name="ShareIcon" width="23" height="23"/>
         <image name="SoundCloudBlackIcon" width="42" height="42"/>
         <image name="SoundCloudDark" width="37" height="36"/>
         <image name="SoundCloudDisabled" width="64" height="63"/>
@@ -3702,6 +3701,9 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
+
+        <segue reference="SpY-B2-7Ym"/>
+
         <segue reference="5bP-vo-cs0"/>
         <segue reference="Xpo-tz-aOQ"/>
         <segue reference="8yU-bV-628"/>

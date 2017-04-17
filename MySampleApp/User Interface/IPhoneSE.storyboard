@@ -3594,7 +3594,6 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapDone:" destination="eNx-dR-tjW" eventType="touchUpInside" id="pAt-LU-ths"/>
-                                    <action selector="didTapNext:" destination="eNx-dR-tjW" eventType="touchUpInside" id="3IF-MW-sPS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJW-ng-Wbn">
@@ -3664,7 +3663,7 @@
         <image name="SearchIcon" width="27" height="27"/>
         <image name="SendCodeButton" width="95" height="17"/>
         <image name="SettingsIcon" width="102" height="99"/>
-        <image name="ShareIcon" width="64" height="64"/>
+        <image name="ShareIcon" width="21" height="21"/>
         <image name="SoundCloudBlackIcon" width="64" height="64"/>
         <image name="SoundCloudDark" width="56" height="54"/>
         <image name="SoundCloudDisabled" width="66" height="66"/>
