@@ -1287,10 +1287,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Header1" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-I4-Tqs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pE8-0q-pbF">
                                 <rect key="frame" x="22" y="26" width="39" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1326,7 +1322,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTd-Qy-Gp6">
-                                <rect key="frame" x="336" y="30" width="23" height="22"/>
+                                <rect key="frame" x="326" y="23" width="36" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="ShareIcon"/>
                                 <connections>
@@ -1344,6 +1340,10 @@
                                     <action selector="copyLink:" destination="7l8-Ky-F9v" eventType="touchUpInside" id="5T9-nK-4iB"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Header1" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-I4-Tqs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1463,7 +1463,7 @@
                     <color key="backgroundColor" red="1" green="0.77454661467030483" blue="0.26098320864515157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1066.4000000000001" y="2730.5847076461773"/>
+            <point key="canvasLocation" x="-1066" y="2579"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Pj-B7-Yk8">
@@ -2290,7 +2290,7 @@
                     <color key="backgroundColor" red="1" green="0.87839943827423805" blue="0.25527077266912701" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="3560.8000000000002" y="2668.5157421289359"/>
+            <point key="canvasLocation" x="3561" y="2579"/>
         </scene>
         <!--Twitter View-->
         <scene sceneID="aLB-3Y-Lut">
@@ -2417,7 +2417,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZk-QK-Kap">
-                                                    <rect key="frame" x="81" y="36" width="162" height="21"/>
+                                                    <rect key="frame" x="76" y="36" width="162" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                     <color key="textColor" red="0.38733343908629436" green="0.38733343908629436" blue="0.38733343908629436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3018,7 +3018,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="32 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKH-xx-eY3">
-                                                    <rect key="frame" x="89" y="36" width="172" height="18"/>
+                                                    <rect key="frame" x="76" y="36" width="172" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                     <color key="textColor" red="0.38733343910000001" green="0.38733343910000001" blue="0.38733343910000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3577,7 +3577,6 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapDone:" destination="I2n-Mz-VyO" eventType="touchUpInside" id="uWo-cI-d2J"/>
-                                    <action selector="didTapNext:" destination="I2n-Mz-VyO" eventType="touchUpInside" id="Gmg-8w-JwJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKF-Rr-re3">
@@ -3650,7 +3649,7 @@
         <image name="SearchIcon" width="27" height="27"/>
         <image name="SendCodeButton" width="95" height="17"/>
         <image name="SettingsIcon" width="102" height="99"/>
-        <image name="ShareIcon" width="64" height="64"/>
+        <image name="ShareIcon" width="21" height="21"/>
         <image name="SoundCloudBlackIcon" width="64" height="64"/>
         <image name="SoundCloudDark" width="56" height="54"/>
         <image name="SoundCloudDisabled" width="66" height="66"/>

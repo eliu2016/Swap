@@ -30,5 +30,7 @@ class NewPasswordViewController: UIViewController{
         
     }
     @IBAction func didTapDone(_ sender: Any) {
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }
