@@ -2155,6 +2155,52 @@
                     <view key="view" contentMode="scaleToFill" id="Rdt-SW-csP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ThickBlackBorder" translatesAutoresizingMaskIntoConstraints="NO" id="yAp-P6-bHB">
+                                <rect key="frame" x="326" y="28" width="55" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="341" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A6g-e3-LnD">
+                                <rect key="frame" x="0.0" y="86" width="414" height="601"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="photoCell" rowHeight="341" id="0um-M3-Oh7" customClass="InstagramPhotoCell" customModule="Swap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="341"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0um-M3-Oh7" id="SjR-g5-fMK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="340"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sni-mh-P54">
+                                                    <rect key="frame" x="0.0" y="19" width="414" height="303"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1003594166" green="0.2052744909" blue="0.3871748096" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="IGImageView" destination="Sni-mh-P54" id="THx-qB-wIg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InstagramPreviewLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Gkt-Ej-PRh">
+                                <rect key="frame" x="340" y="41" width="28" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3j-ED-0Gf">
+                                <rect key="frame" x="95" y="28" width="143" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="eB7-Gd-UdF">
+                                <rect key="frame" x="11" y="13" width="70" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="InstagramBlackIcon" id="Df4-If-HMe">
@@ -3656,6 +3702,7 @@
         <image name="InstagramBlackIcon" width="31" height="30"/>
         <image name="InstagramDark" width="37" height="37"/>
         <image name="InstagramDisabled" width="89" height="85"/>
+        <image name="InstagramPreviewLogo" width="42" height="42"/>
         <image name="LeftCarrot" width="21" height="21"/>
         <image name="LoginButton" width="692" height="96"/>
         <image name="LogoNoBorder" width="180" height="188"/>
@@ -3684,6 +3731,7 @@
         <image name="SpotifyDisabled" width="63" height="62"/>
         <image name="SwapNotificationsButton" width="370" height="121"/>
         <image name="TextfieldBottom" width="410" height="1"/>
+        <image name="ThickBlackBorder" width="41" height="41"/>
         <image name="TranparentOverlay" width="182" height="227"/>
         <image name="TwitterBlackIcon" width="33" height="28"/>
         <image name="TwitterDark" width="37" height="37"/>
