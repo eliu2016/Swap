@@ -24,6 +24,8 @@ class verificationViewController: UIViewController, UITextFieldDelegate {
         forthNumberField.delegate = self
         fifthNumberField.delegate = self
         sixthNumberField.delegate = self
+        
+        firstNumberField.becomeFirstResponder()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -209,8 +209,15 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
                 self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 circularImage(photoImageView: self.profilePicture)
                 
-                // Send the Twitter ID to the Twitter Preview View Controller
+                // Set the Twitter ID to the Twitter Preview View Controller
                 twitterUserID = user?._twitterID ?? ""
+                
+                // Set the Instagram ID
+                instagramUserID = user?._instagramID ?? ""
+                
+                //set the youtube ID
+                YouTubeUserID = user?._youtubeID ?? ""
+                
                 
                 self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
                 

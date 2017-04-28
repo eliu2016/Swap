@@ -64,7 +64,7 @@ class NewPasswordViewController: UIViewController{
                     
                     
                   // self.performSegue(withIdentifier: "leaveForgotPassword", sender: nil)
-                    navigationController?.popToRootViewController(animated: true)  
+                    self.navigationController?.popToRootViewController(animated: true)
                     
                 }
                 
@@ -89,7 +89,7 @@ class NewPasswordViewController: UIViewController{
                         // Go back to sign in screen
                         
                           // self.performSegue(withIdentifier: "leaveForgotPassword", sender: nil)
-                        navigationController?.popToRootViewController(animated: true)
+                        self.navigationController?.popToRootViewController(animated: true)
                         
                     }
                     

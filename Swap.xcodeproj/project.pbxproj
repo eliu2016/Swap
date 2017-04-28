@@ -47,6 +47,8 @@
 		751E75B01EA05B1C005BB48C /* EnterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E75AF1EA05B1C005BB48C /* EnterUserViewController.swift */; };
 		751E75B21EA05C3E005BB48C /* verificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E75B11EA05C3E005BB48C /* verificationViewController.swift */; };
 		751E75B41EA05C4F005BB48C /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E75B31EA05C4F005BB48C /* NewPasswordViewController.swift */; };
+		751E75B61EA46B0E005BB48C /* InstagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E75B51EA46B0E005BB48C /* InstagramView.swift */; };
+		751E75BA1EB27E8A005BB48C /* YoutubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E75B91EB27E8A005BB48C /* YoutubeView.swift */; };
 		751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */; };
 		75207DC21E76310F00BB66F4 /* SetEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */; };
 		75207DC81E76458600BB66F4 /* SetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */; };
@@ -215,6 +217,8 @@
 		751E75AF1EA05B1C005BB48C /* EnterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterUserViewController.swift; sourceTree = "<group>"; };
 		751E75B11EA05C3E005BB48C /* verificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = verificationViewController.swift; sourceTree = "<group>"; };
 		751E75B31EA05C4F005BB48C /* NewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
+		751E75B51EA46B0E005BB48C /* InstagramView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstagramView.swift; path = "MySampleApp/User Interface/InstagramView.swift"; sourceTree = SOURCE_ROOT; };
+		751E75B91EB27E8A005BB48C /* YoutubeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YoutubeView.swift; path = "MySampleApp/User Interface/YoutubeView.swift"; sourceTree = SOURCE_ROOT; };
 		751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfo.swift; sourceTree = "<group>"; };
 		75207DC11E76310F00BB66F4 /* SetEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetEmailViewController.swift; sourceTree = "<group>"; };
 		75207DC71E76458600BB66F4 /* SetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -486,6 +490,8 @@
 			isa = PBXGroup;
 			children = (
 				751B91681E5400CA0039AFA4 /* TwitterView.swift */,
+				751E75B51EA46B0E005BB48C /* InstagramView.swift */,
+				751E75B91EB27E8A005BB48C /* YoutubeView.swift */,
 			);
 			name = "Preview Views";
 			path = "/Users/DrStephenPhD/Documents/Swap/mysampleapp/../MySampleApp/Preview Views";
@@ -833,10 +839,12 @@
 				2EFC3A391DFA2D6400D45E7E /* User Errors.swift in Sources */,
 				752A6BD81E20959500E6695B /* ProfileViewController.swift in Sources */,
 				2ECF28951DF90FE000FEC5D2 /* AuthorizationErrors.swift in Sources */,
+				751E75BA1EB27E8A005BB48C /* YoutubeView.swift in Sources */,
 				752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */,
 				75207DCA1E77A77800BB66F4 /* setPhoneNumberViewController.swift in Sources */,
 				E7A30F04A0B2E49B00000000 /* UtilityFunctions.swift in Sources */,
 				751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */,
+				751E75B61EA46B0E005BB48C /* InstagramView.swift in Sources */,
 				75A81B101E415E6F00F8F62C /* StoriesView.swift in Sources */,
 				752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */,
 				751B918D1E6C97190039AFA4 /* FeaturedProfilesCell.swift in Sources */,
