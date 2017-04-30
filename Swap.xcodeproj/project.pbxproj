@@ -69,11 +69,12 @@
 		755CAD701E840F18008E94E3 /* SetUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */; };
 		755CAD721E856190008E94E3 /* ProfilePicturePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */; };
 		75A81B101E415E6F00F8F62C /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B0F1E415E6F00F8F62C /* StoriesView.swift */; };
-		75A81B121E44DE3700F8F62C /* TutorialPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B111E44DE3700F8F62C /* TutorialPageController.swift */; };
 		75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */; };
 		75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */; };
+		75A8E08A1EB553DA0042104C /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A8E0891EB553DA0042104C /* TutorialPageViewController.swift */; };
 		75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 751572101DFBBD3800ED4697 /* Lantinghei.ttc */; };
 		75C1EA101E021086005CB420 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C1EA0F1E021086005CB420 /* Images.xcassets */; };
+		75E434311EB66FFA00917D47 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E434301EB66FFA00917D47 /* TutorialViewController.swift */; };
 		E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E292635028900000000 /* AWSMobileClient.swift */; };
 		E7A30F040E2511BF00000000 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E296BB207FF00000000 /* CFNetwork.framework */; };
 		E7A30F040EAD9BA600000000 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E29070D621E00000000 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -239,10 +240,11 @@
 		755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetUsernameViewController.swift; path = MySampleApp/Account/SignUp/SetUsernameViewController.swift; sourceTree = SOURCE_ROOT; };
 		755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePicturePageController.swift; path = MySampleApp/Account/SignUp/ProfilePicturePageController.swift; sourceTree = SOURCE_ROOT; };
 		75A81B0F1E415E6F00F8F62C /* StoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoriesView.swift; path = "../User Interface/StoriesView.swift"; sourceTree = "<group>"; };
-		75A81B111E44DE3700F8F62C /* TutorialPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageController.swift; sourceTree = "<group>"; };
 		75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhone7Plus.storyboard; sourceTree = "<group>"; };
 		75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneSE.storyboard; sourceTree = "<group>"; };
+		75A8E0891EB553DA0042104C /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		75E434301EB66FFA00917D47 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -412,7 +414,6 @@
 		7515720D1DFA5F0B00ED4697 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				75A81B111E44DE3700F8F62C /* TutorialPageController.swift */,
 				751D190C1E2EEBA100DF5415 /* SettingUI.swift */,
 				752A6BCD1E1F273A00E6695B /* ShowLoadingOverlay.swift */,
 				1DD70E298866540700000000 /* Launch Screen.storyboard */,
@@ -497,6 +498,16 @@
 			path = "/Users/DrStephenPhD/Documents/Swap/mysampleapp/../MySampleApp/Preview Views";
 			sourceTree = "<absolute>";
 		};
+		75A8E0881EB553B80042104C /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				75A8E0891EB553DA0042104C /* TutorialPageViewController.swift */,
+				75E434301EB66FFA00917D47 /* TutorialViewController.swift */,
+			);
+			name = Tutorial;
+			path = ../MySampleApp/Tutorial;
+			sourceTree = "<group>";
+		};
 		B401C979480EFEB400000000 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +586,7 @@
 				751C0B3E1E25C38600FD515A /* Settings */,
 				751E75AE1EA05ADC005BB48C /* Forgot Password */,
 				752A6BD31E1F30D700E6695B /* Tab Bar Views */,
+				75A8E0881EB553B80042104C /* Tutorial */,
 				75A81B0C1E40515400F8F62C /* Preview Views */,
 				7515720D1DFA5F0B00ED4697 /* User Interface */,
 				B401C9799E82047000000000 /* AmazonAws */,
@@ -823,6 +835,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75E434311EB66FFA00917D47 /* TutorialViewController.swift in Sources */,
 				75207DC81E76458600BB66F4 /* SetPasswordViewController.swift in Sources */,
 				2E49B8391E4A534E005029C9 /* YouTubeMedia.swift in Sources */,
 				E7A30F04B7E56FDE00000000 /* SwapHistory.swift in Sources */,
@@ -832,7 +845,6 @@
 				2EE143C31E371F85000EADB7 /* Compilation.swift in Sources */,
 				752A6BDC1E20D21F00E6695B /* ContainerViewController.swift in Sources */,
 				E7A30F04571346AE00000000 /* AppDelegate.swift in Sources */,
-				75A81B121E44DE3700F8F62C /* TutorialPageController.swift in Sources */,
 				751B91691E5400CA0039AFA4 /* TwitterView.swift in Sources */,
 				2EE1439B1E370947000EADB7 /* SwapUserHistory.swift in Sources */,
 				751B916C1E54A6470039AFA4 /* NotificationViewController.swift in Sources */,
@@ -885,6 +897,7 @@
 				E7A30F04ABEB1F8300000000 /* AWSConfiguration.swift in Sources */,
 				2EFC3A241DF9B8ED00D45E7E /* Authorizing.swift in Sources */,
 				2ECF28871DF90D7200FEC5D2 /* AccountErrors.swift in Sources */,
+				75A8E08A1EB553DA0042104C /* TutorialPageViewController.swift in Sources */,
 				7514499E1E9723CE0041C49C /* Scanner.swift in Sources */,
 				751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */,
 				2E49B8371E4A52E8005029C9 /* YouTubeUser.swift in Sources */,

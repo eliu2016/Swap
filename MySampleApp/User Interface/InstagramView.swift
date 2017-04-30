@@ -21,6 +21,8 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var instagramImages: [URL] = []
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        tableView.isHidden = true
     
         let user = IGUser(id: instagramUserID ?? "")
         
