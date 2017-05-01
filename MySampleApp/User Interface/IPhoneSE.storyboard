@@ -1615,10 +1615,10 @@
             </objects>
             <point key="canvasLocation" x="4685.625" y="2578.5211267605632"/>
         </scene>
-        <!--Tutorial Page View Controller-->
+        <!--Tutorial Page Controller-->
         <scene sceneID="eWO-Gm-uft">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Ggc-JP-3M4" customClass="TutorialPageViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Ggc-JP-3M4" customClass="TutorialPageController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sur-As-faL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5552" y="2545"/>

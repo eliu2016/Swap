@@ -3635,10 +3635,10 @@
             </objects>
             <point key="canvasLocation" x="4685.6000000000004" y="2577.6611694152925"/>
         </scene>
-        <!--Tutorial Page View Controller-->
+        <!--Tutorial Page Controller-->
         <scene sceneID="ZJM-xR-vdc">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qb5-77-1bO" customClass="TutorialPageViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qb5-77-1bO" customClass="TutorialPageController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXu-Ju-cce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5552" y="2545"/>

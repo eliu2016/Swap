@@ -1180,6 +1180,9 @@
                                 <rect key="frame" x="329" y="241" width="35" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="InfoIcon"/>
+                                <connections>
+                                    <segue destination="Lc0-xN-WXR" kind="presentation" id="J2T-d6-E4M"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1297,7 +1300,7 @@
                         <inset key="imageInsets" minX="-2" minY="10" maxX="2" maxY="-10"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MiG-zI-teP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MiG-zI-teP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1315,7 +1318,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="KWW-K5-YrP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="R50-hG-899">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R50-hG-899">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1714,7 +1717,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nzG-qp-7Ls">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nzG-qp-7Ls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2431,7 +2434,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="kXg-Xm-8DW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bkx-YE-24u">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bkx-YE-24u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2897,7 +2900,7 @@
                         <inset key="imageInsets" minX="35" minY="7" maxX="-35" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8bx-bR-lUg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8bx-bR-lUg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3655,10 +3658,10 @@
             </objects>
             <point key="canvasLocation" x="4685.507246376812" y="2577.717391304348"/>
         </scene>
-        <!--Tutorial Page View Controller-->
+        <!--Tutorial Page Controller-->
         <scene sceneID="Kzf-VJ-xNP">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="zSl-8F-ZaF" customClass="TutorialPageViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="zSl-8F-ZaF" customClass="TutorialPageController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KC-Yq-v6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5552" y="2545"/>
@@ -3965,6 +3968,9 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="jHj-FP-dx5" kind="presentation" id="LGg-Yl-muK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4049,9 +4055,9 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xpo-tz-aOQ"/>
         <segue reference="5bP-vo-cs0"/>
+        <segue reference="Xpo-tz-aOQ"/>
         <segue reference="SpY-B2-7Ym"/>
-        <segue reference="jIR-tF-ust"/>
+        <segue reference="LGg-Yl-muK"/>
     </inferredMetricsTieBreakers>
 </document>

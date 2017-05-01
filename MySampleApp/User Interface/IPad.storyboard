@@ -934,7 +934,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RoundWhiteTopper" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-y7-gAm">
-                                <rect key="frame" x="0.0" y="56" width="320" height="16"/>
+                                <rect key="frame" x="-3" y="57" width="326" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKU-nX-prG">
@@ -1146,6 +1146,9 @@
                                 <rect key="frame" x="239" y="169" width="26" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="InfoIcon"/>
+                                <connections>
+                                    <segue destination="EFr-ig-0CM" kind="presentation" id="y1S-cp-qiH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klP-BU-19G">
                                 <rect key="frame" x="175" y="58" width="58" height="58"/>
@@ -3626,10 +3629,10 @@
             </objects>
             <point key="canvasLocation" x="4683.75" y="2577.5"/>
         </scene>
-        <!--Tutorial Page View Controller-->
+        <!--Tutorial Page Controller-->
         <scene sceneID="NCY-LJ-Es6">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Anr-Dq-mnA" customClass="TutorialPageViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Anr-Dq-mnA" customClass="TutorialPageController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eT0-tl-il0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5552" y="2545"/>
@@ -3936,6 +3939,9 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="obF-n9-mPV" kind="presentation" id="bqe-Yr-igz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4020,9 +4026,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gFe-SS-edX"/>
         <segue reference="yW3-dI-73y"/>
-        <segue reference="3gl-tf-Vwf"/>
+        <segue reference="gFe-SS-edX"/>
         <segue reference="Q6e-FZ-K8h"/>
+        <segue reference="bqe-Yr-igz"/>
     </inferredMetricsTieBreakers>
 </document>
