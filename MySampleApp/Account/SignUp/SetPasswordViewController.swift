@@ -14,11 +14,28 @@ class setPasswordViewController: UIViewController{
     
     @IBOutlet var passwordField: UITextField!
     
+    @IBOutlet var showPasswordButton: UIButton!
+    
+    var passwordSecure = true
     
     override func viewDidLoad() {
         passwordField.becomeFirstResponder()
     }
     
+    @IBAction func showPassword(_ sender: Any) {
+        
+        passwordSecure = !passwordField.isSecureTextEntry
+        
+        passwordField.isSecureTextEntry = passwordSecure
+        
+        if (passwordSecure){
+            showPasswordButton.setTitle("Show Password", for: .normal)
+        }
+        else{
+            showPasswordButton.setTitle("Hide Password", for: .normal)
+        }
+        
+    }
     
     @IBAction func didTapNext(_ sender: Any) {
         

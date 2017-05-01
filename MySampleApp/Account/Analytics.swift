@@ -16,8 +16,6 @@ class Analytics {
         Answers.logSignUp(withMethod: "Swap",
                           success: true,
                           customAttributes: nil)
-        
-        
     }
     
     class func didSignIn(){

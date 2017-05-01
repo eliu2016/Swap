@@ -283,6 +283,88 @@ func getUsernameOfSignedInUser() -> String {
 
 
 
+/// Sends a verification code in order to reset the password of the user to 'destination' in completion block (String). The booleans test shows if it succeeded in sending a verificaiton, if it's false, the user could not be found. The SwapUser object should contain the username, email address, or phone number as the 'username' attribute.
+func forgotPassword(username: String, completion: @escaping (_ didSendCode: Bool, _ destination: String?) -> Void)  {
+    
+    pool.getUser(username.lowercased().trim().toUsernameSignInAlias()).forgotPassword().continue({ (task)  in
+        
+        DispatchQueue.main.async {
+            
+            if let response = task.result?.codeDeliveryDetails{
+                
+                
+                let destination = response.destination!
+                
+                saveUsername(username: username.lowercased().trim().toUsernameSignInAlias())
+                completion(true, destination)
+                
+                
+            } else{
+                
+                
+                
+                // User Not Found
+                completion(false, nil)
+            }
+            
+            
+        }
+        
+    })
+    
+}
+
+
+func confirmForgotPassword(username: String, confirmation code: String, new password: String, completion: @escaping (_: Bool) -> Void)  {
+    
+    pool.getUser(username.lowercased().trim().toUsernameSignInAlias()).confirmForgotPassword(code, password: password).continue({ (task) in
+        
+        
+        DispatchQueue.main.async {
+            
+            guard task.error == nil  else {
+                
+                completion(false)
+                
+                
+                return
+            }
+            
+            completion(true)
+        }
+        
+        
+        
+    })
+}
+
+/// Change password of a signed in user
+func change(username: String, oldPassword old: String, newPassword new: String, completion: @escaping (_ success: Bool) -> Void)  {
+    
+    pool.getUser(username.lowercased().trim().toUsernameSignInAlias()).changePassword(old, proposedPassword: new).continue({ (task) in
+        
+        
+        DispatchQueue.main.async {
+            
+            guard task.error == nil  else {
+                
+                completion(false)
+                
+                
+                return
+            }
+            
+            completion(true)
+        }
+        
+        
+        
+    })
+    
+    
+    
+}
+
 
 
 /// Predicts user's gender based on first name and stores their gender in database on a background thread

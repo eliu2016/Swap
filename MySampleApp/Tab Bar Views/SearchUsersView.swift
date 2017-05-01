@@ -9,7 +9,7 @@
 import Foundation
 import Kingfisher
 
-class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
+class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
   
     
     let featuredCellID = "FCell"
@@ -29,6 +29,8 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     override func viewWillAppear(_ animated: Bool) {
         
+        searchBar.becomeFirstResponder()
+        
       /*  for indexpath in self.tableView.indexPathsForVisibleRows!{
             
             self.tableView.deselectRow(at: indexpath, animated: true)
@@ -40,11 +42,16 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
         searchBar.delegate = self
         
+        
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
         
         self.automaticallyAdjustsScrollViewInsets = false;
         
-        
+        //recognizes a tap on the screen
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapScreen))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        tapGestureRecognizer.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGestureRecognizer)
         
         //set up collection view and add it to the view
         let collectionViewRect = CGRect(x: 0, y: 140, width: self.view.frame.width, height: self.view.frame.height*0.75)
@@ -63,6 +70,9 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         collectionView?.isHidden = true
        
+    }
+    func didTapScreen(){
+        searchBar.resignFirstResponder()
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
          collectionView?.isHidden = true

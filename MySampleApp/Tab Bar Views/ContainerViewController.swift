@@ -217,7 +217,15 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
     
     func animateRefresh(){
         
-        var colorArray = [UIColor.yellow, UIColor.blue, UIColor.red, UIColor.green, UIColor.purple, UIColor.darkGray]
+        let color1 = UIColor(red: 58/255.0, green: 1/255.0, blue: 65/255.0, alpha: 1.0)
+        let color2 = UIColor(red: 125/255.0, green: 1/255.0, blue: 65/255.0, alpha: 1.0)
+        let color3 = UIColor(red: 125/255.0, green: 130/255.0, blue: 65/255.0, alpha: 1.0)
+        let color4 = UIColor(red: 125/255.0, green: 130/255.0, blue: 137/255.0, alpha: 1.0)
+        let color5 = UIColor(red: 125/255.0, green: 130/255.0, blue: 230/255.0, alpha: 1.0)
+        let color6 = UIColor(red: 125/255.0, green: 220/255.0, blue: 230/255.0, alpha: 1.0)
+        
+        var colorArray = [color1, color2, color3, color4, color5, color6]
+        
         
         struct ColorIndex{
             static var colorIndex = 0
