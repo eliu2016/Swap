@@ -214,8 +214,21 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 self.nameLabel.text = "\(firstname) \(lastname)"
                 self.bioTextField.text = "\(bio)"
                 self.pointsNumberLabel.text = "\(points)"
-                self.swapsNumberLabel.text = "\(swaps)"
-                self.swappedNumberLabel.text = "\(swapped)"
+                
+                SwapUser().getSwapHistory(result: { (error, history) in
+                    
+                    let swaps =  history?.count
+                    self.swapsNumberLabel.text = "\(swaps ?? 0)"
+                })
+                
+                SwapUser().getSwappedHistory(result: { (error, history) in
+                    
+                    let swapped = history?.count
+                    self.swappedNumberLabel.text = "\(swapped ?? 0)"
+                    
+                })
+                
+               
                 self.Spotify.isSelected = willShareSpotify
                 self.Email.isSelected = willShareEmail
                 self.Phone.isSelected = willSharePhone

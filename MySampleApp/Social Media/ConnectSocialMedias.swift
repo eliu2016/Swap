@@ -62,7 +62,7 @@ func shareTwitter(withUser: Users?,
     
     
     
-    twitterAccount.followUser(for: UserTag.id(TwitterID), follow: true, success: { json in
+    twitterAccount.followUser(for: UserTag.id(TwitterID), follow: false, success: { json in
         
         
         

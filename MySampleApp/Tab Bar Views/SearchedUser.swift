@@ -223,9 +223,23 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
                 
                 self.bioLabel.text = user?._bio
                 
+                
+                SwapUser().getSwapHistory(result: { (error, history) in
+                    
+                    let swaps =  history?.count
+                    self.swapsNumberLabel.text = "\(swaps ?? 0)"
+                })
+                
+                SwapUser().getSwappedHistory(result: { (error, history) in
+                    
+                    let swapped = history?.count
+                    self.swappedNumberLabel.text = "\(swapped ?? 0)"
+                    
+                })
+                
+                
                 self.pointsNumberLabel.text = "\(user?._points ?? 0)"
-                self.swappedNumberLabel.text = "\(user?._swapped ?? 0)"
-                self.swapsNumberLabel.text = "\(user?._swaps ?? 0)"
+              
                 
                 //check if the searched user is the signed in user
                 if searchedUser == getUsernameOfSignedInUser() {

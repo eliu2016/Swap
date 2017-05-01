@@ -28,6 +28,7 @@
 		2EE143C51E371FA6000EADB7 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE143C41E371FA6000EADB7 /* Tweet.swift */; };
 		2EE143C71E3725CC000EADB7 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE143C61E3725CC000EADB7 /* Analytics.swift */; };
 		2EE143C91E3726ED000EADB7 /* SwapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE143C81E3726ED000EADB7 /* SwapRequest.swift */; };
+		2EF414E51EB76E0C00F56305 /* TutorialPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF414E41EB76E0C00F56305 /* TutorialPageController.swift */; };
 		2EFC3A241DF9B8ED00D45E7E /* Authorizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A231DF9B8ED00D45E7E /* Authorizing.swift */; };
 		2EFC3A271DF9C0C700D45E7E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A261DF9C0C700D45E7E /* SignInViewController.swift */; };
 		2EFC3A291DF9C37100D45E7E /* ExtensionsSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A281DF9C37100D45E7E /* ExtensionsSignIn.swift */; };
@@ -71,7 +72,6 @@
 		75A81B101E415E6F00F8F62C /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B0F1E415E6F00F8F62C /* StoriesView.swift */; };
 		75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */; };
 		75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */; };
-		75A8E08A1EB553DA0042104C /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A8E0891EB553DA0042104C /* TutorialPageViewController.swift */; };
 		75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 751572101DFBBD3800ED4697 /* Lantinghei.ttc */; };
 		75C1EA101E021086005CB420 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C1EA0F1E021086005CB420 /* Images.xcassets */; };
 		75E434311EB66FFA00917D47 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E434301EB66FFA00917D47 /* TutorialViewController.swift */; };
@@ -199,6 +199,7 @@
 		2EE143C41E371FA6000EADB7 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		2EE143C61E3725CC000EADB7 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		2EE143C81E3726ED000EADB7 /* SwapRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwapRequest.swift; path = MySampleApp/Account/SwapRequest.swift; sourceTree = SOURCE_ROOT; };
+		2EF414E41EB76E0C00F56305 /* TutorialPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageController.swift; sourceTree = "<group>"; };
 		2EFC3A231DF9B8ED00D45E7E /* Authorizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authorizing.swift; sourceTree = "<group>"; };
 		2EFC3A261DF9C0C700D45E7E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		2EFC3A281DF9C37100D45E7E /* ExtensionsSignIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsSignIn.swift; sourceTree = "<group>"; };
@@ -242,7 +243,6 @@
 		75A81B0F1E415E6F00F8F62C /* StoriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoriesView.swift; path = "../User Interface/StoriesView.swift"; sourceTree = "<group>"; };
 		75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhone7Plus.storyboard; sourceTree = "<group>"; };
 		75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneSE.storyboard; sourceTree = "<group>"; };
-		75A8E0891EB553DA0042104C /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		75E434301EB66FFA00917D47 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -501,7 +501,7 @@
 		75A8E0881EB553B80042104C /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				75A8E0891EB553DA0042104C /* TutorialPageViewController.swift */,
+				2EF414E41EB76E0C00F56305 /* TutorialPageController.swift */,
 				75E434301EB66FFA00917D47 /* TutorialViewController.swift */,
 			);
 			name = Tutorial;
@@ -841,6 +841,7 @@
 				E7A30F04B7E56FDE00000000 /* SwapHistory.swift in Sources */,
 				752A6BD21E1F286000E6695B /* SetBirthdayViewController.swift in Sources */,
 				2EE143C71E3725CC000EADB7 /* Analytics.swift in Sources */,
+				2EF414E51EB76E0C00F56305 /* TutorialPageController.swift in Sources */,
 				2EC5652C1DF924FA00D587EB /* Constants.swift in Sources */,
 				2EE143C31E371F85000EADB7 /* Compilation.swift in Sources */,
 				752A6BDC1E20D21F00E6695B /* ContainerViewController.swift in Sources */,
@@ -897,7 +898,6 @@
 				E7A30F04ABEB1F8300000000 /* AWSConfiguration.swift in Sources */,
 				2EFC3A241DF9B8ED00D45E7E /* Authorizing.swift in Sources */,
 				2ECF28871DF90D7200FEC5D2 /* AccountErrors.swift in Sources */,
-				75A8E08A1EB553DA0042104C /* TutorialPageViewController.swift in Sources */,
 				7514499E1E9723CE0041C49C /* Scanner.swift in Sources */,
 				751C0B0E1E249E5800FD515A /* SearchUsersView.swift in Sources */,
 				2E49B8371E4A52E8005029C9 /* YouTubeUser.swift in Sources */,
