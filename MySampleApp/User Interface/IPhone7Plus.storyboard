@@ -1180,6 +1180,9 @@
                                 <rect key="frame" x="329" y="241" width="35" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="InfoIcon"/>
+                                <connections>
+                                    <segue destination="Lc0-xN-WXR" kind="presentation" id="sYP-M1-Wib"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3965,6 +3968,9 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="jHj-FP-dx5" kind="presentation" id="sBr-N9-VoQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4052,6 +4058,6 @@
         <segue reference="Xpo-tz-aOQ"/>
         <segue reference="5bP-vo-cs0"/>
         <segue reference="SpY-B2-7Ym"/>
-        <segue reference="jIR-tF-ust"/>
+        <segue reference="sBr-N9-VoQ"/>
     </inferredMetricsTieBreakers>
 </document>
