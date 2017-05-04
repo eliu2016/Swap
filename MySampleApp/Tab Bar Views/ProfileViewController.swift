@@ -61,6 +61,26 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func didTapProfilePic(_ sender: Any) {
+        
+            let actionSheeet = UIAlertController(title: "Change Picture", message: nil, preferredStyle: .actionSheet)
+        
+            actionSheeet.addAction(UIAlertAction(title: "Upload Picture", style: .default, handler: { (action) in
+            
+            //show photo library
+                
+            }))
+        
+            actionSheeet.addAction(UIAlertAction(title: "Take Picture", style: .default, handler: { (alert) in
+                
+                //open the camera
+            }))
+        
+           actionSheeet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+           present(actionSheeet, animated: true, completion: nil)
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
