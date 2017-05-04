@@ -33,8 +33,6 @@ class ShowLoadingOverlay {
         
         if shouldCenter{
             
-            
-            
             loadingSymbol.center = (view.superview?.center)!
             
         } else {

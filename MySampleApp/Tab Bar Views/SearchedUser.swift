@@ -224,13 +224,13 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
                 self.bioLabel.text = user?._bio
                 
                 
-                SwapUser().getSwapHistory(result: { (error, history) in
+                SwapUser(username: searchedUser).getSwapHistory(result: { (error, history) in
                     
                     let swaps =  history?.count
                     self.swapsNumberLabel.text = "\(swaps ?? 0)"
                 })
                 
-                SwapUser().getSwappedHistory(result: { (error, history) in
+                SwapUser(username: searchedUser).getSwappedHistory(result: { (error, history) in
                     
                     let swapped = history?.count
                     self.swappedNumberLabel.text = "\(swapped ?? 0)"

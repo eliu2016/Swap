@@ -22,49 +22,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header1" translatesAutoresizingMaskIntoConstraints="NO" id="zRJ-hh-tMU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xOy-4y-Jgh">
-                                <rect key="frame" x="132" y="278" width="110" height="110"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="Ucv-yt-L7E"/>
-                                </constraints>
+                                <rect key="frame" x="108" y="188" width="159" height="291"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Copyright© 2016 Swap Inc." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXi-CG-Z80">
-                                <rect key="frame" x="83" y="567" width="209" height="21"/>
+                                <rect key="frame" x="53" y="601" width="268" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="209" id="ma2-VR-RNa"/>
-                                    <constraint firstAttribute="height" constant="21" id="pHX-8T-mDe"/>
+                                    <constraint firstAttribute="height" constant="21" id="jwz-Hx-98c"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0045176092535257339" green="0.79236000776290894" blue="0.8608931303024292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="GXi-CG-Z80" secondAttribute="bottom" constant="79" id="Lmy-Av-0Th"/>
-                            <constraint firstItem="xOy-4y-Jgh" firstAttribute="centerX" secondItem="GXi-CG-Z80" secondAttribute="centerX" id="Qfa-pk-6zp"/>
-                            <constraint firstItem="zRJ-hh-tMU" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="RtR-cq-KR1"/>
-                            <constraint firstItem="xOy-4y-Jgh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="258" id="Uqc-iB-PhY"/>
-                            <constraint firstItem="zRJ-hh-tMU" firstAttribute="centerY" secondItem="xOy-4y-Jgh" secondAttribute="centerY" id="dV2-Km-Hzk"/>
-                            <constraint firstItem="GXi-CG-Z80" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="67" id="lwV-j5-Sct"/>
-                            <constraint firstItem="zRJ-hh-tMU" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="rWD-rp-hwA"/>
-                            <constraint firstItem="zRJ-hh-tMU" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="tNT-3b-L2V"/>
-                            <constraint firstItem="zRJ-hh-tMU" firstAttribute="centerX" secondItem="xOy-4y-Jgh" secondAttribute="centerX" id="trF-mE-QmK"/>
-                            <constraint firstAttribute="trailing" secondItem="zRJ-hh-tMU" secondAttribute="trailing" id="uJy-dX-PGN"/>
+                            <constraint firstItem="xOy-4y-Jgh" firstAttribute="centerX" secondItem="GXi-CG-Z80" secondAttribute="centerX" id="1Bh-rH-FxA"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="GXi-CG-Z80" secondAttribute="bottom" constant="45" id="3zQ-2y-IoN"/>
+                            <constraint firstItem="xOy-4y-Jgh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="168" id="4Y9-uU-U92"/>
+                            <constraint firstItem="xOy-4y-Jgh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5JS-LG-yOe"/>
+                            <constraint firstItem="xOy-4y-Jgh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="92" id="VF4-Z8-fVu"/>
+                            <constraint firstItem="xOy-4y-Jgh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uFT-eX-kcg"/>
+                            <constraint firstItem="GXi-CG-Z80" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="37" id="whY-OY-b5f"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.625" y="373.75"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Header1" width="522" height="67"/>
         <image name="Logo" width="232" height="229"/>
     </resources>
 </document>
