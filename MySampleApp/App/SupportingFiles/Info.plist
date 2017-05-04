@@ -236,7 +236,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Allow access to scan Swap Codes</string>
 	<key>NSContactsUsageDescription</key>
-	<string>To Swap Contacts</string>
+	<string>Swap needs access to your contacts in order to Swap contacts</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow access to upload pictures and Swap Codes</string>
 	<key>UIBackgroundModes</key>
