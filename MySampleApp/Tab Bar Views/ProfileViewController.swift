@@ -10,7 +10,7 @@
 import UIKit
 import Kingfisher
 import Spring
-
+import Alamofire
 
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
@@ -207,7 +207,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 let willShareEmail = (user?._willShareEmail as? Bool) ?? false
                 let willSharePhone = (user?._willSharePhone as? Bool) ?? false
                 let profileImageUrl = user?._profilePictureUrl ?? "http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg"
-                let swapCodeImageUrl = user?._swapCodeUrl ?? "https://dashboard.unitag.io/qreator/generate?setting=%7B%22LAYOUT%22%3A%7B%22COLORBG%22%3A%22ffffff%22%2C%22COLOR1%22%3A%221fbcd3%22%7D%2C%22EYES%22%3A%7B%22EYE_TYPE%22%3A%22Grid%22%7D%2C%22BODY_TYPE%22%3A5%2C%22E%22%3A%22H%22%2C%22LOGO%22%3A%7B%22L_NAME%22%3A%22https%3A%2F%2Fstatic-unitag.com%2Ffile%2Ffreeqr%2Fcfc031a5ddb114b66233e4e1762b93cb.png%22%2C%22EXCAVATE%22%3Atrue%2C%22L_X_Norm%22%3A0.4%2C%22L_Y_Norm%22%3A0.396%2C%22L_WIDTH%22%3A0.2%2C%22L_LENGTH%22%3A0.208%7D%7D&data=%7B%22TYPE%22%3A%22text%22%2C%22DATA%22%3A%7B%22TEXT%22%3A%22\(getUsernameOfSignedInUser())%22%2C%22URL%22%3A%22%22%7D%7D"
+                let swapCodeImageUrl = user?._swapCodeUrl ?? "https://unitag-qr-code-generation.p.mashape.com/api?setting=%7B%22LAYOUT%22%3A%7B%22COLORBG%22%3A%22ffffff%22%2C%22COLOR1%22%3A%221fbcd3%22%7D%2C%22EYES%22%3A%7B%22EYE_TYPE%22%3A%22Grid%22%7D%2C%22BODY_TYPE%22%3A5%2C%22E%22%3A%22H%22%2C%22LOGO%22%3A%7B%22L_NAME%22%3A%22https%3A%2F%2Fstatic-unitag.com%2Ffile%2Ffreeqr%2Fcfc031a5ddb114b66233e4e1762b93cb.png%22%2C%22EXCAVATE%22%3Atrue%2C%22L_X_Norm%22%3A0.4%2C%22L_Y_Norm%22%3A0.396%2C%22L_WIDTH%22%3A0.2%2C%22L_LENGTH%22%3A0.208%7D%7D&data=%7B%22TYPE%22%3A%22text%22%2C%22DATA%22%3A%7B%22TEXT%22%3A%22http://swapapp.co/\(getUsernameOfSignedInUser())%22%2C%22URL%22%3A%22%22%7D%7D"
                 
                 
                 // Updates UI
@@ -244,7 +244,52 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
                 circularImage(photoImageView: self.profilePicImageView)
                 self.swapCodeImageView.kf.indicatorType = .activity
-                self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl))
+                //self.swapCodeImageView.kf.setImage(with: URL(string: swapCodeImageUrl)) Deprecated becasue initally we were using dashboard.unitag.io to get the Swap Code image; however, their SSL certificate expired so now we use an API to create a qr code
+                
+                // Check if there's a local swap code image saved before downloading 
+                
+                if let swapCodeImage = getSwapCodeImage(){
+                    
+                    print("there is a swap code image saved")
+                    
+                    self.swapCodeImageView.image = swapCodeImage
+                    
+                    
+                } else{
+                    
+                    print("there is no swap code image saved")
+                    
+                    // Download Swap Code Image, Set it in Database
+                    
+                    let newSwapCodeImageURL = "https://unitag-qr-code-generation.p.mashape.com/api?setting=%7B%22LAYOUT%22%3A%7B%22COLORBG%22%3A%22ffffff%22%2C%22COLOR1%22%3A%221fbcd3%22%7D%2C%22EYES%22%3A%7B%22EYE_TYPE%22%3A%22Grid%22%7D%2C%22BODY_TYPE%22%3A5%2C%22E%22%3A%22H%22%2C%22LOGO%22%3A%7B%22L_NAME%22%3A%22https%3A%2F%2Fstatic-unitag.com%2Ffile%2Ffreeqr%2Fcfc031a5ddb114b66233e4e1762b93cb.png%22%2C%22EXCAVATE%22%3Atrue%2C%22L_X_Norm%22%3A0.4%2C%22L_Y_Norm%22%3A0.396%2C%22L_WIDTH%22%3A0.2%2C%22L_LENGTH%22%3A0.208%7D%7D&data=%7B%22TYPE%22%3A%22text%22%2C%22DATA%22%3A%7B%22TEXT%22%3A%22http://swapapp.co/\(getUsernameOfSignedInUser())%22%2C%22URL%22%3A%22%22%7D%7D"
+                    
+                    // Set the image by calling HTTP Request
+                    
+                    let header: HTTPHeaders = ["X-Mashape-Key": "LGS7uxKBdpmshrncdYMPTJCyqHpQp12twK7jsngjVN27Edbcpe"]
+                    
+                    Alamofire.request(newSwapCodeImageURL, method: .get, parameters: nil, headers: header).responseData(completionHandler: { (data) in
+                        
+                        if let data = data.data{
+                            
+                            // Save Data
+                            save(swapCodeImageData: data)
+                            self.swapCodeImageView.image = UIImage(data: data)
+                            
+                            // Set new swap code URL in database 
+                            
+                            SwapUser().set( QRImage: newSwapCodeImageURL)
+                        
+                    }
+                        
+                    })
+                    
+                }
+
+                
+                    
+                    
+                    
+                
                 
                 
                 //Stop pull refresh here . 

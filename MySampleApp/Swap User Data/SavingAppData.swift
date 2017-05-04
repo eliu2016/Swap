@@ -339,6 +339,38 @@ func getVerificationCodeForForgotPassword() -> String? {
     
 }
 
+/// Saves Swap Code Image Locally
+func save(swapCodeImageData: Data?) {
+    
+    if let image = swapCodeImageData {
+        
+        let key = "\(getUsernameOfSignedInUser())-SwapCodeImageData"
+        
+
+        UserDefaults.standard.set(image, forKey: key)
+        UserDefaults.standard.synchronize()
+        
+    }
+}
+
+/// Gets the Swap Code UIImage
+func getSwapCodeImage() -> UIImage?{
+    
+    var image: UIImage?
+    
+    
+    let key = "\(getUsernameOfSignedInUser())-SwapCodeImageData"
+    
+    let data =   UserDefaults.standard.data(forKey: key)
+    
+    if let data = data {
+        
+         image = UIImage(data: data)
+    }
+    
+    return image
+}
+
 
 /// Use this on viewdidappear in order to make note of the last active screen the user was on. (Used in order to determine what screen the user is on when they are pulling to refresh)
 ///
