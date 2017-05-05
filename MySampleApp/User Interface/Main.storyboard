@@ -1228,7 +1228,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="InfoIcon"/>
                                 <connections>
-                                    <segue destination="2eK-g6-NZ8" kind="presentation" id="GmM-e8-VU5"/>
+                                    <segue destination="2eK-g6-NZ8" kind="presentation" identifier="showTutorial" id="GmM-e8-VU5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJR-uL-gTB">
@@ -3350,7 +3350,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="min" id="9S9-U8-ilf" customClass="ProfilePicPageController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7t-oF-LNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6476" y="-157"/>
+            <point key="canvasLocation" x="6476" y="-474"/>
         </scene>
         <!--Profile Pic View-->
         <scene sceneID="7vX-fn-sRl">

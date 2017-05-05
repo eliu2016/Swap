@@ -13,7 +13,7 @@ import Spring
 import Alamofire
 
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     //labels
@@ -67,16 +67,28 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
             actionSheeet.addAction(UIAlertAction(title: "Upload Picture", style: .default, handler: { (action) in
             
-            //show photo library
+                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+                    var imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
+                    imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+                    imagePicker.allowsEditing = true
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
                 
             }))
         
             actionSheeet.addAction(UIAlertAction(title: "Take Picture", style: .default, handler: { (alert) in
                 
-                //open the camera
+                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+                    var imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
+                    imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+                    imagePicker.allowsEditing = false
+                    self.present(imagePicker, animated: true, completion: nil)
+                }
             }))
         
-           actionSheeet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+           actionSheeet.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         
            present(actionSheeet, animated: true, completion: nil)
 
@@ -90,6 +102,21 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
         // Listens for reloadProfile notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadProfile), name: .reloadProfile, object: nil)
+        
+        if !UserDefaults.standard.bool(forKey: "didShowTutorial"){
+           
+            let alertView = UIAlertController(title: "Welcome to Swap!", message: "Would you like to go through a short tutorial?", preferredStyle: .alert)
+            alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                
+                self.performSegue(withIdentifier: "showTutorial", sender: nil)
+                
+            }))
+            alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            UserDefaults.standard.set(true, forKey: "didShowTutorial")
+            
+            present(alertView, animated: true, completion: nil)
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -117,7 +144,29 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            let imageData = UIImageJPEGRepresentation(image, 1.0)
+            
+            DispatchQueue.main.async {
+                
+                SwapUser().uploadProfilePicture(withData: imageData!, completion: { (error) in
+                
+                })
+                
+            }
+                NotificationCenter.default.post(name: .reloadProfile, object: nil)
+            
+        }
+        
+      
+        
+    }
     
     
     
