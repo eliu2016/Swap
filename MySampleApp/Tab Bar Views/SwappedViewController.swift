@@ -8,19 +8,21 @@
 
 import Foundation
 
+var swappedHistoryUsers: [SwapHistory] = []
+
 class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    var swappedHistoryUsers: [SwapHistory] = []
+    
     var sharedSocialMedias: [UIImage] = []
     
     
     override func viewDidLoad() {
         save(screen: .SwappedScreen)
-        loadSwapped()
-        
+    //    loadSwapped()
+          activityIndicator.isHidden = true
         // Listens for reloadSwapped notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadSwapped), name: .reloadSwapped, object: nil)
     }
@@ -46,7 +48,7 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
                 DispatchQueue.main.async {
                     
                     self.activityIndicator.isHidden = true
-                    self.swappedHistoryUsers = swappedHistory!
+                    swappedHistoryUsers = swappedHistory!
                     refreshControl.endRefreshing()
                     self.tableView.reloadData()
                     

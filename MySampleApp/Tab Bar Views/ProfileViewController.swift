@@ -288,12 +288,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     
                     let swaps =  history?.count
                     self.swapsNumberLabel.text = "\(swaps ?? 0)"
+                    swapHistoryUsers = history ?? []
                 })
                 
                 SwapUser().getSwappedHistory(result: { (error, history) in
                     
                     let swapped = history?.count
                     self.swappedNumberLabel.text = "\(swapped ?? 0)"
+                    swappedHistoryUsers = history ?? []
                     
                 })
                 
@@ -394,6 +396,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             
             
             case Spotify:
+            
             
            
             
@@ -517,8 +520,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             
             
             case YouTube:
+                
+
             
-            
+               
             
             SwapUser(username: getUsernameOfSignedInUser()
             ).set(WillShareYouTube: status, DidSetInformation: {
