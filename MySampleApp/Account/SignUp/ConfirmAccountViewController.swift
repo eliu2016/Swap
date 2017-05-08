@@ -27,7 +27,6 @@ class ConfirmAccountViewController: UIViewController, UITextFieldDelegate {
 
     
     
-    
     override func viewDidAppear(_ animated: Bool) {
         saveViewController(viewController: self)
     }
