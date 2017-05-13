@@ -16,17 +16,30 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var youtubeVideos: [YouTubeMedia] = []
     @IBOutlet var tableView: UITableView!
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         
         let user = YouTubeUser(id:  YouTubeUserID ?? "")
-        youtubeVideos = []
         tableView.separatorStyle = .none
         
         user.getMedia { (YoutubeMedias) in
             
             print(YoutubeMedias?.count ?? 0)
             
-            
+            if self.youtubeVideos.count == 0{
+                
+                let blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+                
+                blankTableMessage.text = "No Youtube Videos"
+                blankTableMessage.textColor = .black
+                blankTableMessage.textAlignment = NSTextAlignment.center
+                blankTableMessage.font = UIFont(name: "Avenir-Next", size: 20)
+                blankTableMessage.sizeToFit()
+                
+                self.tableView.backgroundView = blankTableMessage
+                self.view.backgroundColor = UIColor.white
+                
+                
+            }
             for media in YoutubeMedias!{
                 
                 self.youtubeVideos.append(media)
@@ -34,6 +47,8 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
             }
             self.tableView.reloadData()
         }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,10 +61,13 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.selectionStyle = .none
         
         let currentVideo = youtubeVideos[indexPath.row]
+        
       
-        cell.setVideo(videoURL: currentVideo.linkToYouTubeVideo)
+        cell.setVideo(videoURL: "https://www.youtube.com/embed/\(currentVideo.videoID)")
         
         cell.channelName.text = currentVideo.channelTitle
+
+        cell.datePosted.text = currentVideo.datePublished.stringValueShort
         
         SwapUser(username: searchedUser).getInformation(completion: { (error, user) in
             
@@ -72,16 +90,20 @@ class YouTubeVideoCell: UITableViewCell {
     
     func setVideo(videoURL: String){
         
-        videoView.scrollView.isScrollEnabled = false
-        self.videoView.allowsInlineMediaPlayback = true
-        self.videoView.mediaPlaybackRequiresUserAction = false
+        
+        videoView.scrollView.contentInset = UIEdgeInsets.zero
+        
         
         videoView.loadHTMLString("<iframe width=\"\(videoView.frame.width)\" height=\"\(videoView.frame.height)\" src=\"\(videoURL)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+        
+        videoView.scrollView.contentOffset = CGPoint(x: videoView.frame.origin.x - 100, y: videoView.frame.origin.y - 100)
+        videoView.scrollView.isScrollEnabled = false
         
     }
     
     func setProfilePicture(imageURL: URL){
         
+        profilePicture.contentMode = .scaleAspectFit
         profilePicture.kf.setImage(with: imageURL)
     }
     

@@ -17,7 +17,8 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
     var sharedSocialMedias: [UIImage] = []
     
     
-    override func viewDidLoad() {
+    override func viewDidAppear(_ animated: Bool) {
+        
         save(screen: .SwappedScreen)
         loadSwapped()
         

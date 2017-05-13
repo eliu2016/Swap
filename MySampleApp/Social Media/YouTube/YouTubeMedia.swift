@@ -74,11 +74,23 @@ extension Date {
         formatter.calendar = Calendar(identifier: .iso8601)
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+        formatter.dateFormat = "MM/dd/yyyy"
         return formatter
     }()
+    
+    static let dateShortFormatter: DateFormatter = {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        return dateFormatter
+    }()
+    
     var iso8601: String {
         return Date.iso8601Formatter.string(from: self)
+    }
+    var stringValueShort: String {
+        return Date.dateShortFormatter.string(from: self)
     }
 }
 

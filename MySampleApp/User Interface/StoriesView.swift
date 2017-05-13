@@ -13,5 +13,7 @@ class StoriesView: UIViewController {
     override func viewDidLoad() {
         
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
+        
+        
     }
 }

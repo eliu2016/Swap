@@ -237,7 +237,7 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         
         blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         
-        blankTableMessage?.text = "No Notifications :'("
+        blankTableMessage?.text = "No Swap Requests :'("
         blankTableMessage?.textColor = .black
         blankTableMessage?.textAlignment = NSTextAlignment.center
         blankTableMessage?.font = UIFont(name: "Avenir-Next", size: 20)

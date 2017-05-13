@@ -48,7 +48,21 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 }
                
             }
-           
+            if self.instagramImages.count == 0{
+               
+                let blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+                
+                blankTableMessage.text = "No Instagram Posts"
+                blankTableMessage.textColor = .black
+                blankTableMessage.textAlignment = NSTextAlignment.center
+                blankTableMessage.font = UIFont(name: "Avenir-Next", size: 20)
+                blankTableMessage.sizeToFit()
+                
+                self.tableView.backgroundView = blankTableMessage
+                self.view.backgroundColor = UIColor.white
+                
+            }
+            
             self.activityView.stopAnimating()
             self.tableView.isHidden = false
             self.tableView.reloadData()

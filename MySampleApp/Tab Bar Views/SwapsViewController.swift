@@ -16,7 +16,8 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var swapHistoryUsers: [SwapHistory] = []
     var sharedSocialMedias: [UIImage] = []
     
-    override func viewDidLoad() {
+    override func viewDidAppear(_ animated: Bool) {
+    
         
         save(screen: .SwapsScreen)
         loadSwaps()
