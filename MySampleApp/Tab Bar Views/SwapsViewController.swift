@@ -117,19 +117,49 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
        cell.swapDate.text = user._time?.timeAgo()
         
-        SwapUser(username: user._swapped!).getInformation(completion: {(error, user) in
+        
+        // Check if we already set the profile url in the object
+        if let profilePicURL = swapHistoryUsers[indexPath.item].profileImageURL, let firstname =   swapHistoryUsers[indexPath.item].firstname, let lastname =  swapHistoryUsers[indexPath.item].lastname {
             
-            cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
+            print("Already saved profile picture and name and do not need to load from database")
+            // Set profile pic and name so that we do not have to fetch from database 
+            
+            cell.profilePicture.kf.setImage(with: profilePicURL)
             circularImage(photoImageView: cell.profilePicture)
+            cell.username.text = "\(firstname) \(lastname)"
             
-            DispatchQueue.main.async {
+            
+            
+        } else{
+            
+            // Go fetch profile pic and name from database 
+            print("fetching swap history attributes from database")
+            
+            SwapUser(username: user._swapped!).getInformation(completion: {(error, user) in
                 
-            
-                cell.username.text = (user?._firstname)! + " " + (user?._lastname)!
+                cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
+                circularImage(photoImageView: cell.profilePicture)
                 
-            }
-            
-        })
+                // set the image in the object
+                swapHistoryUsers[indexPath.item].profileImageURL = URL(string: (user?._profilePictureUrl)!)
+                
+                
+                
+                
+                DispatchQueue.main.async {
+                    
+                    
+                    cell.username.text = (user?._firstname)! + " " + (user?._lastname)!
+                    
+                    // set the name in the object
+                    swapHistoryUsers[indexPath.item].firstname = user?._firstname!
+                    swapHistoryUsers[indexPath.item].lastname = user?._lastname!
+                }
+                
+            })
+        }
+        
+        
 
         
         
