@@ -166,6 +166,13 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
+        
+        guard self.lastContentOffset != nil else {
+            
+            return
+        }
+        
+        
         if (self.lastContentOffset < scrollView.contentOffset.y) {
             
            // print("On scanner")
