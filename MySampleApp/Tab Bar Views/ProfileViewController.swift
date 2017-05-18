@@ -117,6 +117,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             
             present(alertView, animated: true, completion: nil)
         }
+        
+        
+       
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -284,20 +287,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 self.bioTextField.text = "\(bio)"
                 self.pointsNumberLabel.text = "\(points)"
                 
-                SwapUser().getSwapHistory(result: { (error, history) in
-                    
-                    let swaps =  history?.count
-                    self.swapsNumberLabel.text = "\(swaps ?? 0)"
-                    swapHistoryUsers = history ?? []
-                })
-                
-                SwapUser().getSwappedHistory(result: { (error, history) in
-                    
-                    let swapped = history?.count
-                    self.swappedNumberLabel.text = "\(swapped ?? 0)"
-                    swappedHistoryUsers = history ?? []
-                    
-                })
+              
                 
                
                 self.Spotify.isSelected = willShareSpotify
@@ -337,6 +327,44 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
 
     })
+        
+        
+        loadSwapAndSwapHistoryInBackground()
+        
+    }
+    
+    
+    
+    func loadSwapAndSwapHistoryInBackground()  {
+        
+        
+        DispatchQueue.global(qos: .background).async {
+            
+            
+            SwapUser().getSwapHistory(result: { (error, history) in
+                
+                DispatchQueue.main.async {
+                    
+                    let swaps =  history?.count
+                    self.swapsNumberLabel.text = "\(swaps ?? 0)"
+                    swapHistoryUsers = history ?? []
+                }
+                
+            })
+            
+            SwapUser().getSwappedHistory(result: { (error, history) in
+                
+                DispatchQueue.main.async {
+                    
+                    let swapped = history?.count
+                    self.swappedNumberLabel.text = "\(swapped ?? 0)"
+                    swappedHistoryUsers = history ?? []
+                }
+              
+                
+            })
+        }
+        
         
     }
     
@@ -777,6 +805,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     
 }
 

@@ -487,7 +487,7 @@ class SwapUser {
     /// Increments the 'swaps' value of a user. It increments by '1' by default if you do not pass anything as a parameter
     ///
     /// - Parameter byValue: 1 by default. It will decrement if you pass a negative number
-    func incrementSwaps(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void)  {
+    func incrementSwaps(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void = {_ in return})  {
         
         let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
@@ -514,7 +514,7 @@ class SwapUser {
         
     }
     
-    func incrementSwapped(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void)  {
+    func incrementSwapped(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void = { _ in return})  {
         
         let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
@@ -540,7 +540,7 @@ class SwapUser {
         
     }
     
-    func incrementPoints(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void)  {
+    func incrementPoints(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void = { _ in return })  {
         
         let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
@@ -1172,38 +1172,35 @@ class SwapUser {
                    
                     
                     let currentUser = self
-                    let otherUser =   SwapUser(username: user._username!)
+                    let otherUser =   SwapUser(username: userWithUsername)
                     
                     // Check if already Swapped
                     currentUser.hasSwapped(withUser: otherUser, result: { (hasSwapped) in
                         
                         
-                        if !hasSwapped{
+                        DispatchQueue.main.async {
                             
-                            // Didn't Swap Yet
-                            
-                            currentUser.incrementSwaps { error in
+                            if !hasSwapped{
                                 
-                            }
-                            otherUser.incrementSwapped{ error in
+                                // Didn't Swap Yet
                                 
-                            }
-                            currentUser.incrementPoints(byValue: 5) { error in
+                                currentUser.incrementSwaps()
+                                otherUser.incrementSwapped()
+                                currentUser.incrementPoints(byValue: 5)
+                                otherUser.incrementPoints(byValue: 5)
                                 
-                            }
-                            otherUser.incrementPoints(byValue: 5){ error in
-                                
-                            }
+                        }
+                       
                             
                             
-                            
-                            
+                           
                             
                             
                             
                         }
                         
                     })
+                        
                         let history = SwapUserHistory(swap: self.username, swapped: userWithUsername)
                         history.didShare()
                         
@@ -1219,9 +1216,10 @@ class SwapUser {
                         shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                         shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                         shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                   
-                    otherUser.sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
-                    
+                        
+                        otherUser.sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
+                        
+                        
                     // Log Analytics // If current user has social media connected and the other has the social media 'on' then essentially the user has shared that social media. +- ~3% margin error perhaps
                     
                     // ========= Begin Loggin Analytics ====================================
