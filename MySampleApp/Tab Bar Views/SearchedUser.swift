@@ -92,6 +92,13 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
                     
                     self.disableSwapButton()
                     self.showPopUp()
+                    
+                    
+                    // Add Swap Points
+                    let swap = SwapUser()
+                    let swapped = SwapUser(username: user?._username ?? "")
+                    
+                    SwapUser.giveSwapPointsToUsersWhoSwapped(swap: swap, swapped: swapped)
                 }
                 
             }
@@ -222,20 +229,9 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
                 self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
                 
                 self.bioLabel.text = user?._bio
+                self.swapsNumberLabel.text = "\(user?._swaps ?? 0)"
                 
-                
-                SwapUser(username: searchedUser).getSwapHistory(result: { (error, history) in
-                    
-                    let swaps =  history?.count
-                    self.swapsNumberLabel.text = "\(swaps ?? 0)"
-                })
-                
-                SwapUser(username: searchedUser).getSwappedHistory(result: { (error, history) in
-                    
-                    let swapped = history?.count
-                    self.swappedNumberLabel.text = "\(swapped ?? 0)"
-                    
-                })
+                 self.swappedNumberLabel.text = "\(user?._swapped ?? 0)"
                 
                 
                 self.pointsNumberLabel.text = "\(user?._points ?? 0)"

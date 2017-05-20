@@ -210,6 +210,15 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
             DispatchQueue.main.async {
                 self.acceptedRequests.remove(at: (sender as AnyObject).tag)
                 self.tableView.reloadData()
+                
+                
+                // Add Swap Points 
+                let swap = SwapUser()
+                let swapped = SwapUser(username: user?._username ?? "")
+                
+                SwapUser.giveSwapPointsToUsersWhoSwapped(swap: swap, swapped: swapped)
+                
+                
             }
             
         })

@@ -232,6 +232,14 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                                 self.verifiedIcon.isHidden = false
                             }
                             
+                            
+                            
+                            // Add Swap Points
+                            let swap = SwapUser()
+                            let swapped = SwapUser(username: user._username ?? "")
+                            
+                            SwapUser.giveSwapPointsToUsersWhoSwapped(swap: swap, swapped: swapped)
+                            
                         }
                         
                     }
@@ -335,6 +343,13 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     else{
                         self.verifiedIcon.isHidden = false
                     }
+                    
+                    
+                    // Add Swap Points
+                    let swap = SwapUser()
+                    let swapped = SwapUser(username: user._username ?? "")
+                    
+                    SwapUser.giveSwapPointsToUsersWhoSwapped(swap: swap, swapped: swapped)
                     
                 }
                 

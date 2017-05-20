@@ -122,6 +122,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
        
     }
     
+    
+    
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         //upload the updated user bio
         
@@ -286,8 +289,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 self.nameLabel.text = "\(firstname) \(lastname)"
                 self.bioTextField.text = "\(bio)"
                 self.pointsNumberLabel.text = "\(points)"
-                
-              
+                self.swapsNumberLabel.text = "\(swaps ?? 0)"
+                self.swappedNumberLabel.text = "\(swapped ?? 0)"
                 
                
                 self.Spotify.isSelected = willShareSpotify
@@ -308,7 +311,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     
                     
                     
-                
                 
                 
                 //Stop pull refresh here . 
@@ -346,7 +348,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 DispatchQueue.main.async {
                     
                     let swaps =  history?.count
-                    self.swapsNumberLabel.text = "\(swaps ?? 0)"
+         
                     swapHistoryUsers = history ?? []
                 }
                 
@@ -357,7 +359,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 DispatchQueue.main.async {
                     
                     let swapped = history?.count
-                    self.swappedNumberLabel.text = "\(swapped ?? 0)"
+           
                     swappedHistoryUsers = history ?? []
                 }
               
