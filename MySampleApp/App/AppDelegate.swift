@@ -209,7 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                     
                     if isSignedIn(){
                         
-                        if swapLink.contains("/VP"){ // VP verification links should be in the form http://swapapp.co/VP/###### where ###### is the VP code
+                        if swapLink.contains("/VP"){ // VP verification links should be in the form http://getswap.me/VP/###### where ###### is the VP code
                             
                             let code = getUsernameFromSwapLink(swapLink: swapLink)
                             
@@ -241,7 +241,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                             
                             let username = getUsernameFromSwapLink(swapLink: swapLink)
                             
-                            guard username != "swapapp.co" else {
+                            guard username != "getswap.me" && username != "swapapp.co" else {
                                 
                                 self.determineWhatScreenToShow(on: storyboard)
                                 

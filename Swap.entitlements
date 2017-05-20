@@ -7,6 +7,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:swapapp.co</string>
+		<string>applinks:getswap.me</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
