@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Answers
 
 class ShareSwapLinkView: UIViewController{
     
@@ -20,7 +21,7 @@ class ShareSwapLinkView: UIViewController{
         
         self.view.addSubview(loadingView!)
         
-        swapLink.text = "swapapp.co/\(getUsernameOfSignedInUser())"
+        swapLink.text = "getswap.me/\(getUsernameOfSignedInUser())"
         
         let shareVC = UIActivityViewController(activityItems: ["Swap with me! " + swapLink.text!], applicationActivities: nil)
         present(shareVC, animated: true, completion: {
@@ -49,6 +50,10 @@ class ShareSwapLinkView: UIViewController{
         present(shareVC, animated: true, completion: {
             
             self.loadingView?.isHidden = true
+            
+            Answers.logInvite(withMethod: "Swap Link",
+                                        customAttributes: nil)
+
         
         })
         
