@@ -20,10 +20,17 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let user = YouTubeUser(id:  YouTubeUserID ?? "")
         tableView.separatorStyle = .none
+        self.automaticallyAdjustsScrollViewInsets = true
         
         user.getMedia { (YoutubeMedias) in
             
             print(YoutubeMedias?.count ?? 0)
+            
+            for media in YoutubeMedias!{
+                
+                self.youtubeVideos.append(media)
+                
+            }
             
             if self.youtubeVideos.count == 0{
                 
@@ -37,13 +44,9 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 
                 self.tableView.backgroundView = blankTableMessage
                 self.view.backgroundColor = UIColor.white
-                
-                
             }
-            for media in YoutubeMedias!{
-                
-                self.youtubeVideos.append(media)
-                
+            else{
+                self.view.backgroundColor = UIColor(hex: "#272931")
             }
             self.tableView.reloadData()
         }
@@ -77,7 +80,6 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         return cell
     }
-
     
 }
 
@@ -96,7 +98,7 @@ class YouTubeVideoCell: UITableViewCell {
         
         videoView.loadHTMLString("<iframe width=\"\(videoView.frame.width)\" height=\"\(videoView.frame.height)\" src=\"\(videoURL)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
         
-        videoView.scrollView.contentOffset = CGPoint(x: videoView.frame.origin.x - 100, y: videoView.frame.origin.y - 100)
+        videoView.scrollView.contentOffset = CGPoint(x: -100, y: -100)
         videoView.scrollView.isScrollEnabled = false
         
     }

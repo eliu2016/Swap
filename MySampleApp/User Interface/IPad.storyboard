@@ -1364,6 +1364,7 @@
                         <outlet property="nameLabel" destination="NVt-jw-8o4" id="PYq-tT-8kb"/>
                         <outlet property="profilePic" destination="3Dy-sG-lxE" id="86o-Kf-qPf"/>
                         <outlet property="verifiedIcon" destination="qMc-W5-UoD" id="VVO-Pe-uND"/>
+                        <segue destination="4lD-DJ-pvt" kind="presentation" identifier="showProfile" id="6tu-Vg-qza"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQE-8l-ces" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1397,6 +1398,13 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXe-os-Qi1">
+                            <rect key="frame" x="44" y="20" width="176" height="153"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="showProfile:" destination="387-29-bjN" eventType="touchUpInside" id="Z79-TI-SOH"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.77454661469999997" blue="0.26098320860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
@@ -2290,34 +2298,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="319" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BSZ-EZ-SYY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="302" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BSZ-EZ-SYY">
                                 <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="videoCell" rowHeight="319" id="z9v-W1-hBq" customClass="YouTubeVideoCell" customModule="Swap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="319"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="videoCell" rowHeight="302" id="z9v-W1-hBq" customClass="YouTubeVideoCell" customModule="Swap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="302"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z9v-W1-hBq" id="HCX-7Z-tzT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="318.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="301.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8N-sF-5Vk">
-                                                    <rect key="frame" x="23" y="219" width="58" height="81"/>
+                                                    <rect key="frame" x="23" y="219" width="62" height="62"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="846-PQ-JJE">
-                                                    <rect key="frame" x="93" y="230" width="180" height="21"/>
+                                                    <rect key="frame" x="93" y="227" width="180" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOV-AS-dlZ">
-                                                    <rect key="frame" x="93" y="258" width="180" height="21"/>
+                                                    <rect key="frame" x="93" y="253" width="180" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.36078431372549019" green="0.36078431372549019" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <webView contentMode="scaleToFill" fixedFrame="YES" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mui-gB-exB">
@@ -4122,9 +4130,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yW3-dI-73y"/>
+        <segue reference="6tu-Vg-qza"/>
         <segue reference="3gl-tf-Vwf"/>
-        <segue reference="gFe-SS-edX"/>
         <segue reference="Q6e-FZ-K8h"/>
+        <segue reference="gFe-SS-edX"/>
     </inferredMetricsTieBreakers>
 </document>

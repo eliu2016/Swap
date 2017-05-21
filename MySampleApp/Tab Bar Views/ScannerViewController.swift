@@ -20,7 +20,6 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBOutlet var enableCameraLabel: UILabel!
     @IBOutlet var enableCameraButton: UIButton!
-    
   
     @IBOutlet var blurView: UIVisualEffectView!
 
@@ -46,6 +45,12 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         setupSwapScanner()
 
+    }
+    @IBAction func showProfile(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "showProfile", sender: nil)
+        
+        
     }
     
     @IBAction func enableCamera(_ sender: Any) {
@@ -174,6 +179,8 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     
                     
                     if let user = user {
+                        
+                        searchedUser = user._username!
                         
                         if user._isPrivate?.boolValue ?? false{
                             

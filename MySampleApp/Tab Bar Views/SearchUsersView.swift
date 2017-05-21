@@ -9,7 +9,7 @@
 import Foundation
 import Kingfisher
 
-class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
+class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate {
   
     
     let featuredCellID = "FCell"
@@ -38,8 +38,9 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }*/
             
     }
-    override func viewDidLoad() {
     
+    override func viewDidLoad() {
+        
         searchBar.delegate = self
         
         
@@ -112,9 +113,10 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
      }
     
     }
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
       
         searchBar.resignFirstResponder()
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

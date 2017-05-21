@@ -1365,6 +1365,7 @@
                         <outlet property="nameLabel" destination="3xX-oc-zxt" id="flS-2z-XQB"/>
                         <outlet property="profilePic" destination="JLd-vl-tku" id="NWd-le-ZZq"/>
                         <outlet property="verifiedIcon" destination="7I8-PC-fp7" id="oOc-PX-jH7"/>
+                        <segue destination="1CX-6j-4vF" kind="presentation" identifier="showProfile" id="mog-8b-cAz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwO-MC-RHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1398,6 +1399,13 @@
                             <rect key="frame" x="189" y="33" width="18" height="18.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUn-Jl-QiK">
+                            <rect key="frame" x="66" y="11" width="204" height="187"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="showProfile:" destination="QF4-mp-W2b" eventType="touchUpInside" id="Jbj-Ck-pio"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.77454661469999997" blue="0.26098320860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
@@ -2475,34 +2483,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="319" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUQ-B4-0GX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="297" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUQ-B4-0GX">
                                 <rect key="frame" x="0.0" y="28" width="320" height="491"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="videoCell" rowHeight="319" id="zNH-qB-hiY" customClass="YouTubeVideoCell" customModule="Swap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="319"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="videoCell" rowHeight="297" id="zNH-qB-hiY" customClass="YouTubeVideoCell" customModule="Swap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="297"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zNH-qB-hiY" id="Zrf-2O-mad">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="318.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="296.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Xw-bE-VH8">
-                                                    <rect key="frame" x="27" y="218" width="52" height="77"/>
+                                                    <rect key="frame" x="27" y="218" width="58" height="59"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SO9-fk-Vdx">
-                                                    <rect key="frame" x="93" y="222" width="176" height="21"/>
+                                                    <rect key="frame" x="95" y="222" width="176" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-d1-URb">
-                                                    <rect key="frame" x="93" y="251" width="176" height="21"/>
+                                                    <rect key="frame" x="95" y="247" width="176" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.36078431372549019" green="0.36078431372549019" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <webView contentMode="scaleToFill" fixedFrame="YES" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltl-7y-nYB">
@@ -4136,7 +4144,7 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nk1-om-2bE"/>
+        <segue reference="mog-8b-cAz"/>
         <segue reference="n03-21-bHZ"/>
         <segue reference="307-1K-BHO"/>
         <segue reference="juv-56-8XR"/>

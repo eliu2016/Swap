@@ -1010,7 +1010,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFM-l5-Pyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-172" y="1801"/>
+            <point key="canvasLocation" x="-258" y="1801"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="jVd-ch-Id4">
@@ -1287,7 +1287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sso-Ga-SHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1773.5999999999999" y="1799.5502248875564"/>
+            <point key="canvasLocation" x="1798" y="1801"/>
         </scene>
         <!--Share Swap Link View-->
         <scene sceneID="e2W-MH-RSF">
@@ -1367,7 +1367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3b5-ho-VBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="1805.8470764617693"/>
+            <point key="canvasLocation" x="2628" y="1806"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="iGb-c9-rk5">
@@ -1440,6 +1440,7 @@
                         <outlet property="nameLabel" destination="NRB-HH-4Vx" id="YWd-aD-Khj"/>
                         <outlet property="profilePic" destination="Vw3-l9-62u" id="c9Y-rM-3ai"/>
                         <outlet property="verifiedIcon" destination="xnb-Va-i3c" id="3x5-tN-I58"/>
+                        <segue destination="NoF-RS-s3A" kind="presentation" identifier="showProfile" id="ijx-Hi-H1W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LX-I5-QWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1473,6 +1474,13 @@
                             <rect key="frame" x="189" y="33" width="18" height="18.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za7-mm-kBa">
+                            <rect key="frame" x="66" y="24" width="204" height="122"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="showProfile:" destination="WYQ-e0-MuD" eventType="touchUpInside" id="CCv-uA-BfJ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.77454661467030483" blue="0.26098320864515157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
@@ -1487,7 +1495,7 @@
                         <inset key="imageInsets" minX="-2" minY="10" maxX="2" maxY="-10"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3b-Y0-b5o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d3b-Y0-b5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1505,7 +1513,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Zxc-qU-hxd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q8T-Kx-S5U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Q8T-Kx-S5U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1727,7 +1735,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvN-Fn-Pdm">
-                                                    <rect key="frame" x="79" y="14" width="143" height="21"/>
+                                                    <rect key="frame" x="79" y="23" width="143" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1750,7 +1758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gly-2j-5ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.79999999999995" y="4219.3403298350831"/>
+            <point key="canvasLocation" x="940" y="4218"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ntb-DM-Aug">
@@ -1794,7 +1802,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KW3-yD-QEm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1773.5999999999999" y="4218.440779610195"/>
+            <point key="canvasLocation" x="1798" y="4218"/>
         </scene>
         <!--Settings-->
         <scene sceneID="egj-eL-YA1">
@@ -1983,7 +1991,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VbJ-Fh-TbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2685.5999999999999" y="1076.311844077961"/>
+            <point key="canvasLocation" x="2628" y="1075"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ENK-hx-78Y">
@@ -1996,7 +2004,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2b1-OV-Fx1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2b1-OV-Fx1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2117,7 +2125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ME8-yN-xbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1840.8" y="2579.4602698650679"/>
+            <point key="canvasLocation" x="1798" y="2580"/>
         </scene>
         <!--Searched User-->
         <scene sceneID="Woi-Jx-rpI">
@@ -2476,12 +2484,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCB-uK-zHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3561" y="4219"/>
+            <point key="canvasLocation" x="3561" y="4218"/>
         </scene>
         <!--Youtube View-->
         <scene sceneID="pIv-bt-exu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="1R5-K2-TCL" customClass="YoutubeView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1R5-K2-TCL" customClass="YoutubeView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c8h-97-1Bz"/>
                         <viewControllerLayoutGuide type="bottom" id="ZSt-6r-Vud"/>
@@ -2502,22 +2510,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="318.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jwt-ai-vDv">
-                                                    <rect key="frame" x="24" y="231" width="57" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDt-hc-ILk">
-                                                    <rect key="frame" x="98" y="245" width="233" height="21"/>
+                                                    <rect key="frame" x="93" y="239" width="233" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rI0-Hk-Tbd">
-                                                    <rect key="frame" x="98" y="272" width="233" height="21"/>
+                                                    <rect key="frame" x="93" y="261" width="233" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.36078431372549019" green="0.36078431372549019" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <webView autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9d-L4-Tx9">
@@ -2526,6 +2530,10 @@
                                                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                                 </webView>
+                                                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jwt-ai-vDv">
+                                                    <rect key="frame" x="23" y="231" width="58" height="62"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.15259248018264771" green="0.1601828932762146" blue="0.19337809085845947" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2554,7 +2562,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hb6-bH-RHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560.8000000000002" y="4994.7526236881567"/>
+            <point key="canvasLocation" x="3561" y="4924"/>
         </scene>
         <!--Swaps View Controller-->
         <scene sceneID="pal-IC-nlV">
@@ -2708,7 +2716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWm-tc-dg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3489" y="1801"/>
+            <point key="canvasLocation" x="3489" y="1806"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="F5p-WE-o91">
@@ -2805,14 +2813,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xa1-YF-boF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560.8000000000002" y="1076.311844077961"/>
+            <point key="canvasLocation" x="3489" y="1076"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rR7-rq-Gyo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="JuD-eH-h69" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEL-zP-Ibz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wEL-zP-Ibz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2823,7 +2831,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcb-LC-7II" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1841" y="1077"/>
+            <point key="canvasLocation" x="1798" y="1075"/>
         </scene>
         <!--Edit Profile Table-->
         <scene sceneID="xdd-5f-TVo">
@@ -2933,7 +2941,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YvQ-4B-Pe4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4312.8000000000002" y="1101.4992503748126"/>
+            <point key="canvasLocation" x="4236" y="1098"/>
         </scene>
         <!--More Info-->
         <scene sceneID="5jv-22-ZCv">
@@ -2986,7 +2994,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmN-bH-3OT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5037.6000000000004" y="1074.5127436281859"/>
+            <point key="canvasLocation" x="4974" y="1076"/>
         </scene>
         <!--More Info Table-->
         <scene sceneID="mof-Wg-V7V">
@@ -3066,7 +3074,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQK-Di-5Uv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5861.6000000000004" y="1074.5127436281859"/>
+            <point key="canvasLocation" x="5732" y="1076"/>
         </scene>
         <!--Privacy Policy-->
         <scene sceneID="TUZ-cu-OjL">
@@ -3114,7 +3122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slh-yJ-85e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6601" y="1076"/>
+            <point key="canvasLocation" x="6476" y="1075"/>
         </scene>
         <!--Swapped View Controller-->
         <scene sceneID="Z4H-Jq-eb6">
@@ -3268,7 +3276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecs-WS-CNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4312.8000000000002" y="1799.5502248875564"/>
+            <point key="canvasLocation" x="4236" y="1806"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b81-NP-VS8">
@@ -3278,7 +3286,7 @@
                         <inset key="imageInsets" minX="35" minY="7" maxX="-35" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mml-ww-BEp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mml-ww-BEp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3398,7 +3406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lio-UN-yHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2693.5999999999999" y="365.66716641679164"/>
+            <point key="canvasLocation" x="2628" y="365.66716641679164"/>
         </scene>
         <!--Set Phone Number View Controller-->
         <scene sceneID="Afk-yt-smh">
@@ -3545,7 +3553,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="min" id="9S9-U8-ilf" customClass="ProfilePicPageController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7t-oF-LNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6476" y="-474"/>
+            <point key="canvasLocation" x="6476" y="-187"/>
         </scene>
         <!--Profile Pic View-->
         <scene sceneID="7vX-fn-sRl">
@@ -4182,7 +4190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmu-lw-L2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2559" y="4060"/>
+            <point key="canvasLocation" x="2628" y="4058"/>
         </scene>
     </scenes>
     <resources>
@@ -4263,7 +4271,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="0aw-Hp-LRn"/>
         <segue reference="ra5-oL-XrE"/>
-        <segue reference="F74-Hl-Lzw"/>
-        <segue reference="U3c-Xc-xSG"/>
+        <segue reference="hOk-qE-IeD"/>
+        <segue reference="ijx-Hi-H1W"/>
     </inferredMetricsTieBreakers>
 </document>

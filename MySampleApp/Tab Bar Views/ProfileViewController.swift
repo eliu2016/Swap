@@ -105,17 +105,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         if !UserDefaults.standard.bool(forKey: "didShowTutorial"){
            
-            let alertView = UIAlertController(title: "Welcome to Swap!", message: "Would you like to go through a short tutorial?", preferredStyle: .alert)
-            alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
-                
-                self.performSegue(withIdentifier: "showTutorial", sender: nil)
-                
-            }))
-            alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
+            self.performSegue(withIdentifier: "showTutorial", sender: nil)
             UserDefaults.standard.set(true, forKey: "didShowTutorial")
-            
-            present(alertView, animated: true, completion: nil)
+    
         }
     }
     
