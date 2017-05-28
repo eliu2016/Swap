@@ -1322,7 +1322,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="ak8-pH-eey" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="HomeIcon" id="6jH-yq-22W">
-                        <inset key="imageInsets" minX="-2" minY="10" maxX="2" maxY="-10"/>
+                        <inset key="imageInsets" minX="-2" minY="9" maxX="2" maxY="-9"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MiG-zI-teP">
@@ -2141,144 +2141,6 @@
             </objects>
             <point key="canvasLocation" x="3560.8000000000002" y="3292.8035982008996"/>
         </scene>
-        <!--Instagram View-->
-        <scene sceneID="9vZ-h6-HSu">
-            <objects>
-                <viewController id="7w6-2F-xNF" customClass="instagramView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SsT-Hh-PHb"/>
-                        <viewControllerLayoutGuide type="bottom" id="5ar-XF-gKe"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Rdt-SW-csP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="487" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zyw-Lm-MZU">
-                                <rect key="frame" x="-2" y="0.0" width="416" height="687"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="487" id="XCv-2Y-hqq" customClass="InstagramPhotoCell" customModule="Swap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="416" height="487"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XCv-2Y-hqq" id="TTc-T1-K8y">
-                                            <rect key="frame" x="0.0" y="0.0" width="416" height="486"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktp-GJ-dyR">
-                                                    <rect key="frame" x="0.0" y="53" width="416" height="395"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zf-wb-Ckb">
-                                                    <rect key="frame" x="53" y="21" width="88" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="uoE-FF-7OP">
-                                                    <rect key="frame" x="11" y="13" width="33" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWn-Kr-exc">
-                                                    <rect key="frame" x="362" y="451" width="46" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="UnfilledHeart"/>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.1529411765" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <outlet property="IGImageView" destination="ktp-GJ-dyR" id="yWv-mB-zRk"/>
-                                            <outlet property="likeButton" destination="TWn-Kr-exc" id="4ov-gD-AkW"/>
-                                            <outlet property="profilePic" destination="uoE-FF-7OP" id="ui7-wU-EnO"/>
-                                            <outlet property="username" destination="1zf-wb-Ckb" id="7Hf-36-mfZ"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="InstagramBlackIcon" id="Df4-If-HMe">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hNP-kD-7eO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3560.8695652173915" y="4029.6195652173915"/>
-        </scene>
-        <!--Youtube View-->
-        <scene sceneID="rdU-C6-C4d">
-            <objects>
-                <viewController id="6JM-RY-9P7" customClass="YoutubeView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lMa-Ln-Vbs"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xn0-CM-0o5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0Um-6h-KtM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="319" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nb6-eC-C2p">
-                                <rect key="frame" x="0.0" y="28" width="414" height="659"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="videoCell" rowHeight="319" id="4Ed-TG-Hi7" customClass="YouTubeVideoCell" customModule="Swap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="319"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Ed-TG-Hi7" id="U3B-mM-UHY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="318"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6c-AH-w2p">
-                                                    <rect key="frame" x="23" y="228" width="72" height="73"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDk-Dd-0Ng">
-                                                    <rect key="frame" x="103" y="260" width="233" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" red="0.36078431372549019" green="0.36078431372549019" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <webView contentMode="scaleToFill" fixedFrame="YES" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzU-5y-1p5">
-                                                    <rect key="frame" x="23" y="18" width="362" height="196"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
-                                                </webView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLE-rZ-KRf">
-                                                    <rect key="frame" x="103" y="235" width="233" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.15259248019999999" green="0.16018289329999999" blue="0.19337809089999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <outlet property="channelName" destination="NLE-rZ-KRf" id="9Pg-Yo-p9q"/>
-                                            <outlet property="datePosted" destination="GDk-Dd-0Ng" id="tna-gM-WsN"/>
-                                            <outlet property="profilePicture" destination="b6c-AH-w2p" id="hW1-Hl-LH1"/>
-                                            <outlet property="videoView" destination="DzU-5y-1p5" id="olL-bw-TJm"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.15259248018264771" green="0.1601828932762146" blue="0.19337809085845947" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="YouTubeBlackIcon" id="Pek-PJ-ktR">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BhP-tH-Aag" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3560.8695652173915" y="4745.380434782609"/>
-        </scene>
         <!--Swaps View Controller-->
         <scene sceneID="SRh-EK-mmD">
             <objects>
@@ -3029,8 +2891,8 @@
                     <connections>
                         <segue destination="kjh-Y3-Hqr" kind="relationship" relationship="viewControllers" id="PzS-KT-QsB"/>
                         <segue destination="wqz-hC-gaj" kind="relationship" relationship="viewControllers" id="uvE-JH-Bpf"/>
-                        <segue destination="7w6-2F-xNF" kind="relationship" relationship="viewControllers" id="Kvg-9D-YHa"/>
-                        <segue destination="6JM-RY-9P7" kind="relationship" relationship="viewControllers" id="TVw-Kp-EMY"/>
+                        <segue destination="OkE-gZ-f5E" kind="relationship" relationship="viewControllers" id="O6R-Zb-ZmQ"/>
+                        <segue destination="zfH-cM-4Ga" kind="relationship" relationship="viewControllers" id="OKY-OW-qPY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehJ-nH-zzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4091,6 +3953,167 @@
             </objects>
             <point key="canvasLocation" x="11486.25" y="2578.5211267605632"/>
         </scene>
+        <!--Instagram View-->
+        <scene sceneID="PsB-p4-Hg4">
+            <objects>
+                <viewController id="OkE-gZ-f5E" customClass="instagramView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N4p-2c-713"/>
+                        <viewControllerLayoutGuide type="bottom" id="hex-Iz-T1M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zrm-Ts-CmE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="clJ-og-pYd">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="518" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c9b-3b-mXF">
+                                <rect key="frame" x="0.0" y="20" width="414" height="671"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="photoCell" rowHeight="518" id="gpx-eL-iCN" customClass="InstagramPhotoCell" customModule="Swap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="518"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gpx-eL-iCN" id="2FQ-5b-X8F">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="517"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixM-Ut-EvG">
+                                                    <rect key="frame" x="61" y="24" width="88" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="XUZ-L6-32N">
+                                                    <rect key="frame" x="10" y="17" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ie7-AB-Wgo">
+                                                    <rect key="frame" x="375" y="481" width="28" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="UnfilledHeart"/>
+                                                    <connections>
+                                                        <action selector="didTapLike:" destination="OkE-gZ-f5E" eventType="touchUpInside" id="X33-Vm-Xx8"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HI9-zq-sdK">
+                                                    <rect key="frame" x="0.0" y="64" width="414" height="414"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1529411765" green="0.16078431369999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="IGImageView" destination="HI9-zq-sdK" id="Aec-6g-WJw"/>
+                                            <outlet property="likeButton" destination="ie7-AB-Wgo" id="CKd-Vf-qnC"/>
+                                            <outlet property="profilePic" destination="XUZ-L6-32N" id="Smz-U6-b9B"/>
+                                            <outlet property="username" destination="ixM-Ut-EvG" id="PZ0-Ur-Flz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OkE-gZ-f5E" id="gFO-Hd-7eI"/>
+                                    <outlet property="delegate" destination="OkE-gZ-f5E" id="uNU-uL-NtE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15259248019999999" green="0.16018289329999999" blue="0.19337809089999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="InstagramBlackIcon" id="3kj-om-jbE">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="activityView" destination="clJ-og-pYd" id="N3X-Km-6iR"/>
+                        <outlet property="tableView" destination="c9b-3b-mXF" id="IOQ-l1-EVD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vQQ-MK-0b1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3560.8695652173915" y="4015.7608695652175"/>
+        </scene>
+        <!--Youtube View-->
+        <scene sceneID="KXf-Ib-87L">
+            <objects>
+                <viewController id="zfH-cM-4Ga" customClass="YoutubeView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hO3-LN-KhR"/>
+                        <viewControllerLayoutGuide type="bottom" id="n8j-5M-JGx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iXz-na-T9x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="319" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SNa-Qb-sk6">
+                                <rect key="frame" x="0.0" y="20" width="414" height="656"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="videoCell" rowHeight="319" id="Aeu-z2-SvI" customClass="YouTubeVideoCell" customModule="Swap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="319"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aeu-z2-SvI" id="JXJ-2F-13Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="318"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDm-cX-Hei">
+                                                    <rect key="frame" x="93" y="241" width="233" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slf-gp-EaI">
+                                                    <rect key="frame" x="93" y="263" width="233" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                                    <color key="textColor" red="0.36078431370000003" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <webView autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot3-Tb-TDe">
+                                                    <rect key="frame" x="23" y="18" width="374" height="205"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </webView>
+                                                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="saG-gk-caW">
+                                                    <rect key="frame" x="23" y="237" width="58" height="62"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.15259248019999999" green="0.16018289329999999" blue="0.19337809089999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="channelName" destination="cDm-cX-Hei" id="Bm0-g7-ubF"/>
+                                            <outlet property="datePosted" destination="slf-gp-EaI" id="Zgh-Mi-0hs"/>
+                                            <outlet property="profilePicture" destination="saG-gk-caW" id="0r9-I0-41r"/>
+                                            <outlet property="videoView" destination="Ot3-Tb-TDe" id="VoU-Qj-knj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zfH-cM-4Ga" id="Irv-Jp-ynZ"/>
+                                    <outlet property="delegate" destination="zfH-cM-4Ga" id="HOJ-px-XdZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15259248019999999" green="0.16018289329999999" blue="0.19337809089999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="YouTubeBlackIcon" id="6p0-wp-wHE">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="SNa-Qb-sk6" id="wft-OY-1tr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4C9-ok-oDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3557.971014492754" y="4756.79347826087"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AcceptButton" width="81" height="23"/>
@@ -4150,7 +4173,7 @@
         <image name="TutorialPage5" width="210" height="371"/>
         <image name="TutorialPage6" width="375" height="667"/>
         <image name="TutorialPage7" width="375" height="667"/>
-        <image name="TwitterBlackIcon" width="33" height="28"/>
+        <image name="TwitterBlackIcon" width="41" height="36"/>
         <image name="TwitterDark" width="37" height="37"/>
         <image name="TwitterDisabled" width="65" height="63"/>
         <image name="UnfilledHeart" width="17" height="14"/>

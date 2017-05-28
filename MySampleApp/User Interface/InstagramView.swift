@@ -14,6 +14,7 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
 
     @IBOutlet var activityView: UIActivityIndicatorView!
+
     
     @IBOutlet var tableView: UITableView!
     

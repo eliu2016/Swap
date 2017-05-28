@@ -2467,8 +2467,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="XF5-gh-X4u" id="Anc-Kz-6yv"/>
-                                    <outlet property="delegate" destination="XF5-gh-X4u" id="2Yk-2H-IpF"/>
+                                    <outlet property="dataSource" destination="XF5-gh-X4u" id="fq3-VF-wtC"/>
+                                    <outlet property="delegate" destination="XF5-gh-X4u" id="wJf-2q-SAB"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -2479,7 +2479,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="activityView" destination="CbZ-C3-kWG" id="2Vq-dZ-QUx"/>
-                        <outlet property="tableView" destination="uMt-VD-oPQ" id="Nc5-1s-Ja0"/>
+                        <outlet property="tableView" destination="uMt-VD-oPQ" id="8z8-02-R8x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCB-uK-zHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
