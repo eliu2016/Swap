@@ -1920,18 +1920,29 @@
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-aR-eL2">
-                                <rect key="frame" x="16" y="88" width="196" height="31"/>
+                                <rect key="frame" x="16" y="86" width="196" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
                                 <color key="textColor" red="0.27332392919999998" green="0.28297987889999998" blue="0.2889038706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNb-Bg-wzB">
+                                <rect key="frame" x="0.0" y="121" width="320" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.69305203049999997" green="0.69305203049999997" blue="0.69305203049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Cg2-Zh-Iiq">
+                                <rect key="frame" x="150" y="131" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ust-oI-bV6"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="loadingSymbol" destination="Cg2-Zh-Iiq" id="Aae-CG-vsz"/>
+                        <outlet property="loadingView" destination="YNb-Bg-wzB" id="0I6-vM-GPv"/>
                         <outlet property="searchBar" destination="1Me-XX-q2Y" id="ph5-nR-yO7"/>
                         <outlet property="searchLabel" destination="vhh-aR-eL2" id="uxx-7b-rve"/>
                         <outlet property="searchedUsersTable" destination="him-9G-cPb" id="gzE-73-YSr"/>
@@ -4150,9 +4161,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6tu-Vg-qza"/>
-        <segue reference="3gl-tf-Vwf"/>
         <segue reference="Q6e-FZ-K8h"/>
+        <segue reference="ygW-ho-k8P"/>
+        <segue reference="3gl-tf-Vwf"/>
         <segue reference="gFe-SS-edX"/>
     </inferredMetricsTieBreakers>
 </document>

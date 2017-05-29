@@ -80,9 +80,7 @@ class IGMedia {
         
         
     }
-    
-    
- 
+  
 }
 
 enum IGMediaType{

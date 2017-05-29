@@ -2111,12 +2111,23 @@
                                 <color key="textColor" red="0.27332392919999998" green="0.28297987889999998" blue="0.2889038706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apg-Xa-p0q">
+                                <rect key="frame" x="0.0" y="152" width="320" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.69305203049999997" green="0.69305203049999997" blue="0.69305203049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="mro-dE-2FX">
+                                <rect key="frame" x="150" y="162" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bL0-Dy-3hB"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="loadingSymbol" destination="mro-dE-2FX" id="Bue-fP-3qS"/>
+                        <outlet property="loadingView" destination="apg-Xa-p0q" id="opv-Vy-24i"/>
                         <outlet property="searchBar" destination="R3M-Kv-kIL" id="WsU-LN-1i2"/>
                         <outlet property="searchLabel" destination="88p-iG-Uov" id="OYm-mm-e0a"/>
                         <outlet property="searchedUsersTable" destination="Upf-xU-l82" id="t2d-Tl-hpb"/>
@@ -4167,7 +4178,7 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mog-8b-cAz"/>
+        <segue reference="wgl-fO-cmx"/>
         <segue reference="n03-21-bHZ"/>
         <segue reference="307-1K-BHO"/>
         <segue reference="juv-56-8XR"/>

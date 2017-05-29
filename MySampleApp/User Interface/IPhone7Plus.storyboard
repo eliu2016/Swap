@@ -32,15 +32,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c93-gg-Qnd">
-                                <rect key="frame" x="103" y="188" width="208" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username/phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c93-gg-Qnd">
+                                <rect key="frame" x="86" y="181" width="241" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vSs-r6-8L8">
-                                <rect key="frame" x="103" y="278" width="208" height="35"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vSs-r6-8L8">
+                                <rect key="frame" x="95" y="275" width="225" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
@@ -65,11 +65,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="Cip-DA-s3I">
-                                <rect key="frame" x="93" y="227" width="215" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="s03-Qn-dRJ">
-                                <rect key="frame" x="93" y="310" width="215" height="1"/>
+                                <rect key="frame" x="94" y="220" width="226" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ul-Jn-bjV">
@@ -107,6 +103,10 @@
                                     <action selector="didTapSignIn:" destination="ueH-X6-pk9" eventType="touchUpInside" id="Cdj-Mz-XYb"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="s03-Qn-dRJ">
+                                <rect key="frame" x="95" y="310" width="225" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1848,12 +1848,23 @@
                                 <color key="textColor" red="0.27332392919999998" green="0.28297987889999998" blue="0.2889038706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHc-rm-xnB">
+                                <rect key="frame" x="0.0" y="152" width="414" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.69305203049999997" green="0.69305203049999997" blue="0.69305203049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="qNC-rZ-Pmy">
+                                <rect key="frame" x="197" y="162" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Oli-Q6-zfn"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="loadingSymbol" destination="qNC-rZ-Pmy" id="mTk-2p-e71"/>
+                        <outlet property="loadingView" destination="bHc-rm-xnB" id="C9K-E5-UCX"/>
                         <outlet property="searchBar" destination="fRz-uC-GMq" id="E7e-K1-RH1"/>
                         <outlet property="searchLabel" destination="ZbF-Lu-vHc" id="WSr-Ot-EXt"/>
                         <outlet property="searchedUsersTable" destination="DdH-C8-X0Y" id="Dpi-3F-t3O"/>
@@ -4190,8 +4201,8 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8yU-bV-628"/>
         <segue reference="jIR-tF-ust"/>
-        <segue reference="Qve-td-zgu"/>
         <segue reference="Xpo-tz-aOQ"/>
         <segue reference="5bP-vo-cs0"/>
     </inferredMetricsTieBreakers>

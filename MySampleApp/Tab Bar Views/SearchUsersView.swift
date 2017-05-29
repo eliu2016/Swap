@@ -23,6 +23,10 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchLabel: UILabel!
+
+    @IBOutlet var loadingView: UIImageView!
+    @IBOutlet var loadingSymbol: UIActivityIndicatorView!
+    
     
     var returnedUsers: [SwapUser] = []
 
@@ -42,6 +46,9 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     override func viewDidLoad() {
         
         searchBar.delegate = self
+        
+        loadingView.isHidden = true
+        loadingSymbol.isHidden = true
         
         
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
@@ -85,11 +92,19 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
   
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        
+        loadingSymbol.isHidden = false
+        loadingView.isHidden = false
+        tableView.isHidden = true
+        
         // Make sure that the input is not empty; otherwise, all usesrs will be returned
         
         guard !(searchBar.text?.isEmpty)! else {
             
             print("search is empty")
+            self.loadingSymbol.isHidden = true
+            self.loadingView.isHidden = true
+            self.tableView.isHidden = false
             return
         }
         
@@ -107,8 +122,13 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 self.returnedUsers = users ?? []
                 
                 self.searchedUsersTable.reloadData()
+                self.loadingSymbol.isHidden = true
+                self.loadingView.isHidden = true
+                self.tableView.isHidden = false
             }
         }
+        
+        
         
      }
     

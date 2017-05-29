@@ -19,6 +19,7 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet var tableView: UITableView!
     
     var instagramImages: [IGMedia] = []
+    var videoIndexes: [Int] = []
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -41,14 +42,22 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             print(IGMedias?.count ?? 0)
             
             
+            var index = 0;
+            
             for media in IGMedias!{
                 
+    
                 if media.type == .photo{
                     
                     self.instagramImages.append(media)
                 }
-               
+                else if media.type == .video{
+                    self.instagramImages.append(media)
+                    self.videoIndexes.append(index)
+                }
+                index += 1;
             }
+            
             if self.instagramImages.count == 0{
                
                 let blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
@@ -100,9 +109,30 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell.username.text = user?._username
         })
         
-        cell.setPhoto(imageURL: currentImage.content_url!)
+        if isVideo(media: currentImage, mediaIndex: indexPath.row){
+            
+            //set a thumbnail to represent the instagram video
+            cell.setPhoto(imageURL: currentImage.content_url!)
+        }
+        else {
+        
+            cell.setPhoto(imageURL: currentImage.content_url!)
+        }
         
         return cell
+    }
+    
+    func isVideo(media: IGMedia, mediaIndex: Int) -> Bool{
+        
+        for index in videoIndexes{
+            
+            if index == mediaIndex{
+                return true
+            }
+        }
+        
+        return false
+        
     }
     
     func didTapPhoto(_ recognizer: UILongPressGestureRecognizer){
