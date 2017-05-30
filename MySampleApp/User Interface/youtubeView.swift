@@ -19,6 +19,13 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLoad() {
         
+        
+        loadYouTubePreview()
+    }
+    
+    
+    func loadYouTubePreview()  {
+        
         let user = YouTubeUser(id:  YouTubeUserID ?? "")
         tableView.separatorStyle = .none
         self.automaticallyAdjustsScrollViewInsets = true
@@ -52,9 +59,7 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
             self.tableView.reloadData()
         }
         
-        
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return youtubeVideos.count-1
     }

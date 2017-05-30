@@ -181,7 +181,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     /// Shows the loading symbol and reloads the profile data.
     func loadProfile()  {
         
-        
+        loadSwapAndSwapHistoryInBackground()
         
         // Hide UI or do whatever to show that the profile is loading
         self.loadingIndicator.startAnimating()
@@ -323,7 +323,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     })
         
         
-        loadSwapAndSwapHistoryInBackground()
+        
         
     }
     

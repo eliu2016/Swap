@@ -21,12 +21,17 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var instagramImages: [IGMedia] = []
     var videoIndexes: [Int] = []
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLoad() {
+        
+        loadInstagramPreview()
+    }
+    
+    func loadInstagramPreview()  {
         
         instagramImages = []
         
         tableView.isHidden = true
-    
+        
         let user = IGUser(id: instagramUserID ?? "")
         
         tableView.separatorStyle = .none
@@ -46,7 +51,7 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             for media in IGMedias!{
                 
-    
+                
                 if media.type == .photo{
                     
                     self.instagramImages.append(media)
@@ -59,7 +64,7 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
             
             if self.instagramImages.count == 0{
-               
+                
                 let blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
                 
                 blankTableMessage.text = "No Instagram Posts"
@@ -77,8 +82,7 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.tableView.isHidden = false
             self.tableView.reloadData()
         }
- 
-       
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
