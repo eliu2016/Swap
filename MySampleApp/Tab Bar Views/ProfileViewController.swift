@@ -88,7 +88,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 }
             }))
         
-           actionSheeet.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+           actionSheeet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
            present(actionSheeet, animated: true, completion: nil)
 
@@ -141,7 +141,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         self.dismiss(animated: true, completion: nil)
         
         
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             
             let imageData = UIImageJPEGRepresentation(image, 1.0)
             

@@ -24,7 +24,6 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchLabel: UILabel!
 
-    @IBOutlet var loadingView: UIImageView!
     @IBOutlet var loadingSymbol: UIActivityIndicatorView!
     
     
@@ -32,6 +31,10 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
 
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        loadingSymbol.stopAnimating()
         
         searchBar.becomeFirstResponder()
         
@@ -46,11 +49,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
     override func viewDidLoad() {
         
         searchBar.delegate = self
-        
-        loadingView.isHidden = true
-        loadingSymbol.isHidden = true
-        
-        
+
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
         
         self.automaticallyAdjustsScrollViewInsets = false;
@@ -94,8 +93,8 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         
         loadingSymbol.isHidden = false
-        loadingView.isHidden = false
         tableView.isHidden = true
+        loadingSymbol.startAnimating()
         
         // Make sure that the input is not empty; otherwise, all usesrs will be returned
         
@@ -103,7 +102,6 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
             
             print("search is empty")
             self.loadingSymbol.isHidden = true
-            self.loadingView.isHidden = true
             self.tableView.isHidden = false
             return
         }
@@ -123,7 +121,6 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
                 
                 self.searchedUsersTable.reloadData()
                 self.loadingSymbol.isHidden = true
-                self.loadingView.isHidden = true
                 self.tableView.isHidden = false
             }
         }

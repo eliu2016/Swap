@@ -16,6 +16,7 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var youtubeVideos: [YouTubeMedia] = []
     @IBOutlet var tableView: UITableView!
     
+    
     override func viewDidLoad() {
         
         let user = YouTubeUser(id:  YouTubeUserID ?? "")
@@ -55,7 +56,7 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return youtubeVideos.count
+        return youtubeVideos.count-1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -96,13 +97,13 @@ class YouTubeVideoCell: UITableViewCell {
         videoView.scrollView.contentInset = UIEdgeInsets.zero
         
         
-        videoView.loadHTMLString("<iframe width=\"\(videoView.frame.width)\" height=\"\(videoView.frame.height)\" src=\"\(videoURL)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+        videoView.loadHTMLString("<iframe width=\"\(videoView.frame.width)\" height=\"\(videoView.frame.height)\" src=\"\(videoURL)?&playsinline=0\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
         
-        videoView.scrollView.contentOffset = CGPoint(x: -100, y: -100)
+        videoView.allowsInlineMediaPlayback = false
         videoView.scrollView.isScrollEnabled = false
         
     }
-    
+   
     func setProfilePicture(imageURL: URL){
         
         profilePicture.contentMode = .scaleAspectFit
