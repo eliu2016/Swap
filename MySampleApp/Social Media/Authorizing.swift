@@ -259,9 +259,7 @@ func authorizeVimeo(onViewController: UIViewController,
 ///Forgets the access tokens for Instagram in keychain. However, if this function is called, calling authorizeInstagram() will not show the login screen for Spotify again. The login screen will appear disapper shortly after because the login information is still stored in web cookies. Cookies have to be cleared in order to do this. See logoutSocialMediasAndClearCookies().
 func logoutInstagram()  {
     
-    // Clears cookies
-    let storage = HTTPCookieStorage.shared
-    storage.cookies?.forEach() { storage.deleteCookie($0)}
+   
 
     instagram_oauth2.forgetTokens()
     
