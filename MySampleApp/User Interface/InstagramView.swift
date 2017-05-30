@@ -9,6 +9,7 @@
 import Foundation
 
 var instagramUserID: String? = nil
+var instagramPreviewUser: Users? = nil
 
 class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -106,12 +107,11 @@ class instagramView: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell.likeButton.setImage(#imageLiteral(resourceName: "UnfilledHeart"), for: .normal)
         }
         
-        SwapUser(username: searchedUser).getInformation(completion: { (error, user) in
-            
-            circularImageNoBorder(photoImageView: cell.profilePic)
-            cell.profilePic.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
-            cell.username.text = user?._username
-        })
+        circularImageNoBorder(photoImageView: cell.profilePic)
+        cell.profilePic.kf.setImage(with: URL(string: (instagramPreviewUser?._profilePictureUrl)!))
+        cell.username.text = instagramPreviewUser?._username
+        
+      
         
         if isVideo(media: currentImage, mediaIndex: indexPath.row){
             

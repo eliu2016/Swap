@@ -10,6 +10,7 @@ import Foundation
 
 
 var YouTubeUserID: String? = nil
+var YouTubePreviewUser: Users? = nil
 
 class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -78,11 +79,9 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
         cell.datePosted.text = currentVideo.datePublished.stringValueShort
         
-        SwapUser(username: searchedUser).getInformation(completion: { (error, user) in
-            
-           cell.setProfilePicture(imageURL: URL(string: (user?._profilePictureUrl)!)!)
-            
-        })
+         cell.setProfilePicture(imageURL: URL(string: (YouTubePreviewUser?._profilePictureUrl)!)!)
+        
+     
         
         return cell
     }

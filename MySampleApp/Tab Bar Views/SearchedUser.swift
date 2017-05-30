@@ -225,6 +225,9 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
                 //set the youtube ID
                 YouTubeUserID = user?._youtubeID ?? ""
                 
+                YouTubePreviewUser = user
+                
+                instagramPreviewUser = user
                 
                 self.fullName.text = ((user?._firstname)! + " " + (user?._lastname)!).uppercased()
                 
