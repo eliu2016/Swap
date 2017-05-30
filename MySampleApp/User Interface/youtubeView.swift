@@ -95,16 +95,32 @@ class YouTubeVideoCell: UITableViewCell {
     @IBOutlet var channelName: UILabel!
     @IBOutlet var datePosted: UILabel!
     
+    var webview: UIWebView?
+    
     func setVideo(videoURL: String){
         
+        if self.webview == nil {
+            
+            // Set the video view 
+            
+            videoView.scrollView.contentInset = UIEdgeInsets.zero
+            
+            
+            videoView.loadHTMLString("<iframe width=\"\(videoView.frame.width)\" height=\"\(videoView.frame.height)\" src=\"\(videoURL)?&playsinline=0\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+            
+            videoView.allowsInlineMediaPlayback = false
+            videoView.scrollView.isScrollEnabled = false
+            
+            // Save the video view in the cell 
+            self.webview = videoView
+            
+        } else {
+            
+            // Retreive the video view 
+            self.videoView = self.webview
+            
+        }
         
-        videoView.scrollView.contentInset = UIEdgeInsets.zero
-        
-        
-        videoView.loadHTMLString("<iframe width=\"\(videoView.frame.width)\" height=\"\(videoView.frame.height)\" src=\"\(videoURL)?&playsinline=0\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
-        
-        videoView.allowsInlineMediaPlayback = false
-        videoView.scrollView.isScrollEnabled = false
         
     }
    
@@ -115,3 +131,5 @@ class YouTubeVideoCell: UITableViewCell {
     }
     
 }
+
+
