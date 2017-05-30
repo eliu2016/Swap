@@ -34,6 +34,10 @@ class SwapHistory: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _location: Set<NSNumber>?
     var _method: String?
     var _time: NSNumber?
+    var _didGiveSwapPointsFromSwap: NSNumber?
+    var profileImageURL: URL?
+    var firstname: String?
+    var lastname: String?
     
     class func dynamoDBTableName() -> String {
         
@@ -70,6 +74,7 @@ class SwapHistory: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_location" : "location",
             "_method" : "method",
             "_time" : "time",
+            "_didGiveSwapPointsFromSwap": "didGiveSwapPointsFromSwap"
         ]
     }
 }

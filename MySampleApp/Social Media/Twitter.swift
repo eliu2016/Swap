@@ -21,6 +21,14 @@ func authorizeTwitter(onViewController: UIViewController,  completion: @escaping
     
     Twitter.sharedInstance().logIn(withMethods: .all, completion: {  (session, error) in
         
+      
+        guard error == nil else{
+            
+            completion(AuthorizationError.Unknown)
+            
+            return
+        }
+        
         if let session = session{
             
             let token = session.authToken
@@ -34,7 +42,14 @@ func authorizeTwitter(onViewController: UIViewController,  completion: @escaping
                 completion(AuthorizationError.Unknown)
             } else{
               
-                let twitterAccount = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: getTwitterToken()!, oauthTokenSecret: getTwitterSecret()!)
+                guard let token = getTwitterToken(), let secret = getTwitterSecret() else {
+                    
+                    completion(AuthorizationError.Unknown)
+                    
+                    return
+                }
+                
+                let twitterAccount = Swifter(consumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET, oauthToken: token, oauthTokenSecret: secret)
 
                 twitterAccount.getTimeline(for: session.userName, success: { (json) in
                     

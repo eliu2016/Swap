@@ -487,7 +487,7 @@ class SwapUser {
     /// Increments the 'swaps' value of a user. It increments by '1' by default if you do not pass anything as a parameter
     ///
     /// - Parameter byValue: 1 by default. It will decrement if you pass a negative number
-    func incrementSwaps(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void)  {
+    func incrementSwaps(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void = {_ in return})  {
         
         let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
@@ -514,7 +514,7 @@ class SwapUser {
         
     }
     
-    func incrementSwapped(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void)  {
+    func incrementSwapped(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void = { _ in return})  {
         
         let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
@@ -540,7 +540,7 @@ class SwapUser {
         
     }
     
-    func incrementPoints(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void)  {
+    func incrementPoints(byValue: NSNumber = 1, completion: @escaping (_ error: Error?) -> Void = { _ in return })  {
         
         let username =  AWSDynamoDBAttributeValue()
         username?.s = self.username
@@ -966,7 +966,53 @@ class SwapUser {
         })
     }
     
-    /// Use this function to check if user has swapped another user. 
+    /// When two users have swapped, 'User A swaps user B', use this function to determine whether or not we should increment the swaps of user A and swapped of user B and give points to both. Do this AFTER the completion block of swapping is executed. It will return a boolean wheter or not points/swap/swapped SHOULD be given.
+    class func shouldGivePointsSwapAndSwappedBetweenUsers(userWhoSwapped: SwapUser, userSwapped: SwapUser, result: @escaping (_ shouldGivePoints: Bool) -> Void )  {
+        
+        
+       AWSDynamoDBObjectMapper.default().load(SwapHistory.self, hashKey: userWhoSwapped.username, rangeKey: userSwapped.username, completionHandler: { (request, error) in
+            
+            if let error = error{
+                
+                
+                
+                // Should give points because a swap history record doesn't exist
+                
+                result(true)
+                
+                
+                
+            } else{
+                
+                if let swaphistory = request as? SwapHistory{
+                    // Swap History does exist so check if we've given points or not
+                    
+                    
+                 
+                    let didGivePoints = swaphistory._didGiveSwapPointsFromSwap?.boolValue ?? false
+                    
+                    
+                    
+                
+                    result(!didGivePoints)
+                }
+                else{
+                    
+                    // No record exists so give points
+                    result(true)
+                }
+                
+                
+                
+            }
+            
+            
+            
+            
+        })
+    }
+    
+    /// Use this function to check if user has swapped another user.
     func hasSwapped(withUser: SwapUser, result: @escaping (_ hasSwapped: Bool) -> Void)  {
         
         // hashKey/swap = self
@@ -1168,42 +1214,11 @@ class SwapUser {
                     
                     DispatchQueue.global(qos: .userInitiated).async {
                         
-                    
+                        let currentUser = self
+                        let otherUser =   SwapUser(username: userWithUsername)
                    
                     
-                    let currentUser = self
-                    let otherUser =   SwapUser(username: user._username!)
-                    
-                    // Check if already Swapped
-                    currentUser.hasSwapped(withUser: otherUser, result: { (hasSwapped) in
                         
-                        
-                        if !hasSwapped{
-                            
-                            // Didn't Swap Yet
-                            
-                            currentUser.incrementSwaps { error in
-                                
-                            }
-                            otherUser.incrementSwapped{ error in
-                                
-                            }
-                            currentUser.incrementPoints(byValue: 5) { error in
-                                
-                            }
-                            otherUser.incrementPoints(byValue: 5){ error in
-                                
-                            }
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                        }
-                        
-                    })
                         let history = SwapUserHistory(swap: self.username, swapped: userWithUsername)
                         history.didShare()
                         
@@ -1219,9 +1234,10 @@ class SwapUser {
                         shareReddit(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                         shareGitHub(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
                         shareVimeo(withUser: user, andIfNeededAuthorizeOnViewController: authorizeOnViewController)
-                   
-                    otherUser.sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
-                    
+                        
+                        otherUser.sendSwappedNotification(bySwapUser: SwapUser(username: getUsernameOfSignedInUser()))
+                        
+                        
                     // Log Analytics // If current user has social media connected and the other has the social media 'on' then essentially the user has shared that social media. +- ~3% margin error perhaps
                     
                     // ========= Begin Loggin Analytics ====================================
@@ -1266,6 +1282,37 @@ class SwapUser {
             
         })
         
+    }
+    
+    
+    
+    
+    /// Call this function after the completion block of a swap action is called in order to increment the swaps of the user 'swap' and the swapped points of the user 'swapped'. If user A swaps user B, this function will add the appropiate swap points to each user. User A is swap, User B is swapped
+    class func giveSwapPointsToUsersWhoSwapped(swap: SwapUser, swapped: SwapUser) {
+        
+        SwapUser.shouldGivePointsSwapAndSwappedBetweenUsers(userWhoSwapped: swap, userSwapped: swapped) { (shouldGivePoints) in
+            
+            
+            if shouldGivePoints {
+                
+                swap.incrementSwaps()
+                swapped.incrementSwapped()
+                swap.incrementPoints(byValue: 5, completion: {_ in return  })
+                swapped.incrementPoints(byValue: 5, completion: {_ in return   })
+                
+                // Add to swap history that points were given 
+                let history = SwapUserHistory(swap: swap.username, swapped: swapped.username)
+                history.didShare(didGivePoints: true)
+                
+                
+            }  else{
+                
+                // Points are already given so forget it 
+                
+                
+                
+            }
+        }
     }
     
     

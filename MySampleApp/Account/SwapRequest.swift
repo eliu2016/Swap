@@ -18,6 +18,8 @@ class SwapRequest: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _status: NSNumber?
     var _requested_user_has_responded_to_request: NSNumber?
     
+    var user: Users?
+    
     class func dynamoDBTableName() -> String {
         
         return "swap-mobilehub-1081613436-SwapRequest"

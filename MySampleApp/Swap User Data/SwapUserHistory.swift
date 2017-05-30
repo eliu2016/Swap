@@ -47,6 +47,7 @@ class SwapUserHistory{
                   InstagramIs: Bool? = nil,
                   GitHubIs: Bool? = nil,
                   VimeoIs: Bool? = nil,
+                  didGivePoints: Bool? = nil,
                   completion: @escaping (_ error: Error?) -> Void = {noError in return})  {
         
         
@@ -76,6 +77,7 @@ class SwapUserHistory{
         swapHistory?._didShareInstagram = (InstagramIs != nil) ? (InstagramIs! as NSNumber) : nil
         swapHistory?._didShareGitHub = (GitHubIs != nil) ? (GitHubIs! as NSNumber) : nil
         swapHistory?._didShareVimeo = (VimeoIs != nil) ? (VimeoIs! as NSNumber) : nil
+        swapHistory?._didGiveSwapPointsFromSwap = (didGivePoints != nil) ? (didGivePoints! as NSNumber) : nil
         
         NoSQL.save(swapHistory!, configuration: updateMapperConfig, completionHandler: { error in
             

@@ -34,8 +34,72 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     @IBAction func didTapConnectSocialMedia(_ sender: UIButton) {
         
         
+        
+        
+        
+        guard !sender.isSelected else{
+            
+            // Log out social media if it's logged in
+            
+            switch sender {
+            case Spotify:
+                logoutSpotify()
+                SwapUser().set(WillShareSpotify: false)
+                break
+            case Pinterest:
+                logoutPinterest()
+                SwapUser().set(WillSharePinterest: false)
+                break
+            case Vimeo:
+                logoutVimeo()
+                SwapUser().set(WillShareVimeo: false)
+                break
+            case YouTube:
+                logoutYouTube()
+                SwapUser().set(WillShareYouTube: false)
+                break
+            case Instagram:
+                logoutInstagram()
+                SwapUser().set(WillShareInstagram: false)
+                break
+            case Reddit:
+                logoutReddit()
+                SwapUser().set(WillShareReddit: false)
+                break
+            case SoundCloud:
+                logoutSoundCloud()
+                SwapUser().set(WillShareSoundCloud: false)
+                break
+            case Github:
+                logoutGitHub()
+                SwapUser().set(WillShareGitHub: false)
+                break
+            case Twitter:
+                logoutTwitter()
+                SwapUser().set(WillShareTwitter: false)
+                break
+            default:
+                break
+            }
+            
+            // Disbale icon
+            sender.isSelected = false
+            
+            return
+        }
+        
+        
+        
+        
+        
+        
+        // Log in
+        
         switch sender {
             
+            
+            
+        
             
         case Spotify:
             
@@ -374,7 +438,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     
     @IBAction func didTapNext(_ sender: UIButton) {
         
-        // Add Vimeo ****
+        
          let atLeastOneSocialMediaIsConnected: Bool = (Twitter.isSelected || SoundCloud.isSelected || Pinterest.isSelected || Vimeo.isSelected || Instagram.isSelected || Reddit.isSelected || YouTube.isSelected || Spotify.isSelected || Github.isSelected)
         
         
@@ -413,6 +477,29 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         Github.setImage(#imageLiteral(resourceName: "GithubEnabled"), for: UIControlState.selected)
         
         
+        
+        
+        // Selects the social media icons if they are connected
+        
+        Spotify.isSelected = spotifyIsConnected()
+        
+        Instagram.isSelected = instagramIsConnected()
+        
+        SoundCloud.isSelected = soundcloudIsConnected()
+        
+        Pinterest.isSelected = pinterestIsConnected()
+        
+        Twitter.isSelected = twitterIsConnected()
+        
+        YouTube.isSelected = youtubeIsConnected()
+        
+        Reddit.isSelected = redditIsConnected()
+        
+        Github.isSelected = githubIsConnected()
+        
+        Vimeo.isSelected = vimeoIsConnected()
+        
+        
     }
     
     
@@ -432,15 +519,24 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         
         // Selects the social media icons if they are connected
         
-        Spotify.isSelected = ((spotify_oauth2.accessToken != nil) || (spotify_oauth2.refreshToken != nil))
-        Instagram.isSelected = ((instagram_oauth2.accessToken != nil) || (instagram_oauth2.refreshToken != nil))
-        SoundCloud.isSelected = ((soundcloud_oauth2.accessToken != nil) || (soundcloud_oauth2.refreshToken != nil))
-        Pinterest.isSelected = ( (pinterest_oauth2.accessToken != nil) || (pinterest_oauth2.refreshToken != nil) )
-        Twitter.isSelected = (getTwitterSecret() != nil && getTwitterToken() != nil)
-        YouTube.isSelected = ( (youtube_oauth2.accessToken != nil) || (youtube_oauth2.refreshToken != nil) )
-        Reddit.isSelected = ( (reddit_oauth2.accessToken != nil) || (reddit_oauth2.refreshToken != nil) )
-        Github.isSelected = ( (github_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) )
-        Vimeo.isSelected = ( (vimeo_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) )
+        Spotify.isSelected = spotifyIsConnected()
+        
+        Instagram.isSelected = instagramIsConnected()
+        
+        SoundCloud.isSelected = soundcloudIsConnected()
+        
+        Pinterest.isSelected = pinterestIsConnected()
+        
+        Twitter.isSelected = twitterIsConnected()
+        
+        YouTube.isSelected = youtubeIsConnected()
+        
+        Reddit.isSelected = redditIsConnected()
+        
+        Github.isSelected = githubIsConnected()
+        
+        Vimeo.isSelected = vimeoIsConnected()
+        
         
         if !UserDefaults.standard.bool(forKey: "ConnectSocialMediaTutorialShown")
         {
@@ -473,4 +569,51 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     }
     */
 
+}
+
+
+func vimeoIsConnected() -> Bool {
+    return ( (vimeo_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) )
+    
+}
+
+func githubIsConnected() -> Bool {
+    return ( (github_oauth2.accessToken != nil) || (github_oauth2.refreshToken != nil) )
+    
+}
+
+func redditIsConnected() -> Bool {
+    return ( (reddit_oauth2.accessToken != nil) || (reddit_oauth2.refreshToken != nil) )
+    
+}
+
+
+func youtubeIsConnected() -> Bool {
+    return ( (youtube_oauth2.accessToken != nil) || (youtube_oauth2.refreshToken != nil) )
+
+}
+
+func twitterIsConnected() -> Bool {
+    
+    return  (getTwitterSecret() != nil && getTwitterToken() != nil)
+}
+
+func pinterestIsConnected() -> Bool {
+    
+    return ( (pinterest_oauth2.accessToken != nil) || (pinterest_oauth2.refreshToken != nil) )
+
+}
+
+func soundcloudIsConnected() -> Bool {
+    
+    return ((soundcloud_oauth2.accessToken != nil) || (soundcloud_oauth2.refreshToken != nil))
+}
+
+func instagramIsConnected() -> Bool {
+    return ((instagram_oauth2.accessToken != nil) || (instagram_oauth2.refreshToken != nil))
+}
+
+func spotifyIsConnected() -> Bool {
+    
+    return ((spotify_oauth2.accessToken != nil) || (spotify_oauth2.refreshToken != nil))
 }

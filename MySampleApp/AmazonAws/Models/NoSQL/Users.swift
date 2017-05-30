@@ -61,6 +61,9 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _notification_id_one_signal: String?
     var _VPCode: String?
     
+    
+    
+    
     class func dynamoDBTableName() -> String {
         
         return "swap-mobilehub-1081613436-Users"
@@ -116,7 +119,8 @@ class Users: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_willShareVimeo": "willShareVimeo",
             "_youtubeID" : "youtube_ID",
             "_notification_id_one_signal": "notification_id_one_signal",
-            "_VPCode": "VPCode"
+            "_VPCode": "VPCode",
+            
         ]
     }
 }
