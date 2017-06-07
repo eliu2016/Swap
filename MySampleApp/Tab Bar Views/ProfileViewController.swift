@@ -13,7 +13,7 @@ import Spring
 import Alamofire
 
 
-class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     
     //labels
@@ -31,7 +31,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var swapCodeImageView: UIImageView!
     @IBOutlet var GradientBottomLine: UIImageView!
     @IBOutlet var verifiedIcon: UIImageView!
-    @IBOutlet var header: UIImageView!
    
     
     
@@ -48,6 +47,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet var Github: UIButton!
     @IBOutlet var Instagram: UIButton!
     @IBOutlet var infoIcon: UIButton!
+    
     
     @IBOutlet var bioTextField: UITextField!
     
@@ -106,17 +106,20 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         if !UserDefaults.standard.bool(forKey: "didShowTutorial"){
            
             self.performSegue(withIdentifier: "showTutorial", sender: nil)
-            UserDefaults.standard.set(true, forKey: "didShowTutorial")
     
         }
         
         
        
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+           save(screen: .UserProfileScreen)
+
     
-    
-    
-    
+     
+    }
+  
     func textFieldDidEndEditing(_ textField: UITextField) {
         //upload the updated user bio
         
@@ -135,13 +138,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         // Dispose of any resources that can be recreated.
     }
 
-   
-    override func viewDidAppear(_ animated: Bool) {
-        save(screen: .UserProfileScreen)
-        
-        
-    }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         self.dismiss(animated: true, completion: nil)
@@ -161,11 +158,23 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 NotificationCenter.default.post(name: .reloadProfile, object: nil)
             
         }
+        else{
+            let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+            
+            let imageData = UIImageJPEGRepresentation(image!, 1.0)
+            DispatchQueue.main.async {
+                
+                SwapUser().uploadProfilePicture(withData: imageData!, completion: { (error) in
+                    
+                })
+                
+            
+            }
         
-      
+            NotificationCenter.default.post(name: .reloadProfile, object: nil)
         
+        }
     }
-    
     
     
     /*
@@ -185,7 +194,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         // Hide UI or do whatever to show that the profile is loading
         self.loadingIndicator.startAnimating()
-        self.header.backgroundColor = self.view.backgroundColor
         
         self.nameLabel.isHidden = true
         self.pointsLabel.isHidden = true
@@ -223,8 +231,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 // There is an error
                 // Note -- Micheal S. Bingham -- Should Handle this in the future
                 refreshControl.endRefreshing()
-                self.header.backgroundColor = nil
-                self.header.image = #imageLiteral(resourceName: "Header1")
             }
 
             else{
@@ -307,9 +313,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 
                 //Stop pull refresh here . 
                 refreshControl.endRefreshing()
-                self.header.backgroundColor = nil
-                self.header.image = #imageLiteral(resourceName: "Header1")
-                self.view.sendSubview(toBack: self.header)
+
                 
                 if let notificationID = user?._notification_id_one_signal {
                     if notificationID == "0"{
@@ -391,6 +395,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             tabBarController?.tabBar.unselectedItemTintColor = UIColor.white
         }
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
+        
+        
+        //set up nav controller
+        let navBar = self.navigationController?.navigationBar
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navBar?.setBackgroundImage(#imageLiteral(resourceName: "Header1"), for: .default)
+        navBar?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Avenir Next", size: 22)!]
+        navBar?.tintColor = UIColor.white
+        //navBar?.isTranslucent = false
+        
+        
         
         // Set the selected photos for when the social media icons are toggled
         Spotify.setImage(#imageLiteral(resourceName: "SpotifyEnabled"), for: .selected)

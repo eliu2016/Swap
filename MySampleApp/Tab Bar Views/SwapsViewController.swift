@@ -19,24 +19,19 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var sharedSocialMedias: [UIImage] = []
     
     override func viewDidAppear(_ animated: Bool) {
-    
         
         save(screen: .SwapsScreen)
       //  loadSwaps()
         activityView.isHidden = true
         // Listens for reloadSwaps notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadSwaps), name: .reloadSwaps, object: nil)
-        
+
     }
-    
-   
-    
+
     @IBAction func didTapBack(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
     }
-    
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

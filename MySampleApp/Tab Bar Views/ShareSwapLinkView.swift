@@ -30,6 +30,15 @@ class ShareSwapLinkView: UIViewController{
             
         })
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        //configure nav bar
+        let shareButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ShareIcon"), style: .plain, target: self, action: #selector(didTapShare))
+        shareButton.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = shareButton
+        
+    }
 
     @IBAction func copyLink(_ sender: Any) {
         
@@ -42,7 +51,7 @@ class ShareSwapLinkView: UIViewController{
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func didTapShare(_ sender: Any) {
+    func didTapShare() {
         
         self.loadingView?.isHidden = false
         
@@ -53,7 +62,6 @@ class ShareSwapLinkView: UIViewController{
             
             Answers.logInvite(withMethod: "Swap Link",
                                         customAttributes: nil)
-
         
         })
         

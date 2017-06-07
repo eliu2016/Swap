@@ -10,19 +10,44 @@ import Foundation
 import TwitterKit
 
 var twitterUserID: String? = nil
+
 class TwitterView: TWTRTimelineViewController {
+    
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        
+        //declare UI variables
+        let overlayImage = UIImageView()
+        overlayImage.frame = CGRect(x: 0, y: 0, width: 1000, height: 1000)
+        overlayImage.backgroundColor = UIColor.white
+        self.view.addSubview(overlayImage)
+        overlayImage.isHidden = true
+        
+        let noTwitterLabel = UILabel(frame: CGRect(x: self.view.center.x-65, y: self.view.center.y, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+        
+        noTwitterLabel.text = "No Twitter Feed"
+        noTwitterLabel.textColor = .black
+        noTwitterLabel.textAlignment = NSTextAlignment.center
+        noTwitterLabel.font = UIFont(name: "Avenir-Next", size: 20)
+        noTwitterLabel.sizeToFit()
+        self.view.addSubview(noTwitterLabel)
+        
+        noTwitterLabel.isHidden = true
+        
       
         let client = TWTRAPIClient()
        client.loadUser(withID: twitterUserID ?? "") { (user, error) in
         
-            user?.isProtected
-        
+    
         guard error == nil else{
             print("Error... Could not obtain Twitter. Invalid twitter ID or user does not have twitter connected")
+            
+            overlayImage.isHidden = false
+            noTwitterLabel.isHidden = false
+            
             
             return
         }
@@ -31,6 +56,9 @@ class TwitterView: TWTRTimelineViewController {
         guard !(user?.isProtected ?? true) else {
             
             print("Cannot view Tweets of a protected/private user. Twitter is private")
+            
+            overlayImage.isHidden = false
+            noTwitterLabel.isHidden = false
             
             return
         }

@@ -85,6 +85,10 @@ class ConfirmAccountViewController: UIViewController, UITextFieldDelegate {
             
         })
     }
+    @IBAction func didTapBack(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
+    }
     
    
     

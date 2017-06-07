@@ -20,7 +20,6 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLoad() {
         
-        
         loadYouTubePreview()
     }
     
@@ -29,7 +28,6 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let user = YouTubeUser(id:  YouTubeUserID ?? "")
         tableView.separatorStyle = .none
-        self.automaticallyAdjustsScrollViewInsets = true
         
         user.getMedia { (YoutubeMedias) in
             
@@ -62,7 +60,7 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return youtubeVideos.count-1
+        return youtubeVideos.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -72,7 +70,6 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let currentVideo = youtubeVideos[indexPath.row]
         
-      
         cell.setVideo(videoURL: "https://www.youtube.com/embed/\(currentVideo.videoID)")
         
         cell.channelName.text = currentVideo.channelTitle
@@ -101,8 +98,7 @@ class YouTubeVideoCell: UITableViewCell {
         
         if self.webview == nil {
             
-            // Set the video view 
-            
+            // Set the video view
             videoView.scrollView.contentInset = UIEdgeInsets.zero
             
             
