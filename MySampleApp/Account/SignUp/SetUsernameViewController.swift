@@ -38,7 +38,7 @@ class SetUsernameViewController: UIViewController, UITextFieldDelegate {
                     
                     self.canUseUsername = true
                     self.availabilityView.backgroundColor = UIColor.green
-                    self.availabilityLabel.text = "Username is avaliable."
+                    self.availabilityLabel.text = "Username is available."
                     
                 } else{
                     

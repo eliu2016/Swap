@@ -38,6 +38,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         searchBar.becomeFirstResponder()
         
+        
       /*  for indexpath in self.tableView.indexPathsForVisibleRows!{
             
             self.tableView.deselectRow(at: indexpath, animated: true)
