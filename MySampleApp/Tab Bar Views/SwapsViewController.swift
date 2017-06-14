@@ -18,16 +18,15 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
    
     var sharedSocialMedias: [UIImage] = []
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         
         save(screen: .SwapsScreen)
-      //  loadSwaps()
+         // loadSwaps()
         activityView.isHidden = true
         // Listens for reloadSwaps notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadSwaps), name: .reloadSwaps, object: nil)
-
     }
-
+    
     @IBAction func didTapBack(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
@@ -113,7 +112,46 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
        cell.swapDate.text = user._time?.timeAgo()
         
+        if let userInfo = cell.user{
+            
+            print("Already saved profile picture and name and do not need to load from database")
+            // Set profile pic and name so that we do not have to fetch from database
+            
+            cell.profilePicture.kf.setImage(with: URL(string: userInfo._profilePictureUrl ?? ""))
+            circularImage(photoImageView: cell.profilePicture)
+            cell.username.text = "\(userInfo._firstname ?? "") \(userInfo._lastname ?? "")"
+
+            
+        }
         
+        else{
+            
+            // Go fetch profile pic and name from database
+            print("fetching swap history attributes from database")
+            
+            SwapUser(username: user._swapped!).getInformation(completion: {(error, user) in
+                
+                cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
+                circularImage(photoImageView: cell.profilePicture)
+                
+                // Save the object in the cell to reduce loading
+                cell.user = user
+                
+                
+                
+                
+                DispatchQueue.main.async {
+                    
+                    
+                    cell.username.text = (user?._firstname)! + " " + (user?._lastname)!
+                    
+                   
+                }
+                
+            })
+            
+        }
+        /*
         // Check if we already set the profile url in the object
         if let profilePicURL = swapHistoryUsers[indexPath.item].profileImageURL, let firstname =   swapHistoryUsers[indexPath.item].firstname, let lastname =  swapHistoryUsers[indexPath.item].lastname {
             
@@ -155,7 +193,7 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             })
         }
         
-        
+        */
 
         
         
@@ -249,4 +287,6 @@ class swapsTableCell: UITableViewCell {
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var swapDate: UILabel!
     @IBOutlet var username: UILabel!
+    
+    var user: Users?
 }

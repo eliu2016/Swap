@@ -19,14 +19,15 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
     var sharedSocialMedias: [UIImage] = []
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         
         save(screen: .SwappedScreen)
-    //    loadSwapped()
-          activityIndicator.isHidden = true
+          //loadSwapped()
+        activityIndicator.isHidden = true
         // Listens for reloadSwapped notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadSwapped), name: .reloadSwapped, object: nil)
     }
+   
     
    
     @IBAction func didTapBack(_ sender: Any) {
@@ -140,31 +141,37 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         cell.swapDate.text = user._time?.timeAgo()
+        
+        
        
-        // Check if we already set the profile url in the object
-        if let profilePicURL = swapHistoryUsers[indexPath.item].profileImageURL, let firstname =   swapHistoryUsers[indexPath.item].firstname, let lastname =  swapHistoryUsers[indexPath.item].lastname {
+        // Check if we already set the user info in the cell object 
+        
+        
+        
+        if let userInfo = cell.user{
             
             print("Already saved profile picture and name and do not need to load from database")
             // Set profile pic and name so that we do not have to fetch from database
             
-            cell.profilePicture.kf.setImage(with: profilePicURL)
+            cell.profilePicture.kf.setImage(with: URL(string: userInfo._profilePictureUrl ?? ""))
             circularImage(photoImageView: cell.profilePicture)
-            cell.username.text = "\(firstname) \(lastname)"
+            cell.username.text = "\(userInfo._firstname ?? "") \(userInfo._lastname ?? "")"
             
             
+        }
             
-        } else{
+        else{
             
             // Go fetch profile pic and name from database
             print("fetching swap history attributes from database")
             
-            SwapUser(username: user._swapped!).getInformation(completion: {(error, user) in
+            SwapUser(username: user._swap!).getInformation(completion: {(error, user) in
                 
                 cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
                 circularImage(photoImageView: cell.profilePicture)
                 
-                // set the image in the object
-                swapHistoryUsers[indexPath.item].profileImageURL = URL(string: (user?._profilePictureUrl)!)
+                // Save the object in the cell to reduce loading
+                cell.user = user
                 
                 
                 
@@ -174,14 +181,12 @@ class SwappedViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                     cell.username.text = (user?._firstname)! + " " + (user?._lastname)!
                     
-                    // set the name in the object
-                    swapHistoryUsers[indexPath.item].firstname = user?._firstname!
-                    swapHistoryUsers[indexPath.item].lastname = user?._lastname!
+                    
                 }
                 
             })
+            
         }
-        
         
     
         return cell
@@ -249,4 +254,6 @@ class swappedTableCell: UITableViewCell {
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var swapDate: UILabel!
     @IBOutlet var username: UILabel!
+    
+    var user: Users?
 }
