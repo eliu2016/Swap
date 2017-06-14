@@ -21,7 +21,7 @@ class YouTubeMedia {
     var channelTitle: String = ""
     var linkToYouTubeVideo: String = ""
     
-    
+    var webview: UIWebView?
     
     init(youtubeMediaJSON: JSON) {
         
