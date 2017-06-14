@@ -27,8 +27,9 @@ class YouTubeMedia {
         
         // create youtube object from JSON
         
+        
         self.videoID = youtubeMediaJSON["id"]["videoId"].string ?? ""
-        self.datePublished = (youtubeMediaJSON["snippet"]["publishedAt"].string ?? "2015-01-01T00:00:00.000Z").dateFromISO8601 ?? Date()
+        self.datePublished = (youtubeMediaJSON["snippet"]["publishedAt"].string ?? "2015-01-01T00:00:00.000Z").dateFromISO8601!
         self.channelID = youtubeMediaJSON["snippet"]["channelId"].string ?? ""
         self.title = youtubeMediaJSON["snippet"]["title"].string ?? ""
         self.description = youtubeMediaJSON["snippet"]["description"].string ?? ""
@@ -68,15 +69,20 @@ extension JSON{
 }
 
 
-extension Date {
-    static let iso8601Formatter: DateFormatter = {
+extension Formatter {
+    static let iso8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .iso8601)
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "MM/dd/yyyy"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
         return formatter
     }()
+}
+extension Date {
+    var iso8601: String {
+        return Formatter.iso8601.string(from: self)
+    }
     
     static let dateShortFormatter: DateFormatter = {
         
@@ -86,9 +92,7 @@ extension Date {
         return dateFormatter
     }()
     
-    var iso8601: String {
-        return Date.iso8601Formatter.string(from: self)
-    }
+    
     var stringValueShort: String {
         return Date.dateShortFormatter.string(from: self)
     }
@@ -96,6 +100,6 @@ extension Date {
 
 extension String {
     var dateFromISO8601: Date? {
-        return Date.iso8601Formatter.date(from: self)
+        return Formatter.iso8601.date(from: self)   // "Mar 22, 2017, 10:22 AM"
     }
 }
