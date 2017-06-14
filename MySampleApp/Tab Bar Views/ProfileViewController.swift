@@ -334,7 +334,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     
     func loadSwapAndSwapHistoryInBackground()  {
-        
+        swapHistoryUsers.removeAll()
+        swappedHistoryUsers.removeAll()
         
         DispatchQueue.global(qos: .background).async {
             
@@ -346,6 +347,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     let swaps =  history?.count
          
                     swapHistoryUsers = history ?? []
+                    
+                   print("\n\n\n\n The Swap History is : \(swapHistoryUsers)")
                 }
                 
             })
@@ -357,6 +360,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     let swapped = history?.count
            
                     swappedHistoryUsers = history ?? []
+                    
+                     print("\n\n\n\n The Swapped History is : \(swapHistoryUsers)")
                 }
               
                 

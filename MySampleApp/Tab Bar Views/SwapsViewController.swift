@@ -112,7 +112,7 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
        cell.swapDate.text = user._time?.timeAgo()
         
-        if let userInfo = cell.user{
+        if let userInfo = user.user{
             
             print("Already saved profile picture and name and do not need to load from database")
             // Set profile pic and name so that we do not have to fetch from database
@@ -129,13 +129,13 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             // Go fetch profile pic and name from database
             print("fetching swap history attributes from database")
             
-            SwapUser(username: user._swapped!).getInformation(completion: {(error, user) in
+            SwapUser(username: user._swapped!).getInformation(completion: {(error, fetchedUser) in
                 
-                cell.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
+                cell.profilePicture.kf.setImage(with: URL(string: (fetchedUser?._profilePictureUrl)!))
                 circularImage(photoImageView: cell.profilePicture)
                 
                 // Save the object in the cell to reduce loading
-                cell.user = user
+                user.user = fetchedUser
                 
                 
                 
@@ -143,7 +143,7 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 DispatchQueue.main.async {
                     
                     
-                    cell.username.text = (user?._firstname)! + " " + (user?._lastname)!
+                    cell.username.text = (fetchedUser?._firstname)! + " " + (fetchedUser?._lastname)!
                     
                    
                 }
@@ -245,6 +245,9 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func loadSwaps()  {
+        
+        swapHistoryUsers.removeAll()
+        
         
         SwapUser().getSwapHistory { (error, swapHistory) in
             

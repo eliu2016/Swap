@@ -38,6 +38,7 @@ class SwapHistory: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var profileImageURL: URL?
     var firstname: String?
     var lastname: String?
+    var user: Users?
     
     class func dynamoDBTableName() -> String {
         
