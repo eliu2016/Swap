@@ -64,8 +64,8 @@ class SettingsView: UITableViewController {
         //log out row pressed
         if (indexPath.section == 1 && indexPath.row == 2){
             
-            let alert = UIAlertController(title: "Confirm Sign Out?", message: "Swap Points will reset", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: "Are You Sure?", message: "Your swap points will reset and you will have to reconnect your social medias if you sign out", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: "Yes", style: .default){ (action) in
                 
                
