@@ -15,7 +15,6 @@ import Foundation
 
 class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarControllerDelegate{
     
-  
     
      var scrollView: UIScrollView!
      var SwapCenterButton: UIButton!
@@ -27,6 +26,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         super.viewDidLoad();
         
         print("Container will load")
+        
         
         //initialize refresh control
         refreshControl = UIRefreshControl()

@@ -157,11 +157,15 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
     
     func setupViewController()  {
         
-        self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
+        self.tabBarController?.tabBar.backgroundImage = #imageLiteral(resourceName: "Header1")
         self.tabBarController?.tabBar.unselectedItemTintColor = UIColor.black
         self.tabBarController?.tabBar.tintColor = UIColor.black
         self.tabBarController?.tabBar.isTranslucent = false
+        UITabBar.appearance().layer.borderWidth = 0.0
+        UITabBar.appearance().clipsToBounds = true
         self.tabBarController?.delegate = self
+        
+        
         
         verifiedIcon.isHidden = true
         profilePicture.isHidden = true
@@ -330,6 +334,9 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
     
     func exitProfile()  {
         
+        UITabBar.appearance().layer.borderWidth = 1.0
+        UITabBar.appearance().clipsToBounds = false
+        
         if self.presentingViewController == nil{
             
             self.performSegue(withIdentifier: "fromSearchUsersToProfile", sender: nil)
@@ -341,7 +348,7 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.viewControllers?.index(of: viewController) == 0{
-            tabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "Subheader")
+            tabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "Header1")
         }
         else{
             tabBarController.tabBar.backgroundImage = #imageLiteral(resourceName: "TextfieldBottom")

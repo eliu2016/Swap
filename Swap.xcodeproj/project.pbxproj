@@ -37,6 +37,7 @@
 		2EFC3A391DFA2D6400D45E7E /* User Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A381DFA2D6400D45E7E /* User Errors.swift */; };
 		6337DB712712F1F8B142F0BE /* Pods_Swap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */; };
 		7514499E1E9723CE0041C49C /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7514499D1E9723CE0041C49C /* Scanner.swift */; };
+		751A54691EF9A121007EF94D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A54681EF9A121007EF94D /* TabBarController.swift */; };
 		751B91691E5400CA0039AFA4 /* TwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B91681E5400CA0039AFA4 /* TwitterView.swift */; };
 		751B916C1E54A6470039AFA4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B916B1E54A6470039AFA4 /* NotificationViewController.swift */; };
 		751B91881E68E09F0039AFA4 /* IPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751B91871E68E09F0039AFA4 /* IPad.storyboard */; };
@@ -208,6 +209,7 @@
 		2EFC3A381DFA2D6400D45E7E /* User Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User Errors.swift"; sourceTree = "<group>"; };
 		7514499D1E9723CE0041C49C /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scanner.swift; path = MySampleApp/App/Utility/Scanner.swift; sourceTree = SOURCE_ROOT; };
 		751572101DFBBD3800ED4697 /* Lantinghei.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lantinghei.ttc; sourceTree = "<group>"; };
+		751A54681EF9A121007EF94D /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		751B91681E5400CA0039AFA4 /* TwitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterView.swift; path = "MySampleApp/Preview Views/TwitterView.swift"; sourceTree = SOURCE_ROOT; };
 		751B916B1E54A6470039AFA4 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		751B91871E68E09F0039AFA4 /* IPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPad.storyboard; sourceTree = "<group>"; };
@@ -470,12 +472,13 @@
 		752A6BD31E1F30D700E6695B /* Tab Bar Views */ = {
 			isa = PBXGroup;
 			children = (
+				751A54681EF9A121007EF94D /* TabBarController.swift */,
+				751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */,
 				752BE1941E3B115000CE5289 /* SearchedUser.swift */,
 				751C0B0D1E249E5800FD515A /* SearchUsersView.swift */,
 				751B918C1E6C97190039AFA4 /* FeaturedProfilesCell.swift */,
 				752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */,
 				75A81B0F1E415E6F00F8F62C /* StoriesView.swift */,
-				751C0B411E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift */,
 				751B916B1E54A6470039AFA4 /* NotificationViewController.swift */,
 				752A6BDD1E20D39100E6695B /* ScannerViewController.swift */,
 				752A6BD71E20959500E6695B /* ProfileViewController.swift */,
@@ -892,6 +895,7 @@
 				752A6BDA1E20975E00E6695B /* SetttingsView.swift in Sources */,
 				2EFC3A2D1DF9D96000D45E7E /* ConfirmAccountViewController.swift in Sources */,
 				751E75B01EA05B1C005BB48C /* EnterUserViewController.swift in Sources */,
+				751A54691EF9A121007EF94D /* TabBarController.swift in Sources */,
 				2EE143C91E3726ED000EADB7 /* SwapRequest.swift in Sources */,
 				752A6BD51E1F497E00E6695B /* SetNameViewController.swift in Sources */,
 				752111B71E2AA7780054D975 /* SwapsViewController.swift in Sources */,

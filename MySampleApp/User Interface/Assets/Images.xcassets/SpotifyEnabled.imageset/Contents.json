@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2017-01-24 at 10.10.19 AM-2.png",
+      "filename" : "spotifyEnabled-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2017-01-24 at 10.10.19 AM-1.png",
+      "filename" : "spotifyEnabled.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2017-01-24 at 10.10.19 AM.png",
+      "filename" : "spotifyEnabled-1.png",
       "scale" : "3x"
     }
   ],

@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet weak var swapCodeImageView: UIImageView!
     @IBOutlet var GradientBottomLine: UIImageView!
     @IBOutlet var verifiedIcon: UIImageView!
+    @IBOutlet var Topper: UIImageView!
    
     
     
@@ -47,7 +48,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet var Github: UIButton!
     @IBOutlet var Instagram: UIButton!
     @IBOutlet var infoIcon: UIButton!
-    
     
     @IBOutlet var bioTextField: UITextField!
     
@@ -95,6 +95,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
         
         setupViewController()
         loadProfile()
@@ -304,7 +306,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 self.Github.isSelected = (user?._willShareGitHub as? Bool) ?? false
                 self.profilePicImageView.kf.indicatorType = .activity
                 self.profilePicImageView.kf.setImage(with: URL(string: profileImageUrl))
-                circularImage(photoImageView: self.profilePicImageView)
+                circularImageNoBorder(photoImageView: self.profilePicImageView)
                 self.setupSwapCodeImage()
                     
                     
@@ -394,6 +396,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBackground")
         tabBarController?.tabBar.isTranslucent = false
         tabBarController?.tabBar.tintColor = UIColor.init(red: 0, green: 144, blue: 255, alpha: 1.0)
+        if  let arrayOfTabBarItems = tabBarController?.tabBar.items as! AnyObject as? NSArray{
+            
+            let tabBarItem = arrayOfTabBarItems[3] as? UITabBarItem
+            tabBarItem?.isEnabled = false
+        }
         
         
         if #available(iOS 10.0, *) {
@@ -406,11 +413,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let navBar = self.navigationController?.navigationBar
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         navBar?.setBackgroundImage(#imageLiteral(resourceName: "Header1"), for: .default)
-        navBar?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Avenir Next", size: 22)!]
+        navBar?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Avenir Next Ultra Light", size: 21)!]
         navBar?.tintColor = UIColor.white
         //navBar?.isTranslucent = false
         
         
+        let topper = UIImageView(image: #imageLiteral(resourceName: "RoundWhiteTopper"))
+        topper.frame = Topper.frame
+        self.navigationController?.view.addSubview(topper)
+    
         
         // Set the selected photos for when the social media icons are toggled
         Spotify.setImage(#imageLiteral(resourceName: "SpotifyEnabled"), for: .selected)
@@ -424,6 +435,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         YouTube.setImage(#imageLiteral(resourceName: "YouTubeEnabled"), for: .selected)
         SoundCloud.setImage(#imageLiteral(resourceName: "SoundCloudEnabled"), for: .selected)
         Pinterest.setImage(#imageLiteral(resourceName: "PinterestEnabled"), for: .selected)
+        
     }
     
     
@@ -666,12 +678,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
     }
     
-    
-    
-    
-    
-    
-    
     /// Sets up the gesture recognizer for the Swap Code
     func setupSwapCodeGestureRecognizer()  {
         
@@ -821,14 +827,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-
     
 }
 

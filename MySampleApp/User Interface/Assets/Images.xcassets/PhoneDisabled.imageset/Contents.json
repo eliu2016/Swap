@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2017-01-22 at 3.50.48 PM-1.png",
+      "filename" : "phone number black-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2017-01-22 at 3.50.48 PM.png",
+      "filename" : "phone number black.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Screen Shot 2017-01-22 at 3.50.48 PM-2.png",
+      "filename" : "phoneDisabled.png",
       "scale" : "3x"
     }
   ],
