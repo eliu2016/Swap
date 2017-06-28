@@ -983,7 +983,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCt-2m-ty4">
-                                <rect key="frame" x="-4" y="45" width="420" height="23"/>
+                                <rect key="frame" x="-6" y="55" width="425" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXS-W3-9hj">
@@ -3054,6 +3054,12 @@
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="l43-58-3DL">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SwapButton" translatesAutoresizingMaskIntoConstraints="NO" id="clO-4D-inL">
+                                                        <rect key="frame" x="173" y="658" width="66" height="66"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
                                             </view>
                                             <vibrancyEffect>
                                                 <blurEffect style="light"/>
@@ -3121,7 +3127,7 @@
                     <color key="backgroundColor" red="1" green="0.77454661469999997" blue="0.26098320860000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1066" y="2943"/>
+            <point key="canvasLocation" x="-1066.6666666666667" y="2942.934782608696"/>
         </scene>
         <!--Set Password View Controller-->
         <scene sceneID="hti-Pc-K1u">
@@ -4108,6 +4114,7 @@
         <image name="SpotifyBlackIcon" width="42" height="42"/>
         <image name="SpotifyDark" width="37" height="37"/>
         <image name="SpotifyDisabled" width="66" height="65"/>
+        <image name="SwapButton" width="40" height="40"/>
         <image name="SwapNotificationsButton" width="370" height="121"/>
         <image name="TextfieldBottom" width="410" height="1"/>
         <image name="TranparentOverlay" width="182" height="227"/>
@@ -4134,9 +4141,9 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kUX-wa-wgN"/>
         <segue reference="Qph-o2-Urf"/>
         <segue reference="vOq-ge-Q7g"/>
+        <segue reference="Qve-td-zgu"/>
         <segue reference="Xpo-tz-aOQ"/>
     </inferredMetricsTieBreakers>
 </document>
