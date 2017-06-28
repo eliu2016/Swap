@@ -63,22 +63,44 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return youtubeVideos.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as! YouTubeVideoCell;
-
-        cell.selectionStyle = .none
+        
+        
         
         let currentVideo = youtubeVideos[indexPath.row]
         
-        cell.setVideo(videoURL: "https://www.youtube.com/embed/\(currentVideo.videoID)")
+        
+        let videoURL = "https://www.youtube.com/embed/\(currentVideo.videoID)"
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "videoCell", for: indexPath) as! YouTubeVideoCell;
+        
+        cell.selectionStyle = .none
+        
+        
+        
+        
+        
+        // Set the video view
+        cell.videoView.scrollView.contentInset = UIEdgeInsets.zero
+        
+        
+        let url = URL(string: videoURL)
+        let request = URLRequest(url: url!, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 15.0)
+        cell.videoView.loadRequest(request)
+        
+        cell.videoView.allowsInlineMediaPlayback = false
+        cell.videoView.scrollView.isScrollEnabled = false
+        
         
         cell.channelName.text = currentVideo.channelTitle
-
+        
         cell.datePosted.text = currentVideo.datePublished.stringValueShort
         
-         cell.setProfilePicture(imageURL: URL(string: (YouTubePreviewUser?._profilePictureUrl)!)!)
+        cell.setProfilePicture(imageURL: URL(string: (YouTubePreviewUser?._profilePictureUrl)!)!)
         
-     
+        
         
         return cell
     }
