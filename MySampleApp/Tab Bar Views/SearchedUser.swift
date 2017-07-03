@@ -29,26 +29,29 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
     @IBOutlet var swappedNumberLabel: UILabel!
     @IBOutlet var swapsNumberLabel: UILabel!
     
-    @IBOutlet var Spotify: UIImageView!
-    @IBOutlet var Contact: UIImageView!
-    @IBOutlet var Instagram: UIImageView!
-    @IBOutlet var Pinterest: UIImageView!
-    @IBOutlet var SoundCloud: UIImageView!
-    @IBOutlet var YouTube: UIImageView!
-    @IBOutlet var Twitter: UIImageView!
-    @IBOutlet weak var Reddit: UIImageView!
-    @IBOutlet weak var GitHub: UIImageView!
-    @IBOutlet weak var Vimeo: UIImageView!
+    @IBOutlet var media1: UIImageView!
+    @IBOutlet var media2: UIImageView!
+    @IBOutlet var media3: UIImageView!
+    @IBOutlet var media4: UIImageView!
+    @IBOutlet var media5: UIImageView!
+    @IBOutlet var media6: UIImageView!
+    @IBOutlet var media7: UIImageView!
+    @IBOutlet var media8: UIImageView!
+    @IBOutlet var media9: UIImageView!
+    @IBOutlet var media10: UIImageView!
+  
     
     @IBOutlet var popUp: UIView!
  
     @IBOutlet var loadingView: UIActivityIndicatorView!
     
+    var activeMediaArray = [UIImage]()
+    
    
     override func viewDidAppear(_ animated: Bool) {
         save(screen: .SearchedUserProfileScreen)
     }
-    
+   
     
     override func viewDidLoad() {
     
@@ -166,21 +169,20 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
         self.tabBarController?.delegate = self
         
         
-        
         verifiedIcon.isHidden = true
         profilePicture.isHidden = true
         bioLabel.isHidden = true
         fullName.isHidden = true
-        Spotify.isHidden = true
-        Contact.isHidden = true
-        Instagram.isHidden = true
-        Pinterest.isHidden = true
-        SoundCloud.isHidden = true
-        YouTube.isHidden = true
-        Twitter.isHidden = true
-        GitHub.isHidden = true
-        Vimeo.isHidden = true
-        Reddit.isHidden = true
+        media1.isHidden = true
+        media2.isHidden = true
+        media3.isHidden = true
+        media4.isHidden = true
+        media5.isHidden = true
+        media6.isHidden = true
+        media7.isHidden = true
+        media8.isHidden = true
+        media9.isHidden = true
+        media10.isHidden = true
         BlurView1.isHidden = true
         BlurView2.isHidden = true
         BlurView3.isHidden = true
@@ -285,52 +287,97 @@ class SearchedUser: UIViewController, UITabBarControllerDelegate {
                 self.profilePicture.isHidden = false
                 self.bioLabel.isHidden = false
                 self.fullName.isHidden = false
-                self.Spotify.isHidden = false
-                self.Contact.isHidden = false
-                self.Instagram.isHidden = false
-                self.Pinterest.isHidden = false
-                self.SoundCloud.isHidden = false
-                self.YouTube.isHidden = false
-                self.Twitter.isHidden = false
-                self.GitHub.isHidden = false
-                self.Vimeo.isHidden = false
-                self.Reddit.isHidden = false
                 self.BlurView1.isHidden = false
                 self.BlurView2.isHidden = false
                 self.BlurView3.isHidden = false
                 self.swapButton.isHidden = false
+            
                 
                 self.verifiedIcon.isHidden = !(user?._isVerified?.boolValue ?? false)
                 
-                self.Spotify.image = (user?._willShareSpotify?.boolValue ?? false && !(user?._spotifyID ?? "").isEmpty) ? #imageLiteral(resourceName: "SpotifyDark") : #imageLiteral(resourceName: "SpotifyLight")
+                if (user?._willShareTwitter?.boolValue ?? false) && !((user?._twitterID ?? "") == ""){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "TwitterLight"))
+                }
+                if (user?._willShareInstagram?.boolValue ?? false) && !((user?._instagramID ?? "") == ""){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "InstagramLight"))
+                }
+                if (user?._willShareSpotify?.boolValue ?? false) && !((user?._spotifyID ?? "") == ""){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "SpotifyLight"))
+                }
+                if (user?._willShareEmail?.boolValue ?? false) || (user?._willSharePhone?.boolValue ?? false){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "ContactLight"))
+                }
+                if (user?._willSharePinterest?.boolValue ?? false) && !((user?._pinterestID ?? "") == ""){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "PinterestLight"))
+                }
+                if (user?._willShareYouTube?.boolValue ?? false) && !((user?._youtubeID ?? "") == ""){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "YoutubeLight"))
+                }
+                if (user?._willShareSoundCloud?.boolValue ?? false) && !((user?._soundcloudID ?? "") == ""){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "SoundCloudLight"))
+                }
+                if (user?._willShareVimeo?.boolValue ?? false) && !((user?._vimeoID ?? "") == ""){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "VimeoLight"))
+                }
+                if (user?._willShareGitHub?.boolValue ?? false) && !((user?._githubID ?? "") == ""){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "GithubLight"))
+                }
+                if (user?._willShareReddit?.boolValue ?? false) && !((user?._redditID ?? "") == ""){
+                    
+                    self.activeMediaArray.append(#imageLiteral(resourceName: "RedditLight"))
+                }
+                if self.activeMediaArray.indices.contains(0){
+                    self.media1.image = self.activeMediaArray[0]
+                    self.media1.isHidden = false
+                }
+                else{
+                    self.disableSwapButton()
+                }
+                self.addMedia(media: self.media2, index: 1)
+                self.addMedia(media: self.media3, index: 2)
+                self.addMedia(media: self.media4, index: 3)
+                self.addMedia(media: self.media5, index: 4)
+                self.addMedia(media: self.media6, index: 5)
+                self.addMedia(media: self.media7, index: 6)
+                self.addMedia(media: self.media8, index: 7)
+                self.addMedia(media: self.media9, index: 8)
+                self.addMedia(media: self.media10, index: 9)
                 
-                self.Twitter.image = (user?._willShareTwitter?.boolValue ?? false && !(user?._twitterID ?? "").isEmpty) ? #imageLiteral(resourceName: "TwitterDark"): #imageLiteral(resourceName: "TwitterLight")
-                
-                self.Instagram.image = (user?._willShareInstagram?.boolValue ?? false && !(user?._instagramID ?? "").isEmpty) ? #imageLiteral(resourceName: "InstagramDark") : #imageLiteral(resourceName: "InstagramLight")
-                
-                self.Reddit.image = (user?._willShareReddit?.boolValue ?? false && !(user?._redditID ?? "").isEmpty) ? #imageLiteral(resourceName: "RedditDark") : #imageLiteral(resourceName: "RedditLight")
-                
-                self.GitHub.image = (user?._willShareGitHub?.boolValue ?? false && !(user?._githubID ?? "").isEmpty) ? #imageLiteral(resourceName: "GithubDark"): #imageLiteral(resourceName: "GithubLight")
-                
-                self.Vimeo.image = (user?._willShareVimeo?.boolValue ?? false && !(user?._vimeoID ?? "").isEmpty) ? #imageLiteral(resourceName: "VimeoDark") : #imageLiteral(resourceName: "VimeoLight")
-                
-                
-                self.YouTube.image = (user?._willShareYouTube?.boolValue ?? false && !(user?._youtubeID ?? "").isEmpty) ? #imageLiteral(resourceName: "YoutubeDark") : #imageLiteral(resourceName: "YoutubeLight")
-                
-                self.SoundCloud.image = (user?._willShareSoundCloud?.boolValue ?? false && !(user?._soundcloudID ?? "").isEmpty) ? #imageLiteral(resourceName: "SoundCloudDark") : #imageLiteral(resourceName: "SoundCloudLight")
-                
-                self.Pinterest.image = (user?._willSharePinterest?.boolValue ?? false && !(user?._pinterestID ?? "").isEmpty) ? #imageLiteral(resourceName: "PinterestDark") : #imageLiteral(resourceName: "PinterestLight")
-                
-                let userWillAtLeastShareEmailOrPhoneNumber = (user?._willShareEmail?.boolValue ?? false) || (user?._willSharePhone?.boolValue ?? false)
-                
-                self.Contact.image = userWillAtLeastShareEmailOrPhoneNumber ? #imageLiteral(resourceName: "ContactDark") : #imageLiteral(resourceName: "ContactLight")
+                if !(self.activeMediaArray.count % 2 == 0){
+                    
+                    self.media1.frame.origin.x = self.media1.frame.origin.x + 10
+                    self.media2.frame.origin.x = self.media2.frame.origin.x + 10
+                    self.media3.frame.origin.x = self.media3.frame.origin.x + 10
+                    self.media4.frame.origin.x = self.media4.frame.origin.x + 10
+                    self.media5.frame.origin.x = self.media5.frame.origin.x + 10
+                    self.media6.frame.origin.x = self.media6.frame.origin.x + 10
+                    self.media7.frame.origin.x = self.media7.frame.origin.x + 10
+                    self.media8.frame.origin.x = self.media8.frame.origin.x + 10
+                    self.media9.frame.origin.x = self.media9.frame.origin.x + 10
+                    self.media10.frame.origin.x = self.media10.frame.origin.x + 10
+                }
                 
                 self.loadingView.stopAnimating()
                 
             }
         }
     }
-    
+    func addMedia(media: UIImageView, index: Int){
+        
+        if self.activeMediaArray.indices.contains(index){
+            media.image = self.activeMediaArray[index]
+            media.isHidden = false
+        }
+    }
     
     func exitProfile()  {
         

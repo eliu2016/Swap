@@ -33,17 +33,17 @@ extension UIViewController {
     
     @objc private func handleSwipeLeftAllowingCyclingThroughTabs(swipe: UISwipeGestureRecognizer) {
       
-        let maxIndex = ((tabBarController?.viewControllers?.count)! - 1)
+        let maxIndex = (tabBarController?.viewControllers?.count)
         let nextIndex = (tabBarController?.selectedIndex)! + 1
-        tabBarController?.selectedIndex = nextIndex < maxIndex ? nextIndex : 0
+        tabBarController?.selectedIndex = nextIndex < maxIndex! ? nextIndex : 0
         
     }
     
     @objc private func handleSwipeRightAllowingCyclingThroughTabs(swipe: UISwipeGestureRecognizer) {
         
-        let maxIndex = ((tabBarController?.viewControllers?.count)! - 1)
+        let maxIndex = (tabBarController?.viewControllers?.count)
         let nextIndex = (tabBarController?.selectedIndex)! - 1
-        tabBarController?.selectedIndex = nextIndex >= 0 ? nextIndex : maxIndex - 1
+        tabBarController?.selectedIndex = nextIndex >= 0 ? nextIndex : maxIndex! - 1
         
     }
 }

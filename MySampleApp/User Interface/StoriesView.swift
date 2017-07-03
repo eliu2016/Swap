@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import MapKit
 
 class StoriesView: UIViewController {
+    @IBOutlet var mapView: MKMapView!
     
     override func viewDidLoad() {
         

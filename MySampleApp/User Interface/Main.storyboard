@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,9 +29,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="W2y-wc-oU2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="W2y-wc-oU2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username/phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZX-2A-zSS">
                                 <rect key="frame" x="83" y="169" width="208" height="40"/>
@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LF-aT-mJe">
-                                <rect key="frame" x="169" y="417" width="37" height="21"/>
+                                <rect key="frame" x="168.5" y="417" width="37" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.94607223029612852" green="0.97949493857925751" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -101,12 +101,20 @@
                                     <action selector="didTapSignIn:" destination="qPU-JH-MZS" eventType="touchUpInside" id="mSo-E6-ZrO"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LogoNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="emD-uQ-ZZt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="LogoNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="emD-uQ-ZZt">
                                 <rect key="frame" x="157" y="60" width="61" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="emD-uQ-ZZt" secondAttribute="height" multiplier="61:64" id="wBN-P4-K7e"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="W2y-wc-oU2" secondAttribute="trailing" id="6iG-VX-yMI"/>
+                            <constraint firstItem="W2y-wc-oU2" firstAttribute="top" secondItem="WhC-5C-9om" secondAttribute="top" id="8UI-sE-g8S"/>
+                            <constraint firstItem="W2y-wc-oU2" firstAttribute="leading" secondItem="WhC-5C-9om" secondAttribute="leading" id="pwQ-Ww-yH3"/>
+                            <constraint firstItem="CEi-11-22O" firstAttribute="top" secondItem="W2y-wc-oU2" secondAttribute="bottom" id="waP-93-vm4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C4X-kl-JPo"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -1039,6 +1047,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ohy-pi-McI">
+                                <rect key="frame" x="-2" y="59" width="380" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3J-hf-ydI">
                                 <rect key="frame" x="142" y="120" width="74" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1239,10 +1251,6 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="3yU-qM-E9n">
                                 <rect key="frame" x="0.0" y="626" width="14" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ohy-pi-McI">
-                                <rect key="frame" x="-3" y="55" width="380" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -1477,10 +1485,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6jD-fM-wSk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="HomeIcon" id="GGL-dO-ln9">
-                        <inset key="imageInsets" minX="-2" minY="-7" maxX="2" maxY="7"/>
+                        <inset key="imageInsets" minX="-2" minY="6" maxX="2" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3b-Y0-b5o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d3b-Y0-b5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1498,7 +1506,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Zxc-qU-hxd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q8T-Kx-S5U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Q8T-Kx-S5U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1524,11 +1532,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Gvk-gB-iFO">
-                                <rect key="frame" x="302" y="625" width="73" height="42"/>
+                                <rect key="frame" x="301" y="625" width="74" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Phs-r9-g33">
-                                <rect key="frame" x="-1" y="624" width="235" height="43"/>
+                                <rect key="frame" x="-1" y="624" width="237" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Header1" translatesAutoresizingMaskIntoConstraints="NO" id="zUZ-ET-Ceb">
@@ -1690,7 +1698,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dwb-6E-Ila">
-                                <rect key="frame" x="366" y="624" width="9" height="43"/>
+                                <rect key="frame" x="361" y="624" width="14" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="JMw-Iz-rlh">
@@ -1703,15 +1711,18 @@
                                 <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="riP-oj-9FN">
-                                <rect key="frame" x="-3" y="0.0" width="378" height="618"/>
+                                <rect key="frame" x="-1" y="5" width="378" height="618"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="ExploreIcon" id="bLf-sa-2bg">
-                        <inset key="imageInsets" minX="2" minY="-7" maxX="-2" maxY="7"/>
+                        <inset key="imageInsets" minX="2" minY="6" maxX="-2" maxY="-6"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="mapView" destination="riP-oj-9FN" id="17x-hn-Vyk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gly-2j-5ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1955,9 +1966,9 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="wjb-qU-lrT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="SearchIcon" id="Zux-QA-QKt">
-                        <inset key="imageInsets" minX="-35" minY="-7" maxX="36" maxY="7"/>
+                        <inset key="imageInsets" minX="-36" minY="6" maxX="36" maxY="-6"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7nW-zx-ckq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="7nW-zx-ckq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2175,40 +2186,40 @@
                                 <rect key="frame" x="218" y="111" width="18" height="18.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpotifyDark" translatesAutoresizingMaskIntoConstraints="NO" id="RT0-Rx-P4J">
-                                <rect key="frame" x="86" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VimeoLight" translatesAutoresizingMaskIntoConstraints="NO" id="RT0-Rx-P4J">
+                                <rect key="frame" x="83" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ContactDark" translatesAutoresizingMaskIntoConstraints="NO" id="kSb-09-HnY">
-                                <rect key="frame" x="62" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpotifyLight" translatesAutoresizingMaskIntoConstraints="NO" id="kSb-09-HnY">
+                                <rect key="frame" x="56" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InstagramDark" translatesAutoresizingMaskIntoConstraints="NO" id="KhP-zC-4Hd">
-                                <rect key="frame" x="113" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PinterestLight" translatesAutoresizingMaskIntoConstraints="NO" id="KhP-zC-4Hd">
+                                <rect key="frame" x="110" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PinterestDark" translatesAutoresizingMaskIntoConstraints="NO" id="G1B-pC-DQ6">
-                                <rect key="frame" x="139" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InstagramLight" translatesAutoresizingMaskIntoConstraints="NO" id="G1B-pC-DQ6">
+                                <rect key="frame" x="138" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoundCloudDark" translatesAutoresizingMaskIntoConstraints="NO" id="TkR-6D-isC">
-                                <rect key="frame" x="165" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterLight" translatesAutoresizingMaskIntoConstraints="NO" id="TkR-6D-isC">
+                                <rect key="frame" x="167" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YoutubeDark" translatesAutoresizingMaskIntoConstraints="NO" id="cVn-YE-rRx">
-                                <rect key="frame" x="290" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedditLight" translatesAutoresizingMaskIntoConstraints="NO" id="cVn-YE-rRx">
+                                <rect key="frame" x="298" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterDark" translatesAutoresizingMaskIntoConstraints="NO" id="LMP-8R-ePL">
-                                <rect key="frame" x="190" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ContactLight" translatesAutoresizingMaskIntoConstraints="NO" id="LMP-8R-ePL">
+                                <rect key="frame" x="194" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedditDark" translatesAutoresizingMaskIntoConstraints="NO" id="gK3-Oo-wUe">
-                                <rect key="frame" x="215" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoundCloudLight" translatesAutoresizingMaskIntoConstraints="NO" id="gK3-Oo-wUe">
+                                <rect key="frame" x="219" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GithubDark" translatesAutoresizingMaskIntoConstraints="NO" id="iBo-z6-5eo">
-                                <rect key="frame" x="266" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YoutubeLight" translatesAutoresizingMaskIntoConstraints="NO" id="iBo-z6-5eo">
+                                <rect key="frame" x="272" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKB-oj-Xxm">
@@ -2228,8 +2239,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VimeoDark" translatesAutoresizingMaskIntoConstraints="NO" id="hO3-Tz-1Md">
-                                <rect key="frame" x="241" y="299" width="23" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GithubLight" translatesAutoresizingMaskIntoConstraints="NO" id="hO3-Tz-1Md">
+                                <rect key="frame" x="245" y="299" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-1L-XGO">
@@ -2302,19 +2313,19 @@
                         <outlet property="BlurView1" destination="bod-yq-mAF" id="fC0-yv-QbG"/>
                         <outlet property="BlurView2" destination="VxL-mp-Evv" id="T6i-MU-4v3"/>
                         <outlet property="BlurView3" destination="zig-8i-9Zj" id="EUC-iH-ZR2"/>
-                        <outlet property="Contact" destination="kSb-09-HnY" id="k2s-zp-uAa"/>
-                        <outlet property="GitHub" destination="iBo-z6-5eo" id="wps-ZJ-Pkd"/>
-                        <outlet property="Instagram" destination="KhP-zC-4Hd" id="EK7-fx-r5M"/>
-                        <outlet property="Pinterest" destination="G1B-pC-DQ6" id="58V-ii-nqz"/>
-                        <outlet property="Reddit" destination="gK3-Oo-wUe" id="ttA-h4-Rch"/>
-                        <outlet property="SoundCloud" destination="TkR-6D-isC" id="W5R-Wp-Jt5"/>
-                        <outlet property="Spotify" destination="RT0-Rx-P4J" id="IX2-FU-4OJ"/>
-                        <outlet property="Twitter" destination="LMP-8R-ePL" id="RKU-PR-Sv5"/>
-                        <outlet property="Vimeo" destination="hO3-Tz-1Md" id="7Kk-NG-dee"/>
-                        <outlet property="YouTube" destination="cVn-YE-rRx" id="eeH-9g-ECk"/>
                         <outlet property="bioLabel" destination="0Nk-IW-qjh" id="nZa-hG-kI6"/>
                         <outlet property="fullName" destination="kUo-tn-DTb" id="6NK-8s-cMw"/>
                         <outlet property="loadingView" destination="rHC-xc-nOo" id="hQu-9g-UKB"/>
+                        <outlet property="media1" destination="TkR-6D-isC" id="hUI-xD-Cri"/>
+                        <outlet property="media10" destination="cVn-YE-rRx" id="nKB-gc-M2L"/>
+                        <outlet property="media2" destination="LMP-8R-ePL" id="sk5-jG-Jnv"/>
+                        <outlet property="media3" destination="G1B-pC-DQ6" id="UmD-L5-CEh"/>
+                        <outlet property="media4" destination="gK3-Oo-wUe" id="Ehl-2s-9jA"/>
+                        <outlet property="media5" destination="KhP-zC-4Hd" id="eQJ-TR-tdZ"/>
+                        <outlet property="media6" destination="hO3-Tz-1Md" id="9GT-Uq-F7H"/>
+                        <outlet property="media7" destination="RT0-Rx-P4J" id="Z0m-la-F3S"/>
+                        <outlet property="media8" destination="iBo-z6-5eo" id="BwP-Pi-0uq"/>
+                        <outlet property="media9" destination="kSb-09-HnY" id="y7V-Z6-54o"/>
                         <outlet property="pointsNumberLabel" destination="w6y-or-6Z4" id="KFn-kM-umL"/>
                         <outlet property="popUp" destination="zR4-cT-lbU" id="Oyn-AG-e9M"/>
                         <outlet property="profilePicture" destination="CzA-ti-uTI" id="UE7-ob-vTL"/>
@@ -2542,7 +2553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hb6-bH-RHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560.8000000000002" y="4923.6881559220392"/>
+            <point key="canvasLocation" x="3561" y="4960"/>
         </scene>
         <!--Swaps-->
         <scene sceneID="pal-IC-nlV">
@@ -2778,7 +2789,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="JuD-eH-h69" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEL-zP-Ibz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wEL-zP-Ibz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3223,10 +3234,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7BT-ZN-OYr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="NotificationIcon" id="kdB-HR-0wS">
-                        <inset key="imageInsets" minX="35" minY="-7" maxX="-35" maxY="7"/>
+                        <inset key="imageInsets" minX="35" minY="6" maxX="-35" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mml-ww-BEp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mml-ww-BEp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -4151,21 +4162,21 @@
         <image name="ConfirmPhoneNumberBackground" width="273" height="258"/>
         <image name="ConfirmSwapBackground" width="1860" height="1622"/>
         <image name="ConnectSocialMediaTutorial" width="720" height="992"/>
-        <image name="ContactDark" width="57" height="55"/>
+        <image name="ContactLight" width="56" height="56"/>
         <image name="CountryCodeBackground" width="38" height="22"/>
         <image name="DefaultProfileImage" width="181" height="176"/>
         <image name="DenyButton" width="122" height="34"/>
         <image name="EmailDisabled" width="66" height="66"/>
         <image name="ExploreIcon" width="28" height="28"/>
         <image name="GithubBlackIcon" width="64" height="64"/>
-        <image name="GithubDark" width="45" height="43"/>
         <image name="GithubDisabled" width="66" height="66"/>
+        <image name="GithubLight" width="23" height="23"/>
         <image name="Header1" width="522" height="67"/>
         <image name="HomeIcon" width="27" height="24"/>
         <image name="InfoIcon" width="95" height="80"/>
         <image name="InstagramBlackIcon" width="27" height="26"/>
-        <image name="InstagramDark" width="55" height="55"/>
         <image name="InstagramDisabled" width="66" height="66"/>
+        <image name="InstagramLight" width="23" height="23"/>
         <image name="LeftCarrot" width="32" height="32"/>
         <image name="LoginButton" width="1039" height="145"/>
         <image name="LogoNoBorder" width="271" height="282"/>
@@ -4173,24 +4184,24 @@
         <image name="NotificationIcon" width="27" height="28"/>
         <image name="PhoneDisabled" width="66" height="66"/>
         <image name="PinterestBlackIcon" width="64" height="64"/>
-        <image name="PinterestDark" width="55" height="54"/>
         <image name="PinterestDisabled" width="66" height="66"/>
+        <image name="PinterestLight" width="57" height="56"/>
         <image name="ProfileBlackIcon" width="28" height="29"/>
         <image name="PublicSwapButton" width="136" height="46"/>
         <image name="RedditBlackIcon" width="64" height="64"/>
-        <image name="RedditDark" width="43" height="42"/>
         <image name="RedditDisabled" width="66" height="66"/>
+        <image name="RedditLight" width="23" height="23"/>
         <image name="RightCarrot" width="32" height="32"/>
         <image name="RoundWhiteTopper" width="351" height="20"/>
         <image name="SearchIcon" width="27" height="26"/>
         <image name="SendCodeButton" width="95" height="17"/>
         <image name="SettingsIcon" width="35" height="33"/>
         <image name="SoundCloudBlackIcon" width="64" height="64"/>
-        <image name="SoundCloudDark" width="56" height="54"/>
         <image name="SoundCloudDisabled" width="66" height="66"/>
+        <image name="SoundCloudLight" width="23" height="23"/>
         <image name="SpotifyBlackIcon" width="32" height="32"/>
-        <image name="SpotifyDark" width="56" height="55"/>
         <image name="SpotifyDisabled" width="66" height="66"/>
+        <image name="SpotifyLight" width="23" height="23"/>
         <image name="SwapNotificationsButton" width="122" height="40"/>
         <image name="TabBarBackground" width="276" height="44"/>
         <image name="TextfieldBottom" width="615" height="2"/>
@@ -4202,25 +4213,25 @@
         <image name="TutorialPage6" width="375" height="667"/>
         <image name="TutorialPage7" width="375" height="667"/>
         <image name="TwitterBlackIcon" width="35" height="30"/>
-        <image name="TwitterDark" width="56" height="55"/>
         <image name="TwitterDisabled" width="66" height="65"/>
+        <image name="TwitterLight" width="23" height="23"/>
         <image name="UnfilledHeart" width="25" height="22"/>
         <image name="UploadIcon" width="64" height="64"/>
         <image name="VerifiedIcon" width="27" height="27"/>
         <image name="VimeoBlackIcon" width="64" height="64"/>
-        <image name="VimeoDark" width="31" height="31"/>
         <image name="VimeoDisabled" width="66" height="66"/>
+        <image name="VimeoLight" width="85" height="85"/>
         <image name="YouTubeBlackIcon" width="37" height="25"/>
         <image name="YouTubeDisabled" width="66" height="66"/>
-        <image name="YoutubeDark" width="57" height="56"/>
+        <image name="YoutubeLight" width="23" height="23"/>
         <image name="checkIcon" width="64" height="64"/>
         <image name="sendSMSButton" width="950" height="140"/>
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0aw-Hp-LRn"/>
-        <segue reference="RQz-Ee-5ke"/>
-        <segue reference="hOk-qE-IeD"/>
+        <segue reference="WAy-hx-jEK"/>
         <segue reference="YeA-4M-5uc"/>
+        <segue reference="7cT-Je-Nm9"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1586,6 +1586,9 @@
                     <tabBarItem key="tabBarItem" title="" image="ExploreIcon" id="Gte-gL-HDJ">
                         <inset key="imageInsets" minX="2" minY="7" maxX="-2" maxY="-7"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="mapView" destination="qF7-US-bLy" id="Qcu-1V-5we"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpI-Ro-tj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2005,28 +2008,28 @@
                                 <rect key="frame" x="184" y="89" width="17" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpotifyDark" translatesAutoresizingMaskIntoConstraints="NO" id="PBA-5N-FMW">
-                                <rect key="frame" x="71" y="236" width="21" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBA-5N-FMW">
+                                <rect key="frame" x="70" y="236" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ContactDark" translatesAutoresizingMaskIntoConstraints="NO" id="kVE-bh-NRu">
-                                <rect key="frame" x="50" y="236" width="21" height="21"/>
+                                <rect key="frame" x="48" y="236" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InstagramDark" translatesAutoresizingMaskIntoConstraints="NO" id="uOc-cf-ovN">
-                                <rect key="frame" x="92" y="236" width="21" height="21"/>
+                                <rect key="frame" x="93" y="236" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PinterestDark" translatesAutoresizingMaskIntoConstraints="NO" id="8bo-Vf-9ga">
-                                <rect key="frame" x="115" y="236" width="21" height="21"/>
+                                <rect key="frame" x="116" y="236" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SoundCloudDark" translatesAutoresizingMaskIntoConstraints="NO" id="T7d-Uh-yxm">
-                                <rect key="frame" x="138" y="236" width="21" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7d-Uh-yxm">
+                                <rect key="frame" x="139" y="236" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YoutubeDark" translatesAutoresizingMaskIntoConstraints="NO" id="9dU-0Z-a5T">
-                                <rect key="frame" x="251" y="236" width="21" height="21"/>
+                                <rect key="frame" x="254" y="236" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterDark" translatesAutoresizingMaskIntoConstraints="NO" id="80Q-DC-5r9">
@@ -2114,19 +2117,19 @@
                         <outlet property="BlurView1" destination="Veg-5I-lHU" id="lb7-aG-ILu"/>
                         <outlet property="BlurView2" destination="ig4-B6-ivr" id="aQ5-KN-5Lj"/>
                         <outlet property="BlurView3" destination="2bW-VL-fx8" id="isZ-kf-hNQ"/>
-                        <outlet property="Contact" destination="kVE-bh-NRu" id="fl1-FP-mex"/>
-                        <outlet property="GitHub" destination="LtP-mM-4wm" id="GCe-3D-rfv"/>
-                        <outlet property="Instagram" destination="uOc-cf-ovN" id="WVS-q0-a9e"/>
-                        <outlet property="Pinterest" destination="8bo-Vf-9ga" id="jMH-lx-0aV"/>
-                        <outlet property="Reddit" destination="kYd-oX-Slh" id="lQg-Mg-e3d"/>
-                        <outlet property="SoundCloud" destination="T7d-Uh-yxm" id="a7A-nR-72W"/>
-                        <outlet property="Spotify" destination="PBA-5N-FMW" id="4AP-XP-KWl"/>
-                        <outlet property="Twitter" destination="80Q-DC-5r9" id="I9b-Ut-OmX"/>
-                        <outlet property="Vimeo" destination="Dck-uV-cOy" id="jrj-8K-N9j"/>
-                        <outlet property="YouTube" destination="9dU-0Z-a5T" id="zOk-8q-WSv"/>
                         <outlet property="bioLabel" destination="1Sw-Ue-SPd" id="Mgp-0g-EID"/>
                         <outlet property="fullName" destination="Q18-M1-eSy" id="VaC-LR-DgW"/>
                         <outlet property="loadingView" destination="55Q-uk-q1A" id="3PM-UD-dYa"/>
+                        <outlet property="media1" destination="T7d-Uh-yxm" id="2yb-9T-OdN"/>
+                        <outlet property="media10" destination="9dU-0Z-a5T" id="b4Z-Mt-DLj"/>
+                        <outlet property="media2" destination="80Q-DC-5r9" id="Ior-9Z-R9c"/>
+                        <outlet property="media3" destination="8bo-Vf-9ga" id="dyY-oX-TVA"/>
+                        <outlet property="media4" destination="kYd-oX-Slh" id="D9e-Yv-HSq"/>
+                        <outlet property="media5" destination="uOc-cf-ovN" id="QjI-ZL-lvj"/>
+                        <outlet property="media6" destination="Dck-uV-cOy" id="1Nu-Qm-NI2"/>
+                        <outlet property="media7" destination="PBA-5N-FMW" id="xZY-xq-EZS"/>
+                        <outlet property="media8" destination="LtP-mM-4wm" id="Zgg-dS-xOy"/>
+                        <outlet property="media9" destination="kVE-bh-NRu" id="5nm-rp-wqe"/>
                         <outlet property="pointsNumberLabel" destination="g4K-Dg-1gs" id="h3y-TM-FyJ"/>
                         <outlet property="popUp" destination="YCt-5z-QXS" id="eCL-ZY-JnY"/>
                         <outlet property="profilePicture" destination="4Cc-aM-tBx" id="ear-vl-v9U"/>
@@ -4050,10 +4053,8 @@
         <image name="SendCodeButton" width="95" height="17"/>
         <image name="SettingsIcon" width="35" height="33"/>
         <image name="SoundCloudBlackIcon" width="64" height="64"/>
-        <image name="SoundCloudDark" width="56" height="54"/>
         <image name="SoundCloudDisabled" width="66" height="66"/>
         <image name="SpotifyBlackIcon" width="32" height="32"/>
-        <image name="SpotifyDark" width="56" height="55"/>
         <image name="SpotifyDisabled" width="66" height="66"/>
         <image name="SwapNotificationsButton" width="122" height="40"/>
         <image name="TextfieldBottom" width="615" height="2"/>
@@ -4082,8 +4083,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rya-6E-vDO"/>
+        <segue reference="3gl-tf-Vwf"/>
         <segue reference="Q6e-FZ-K8h"/>
         <segue reference="lGr-gh-bnW"/>
-        <segue reference="l5v-gg-AGl"/>
     </inferredMetricsTieBreakers>
 </document>

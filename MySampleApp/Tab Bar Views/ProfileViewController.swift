@@ -396,11 +396,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBackground")
         tabBarController?.tabBar.isTranslucent = false
         tabBarController?.tabBar.tintColor = UIColor.init(red: 0, green: 144, blue: 255, alpha: 1.0)
-        if  let arrayOfTabBarItems = tabBarController?.tabBar.items as! AnyObject as? NSArray{
-            
-            let tabBarItem = arrayOfTabBarItems[3] as? UITabBarItem
-            tabBarItem?.isEnabled = false
-        }
+    
         
         
         if #available(iOS 10.0, *) {
