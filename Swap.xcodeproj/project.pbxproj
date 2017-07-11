@@ -70,7 +70,6 @@
 		752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1941E3B115000CE5289 /* SearchedUser.swift */; };
 		755CAD701E840F18008E94E3 /* SetUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */; };
 		755CAD721E856190008E94E3 /* ProfilePicturePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */; };
-		75A81B101E415E6F00F8F62C /* SwapMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A81B0F1E415E6F00F8F62C /* SwapMapView.swift */; };
 		75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */; };
 		75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */; };
 		75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 751572101DFBBD3800ED4697 /* Lantinghei.ttc */; };
@@ -242,7 +241,6 @@
 		752BE1941E3B115000CE5289 /* SearchedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUser.swift; sourceTree = "<group>"; };
 		755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetUsernameViewController.swift; path = MySampleApp/Account/SignUp/SetUsernameViewController.swift; sourceTree = SOURCE_ROOT; };
 		755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePicturePageController.swift; path = MySampleApp/Account/SignUp/ProfilePicturePageController.swift; sourceTree = SOURCE_ROOT; };
-		75A81B0F1E415E6F00F8F62C /* SwapMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwapMapView.swift; path = "../User Interface/SwapMapView.swift"; sourceTree = "<group>"; };
 		75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhone7Plus.storyboard; sourceTree = "<group>"; };
 		75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneSE.storyboard; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -478,7 +476,6 @@
 				751C0B0D1E249E5800FD515A /* SearchUsersView.swift */,
 				751B918C1E6C97190039AFA4 /* FeaturedProfilesCell.swift */,
 				752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */,
-				75A81B0F1E415E6F00F8F62C /* SwapMapView.swift */,
 				751B916B1E54A6470039AFA4 /* NotificationViewController.swift */,
 				752A6BDD1E20D39100E6695B /* ScannerViewController.swift */,
 				752A6BD71E20959500E6695B /* ProfileViewController.swift */,
@@ -861,7 +858,6 @@
 				E7A30F04A0B2E49B00000000 /* UtilityFunctions.swift in Sources */,
 				751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */,
 				751E75B61EA46B0E005BB48C /* InstagramView.swift in Sources */,
-				75A81B101E415E6F00F8F62C /* SwapMapView.swift in Sources */,
 				752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */,
 				751B918D1E6C97190039AFA4 /* FeaturedProfilesCell.swift in Sources */,
 				751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */,
