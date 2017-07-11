@@ -9,12 +9,12 @@
 import Foundation
 import AVFoundation
 import Spring
-
+import MapKit
 
 
 let scanner = QRCode(autoRemoveSubLayers: false, lineWidth: CGFloat(nan: 0,signaling: true) , strokeColor: UIColor.clear, maxDetectedCount: 1)
 
-class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate, UINavigationControllerDelegate{
+class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate{
     
     let imagePicker = UIImagePickerController()
 
@@ -34,6 +34,12 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var loadingSymbol: UIImageView?
     
+    let locationManager = CLLocationManager()
+    var latitude: String? = nil
+    var longitude: String? = nil
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -44,6 +50,20 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         handleCaseOfDisabledCamera()
         
         setupSwapScanner()
+        
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
 
     }
     @IBAction func showProfile(_ sender: Any) {
@@ -245,7 +265,13 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                             let swap = SwapUser()
                             let swapped = SwapUser(username: user._username ?? "")
                             
+                            
+                            
                             SwapUser.giveSwapPointsToUsersWhoSwapped(swap: swap, swapped: swapped)
+                            
+                            // Add location to swap history 
+                            let history = SwapUserHistory(swap: swap.username, swapped: swapped.username)
+                            history.didShare( latitude: self.latitude, longitude: self.longitude)
                             
                         }
                         
@@ -377,6 +403,21 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
 
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let  location  = manager.location {
+            
+            let x_location = location.coordinate.latitude
+            let y_location = location.coordinate.longitude
+            
+            latitude = "\(x_location)"
+            longitude = "\(y_location)"
+            
+            
+        }
+    }
 }
 
 func getUsernameFromSwapLink(swapLink: String) -> String {

@@ -35,6 +35,8 @@ class SwapHistory: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _method: String?
     var _time: NSNumber?
     var _didGiveSwapPointsFromSwap: NSNumber?
+    var _longitude: String?
+    var _latitude: String?
     var profileImageURL: URL?
     var firstname: String?
     var lastname: String?
@@ -75,7 +77,9 @@ class SwapHistory: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             "_location" : "location",
             "_method" : "method",
             "_time" : "time",
-            "_didGiveSwapPointsFromSwap": "didGiveSwapPointsFromSwap"
+            "_didGiveSwapPointsFromSwap": "didGiveSwapPointsFromSwap",
+            "_latitude": "latitude",
+            "_longitude": "longitude"
         ]
     }
 }
