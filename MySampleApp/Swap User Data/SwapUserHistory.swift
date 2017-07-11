@@ -48,6 +48,8 @@ class SwapUserHistory{
                   GitHubIs: Bool? = nil,
                   VimeoIs: Bool? = nil,
                   didGivePoints: Bool? = nil,
+                  latitude: String? = nil,
+                  longitude: String? = nil,
                   completion: @escaping (_ error: Error?) -> Void = {noError in return})  {
         
         
@@ -78,6 +80,8 @@ class SwapUserHistory{
         swapHistory?._didShareGitHub = (GitHubIs != nil) ? (GitHubIs! as NSNumber) : nil
         swapHistory?._didShareVimeo = (VimeoIs != nil) ? (VimeoIs! as NSNumber) : nil
         swapHistory?._didGiveSwapPointsFromSwap = (didGivePoints != nil) ? (didGivePoints! as NSNumber) : nil
+        swapHistory?._latitude = (latitude != nil) ? latitude! : nil
+        swapHistory?._longitude = (longitude != nil) ? longitude! : nil
         
         NoSQL.save(swapHistory!, configuration: updateMapperConfig, completionHandler: { error in
             
