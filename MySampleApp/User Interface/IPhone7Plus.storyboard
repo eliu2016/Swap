@@ -1300,7 +1300,7 @@
                         <inset key="imageInsets" minX="-2" minY="9" maxX="2" maxY="-9"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MiG-zI-teP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MiG-zI-teP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1318,7 +1318,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="KWW-K5-YrP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="R50-hG-899">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R50-hG-899">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1733,7 +1733,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nzG-qp-7Ls">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nzG-qp-7Ls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1763,11 +1763,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Header1" translatesAutoresizingMaskIntoConstraints="NO" id="tLq-5o-c7u">
-                                <rect key="frame" x="-5" y="0.0" width="419" height="74"/>
+                                <rect key="frame" x="-5" y="0.0" width="419" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" backgroundImage="Header1" translatesAutoresizingMaskIntoConstraints="NO" id="fRz-uC-GMq">
-                                <rect key="frame" x="33" y="21" width="343" height="53"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="fRz-uC-GMq">
+                                <rect key="frame" x="20" y="42" width="374" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1775,7 +1775,7 @@
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbF-Lu-vHc">
-                                <rect key="frame" x="16" y="102" width="196" height="31"/>
+                                <rect key="frame" x="16" y="105" width="196" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
                                 <color key="textColor" red="0.27332392919999998" green="0.28297987889999998" blue="0.2889038706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1785,7 +1785,7 @@
                                 <rect key="frame" x="197" y="156" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-C8-X0Y">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-C8-X0Y">
                                 <rect key="frame" x="0.0" y="147" width="416" height="535"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1794,23 +1794,23 @@
                                         <rect key="frame" x="0.0" y="28" width="416" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jql-Ef-6Fm" id="2qr-NO-OXY">
-                                            <rect key="frame" x="0.0" y="0.0" width="416" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="416" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="795-4f-B2n">
-                                                    <rect key="frame" x="17" y="17" width="48" height="48"/>
+                                                    <rect key="frame" x="17" y="17" width="48" height="49"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlackCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="Nd0-cd-nrc">
                                                     <rect key="frame" x="378" y="30" width="15" height="17"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JaM-Qr-ZCB">
-                                                    <rect key="frame" x="81" y="15" width="254" height="52"/>
+                                                    <rect key="frame" x="81" y="15" width="254" height="53"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VerifiedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8mQ-TJ-fvv">
-                                                    <rect key="frame" x="53" y="24" width="14" height="14"/>
+                                                    <rect key="frame" x="53" y="24" width="14" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="14" id="0dF-AQ-2Ul"/>
                                                     </constraints>
@@ -1849,6 +1849,14 @@
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="TJQ-MI-Zae">
                                 <rect key="frame" x="0.0" y="690" width="91" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RoundWhiteTopper" translatesAutoresizingMaskIntoConstraints="NO" id="opA-oh-FtL">
+                                <rect key="frame" x="-3" y="33" width="422" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="kW4-Ty-2EE">
+                                <rect key="frame" x="15" y="95" width="385" height="0.66666666666666663"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -2388,7 +2396,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="kXg-Xm-8DW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bkx-YE-24u">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bkx-YE-24u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2839,7 +2847,7 @@
                         <inset key="imageInsets" minX="35" minY="7" maxX="-35" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8bx-bR-lUg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8bx-bR-lUg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -4152,6 +4160,7 @@
         <image name="RedditDark" width="43" height="42"/>
         <image name="RedditDisabled" width="66" height="65"/>
         <image name="RightCarrot" width="21" height="21"/>
+        <image name="RoundWhiteTopper" width="234" height="13"/>
         <image name="SearchIcon" width="28" height="27"/>
         <image name="SendCodeButton" width="63" height="11"/>
         <image name="SettingsIcon" width="35" height="33"/>
@@ -4188,7 +4197,7 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SpY-B2-7Ym"/>
+        <segue reference="8yU-bV-628"/>
         <segue reference="jIR-tF-ust"/>
         <segue reference="Qph-o2-Urf"/>
         <segue reference="Xpo-tz-aOQ"/>

@@ -1826,10 +1826,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Header1" translatesAutoresizingMaskIntoConstraints="NO" id="xf0-bh-jyb">
-                                <rect key="frame" x="-5" y="0.0" width="325" height="74"/>
+                                <rect key="frame" x="-5" y="0.0" width="325" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="him-9G-cPb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="him-9G-cPb">
                                 <rect key="frame" x="-3" y="123" width="323" height="307"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1838,7 +1838,7 @@
                                         <rect key="frame" x="0.0" y="28" width="323" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1SU-nU-6sW" id="q3t-2m-1cy">
-                                            <rect key="frame" x="0.0" y="0.0" width="323" height="76.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="323" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3jh-eL-M1U">
@@ -1875,14 +1875,6 @@
                                     <outlet property="delegate" destination="GaR-q7-ziV" id="pdW-E0-WXM"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" backgroundImage="Header1" translatesAutoresizingMaskIntoConstraints="NO" id="1Me-XX-q2Y">
-                                <rect key="frame" x="18" y="21" width="280" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="GaR-q7-ziV" id="yMj-4W-jls"/>
-                                </connections>
-                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-aR-eL2">
                                 <rect key="frame" x="16" y="86" width="196" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1894,6 +1886,22 @@
                                 <rect key="frame" x="150" y="131" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RoundWhiteTopper" translatesAutoresizingMaskIntoConstraints="NO" id="K9f-FY-VPO">
+                                <rect key="frame" x="-2" y="35" width="324" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="WcZ-r5-Gfr">
+                                <rect key="frame" x="14" y="98" width="292" height="0.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="1Me-XX-q2Y">
+                                <rect key="frame" x="17" y="45" width="280" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GaR-q7-ziV" id="yMj-4W-jls"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -4049,6 +4057,7 @@
         <image name="RedditDark" width="43" height="42"/>
         <image name="RedditDisabled" width="66" height="66"/>
         <image name="RightCarrot" width="32" height="32"/>
+        <image name="RoundWhiteTopper" width="351" height="20"/>
         <image name="SearchIcon" width="27" height="26"/>
         <image name="SendCodeButton" width="95" height="17"/>
         <image name="SettingsIcon" width="35" height="33"/>
@@ -4057,6 +4066,7 @@
         <image name="SpotifyBlackIcon" width="32" height="32"/>
         <image name="SpotifyDisabled" width="66" height="66"/>
         <image name="SwapNotificationsButton" width="122" height="40"/>
+        <image name="TabBarBackground" width="276" height="44"/>
         <image name="TextfieldBottom" width="615" height="2"/>
         <image name="TranparentOverlay" width="273" height="340"/>
         <image name="TutorialPage2" width="359" height="613"/>
@@ -4082,9 +4092,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rya-6E-vDO"/>
-        <segue reference="3gl-tf-Vwf"/>
         <segue reference="Q6e-FZ-K8h"/>
         <segue reference="lGr-gh-bnW"/>
+        <segue reference="3gl-tf-Vwf"/>
+        <segue reference="ygW-ho-k8P"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -33,11 +33,6 @@ class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSo
         youtubePicView.imageURL = getYouTubeProfilePictureLink() ?? URL(string: defaultImage)!
         contactPicView.imageURL = (getContactImage() != nil) ? nil : URL(string: defaultImage)!
         
-        
-        
-        
-     
-       
         pictureViews = [instagramPicView, twitterPicView, youtubePicView, contactPicView]
         
         dataSource = self
@@ -148,17 +143,17 @@ class SelectProfilePicViewController: UIViewController {
     @IBOutlet var containerView: UIView!
     @IBOutlet var pageControl: UIPageControl!
     
-    
+    var numberOfPics: Int?
     var currentImage: UIImage?
     var link: URL?
     
     override func viewDidLoad() {
         currentIndex = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.updatePageControl), name: .updatePageControl, object: nil)
+        
     }
    
         
-    
     func updatePageControl(){
         
         pageControl.currentPage = currentIndex

@@ -37,6 +37,11 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         loadingSymbol.stopAnimating()
         
         searchBar.becomeFirstResponder()
+        searchBar.backgroundImage = UIImage()
+        searchBar.barTintColor = UIColor.white
+        searchBar.layer.borderWidth = 10
+        searchBar.layer.borderColor = UIColor.white.cgColor
+        
         
         
       /*  for indexpath in self.tableView.indexPathsForVisibleRows!{
@@ -155,6 +160,7 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as! searchUsernamesCell;
         
         cell.selectionStyle = .none
+         
         
         
         cell.username.text = returnedUsers[indexPath.item].username
