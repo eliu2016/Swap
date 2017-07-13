@@ -86,7 +86,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LogoNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="07b-Q1-zts">
-                                <rect key="frame" x="135" y="39" width="50" height="50"/>
+                                <rect key="frame" x="136" y="39" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDt-YM-BXS">
@@ -3086,10 +3086,10 @@
             </objects>
             <point key="canvasLocation" x="929" y="3440"/>
         </scene>
-        <!--Stories View-->
+        <!--Swap Map View-->
         <scene sceneID="Ubp-68-5KX">
             <objects>
-                <viewController id="tfF-fT-Aos" customClass="StoriesView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tfF-fT-Aos" customClass="SwapMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O2O-JK-Vm6"/>
                         <viewControllerLayoutGuide type="bottom" id="cXd-uE-soj"/>
@@ -4159,9 +4159,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n03-21-bHZ"/>
         <segue reference="wgl-fO-cmx"/>
         <segue reference="pKe-Bn-k2m"/>
         <segue reference="juv-56-8XR"/>
+        <segue reference="88s-A5-zux"/>
     </inferredMetricsTieBreakers>
 </document>

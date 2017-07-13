@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,8 +28,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="W2y-wc-oU2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="W2y-wc-oU2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username/phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZX-2A-zSS">
                                 <rect key="frame" x="83" y="169" width="208" height="40"/>
@@ -101,20 +101,12 @@
                                     <action selector="didTapSignIn:" destination="qPU-JH-MZS" eventType="touchUpInside" id="mSo-E6-ZrO"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="LogoNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="emD-uQ-ZZt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LogoNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="emD-uQ-ZZt">
                                 <rect key="frame" x="157" y="60" width="61" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="emD-uQ-ZZt" secondAttribute="height" multiplier="61:64" id="wBN-P4-K7e"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="W2y-wc-oU2" secondAttribute="trailing" id="6iG-VX-yMI"/>
-                            <constraint firstItem="W2y-wc-oU2" firstAttribute="top" secondItem="WhC-5C-9om" secondAttribute="top" id="8UI-sE-g8S"/>
-                            <constraint firstItem="W2y-wc-oU2" firstAttribute="leading" secondItem="WhC-5C-9om" secondAttribute="leading" id="pwQ-Ww-yH3"/>
-                            <constraint firstItem="CEi-11-22O" firstAttribute="top" secondItem="W2y-wc-oU2" secondAttribute="bottom" id="waP-93-vm4"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C4X-kl-JPo"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -1488,7 +1480,7 @@
                         <inset key="imageInsets" minX="-2" minY="6" maxX="2" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3b-Y0-b5o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d3b-Y0-b5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1506,7 +1498,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Zxc-qU-hxd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q8T-Kx-S5U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Q8T-Kx-S5U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1681,10 +1673,10 @@
             </objects>
             <point key="canvasLocation" x="1797.5999999999999" y="3439.4302848575717"/>
         </scene>
-        <!--Stories View-->
+        <!--Swap Map View-->
         <scene sceneID="Q9o-uz-vzW">
             <objects>
-                <viewController id="JEv-2S-bt2" customClass="StoriesView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JEv-2S-bt2" customClass="SwapMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V7l-ym-mHC"/>
                         <viewControllerLayoutGuide type="bottom" id="AqP-KG-30a"/>
@@ -1725,8 +1717,19 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gly-2j-5ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="gOd-Pk-LQf">
+                    <rect key="frame" x="0.0" y="0.0" width="114" height="90"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rmp-mK-luW">
+                            <rect key="frame" x="22" y="0.0" width="68" height="90"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="940" y="4217.5412293853078"/>
+            <point key="canvasLocation" x="908" y="4362"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ntb-DM-Aug">
@@ -1968,7 +1971,7 @@
                     <tabBarItem key="tabBarItem" title="" image="SearchIcon" id="Zux-QA-QKt">
                         <inset key="imageInsets" minX="-36" minY="6" maxX="36" maxY="-6"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7nW-zx-ckq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="7nW-zx-ckq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2797,7 +2800,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="JuD-eH-h69" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wEL-zP-Ibz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wEL-zP-Ibz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3245,7 +3248,7 @@
                         <inset key="imageInsets" minX="35" minY="6" maxX="-35" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mml-ww-BEp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mml-ww-BEp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

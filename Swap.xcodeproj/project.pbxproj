@@ -66,6 +66,8 @@
 		752A6BDA1E20975E00E6695B /* SetttingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BD91E20975E00E6695B /* SetttingsView.swift */; };
 		752A6BDC1E20D21F00E6695B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BDB1E20D21F00E6695B /* ContainerViewController.swift */; };
 		752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BDD1E20D39100E6695B /* ScannerViewController.swift */; };
+		752A74451F1458AE005A0B64 /* SwapMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A74441F1458AE005A0B64 /* SwapMapView.swift */; };
+		752A74471F149A39005A0B64 /* SwapsAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A74461F149A39005A0B64 /* SwapsAnnotation.swift */; };
 		752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */; };
 		752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1941E3B115000CE5289 /* SearchedUser.swift */; };
 		755CAD701E840F18008E94E3 /* SetUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */; };
@@ -237,6 +239,8 @@
 		752A6BD91E20975E00E6695B /* SetttingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetttingsView.swift; sourceTree = "<group>"; };
 		752A6BDB1E20D21F00E6695B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		752A6BDD1E20D39100E6695B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		752A74441F1458AE005A0B64 /* SwapMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapMapView.swift; sourceTree = "<group>"; };
+		752A74461F149A39005A0B64 /* SwapsAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapsAnnotation.swift; sourceTree = "<group>"; };
 		752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSwapLinkView.swift; sourceTree = "<group>"; };
 		752BE1941E3B115000CE5289 /* SearchedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUser.swift; sourceTree = "<group>"; };
 		755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetUsernameViewController.swift; path = MySampleApp/Account/SignUp/SetUsernameViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -476,6 +480,8 @@
 				751C0B0D1E249E5800FD515A /* SearchUsersView.swift */,
 				751B918C1E6C97190039AFA4 /* FeaturedProfilesCell.swift */,
 				752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */,
+				752A74441F1458AE005A0B64 /* SwapMapView.swift */,
+				752A74461F149A39005A0B64 /* SwapsAnnotation.swift */,
 				751B916B1E54A6470039AFA4 /* NotificationViewController.swift */,
 				752A6BDD1E20D39100E6695B /* ScannerViewController.swift */,
 				752A6BD71E20959500E6695B /* ProfileViewController.swift */,
@@ -835,6 +841,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				752A74451F1458AE005A0B64 /* SwapMapView.swift in Sources */,
 				75E434311EB66FFA00917D47 /* TutorialViewController.swift in Sources */,
 				75207DC81E76458600BB66F4 /* SetPasswordViewController.swift in Sources */,
 				2E49B8391E4A534E005029C9 /* YouTubeMedia.swift in Sources */,
@@ -858,6 +865,7 @@
 				E7A30F04A0B2E49B00000000 /* UtilityFunctions.swift in Sources */,
 				751C0B401E25C3B900FD515A /* EditProfile.swift in Sources */,
 				751E75B61EA46B0E005BB48C /* InstagramView.swift in Sources */,
+				752A74471F149A39005A0B64 /* SwapsAnnotation.swift in Sources */,
 				752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */,
 				751B918D1E6C97190039AFA4 /* FeaturedProfilesCell.swift in Sources */,
 				751FCB7E1E31DCF20099FDFE /* MoreInfo.swift in Sources */,

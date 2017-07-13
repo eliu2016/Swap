@@ -1564,10 +1564,10 @@
             </objects>
             <point key="canvasLocation" x="1839" y="3440"/>
         </scene>
-        <!--Stories View-->
+        <!--Swap Map View-->
         <scene sceneID="7ZN-46-Yeu">
             <objects>
-                <viewController id="tHA-Ib-p7G" customClass="StoriesView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tHA-Ib-p7G" customClass="SwapMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8sg-Qd-Amt"/>
                         <viewControllerLayoutGuide type="bottom" id="5r5-op-vuY"/>

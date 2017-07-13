@@ -1489,10 +1489,10 @@
             </objects>
             <point key="canvasLocation" x="1797.1014492753625" y="3439.402173913044"/>
         </scene>
-        <!--Stories View-->
+        <!--Swap Map View-->
         <scene sceneID="aAY-3P-6KI">
             <objects>
-                <viewController id="APN-Xd-JDp" customClass="StoriesView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="APN-Xd-JDp" customClass="SwapMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lcW-Xa-byh"/>
                         <viewControllerLayoutGuide type="bottom" id="WFK-Vz-FFn"/>
@@ -4197,9 +4197,9 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Xpo-tz-aOQ"/>
+        <segue reference="5bP-vo-cs0"/>
         <segue reference="8yU-bV-628"/>
         <segue reference="jIR-tF-ust"/>
-        <segue reference="Qph-o2-Urf"/>
-        <segue reference="Xpo-tz-aOQ"/>
     </inferredMetricsTieBreakers>
 </document>
