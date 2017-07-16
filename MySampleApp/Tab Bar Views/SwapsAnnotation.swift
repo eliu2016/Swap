@@ -9,14 +9,9 @@
 import Foundation
 import MapKit
 
-class SwapsAnnotation: NSObject, MKAnnotation {
+class SwapsAnnotation: MKPointAnnotation {
     
-    var coordinate: CLLocationCoordinate2D
-    var image: UIImage!
-    var title: String?
-    
-    init(image : UIImage, coordinate: CLLocationCoordinate2D) {
-        self.coordinate = coordinate
-        self.image = image
-    }
+    var pinImage: UIImage?
+   
 }
+

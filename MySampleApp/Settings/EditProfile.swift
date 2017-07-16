@@ -233,8 +233,7 @@ class EditProfileTable: UITableViewController, UITextFieldDelegate {
         editProfileLastName =  lastNameField.text!
         editProfileEmail = emailField.text!
         
-    
-        
+
         if textField.tag == 2{
             tableView.setContentOffset(CGPoint(x: tableView.contentOffset.x, y: tableView.contentOffset.y - 70), animated: true)
         }

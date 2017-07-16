@@ -11,7 +11,7 @@ import MapKit
 
 class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet var mapView: MKMapView!
-    var swapPinView = MKAnnotationView()
+    var swapPin: SwapsAnnotation!
     var locationManager = CLLocationManager()
     var currentLocation = CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0059)//defaults to New York City
     
@@ -42,6 +42,9 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
        
         locationManager.stopUpdatingLocation()
         mapView.showsUserLocation = true
+        
+        
+        
     }
   
     ///   Adds pins on map that show locations of where you swapped users
@@ -66,11 +69,11 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
                 
                                // Add Annotations
                     
-                        var annotation = SwapsAnnotation(image: #imageLiteral(resourceName: "InstagramDisabled"), coordinate: CLLocationCoordinate2DMake(x, y))
-                                        // ***DELETE RAND IN PRODUCTION
-                                        annotation.title = history._swapped ?? ""
+                        swapPin = SwapsAnnotation()
+                        swapPin.coordinate = CLLocationCoordinate2D(latitude: x_cordinate!, longitude: y_cordinate!)
+                        swapPin.title = history._swapped ?? ""
                                         
-                                        mapView.addAnnotation(annotation)
+                        mapView.addAnnotation(swapPin)
                     
             }
             
@@ -83,19 +86,59 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         if !(annotation is MKPointAnnotation) {
             return nil
         }
-        
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationIdentifier")
+        var identifier = "pinID"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationIdentifier")
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView!.canShowCallout = true
+            
+            print("ANNOTATION TITILE: \(annotation.title!!)")
+            
+            SwapUser(username: annotation.title!!).getInformation(completion: { (error, user) in
+                
+                if let profileImage = user?._profilePictureUrl{
+            
+                    let swapPinView = self.createAnnotationView(profileImageString: profileImage)
+                    annotationView! = swapPinView
+                }
+               
+                
+            })
+            
+           
         }
         else {
-            annotationView!.annotation = annotation
+            annotationView?.annotation = annotation
         }
         
-        annotationView! = swapPinView
+       
+        
         return annotationView
+    }
+    
+    func createAnnotationView(profileImageString: String) -> MKAnnotationView{
+        
+        var AnnotationView = MKAnnotationView()
+        
+        var pinImageView = UIImageView(image: #imageLiteral(resourceName: "SwapAnnotationIcon"))
+        var profilePicImageView = UIImageView()
+        
+        if profileImageString == ""{
+            profilePicImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
+        }
+        else{
+            profilePicImageView.kf.setImage(with: URL(string: profileImageString))
+        }
+    
+        
+        profilePicImageView.frame = CGRect(x: profilePicImageView.center.x - 110, y: profilePicImageView.center.y - 155, width: profilePicImageView.frame.width - 142, height: profilePicImageView.frame.width - 142)
+        pinImageView.frame = CGRect(x: pinImageView.center.x - 62, y: pinImageView.center.y - 115, width: pinImageView.frame.width, height: pinImageView.frame.height)
+        AnnotationView.addSubview(pinImageView)
+        AnnotationView.addSubview(profilePicImageView)
+        
+        return AnnotationView
+        
     }
 }
 

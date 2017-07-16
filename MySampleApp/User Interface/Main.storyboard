@@ -4240,9 +4240,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ijx-Hi-H1W"/>
+        <segue reference="7cT-Je-Nm9"/>
         <segue reference="0aw-Hp-LRn"/>
         <segue reference="WAy-hx-jEK"/>
-        <segue reference="YeA-4M-5uc"/>
-        <segue reference="7cT-Je-Nm9"/>
     </inferredMetricsTieBreakers>
 </document>
