@@ -51,13 +51,13 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     func addPins()  {
         
         for history in swapHistoryUsers{
-      
-            /*
-                 +            let rand = drand48()   / 100
-                 +            history._latitude = (mapView.userLocation.coordinate.latitude != 0) ? "\(mapView.userLocation.coordinate.latitude)" :  "40.7128"
-                 +            history._longitude = (mapView.userLocation.coordinate.longitude != 0) ? "\(mapView.userLocation.coordinate.longitude)" :  "-74.0059"
-                */
-            
+         
+      // ******* Creates Random Pins ****************************************************
+                          let rand = drand48()   / 100
+                             history._latitude = (mapView.userLocation.coordinate.latitude != 0) ? "\(mapView.userLocation.coordinate.latitude)" :  "40.7128"
+                             history._longitude = (mapView.userLocation.coordinate.longitude != 0) ? "\(mapView.userLocation.coordinate.longitude)" :  "-74.0059"
+ // ************************************************************
+ 
            if let x_cordinate_string = history._latitude, let y_cordinate_string = history._longitude{
             
                      let x_cordinate = Double(x_cordinate_string)
@@ -70,7 +70,7 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
                                // Add Annotations
                     
                         swapPin = SwapsAnnotation()
-                        swapPin.coordinate = CLLocationCoordinate2D(latitude: x_cordinate!, longitude: y_cordinate!)
+                        swapPin.coordinate = CLLocationCoordinate2D(latitude: x, longitude: y)
                         swapPin.title = history._swapped ?? ""
                                         
                         mapView.addAnnotation(swapPin)
@@ -95,16 +95,12 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
             
             print("ANNOTATION TITILE: \(annotation.title!!)")
             
-            SwapUser(username: annotation.title!!).getInformation(completion: { (error, user) in
-                
-                if let profileImage = user?._profilePictureUrl{
+            let swapPinView = self.createAnnotationView(from: (annotation.title ?? "")!)
+            annotationView! = swapPinView
             
-                    let swapPinView = self.createAnnotationView(profileImageString: profileImage)
-                    annotationView! = swapPinView
-                }
-               
-                
-            })
+            
+            
+       
             
            
         }
@@ -117,19 +113,31 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         return annotationView
     }
     
-    func createAnnotationView(profileImageString: String) -> MKAnnotationView{
+    /// Creates an annotation view from a username
+    func createAnnotationView(from username: String) -> MKAnnotationView{
         
         var AnnotationView = MKAnnotationView()
         
         var pinImageView = UIImageView(image: #imageLiteral(resourceName: "SwapAnnotationIcon"))
         var profilePicImageView = UIImageView()
         
-        if profileImageString == ""{
-            profilePicImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
+        
+        profilePicImageView.kf.indicatorType = .activity
+        
+        SwapUser(username: username).getInformation { (error, user) in
+            
+            if let user = user {
+                
+                
+                profilePicImageView.kf.setImage(with: URL(string: user._profilePictureUrl ?? ""))
+                
+            }  else{
+                
+                profilePicImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
+            }
         }
-        else{
-            profilePicImageView.kf.setImage(with: URL(string: profileImageString))
-        }
+        
+ 
     
         
         profilePicImageView.frame = CGRect(x: profilePicImageView.center.x - 110, y: profilePicImageView.center.y - 155, width: profilePicImageView.frame.width - 142, height: profilePicImageView.frame.width - 142)
