@@ -767,8 +767,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         print("the username of the signed in user is ... \(getUsernameOfSignedInUser())")
        self.swapCodeImageView.kf.indicatorType = .activity
         
+        //determines the color of the swap code
+        let SwapCodeColorBlue = UserDefaults.standard.bool(forKey: "SwapCodeColorBlue")
+        
+        
         // Try to use old url first
         print("trying to use old url")
+    
         swapCodeImageView.kf.setImage(with: URL(string:defaultSwapCodeImageURL), placeholder: nil, options: nil, progressBlock: nil) { (image, error, type, url) in
             
             if let error = error{

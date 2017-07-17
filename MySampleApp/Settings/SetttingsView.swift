@@ -12,6 +12,9 @@ class SettingsView: UITableViewController {
     
 
     @IBOutlet var privateAccountSwitch: UISwitch!
+    @IBOutlet var SwapCodeColorIndicator: UIImageView!
+    
+    var SwapCodeColorBlue: Bool?
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -30,6 +33,13 @@ class SettingsView: UITableViewController {
                 
             }
         }
+    
+        
+        SwapCodeColorBlue = UserDefaults.standard.bool(forKey: "SwapCodeColorBlue") ?? false
+        
+        if SwapCodeColorBlue!{
+            SwapCodeColorIndicator.image = #imageLiteral(resourceName: "SwapCodeColor2")
+        }
         
     }
     
@@ -46,6 +56,8 @@ class SettingsView: UITableViewController {
     @IBAction func closeSettings(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(SwapCodeColorBlue, forKey: "SwapCodeColorBlue")
+        
         
         
     }
@@ -59,6 +71,20 @@ class SettingsView: UITableViewController {
     
     //code that runs when a certain row is tapped
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //change swap code row pressed
+        if (indexPath.section == 0 && indexPath.row == 1){
+            
+            SwapCodeColorBlue = !SwapCodeColorBlue!
+            
+            if (SwapCodeColorBlue == false){
+                
+                SwapCodeColorIndicator.image = #imageLiteral(resourceName: "SwapCodeColor1")
+            }
+            else{
+                SwapCodeColorIndicator.image = #imageLiteral(resourceName: "SwapCodeColor2")
+            }
+        }
      
         
         //log out row pressed
