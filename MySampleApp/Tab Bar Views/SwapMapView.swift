@@ -70,7 +70,7 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
                                // Add Annotations
                     
                         swapPin = SwapsAnnotation()
-                        swapPin.coordinate = CLLocationCoordinate2D(latitude: x, longitude: y)
+                        swapPin.coordinate = CLLocationCoordinate2D(latitude: x + rand, longitude: y + rand)
                         swapPin.title = history._swapped ?? ""
                                         
                         mapView.addAnnotation(swapPin)
@@ -98,11 +98,6 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
             let swapPinView = self.createAnnotationView(from: (annotation.title ?? "")!)
             annotationView! = swapPinView
             
-            
-            
-       
-            
-           
         }
         else {
             annotationView?.annotation = annotation
@@ -124,7 +119,10 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         
         profilePicImageView.kf.indicatorType = .activity
         
+        
         SwapUser(username: username).getInformation { (error, user) in
+            
+            circularImageNoBorder(photoImageView: profilePicImageView)
             
             if let user = user {
                 
@@ -137,10 +135,7 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
             }
         }
         
- 
-    
-        
-        profilePicImageView.frame = CGRect(x: profilePicImageView.center.x - 110, y: profilePicImageView.center.y - 155, width: profilePicImageView.frame.width - 142, height: profilePicImageView.frame.width - 142)
+        profilePicImageView.frame = CGRect(x: profilePicImageView.center.x + 22, y: profilePicImageView.center.y - 25, width: profilePicImageView.frame.width - 44, height: profilePicImageView.frame.height - 44)
         pinImageView.frame = CGRect(x: pinImageView.center.x - 62, y: pinImageView.center.y - 115, width: pinImageView.frame.width, height: pinImageView.frame.height)
         AnnotationView.addSubview(pinImageView)
         AnnotationView.addSubview(profilePicImageView)

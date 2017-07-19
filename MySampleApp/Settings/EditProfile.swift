@@ -29,7 +29,7 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
     
     override func viewDidLoad() {
         
-       circularImage(photoImageView: profilePicture)
+       circularImageNoBorder(photoImageView: profilePicture)
        imagePicker.delegate = self
        doneActivityView.stopAnimating()
        
