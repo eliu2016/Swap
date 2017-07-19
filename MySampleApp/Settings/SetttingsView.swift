@@ -16,30 +16,35 @@ class SettingsView: UITableViewController {
     
     var SwapCodeColorBlue: Bool?
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         
-    
         SwapUser().getInformation { (error, user) in
             
             DispatchQueue.main.async {
                 
                 if let user = user{
-                
+                    
                     let isPrivate  = user._isPrivate as? Bool ?? false
-                
+                    
                     self.privateAccountSwitch.isOn = isPrivate
-                
+                    
                 }
                 
             }
         }
-    
+        
         
         SwapCodeColorBlue = UserDefaults.standard.bool(forKey: "SwapCodeColorBlue") ?? false
         
         if SwapCodeColorBlue!{
             SwapCodeColorIndicator.image = #imageLiteral(resourceName: "SwapCodeColor2")
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    
+        // Moved this code to ViewDidLoad - Micheal Bingham
         
     }
     
@@ -56,7 +61,7 @@ class SettingsView: UITableViewController {
     @IBAction func closeSettings(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
-        UserDefaults.standard.set(SwapCodeColorBlue, forKey: "SwapCodeColorBlue")
+        
         
         
         
@@ -80,9 +85,22 @@ class SettingsView: UITableViewController {
             if (SwapCodeColorBlue == false){
                 
                 SwapCodeColorIndicator.image = #imageLiteral(resourceName: "SwapCodeColor1")
+                
+                UserDefaults.standard.set(false, forKey: "SwapCodeColorBlue")
+                UserDefaults.standard.synchronize()
+                
+                // Send Notification That Swap Color Changed
+                NotificationCenter.default.post(name: .changeSwapCodeToDark, object: nil)
+                
             }
             else{
                 SwapCodeColorIndicator.image = #imageLiteral(resourceName: "SwapCodeColor2")
+                
+                UserDefaults.standard.set(true, forKey: "SwapCodeColorBlue")
+                UserDefaults.standard.synchronize()
+                
+                // Send Notification That Swap Color Changed 
+                NotificationCenter.default.post(name: .changeSwapCodeToBlue, object: nil)
             }
         }
      

@@ -105,6 +105,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         // Listens for reloadProfile notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadProfile), name: .reloadProfile, object: nil)
         
+        
+        
+        // Listens for a change in swap code color 
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeSwapCodeToBlue), name: .changeSwapCodeToBlue, object: nil)
+        
+        
+        // Listens for a change in swap code color
+        NotificationCenter.default.addObserver(self, selector: #selector(self.changeSwapCodeToDark), name: .changeSwapCodeToDark, object: nil)
+        
+        
+        
         if !UserDefaults.standard.bool(forKey: "didShowTutorial"){
            
             self.performSegue(withIdentifier: "showTutorial", sender: nil)
@@ -768,13 +779,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
        self.swapCodeImageView.kf.indicatorType = .activity
         
         //determines the color of the swap codese
-        let SwapCodeColorBlue = UserDefaults.standard.bool(forKey: "SwapCodeColorBlue")
+        let swapCodeColorShouldBeBlue = UserDefaults.standard.bool(forKey: "SwapCodeColorBlue")
         
+        
+        // Ternary Statement determines the value of defaultSwapCodeImageURL based on the user's settings
+        let defaultSwapCodeImageURL = swapCodeColorShouldBeBlue ? blueSwapCodeURL : darkSwapCodeURL
         
         
         // Try to use old url first
-        print("trying to use old url")
-    
+        
         swapCodeImageView.kf.setImage(with: URL(string:defaultSwapCodeImageURL), placeholder: nil, options: nil, progressBlock: nil) { (image, error, type, url) in
             
             if let error = error{
@@ -829,6 +842,19 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     
+    func changeSwapCodeToBlue()  {
+        
+        self.swapCodeImageView.kf.setImage(with: URL(string: blueSwapCodeURL))
+    }
+    
+    func changeSwapCodeToDark()  {
+        
+        self.swapCodeImageView.kf.setImage(with: URL(string: darkSwapCodeURL))
+    }
+    
+    
+    
+    
     
 }
 
@@ -854,7 +880,9 @@ func slideRight(image: UIImageView){
 
 /// The 'free version' of the Swap Code URL Image via API
 
-let defaultSwapCodeImageURL = "https://dashboard.unitag.io/qreator/generate?setting=%7B%22LAYOUT%22%3A%7B%22COLORBG%22%3A%22transparent%22%2C%22COLOR1%22%3A%22262626%22%7D%2C%22EYES%22%3A%7B%22EYE_TYPE%22%3A%22Grid%22%7D%2C%22BODY_TYPE%22%3A5%2C%22E%22%3A%22H%22%2C%22LOGO%22%3A%7B%22L_NAME%22%3A%22https%3A%2F%2Fstatic-unitag.com%2Ffile%2Ffreeqr%2F38436a5c234f2c0817f2e83903d33287.png%22%2C%22EXCAVATE%22%3Atrue%7D%7D&data=%7B%22TYPE%22%3A%22text%22%2C%22DATA%22%3A%7B%22TEXT%22%3A%22http%3A%2F%2Fgetswap.me%2F\(getUsernameOfSignedInUser())%22%2C%22URL%22%3A%22%22%7D%7D"
+let darkSwapCodeURL = "https://dashboard.unitag.io/qreator/generate?setting=%7B%22LAYOUT%22%3A%7B%22COLORBG%22%3A%22transparent%22%2C%22COLOR1%22%3A%22262626%22%7D%2C%22EYES%22%3A%7B%22EYE_TYPE%22%3A%22Grid%22%7D%2C%22BODY_TYPE%22%3A5%2C%22E%22%3A%22H%22%2C%22LOGO%22%3A%7B%22L_NAME%22%3A%22https%3A%2F%2Fstatic-unitag.com%2Ffile%2Ffreeqr%2F38436a5c234f2c0817f2e83903d33287.png%22%2C%22EXCAVATE%22%3Atrue%7D%7D&data=%7B%22TYPE%22%3A%22text%22%2C%22DATA%22%3A%7B%22TEXT%22%3A%22http%3A%2F%2Fgetswap.me%2F\(getUsernameOfSignedInUser())%22%2C%22URL%22%3A%22%22%7D%7D"
+
+let blueSwapCodeURL = "https://dashboard.unitag.io/qreator/generate?setting=%7B%22LAYOUT%22%3A%7B%22COLORBG%22%3A%22transparent%22%2C%22COLOR1%22%3A%2203E4F3%22%7D%2C%22EYES%22%3A%7B%22EYE_TYPE%22%3A%22Grid%22%7D%2C%22BODY_TYPE%22%3A5%2C%22E%22%3A%22H%22%2C%22LOGO%22%3A%7B%22L_NAME%22%3A%22https%3A%2F%2Fstatic-unitag.com%2Ffile%2Ffreeqr%2Fe70b5ccd3ca5554615433abeae699420.png%22%2C%22EXCAVATE%22%3Atrue%7D%7D&data=%7B%22TYPE%22%3A%22text%22%2C%22DATA%22%3A%7B%22TEXT%22%3A%22http%3A%2F%2Fgetswap.me%2F\(getUsernameOfSignedInUser())%22%2C%22URL%22%3A%22%22%7D%7D"
 
 
 
