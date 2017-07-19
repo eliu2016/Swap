@@ -204,7 +204,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     func loadProfile()  {
         
         loadSwapAndSwapHistoryInBackground()
-        
+        clearSwapMapUserPhotos()
         // Hide UI or do whatever to show that the profile is loading
         self.loadingIndicator.startAnimating()
         

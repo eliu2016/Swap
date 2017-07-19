@@ -439,6 +439,37 @@ func getLastScreen() -> Screen?{
     
     
 }
+/// Cache that contains profile picture cache for Swap Map
+let SwapMapProfilePictureCache = NSCache<NSString, NSString>()
+
+///New annotations are created whenever you scroll in the map so use this function to locally cache the profile picture image url and map it to the username to prevent loading data too much. * Note, clear images from cache/user defaults as needed. (Maybe on viewDidLoad of the loading profile screen)
+/// <#Description#>
+///
+/// - Parameters:
+///   - username: Username of the user
+///   - pictureURL: Picture URL of the user
+func saveMapProfilePictureToUser(username: String,  pictureURL: String)  {
+    
+    SwapMapProfilePictureCache.setObject(pictureURL as NSString, forKey: username as NSString)
+    
+    
+}
+
+// Call this on loadProfile of profile and whenever the 'swap' is reloaded. This should be called whenever it's required to reload the count of the user's 'swaps' so that the map can be reloaded.
+func clearSwapMapUserPhotos()  {
+    
+    SwapMapProfilePictureCache.removeAllObjects()
+}
+
+/// Gets the saved profile picture from the user with specified username to be used in Swap Map
+func getSwapMapProfilePictureFromUser(with username: String ) -> String? {
+    
+    if let image =  SwapMapProfilePictureCache.object(forKey: username as NSString) {
+        return image as String
+    } else{
+        return nil 
+    }
+}
 
 /// Enum containing the type of screens the user was last active on
 enum Screen{

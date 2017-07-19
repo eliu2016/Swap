@@ -117,23 +117,56 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         var profilePicImageView = UIImageView()
         
         
+        
         profilePicImageView.kf.indicatorType = .activity
         
         
-        SwapUser(username: username).getInformation { (error, user) in
+        // Check if there's an image saved in user defaults for the user 
+        
+        if let profilePicture = getSwapMapProfilePictureFromUser(with: username){
             
-            circularImageNoBorder(photoImageView: profilePicImageView)
+            print("Profile Picture Saved in User Defaults")
             
-            if let user = user {
+           
+            
+            profilePicImageView.kf.setImage(with: URL(string: profilePicture))
+            
+            
+        }
+        
+        else{
+            
+            print("No Profile Picture Saved in User Defaults")
+            
+            // No Image Saved... download it
+            
+            
+            SwapUser(username: username).getInformation { (error, user) in
                 
                 
-                profilePicImageView.kf.setImage(with: URL(string: user._profilePictureUrl ?? ""))
-                
-            }  else{
-                
-                profilePicImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
+                if let user = user {
+                    
+                    
+                    profilePicImageView.kf.setImage(with: URL(string: user._profilePictureUrl ?? ""))
+                    
+                    
+                    // Save the image
+                    if let picture = user._profilePictureUrl{
+                        
+                        saveMapProfilePictureToUser(username: username, pictureURL: picture)
+                        
+                    }
+                    
+                    
+                }  else{
+                    
+                    profilePicImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
+                }
             }
         }
+        
+        
+        circularImageNoBorder(photoImageView: profilePicImageView)
         
         profilePicImageView.frame = CGRect(x: profilePicImageView.center.x + 22, y: profilePicImageView.center.y - 25, width: profilePicImageView.frame.width - 44, height: profilePicImageView.frame.height - 44)
         pinImageView.frame = CGRect(x: pinImageView.center.x - 62, y: pinImageView.center.y - 115, width: pinImageView.frame.width, height: pinImageView.frame.height)

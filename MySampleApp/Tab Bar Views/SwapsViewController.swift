@@ -246,6 +246,7 @@ class SwapsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func loadSwaps()  {
         
+        clearSwapMapUserPhotos()
         swapHistoryUsers.removeAll()
         
         
