@@ -163,12 +163,21 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
                     profilePicImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
                 }
             }
+            
         }
         
+        DispatchQueue.main.async {
+            
+            circularImageNoBorder(photoImageView: profilePicImageView)
+        }
         
-        circularImageNoBorder(photoImageView: profilePicImageView)
-        
-        profilePicImageView.frame = CGRect(x: profilePicImageView.center.x + 22, y: profilePicImageView.center.y - 25, width: profilePicImageView.frame.width - 44, height: profilePicImageView.frame.height - 44)
+        if (self.storyboard?.value(forKey: "name") as! String == "IPhone7Plus"){
+             profilePicImageView.frame = CGRect(x: profilePicImageView.center.x + 15, y: profilePicImageView.center.y - 32, width: profilePicImageView.frame.width - 41, height: profilePicImageView.frame.height - 41)
+            
+        }
+        else{
+                profilePicImageView.frame = CGRect(x: profilePicImageView.center.x + 22, y: profilePicImageView.center.y - 25, width: profilePicImageView.frame.width - 44, height: profilePicImageView.frame.height - 44)
+        }
         pinImageView.frame = CGRect(x: pinImageView.center.x - 62, y: pinImageView.center.y - 115, width: pinImageView.frame.width, height: pinImageView.frame.height)
         AnnotationView.addSubview(pinImageView)
         AnnotationView.addSubview(profilePicImageView)

@@ -36,7 +36,6 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         loadingSymbol.stopAnimating()
         
-        searchBar.becomeFirstResponder()
         searchBar.backgroundImage = UIImage()
         searchBar.barTintColor = UIColor.white
         searchBar.layer.borderWidth = 10

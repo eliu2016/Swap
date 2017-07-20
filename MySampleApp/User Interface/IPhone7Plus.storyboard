@@ -1170,7 +1170,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwh-p2-Nhd">
-                                <rect key="frame" x="329" y="241" width="35" height="29"/>
+                                <rect key="frame" x="342" y="241" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="InfoIcon"/>
                                 <connections>
@@ -3660,7 +3660,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGx-sd-5sF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TutorialPage1" translatesAutoresizingMaskIntoConstraints="NO" id="fGx-sd-5sF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -4092,7 +4092,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AcceptButton" width="81" height="23"/>
+        <image name="AcceptButton" width="260" height="72"/>
         <image name="AddFriendsIcon" width="31" height="31"/>
         <image name="BlackCarrot" width="21" height="21"/>
         <image name="CloseIcon" width="18" height="18"/>
@@ -4102,7 +4102,7 @@
         <image name="ContactDark" width="38" height="37"/>
         <image name="CountryCodeBackground" width="25" height="14"/>
         <image name="DefaultProfileImage" width="120" height="117"/>
-        <image name="DenyButton" width="260" height="72"/>
+        <image name="DenyButton" width="81" height="23"/>
         <image name="EmailDisabled" width="44" height="44"/>
         <image name="ExploreIcon" width="28" height="28"/>
         <image name="GithubBlackIcon" width="42" height="42"/>
@@ -4144,6 +4144,7 @@
         <image name="TabBarBackground" width="184" height="29"/>
         <image name="TextfieldBottom" width="410" height="1"/>
         <image name="TranparentOverlay" width="182" height="227"/>
+        <image name="TutorialPage1" width="375" height="667"/>
         <image name="TutorialPage10" width="375" height="667"/>
         <image name="TutorialPage11" width="375" height="667"/>
         <image name="TutorialPage2" width="375" height="667"/>
