@@ -13,7 +13,7 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     @IBOutlet var mapView: MKMapView!
     var swapPin: SwapsAnnotation!
     var locationManager = CLLocationManager()
-    var currentLocation = CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0059)//defaults to New York City
+    var NewYorkCity = CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0059)//defaults to New York City
     
     override func viewDidLoad() {
         
@@ -30,7 +30,8 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         addPins()
         
         locationManager.startUpdatingLocation()
-        let region = MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+     
+        let region = MKCoordinateRegionForMapRect(MKMapRectWorld)
         mapView.setRegion(region, animated: true)
         
     }
