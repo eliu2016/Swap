@@ -52,15 +52,15 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         setupSwapScanner()
         
         
-        // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
+        // Ask for Authorisation from the User. ** Ask for Location Always
+    //    self.locationManager.requestAlwaysAuthorization()
         
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.desiredAccuracy =  kCLLocationAccuracyBest//kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
         
@@ -406,6 +406,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         
         if let  location  = manager.location {
             

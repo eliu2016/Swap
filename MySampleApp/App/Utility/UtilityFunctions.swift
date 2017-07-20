@@ -62,6 +62,9 @@ extension Notification.Name {
     static let changeSwapCodeToBlue = Notification.Name("changeSwapCodeToBlue")
     static let changeSwapCodeToDark = Notification.Name("changeSwapCodeToDark")
     
+    
+    static let reloadMap = Notification.Name("reloadMap")
+    
     //page control notifications
     static let updatePageControl = Notification.Name("updatePageControl")
   

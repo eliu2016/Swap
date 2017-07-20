@@ -345,7 +345,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     }
     
     
-    
+    /// Will also send a notification to update Map
     func loadSwapAndSwapHistoryInBackground()  {
         swapHistoryUsers.removeAll()
         swappedHistoryUsers.removeAll()
@@ -361,7 +361,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
          
                     swapHistoryUsers = history ?? []
                     
-                   print("\n\n\n\n The Swap History is : \(swapHistoryUsers)")
+                   print("\n\n\n\n The Swap History is : \(swapHistoryUsers) and the count is \(swapHistoryUsers.count)")
+                    
+                    NotificationCenter.default.post(name: .reloadMap, object: nil)
+                    
                 }
                 
             })
