@@ -273,6 +273,9 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                             let history = SwapUserHistory(swap: swap.username, swapped: swapped.username)
                             history.didShare( latitude: self.latitude, longitude: self.longitude)
                             
+                            // Reload Profile to refresh swap points and swap maps
+                            NotificationCenter.default.post(name: .reloadProfile, object: nil)
+                            
                         }
                         
                     }
