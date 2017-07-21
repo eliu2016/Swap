@@ -263,6 +263,12 @@ func logoutInstagram()  {
 
     instagram_oauth2.forgetTokens()
     
+    let cookieStorage: HTTPCookieStorage = HTTPCookieStorage.shared
+    for cookie in cookieStorage.cookies! {
+        if cookie.domain.contains("instagram") {
+            cookieStorage.deleteCookie(cookie)
+        }
+    }
     
     
 }
@@ -278,7 +284,7 @@ func authorizeInstagram(onViewController: UIViewController, completion: @escapin
     
     logoutInstagram()
     
-    instagram_oauth2.authConfig.authorizeEmbedded = true
+   instagram_oauth2.authConfig.authorizeEmbedded = true
     
     instagram_oauth2.authConfig.authorizeContext = onViewController
     

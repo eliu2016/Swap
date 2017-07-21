@@ -13,22 +13,42 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     @IBOutlet var mapView: MKMapView!
     var swapPin: SwapsAnnotation!
     var locationManager = CLLocationManager()
-    var currentLocation = CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0059)//defaults to New York City
+    var NewYorkCity = CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0059)//defaults to New York City
     
     override func viewDidLoad() {
+        
+        // Listens for reloadProfile notification
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadMap), name: .reloadMap, object: nil)
     
         mapView.delegate = self
         
         locationManager = CLLocationManager()
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         
         addPins()
         
         locationManager.startUpdatingLocation()
-        let region = MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+     
+        let region = MKCoordinateRegionForMapRect(MKMapRectWorld)
         mapView.setRegion(region, animated: true)
+        
+    }
+    
+    ///This  will remove all pins on the map and reload the pins based on the Swap History that is already cached locally. It will NOT pull new swap history via API, only use what is already stored locally.
+    func reloadMap()  {
+        
+        
+        //Remove all added annotations
+        mapView.removeAnnotations(mapView.annotations)
+        
+       addPins()
+        
+
+            
+        
+        
         
     }
     
@@ -49,28 +69,30 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
   
     ///   Adds pins on map that show locations of where you swapped users
     func addPins()  {
+       
+        
         
         for history in swapHistoryUsers{
          
       // ******* Creates Random Pins ****************************************************
-                          let rand = drand48()   / 100
-                             history._latitude = (mapView.userLocation.coordinate.latitude != 0) ? "\(mapView.userLocation.coordinate.latitude)" :  "40.7128"
-                             history._longitude = (mapView.userLocation.coordinate.longitude != 0) ? "\(mapView.userLocation.coordinate.longitude)" :  "-74.0059"
- // ************************************************************
- 
-           if let x_cordinate_string = history._latitude, let y_cordinate_string = history._longitude{
             
+            
+            
+ // ************************************************************
+
+           if let x_cordinate_string = history._latitude, let y_cordinate_string = history._longitude{
+            print("I have cordinates")
                      let x_cordinate = Double(x_cordinate_string)
                      let y_cordinate = Double(y_cordinate_string)
-            
+            print("X_Cordinate: \(x_cordinate)\nY_Cordinate: \(y_cordinate)")
                     // Ensure there are cordinates presents
             
                     if let x = x_cordinate, let y = y_cordinate{
                 
                                // Add Annotations
-                    
+                    print("creating pin")
                         swapPin = SwapsAnnotation()
-                        swapPin.coordinate = CLLocationCoordinate2D(latitude: x + rand, longitude: y + rand)
+                        swapPin.coordinate = CLLocationCoordinate2D(latitude: x , longitude: y )
                         swapPin.title = history._swapped ?? ""
                                         
                         mapView.addAnnotation(swapPin)
@@ -185,5 +207,7 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         return AnnotationView
         
     }
+    
+    
 }
 
