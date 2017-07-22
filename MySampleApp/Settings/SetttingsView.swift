@@ -106,7 +106,7 @@ class SettingsView: UITableViewController {
      
         
         //log out row pressed
-        if (indexPath.section == 1 && indexPath.row == 2){
+        if (indexPath.section == 1 && indexPath.row == 3){
             
             let alert = UIAlertController(title: "Are You Sure?", message: "Your swap points will reset and you will have to reconnect your social medias if you sign out", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))

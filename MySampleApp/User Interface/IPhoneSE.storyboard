@@ -1821,8 +1821,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cl-GC-IUc">
-                                                    <rect key="frame" x="12" y="8" width="113" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cl-GC-IUc">
+                                                    <rect key="frame" x="12" y="8" width="188" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                     <color key="textColor" red="0.108213141" green="0.108213141" blue="0.108213141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1834,13 +1834,37 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Dsp-4w-z4Y" kind="show" id="MOS-7a-LY8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="WTV-xH-eGQ">
+                                        <rect key="frame" x="0.0" y="407.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WTV-xH-eGQ" id="drh-Vg-jgW">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fev-fR-ZD2">
+                                                    <rect key="frame" x="12" y="8" width="113" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                    <color key="textColor" red="0.108213141" green="0.108213141" blue="0.108213141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlackCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="K3a-mF-hWJ">
+                                                    <rect key="frame" x="290" y="13" width="18" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="About" id="UUD-o6-sZI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="ooR-MC-XPj">
-                                        <rect key="frame" x="0.0" y="463.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="507.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ooR-MC-XPj" id="N4Q-IM-twy">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -2859,7 +2883,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2u-D2-qSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6600" y="1075.3521126760563"/>
+            <point key="canvasLocation" x="8496" y="1076"/>
         </scene>
         <!--Swapped-->
         <scene sceneID="OPd-A0-i2l">
@@ -4188,7 +4212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eli-ms-fSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8314" y="1075"/>
+            <point key="canvasLocation" x="7538" y="1076"/>
         </scene>
         <!--Set Phone Number View Controller-->
         <scene sceneID="dGE-Qn-WlD">
@@ -4317,7 +4341,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="7471.875" y="1074.2957746478874"/>
+            <point key="canvasLocation" x="6654" y="1262"/>
         </scene>
     </scenes>
     <resources>
@@ -4399,9 +4423,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="juv-56-8XR"/>
         <segue reference="wgl-fO-cmx"/>
-        <segue reference="n03-21-bHZ"/>
         <segue reference="pKe-Bn-k2m"/>
+        <segue reference="n03-21-bHZ"/>
+        <segue reference="juv-56-8XR"/>
     </inferredMetricsTieBreakers>
 </document>

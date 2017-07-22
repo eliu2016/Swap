@@ -4382,7 +4382,7 @@
                         <outlet property="picker" destination="Rm1-OU-G32" id="QA9-5p-e3s"/>
                         <outlet property="popUp" destination="gLh-wp-vJw" id="46j-7w-XVf"/>
                         <outlet property="popUpLabel" destination="TZH-7F-1k0" id="fdt-TW-d1R"/>
-                        <segue destination="bC3-JS-RBu" kind="show" identifier="toConfirmAccount" id="yf6-x9-Zhe">
+                        <segue destination="bC3-JS-RBu" kind="show" identifier="confirmNumber" id="yf6-x9-Zhe">
                             <nil key="action"/>
                         </segue>
                     </connections>
@@ -4506,9 +4506,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ra5-oL-XrE"/>
         <segue reference="YeA-4M-5uc"/>
-        <segue reference="0aw-Hp-LRn"/>
-        <segue reference="RQz-Ee-5ke"/>
         <segue reference="4US-lS-Pm4"/>
+        <segue reference="0aw-Hp-LRn"/>
     </inferredMetricsTieBreakers>
 </document>

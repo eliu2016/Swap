@@ -588,7 +588,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quw-RA-PRd">
-                                <rect key="frame" x="230" y="392" width="43" height="43"/>
+                                <rect key="frame" x="234" y="392" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="TwitterDisabled"/>
                                 <connections>
@@ -647,7 +647,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WL7-an-QFC">
-                                <rect key="frame" x="212" y="341" width="43" height="43"/>
+                                <rect key="frame" x="211" y="341" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="RedditDisabled"/>
                                 <connections>
@@ -655,7 +655,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bl1-v8-Jsw">
-                                <rect key="frame" x="184" y="392" width="43" height="43"/>
+                                <rect key="frame" x="186" y="392" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="GithubDisabled"/>
                                 <connections>
@@ -1448,6 +1448,10 @@
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dSC-ZM-t2n">
                                 <rect key="frame" x="327" y="687" width="87" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RoundWhiteTopper" translatesAutoresizingMaskIntoConstraints="NO" id="2sk-18-atG">
+                                <rect key="frame" x="-3" y="55" width="420" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
