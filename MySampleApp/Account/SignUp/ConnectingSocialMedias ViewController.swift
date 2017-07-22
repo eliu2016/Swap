@@ -22,14 +22,8 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     @IBOutlet weak var Vimeo: UIButton!
     @IBOutlet weak var Pinterest: UIButton!
     @IBOutlet weak var SoundCloud: UIButton!
-    @IBOutlet var dismissTutorial: UIButton!
     @IBOutlet var nextButton: UIButton!
     
-    @IBOutlet var connectSocialMediaTutorial: UIImageView!
-    @IBOutlet var carrot: UIImageView!
-    
-    
-    @IBOutlet var tapToConnect: UILabel!
     
     @IBAction func didTapConnectSocialMedia(_ sender: UIButton) {
         
@@ -425,16 +419,6 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         
     }
     
-    @IBAction func didDismissTutorial(_ sender: Any) {
-        
-        tapToConnect.isHidden = true
-        connectSocialMediaTutorial.isHidden = true
-        dismissTutorial.isHidden = true
-        nextButton.isHidden = false
-        carrot.isHidden = false
-        UserDefaults.standard.set(true, forKey: "ConnectSocialMediaTutorialShown")
-    }
-    
     
     @IBAction func didTapNext(_ sender: UIButton) {
         
@@ -537,18 +521,7 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         
         Vimeo.isSelected = vimeoIsConnected()
         
-        
-        if !UserDefaults.standard.bool(forKey: "ConnectSocialMediaTutorialShown")
-        {
-            carrot.isHidden = true
-            nextButton.isHidden = true
-        }
-        else{
-            connectSocialMediaTutorial.isHidden = true
-            dismissTutorial.isHidden = true
-            tapToConnect.isHidden = true
-            
-        }
+    
 
         // Do any additional setup after loading the view.
     }

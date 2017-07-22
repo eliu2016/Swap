@@ -1716,8 +1716,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SH-C6-DP1">
-                                                    <rect key="frame" x="12" y="8" width="113" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SH-C6-DP1">
+                                                    <rect key="frame" x="12" y="8" width="188" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                     <color key="textColor" red="0.108213141" green="0.108213141" blue="0.108213141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1729,13 +1729,37 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qRk-1w-5Pu" kind="show" id="d2f-eq-I2L"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="NGt-mB-W3q">
+                                        <rect key="frame" x="0.0" y="410.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NGt-mB-W3q" id="CId-jE-XMt">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-o1-atS">
+                                                    <rect key="frame" x="12" y="8" width="113" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                    <color key="textColor" red="0.108213141" green="0.108213141" blue="0.108213141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlackCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="BEh-Nq-Oy5">
+                                                    <rect key="frame" x="284" y="13" width="20" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="About" id="C9X-IR-PcI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Hu8-vk-CjI">
-                                        <rect key="frame" x="0.0" y="466.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="510.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hu8-vk-CjI" id="1n2-IV-Y8d">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -2336,7 +2360,9 @@
                                 <rect key="frame" x="117" y="53" width="86" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Change"/>
+                                <state key="normal" title="Change">
+                                    <color key="titleColor" red="0.0" green="0.8948940634727478" blue="0.94310551881790161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="changePicture:" destination="4zB-Vj-mgQ" eventType="touchUpInside" id="6Gw-aT-DcO"/>
                                 </connections>
@@ -2382,7 +2408,9 @@
                                 <rect key="frame" x="216" y="188" width="97" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="More Info..."/>
+                                <state key="normal" title="More Info...">
+                                    <color key="titleColor" red="0.0089585194364190102" green="0.89897489547729492" blue="0.93894320726394653" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="TXS-gQ-coJ" kind="show" id="cdh-8I-4PW">
                                         <nil key="action"/>
@@ -3961,10 +3989,10 @@
             </objects>
             <point key="canvasLocation" x="3560.625" y="4782.5"/>
         </scene>
-        <!--Confirm Account View Controller-->
+        <!--Confirm New Phone Number-->
         <scene sceneID="SOq-QU-RI0">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="FLv-fI-og4" customClass="ConfirmAccountViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="FLv-fI-og4" customClass="ConfirmNewPhoneNumber" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IhQ-mb-zkF"/>
                         <viewControllerLayoutGuide type="bottom" id="xzo-2N-fWP"/>
@@ -3986,25 +4014,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PdP-Sj-DzJ">
-                                <rect key="frame" x="220" y="227" width="78" height="38"/>
+                                <rect key="frame" x="121" y="221" width="78" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didConfirmCode:" destination="FLv-fI-og4" eventType="touchUpInside" id="V7X-To-F0Z"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCf-nS-MmV">
-                                <rect key="frame" x="20" y="227" width="78" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapBack:" destination="FLv-fI-og4" eventType="touchUpInside" id="qyo-B8-jWZ"/>
+                                    <action selector="didTapNext:" destination="FLv-fI-og4" eventType="touchUpInside" id="sgl-Hy-801"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QdI-6C-3jJ">
@@ -4014,7 +4031,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="enteredFirst:" destination="FLv-fI-og4" eventType="editingChanged" id="QHd-PG-bc2"/>
+                                    <action selector="enteredFirst:" destination="FLv-fI-og4" eventType="editingDidEnd" id="nAm-2C-Wxd"/>
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="NUl-4V-1qU">
@@ -4028,7 +4045,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="enteredSecond:" destination="FLv-fI-og4" eventType="editingChanged" id="Z0v-Em-Rjd"/>
+                                    <action selector="enteredSecond:" destination="FLv-fI-og4" eventType="editingDidEnd" id="qS3-W2-z3V"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7K-iL-2dQ">
@@ -4038,23 +4055,13 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="enteredThird:" destination="FLv-fI-og4" eventType="editingChanged" id="JrS-jL-YgN"/>
+                                    <action selector="enteredThird:" destination="FLv-fI-og4" eventType="editingDidEnd" id="aAQ-Qv-YwN"/>
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="0tB-T4-bsI">
                                 <rect key="frame" x="165" y="141" width="30" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1JV-sR-5lT">
-                                <rect key="frame" x="165" y="105" width="30" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="enteredFourth:" destination="FLv-fI-og4" eventType="editingChanged" id="k8j-ke-A2G"/>
-                                </connections>
-                            </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextfieldBottom" translatesAutoresizingMaskIntoConstraints="NO" id="gWt-pI-Swt">
                                 <rect key="frame" x="203" y="141" width="30" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4070,6 +4077,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
+                                    <action selector="enteredSixth:" destination="FLv-fI-og4" eventType="editingDidEnd" id="0E7-Kc-Bd2"/>
                                     <action selector="enteredSixth:" destination="FLv-fI-og4" eventType="editingChanged" id="VCR-CV-gIu"/>
                                 </connections>
                             </textField>
@@ -4088,7 +4096,7 @@
                                     <color key="titleColor" red="0.0045176092540000004" green="0.79236000780000004" blue="0.86089313030000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapResendConfirmationCode:" destination="FLv-fI-og4" eventType="touchUpInside" id="A5S-AK-Jd3"/>
+                                    <action selector="SendCodeAgain:" destination="FLv-fI-og4" eventType="touchUpInside" id="kqh-gM-UW6"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ph-bl-SwQ">
@@ -4098,39 +4106,54 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="enteredFifth:" destination="FLv-fI-og4" eventType="editingChanged" id="2te-cR-94B"/>
+                                    <action selector="enteredFifth:" destination="FLv-fI-og4" eventType="editingDidEnd" id="1vV-PV-14q"/>
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RightCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="WBZ-Yv-8ow">
-                                <rect key="frame" x="282" y="239" width="18" height="14"/>
+                                <rect key="frame" x="186" y="233" width="18" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LeftCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="bYD-ic-drC">
-                                <rect key="frame" x="20" y="239" width="18" height="14"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyj-hn-R33">
+                                <rect key="frame" x="115" y="255" width="90" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCancel:" destination="FLv-fI-og4" eventType="touchUpInside" id="0A3-vJ-fsO"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1JV-sR-5lT">
+                                <rect key="frame" x="165" y="105" width="30" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="enteredFourth:" destination="FLv-fI-og4" eventType="editingDidEnd" id="HlJ-aV-1UR"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="confirmButton" destination="PdP-Sj-DzJ" id="C8M-UF-Wfh"/>
-                        <outlet property="field1" destination="QdI-6C-3jJ" id="auy-it-vQP"/>
-                        <outlet property="field2" destination="TTv-9p-GP1" id="AfD-bM-SAX"/>
-                        <outlet property="field3" destination="a7K-iL-2dQ" id="KCq-wv-fTI"/>
-                        <outlet property="field4" destination="1JV-sR-5lT" id="NTd-PD-HWW"/>
-                        <outlet property="field5" destination="0ph-bl-SwQ" id="LaZ-4j-W7u"/>
-                        <outlet property="field6" destination="6Ds-AX-t5f" id="7dn-Ka-4Kp"/>
-                        <outlet property="resendButton" destination="4RT-t9-a6l" id="GLT-KI-yua"/>
+                        <outlet property="Textfield1" destination="QdI-6C-3jJ" id="UB3-u8-h9B"/>
+                        <outlet property="Textfield2" destination="TTv-9p-GP1" id="gxP-AX-Ms8"/>
+                        <outlet property="Textfield3" destination="a7K-iL-2dQ" id="MXF-D8-cUg"/>
+                        <outlet property="Textfield4" destination="1JV-sR-5lT" id="hSx-pf-9w0"/>
+                        <outlet property="Textfield5" destination="0ph-bl-SwQ" id="7pW-bB-v79"/>
+                        <outlet property="Textfield6" destination="6Ds-AX-t5f" id="lkY-8a-aop"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hpo-Zi-fjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8392.5" y="1075"/>
         </scene>
-        <!--Set Phone Number View Controller-->
+        <!--Set New Phone Number-->
         <scene sceneID="2pf-Co-86o">
             <objects>
-                <viewController id="qRk-1w-5Pu" customClass="setPhoneNumberViewController" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qRk-1w-5Pu" customClass="SetNewPhoneNumber" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eeG-6H-5Uh"/>
                         <viewControllerLayoutGuide type="bottom" id="Y2I-VR-CLJ"/>
@@ -4162,7 +4185,7 @@
                                     <color key="titleColor" red="0.94607223029999998" green="0.97949493860000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapBack:" destination="qRk-1w-5Pu" eventType="touchUpInside" id="ZGL-k5-fkI"/>
+                                    <action selector="didTapBack:" destination="qRk-1w-5Pu" eventType="touchUpInside" id="j1a-Pt-WI3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvv-KE-pyo">
@@ -4192,11 +4215,11 @@
                                     <color key="titleColor" red="0.0" green="0.58322652659999996" blue="0.63673857869999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didChangeCountryCode:" destination="qRk-1w-5Pu" eventType="touchUpInside" id="IZ7-qJ-1NH"/>
+                                    <action selector="didTapCountryCode:" destination="qRk-1w-5Pu" eventType="touchUpInside" id="60O-jI-XOG"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="CountryView" translatesAutoresizingMaskIntoConstraints="NO" id="SLj-Yj-xnz" customClass="CountryPicker" customModule="CountryPicker">
-                                <rect key="frame" x="0.0" y="459" width="320" height="218"/>
+                                <rect key="frame" x="0.0" y="325" width="320" height="168"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTx-qy-7xb" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
@@ -4210,10 +4233,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="countryCodeButton" destination="a7C-4H-hJv" id="VYY-DX-Xho"/>
-                        <outlet property="phoneNumberField" destination="mTx-qy-7xb" id="xn2-SL-d51"/>
-                        <outlet property="picker" destination="SLj-Yj-xnz" id="n40-pV-Xke"/>
-                        <segue destination="FLv-fI-og4" kind="show" identifier="toConfirmAccount" id="rZ7-gW-6Od">
+                        <outlet property="ConfirmationView" destination="mtR-Lf-M7Y" id="lBh-XU-9mD"/>
+                        <outlet property="CountryCodeButton" destination="a7C-4H-hJv" id="DZU-nu-1h6"/>
+                        <outlet property="CountryCodePicker" destination="SLj-Yj-xnz" id="TZp-pc-rlO"/>
+                        <outlet property="phoneNumberTextField" destination="mTx-qy-7xb" id="y5H-Og-AQa"/>
+                        <segue destination="FLv-fI-og4" kind="show" identifier="confirmNumber" id="rZ7-gW-6Od">
                             <nil key="action"/>
                         </segue>
                     </connections>
@@ -4247,7 +4271,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Cancel" image="transparentExitButton"/>
                             <connections>
-                                <action selector="didTapCancel:" destination="qRk-1w-5Pu" eventType="touchUpInside" id="n58-RJ-NUH"/>
+                                <action selector="didTapCloseConfirmation:" destination="qRk-1w-5Pu" eventType="touchUpInside" id="q8e-Gn-VT4"/>
                             </connections>
                         </button>
                     </subviews>
@@ -4335,9 +4359,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Q6e-FZ-K8h"/>
         <segue reference="gFe-SS-edX"/>
         <segue reference="ygW-ho-k8P"/>
-        <segue reference="Qkc-ry-SxN"/>
+        <segue reference="l5v-gg-AGl"/>
+        <segue reference="Q6e-FZ-K8h"/>
     </inferredMetricsTieBreakers>
 </document>

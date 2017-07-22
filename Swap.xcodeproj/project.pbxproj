@@ -72,6 +72,8 @@
 		752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1941E3B115000CE5289 /* SearchedUser.swift */; };
 		755CAD701E840F18008E94E3 /* SetUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */; };
 		755CAD721E856190008E94E3 /* ProfilePicturePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */; };
+		75879ED11F23CB66006D7214 /* SetNewPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75879ED01F23CB66006D7214 /* SetNewPhoneNumber.swift */; };
+		75879ED31F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75879ED21F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift */; };
 		75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */; };
 		75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */; };
 		75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 751572101DFBBD3800ED4697 /* Lantinghei.ttc */; };
@@ -245,6 +247,8 @@
 		752BE1941E3B115000CE5289 /* SearchedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUser.swift; sourceTree = "<group>"; };
 		755CAD6F1E840F18008E94E3 /* SetUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetUsernameViewController.swift; path = MySampleApp/Account/SignUp/SetUsernameViewController.swift; sourceTree = SOURCE_ROOT; };
 		755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePicturePageController.swift; path = MySampleApp/Account/SignUp/ProfilePicturePageController.swift; sourceTree = SOURCE_ROOT; };
+		75879ED01F23CB66006D7214 /* SetNewPhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNewPhoneNumber.swift; sourceTree = "<group>"; };
+		75879ED21F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmNewPhoneNumber.swift; sourceTree = "<group>"; };
 		75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhone7Plus.storyboard; sourceTree = "<group>"; };
 		75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneSE.storyboard; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -455,6 +459,8 @@
 				751C0B3F1E25C3B900FD515A /* EditProfile.swift */,
 				751FCB7D1E31DCF20099FDFE /* MoreInfo.swift */,
 				752111BB1E2B42F60054D975 /* PrivacyPolicyView.swift */,
+				75879ED01F23CB66006D7214 /* SetNewPhoneNumber.swift */,
+				75879ED21F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift */,
 			);
 			name = Settings;
 			path = ../MySampleApp/Settings;
@@ -856,6 +862,7 @@
 				751B91691E5400CA0039AFA4 /* TwitterView.swift in Sources */,
 				2EE1439B1E370947000EADB7 /* SwapUserHistory.swift in Sources */,
 				751B916C1E54A6470039AFA4 /* NotificationViewController.swift in Sources */,
+				75879ED11F23CB66006D7214 /* SetNewPhoneNumber.swift in Sources */,
 				2EFC3A391DFA2D6400D45E7E /* User Errors.swift in Sources */,
 				752A6BD81E20959500E6695B /* ProfileViewController.swift in Sources */,
 				2ECF28951DF90FE000FEC5D2 /* AuthorizationErrors.swift in Sources */,
@@ -872,6 +879,7 @@
 				2E61ACDD1E0DE42100ABCE52 /* Twitter.swift in Sources */,
 				2ECF288C1DF90DA900FEC5D2 /* SavingAppData.swift in Sources */,
 				751C0B421E25D0FC00FD515A /* TabBarControllerSwipeExtension.swift in Sources */,
+				75879ED31F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift in Sources */,
 				752111BC1E2B42F60054D975 /* PrivacyPolicyView.swift in Sources */,
 				E7A30F04FE92C36800000000 /* AWSAPI_0MZ6OXIFT5_ResponseSchema.m in Sources */,
 				752A6BD01E1F280700E6695B /* SignUpViewController.swift in Sources */,
