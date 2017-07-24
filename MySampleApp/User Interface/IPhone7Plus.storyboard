@@ -685,7 +685,6 @@
                         <outlet property="Twitter" destination="quw-RA-PRd" id="QCo-E6-PBl"/>
                         <outlet property="Vimeo" destination="Ctn-Y4-rLX" id="z1S-9V-ikR"/>
                         <outlet property="YouTube" destination="4q4-iS-gmp" id="cUY-Kx-8Ye"/>
-                        <outlet property="carrot" destination="8Wd-dk-e2z" id="PNs-Qa-uPh"/>
                         <outlet property="nextButton" destination="vrB-L1-ARi" id="GYT-Rc-VdR"/>
                         <segue destination="hQ0-Yw-eS3" kind="show" identifier="toSelectProfilePicture" id="M1R-ep-DgX">
                             <nil key="action"/>
@@ -1666,6 +1665,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xSP-2i-7lI" kind="show" id="oGF-Fx-Wpw"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="nwb-nt-6Ty">
                                         <rect key="frame" x="0.0" y="409" width="414" height="44"/>
@@ -4464,9 +4466,9 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xpo-tz-aOQ"/>
         <segue reference="8yU-bV-628"/>
         <segue reference="Qph-o2-Urf"/>
-        <segue reference="5Ua-6U-cKo"/>
+        <segue reference="761-49-hXl"/>
+        <segue reference="Xpo-tz-aOQ"/>
     </inferredMetricsTieBreakers>
 </document>

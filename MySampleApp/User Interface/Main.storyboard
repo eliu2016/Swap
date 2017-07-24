@@ -675,7 +675,6 @@
                         <outlet property="Twitter" destination="9dg-KV-W7N" id="VVA-Ug-PPD"/>
                         <outlet property="Vimeo" destination="qjm-cl-WAF" id="mPx-kX-sCT"/>
                         <outlet property="YouTube" destination="I1w-d1-MfC" id="igF-Vi-k3M"/>
-                        <outlet property="carrot" destination="mUB-tO-Owl" id="39C-0P-EfF"/>
                         <outlet property="nextButton" destination="2gF-K2-03g" id="YqR-ZJ-Z7Q"/>
                         <segue destination="vFv-cd-7jQ" kind="show" identifier="toSelectProfilePicture" id="0T6-4Y-aSm"/>
                     </connections>
@@ -1906,6 +1905,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Ltw-jx-Mzn" kind="show" id="tIF-f8-euN"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Ane-zA-llp">
                                         <rect key="frame" x="0.0" y="407.5" width="375" height="44"/>

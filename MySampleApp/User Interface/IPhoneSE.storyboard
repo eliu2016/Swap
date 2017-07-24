@@ -685,7 +685,6 @@
                         <outlet property="Twitter" destination="cVf-fs-OTG" id="equ-Cx-vQK"/>
                         <outlet property="Vimeo" destination="86o-Ab-FbZ" id="Zqv-Aq-czc"/>
                         <outlet property="YouTube" destination="0cl-Yf-QJp" id="lqn-hG-eb2"/>
-                        <outlet property="carrot" destination="8zg-ea-T86" id="gmT-AT-InR"/>
                         <outlet property="nextButton" destination="OGP-2h-bE8" id="F4d-YA-43g"/>
                         <segue destination="3ti-bb-rbD" kind="show" identifier="toSelectProfilePicture" id="deN-rH-rcI">
                             <nil key="action"/>
