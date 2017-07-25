@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your Swap History Map needs your location to display where you swapped</string>
 	<key>AWS</key>
 	<dict>
@@ -103,6 +103,8 @@
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>FacebookDisplayName</key>
+	<string>Swap</string>
 	<key>CFBundleDisplayName</key>
 	<string>Swap</string>
 	<key>CFBundleExecutable</key>
@@ -177,8 +179,6 @@
 	</dict>
 	<key>FacebookAppID</key>
 	<string>957571477682705</string>
-	<key>FacebookDisplayName</key>
-	<string>Swap</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
