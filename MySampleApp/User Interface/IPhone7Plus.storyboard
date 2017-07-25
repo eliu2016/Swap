@@ -1993,7 +1993,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpotifyDark" translatesAutoresizingMaskIntoConstraints="NO" id="0Ka-Ni-aWZ">
-                                <rect key="frame" x="105" y="320" width="24" height="24"/>
+                                <rect key="frame" x="104" y="320" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ContactDark" translatesAutoresizingMaskIntoConstraints="NO" id="cNO-as-C1M">
@@ -2001,19 +2001,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="InstagramDark" translatesAutoresizingMaskIntoConstraints="NO" id="hjt-Ag-8Uy">
-                                <rect key="frame" x="132" y="320" width="24" height="24"/>
+                                <rect key="frame" x="131" y="320" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PinterestDark" translatesAutoresizingMaskIntoConstraints="NO" id="1pM-od-h6p">
-                                <rect key="frame" x="158" y="320" width="24" height="24"/>
+                                <rect key="frame" x="157" y="320" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cif-Oj-P65">
-                                <rect key="frame" x="184" y="320" width="24" height="24"/>
+                                <rect key="frame" x="183" y="320" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="YoutubeDark" translatesAutoresizingMaskIntoConstraints="NO" id="9Md-02-sRN">
-                                <rect key="frame" x="309" y="320" width="24" height="24"/>
+                                <rect key="frame" x="313" y="320" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwitterDark" translatesAutoresizingMaskIntoConstraints="NO" id="jgB-zZ-Oa4">
@@ -2021,11 +2021,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RedditDark" translatesAutoresizingMaskIntoConstraints="NO" id="BWZ-2H-Uto">
-                                <rect key="frame" x="234" y="320" width="24" height="24"/>
+                                <rect key="frame" x="235" y="320" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GithubDark" translatesAutoresizingMaskIntoConstraints="NO" id="Tsi-Bf-CGu">
-                                <rect key="frame" x="285" y="320" width="24" height="24"/>
+                                <rect key="frame" x="287" y="320" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itc-iZ-4AT">
@@ -2046,7 +2046,7 @@
                                 <color key="color" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VimeoDark" translatesAutoresizingMaskIntoConstraints="NO" id="iIb-2n-XxJ">
-                                <rect key="frame" x="260" y="320" width="24" height="24"/>
+                                <rect key="frame" x="261" y="320" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBr-Fb-ZnN">
@@ -4467,8 +4467,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8yU-bV-628"/>
+        <segue reference="jIR-tF-ust"/>
         <segue reference="Qph-o2-Urf"/>
-        <segue reference="761-49-hXl"/>
         <segue reference="Xpo-tz-aOQ"/>
     </inferredMetricsTieBreakers>
 </document>
