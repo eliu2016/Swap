@@ -102,6 +102,7 @@ class SwapUser {
      - Parameter WillShareSoundCloud: Whether or not the usre will share SoundCloud. `Bool`
      - Parameter WillShareGitHub: Whether or not the usre will share GitHub. `Bool`
      - Parameter WillShareVimeo: Whether or not the usre will share Vimeo. `Bool`
+     - Parameter ShouldChangePhoneNumberAssociation: By default this is true. If this is true, a verification code will be sent to the phone number and it will change the phone number associated in Amazon Cognito. Otherwise, the phone number will only be changed in the database which is used for 'swapping'. If this is false, the phone number already verified in the account won't be changed. Otherwise, it will change the phone number used to verify the account for resetting passwords.   `Bool`
      
      
      
@@ -147,6 +148,7 @@ class SwapUser {
               WillShareSoundCloud: Bool? = nil,
               WillShareGitHub: Bool? = nil,
               WillShareVimeo: Bool? = nil,
+              ShouldChangePhoneNumberAssociation: Bool = true,
               DidSetInformation: @escaping () -> Void? = { return nil },
               CannotSetInformation: @escaping () -> Void? =  { return }) {
         
@@ -242,14 +244,17 @@ class SwapUser {
         
         if let number = Phonenumber{
             
-            // Sets Phonen umber in Amazon Cognito
+            // Sets Phone number in Amazon Cognito
             
-            
-            let n = AWSCognitoIdentityUserAttributeType()
-            n?.name = "phone_number"
-            n?.value = number
-            
-            pool.getUser(self.username).update([n!])
+            if ShouldChangePhoneNumberAssociation{
+                
+                let n = AWSCognitoIdentityUserAttributeType()
+                n?.name = "phone_number"
+                n?.value = number
+                
+                pool.getUser(self.username).update([n!])
+            }
+         
             
         }
         

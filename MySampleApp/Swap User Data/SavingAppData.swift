@@ -240,7 +240,7 @@ func savePhonenumber(phone: String?) {
     UserDefaults.standard.synchronize()
 }
 
-/// Get the saved email from User Defaults
+/// Get the saved phone number from User Defaults
 func getSavedPhonenumber() -> String? {
     return  UserDefaults.standard.object(forKey: "phonenumber") as? String
 }
