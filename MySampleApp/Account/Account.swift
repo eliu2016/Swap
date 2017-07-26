@@ -208,21 +208,24 @@ func confirmUser(inPool: AWSCognitoIdentityUserPool? = pool,  withCode: String?,
     // Confirms User Account
     inPool?.getUser(username.lowercased()).confirmSignUp(withCode!, forceAliasCreation: true).continue(with: AWSExecutor.mainThread(), with: { (task) -> Any? in
         
-        
-        if task.error != nil {
+        DispatchQueue.main.async {
             
-            // There was an error
-            // Possibly Wrong Code
-            
-            failed()
-            
-        } else {
-            
-            // Correct Code
-            succeded()
+            if task.error != nil {
+                
+                // There was an error
+                // Possibly Wrong Code
+                
+                failed()
+                
+            } else {
+                
+                // Correct Code
+                succeded()
+            }
         }
         
-        return nil
+        
+    
     })
     
     
