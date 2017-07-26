@@ -299,9 +299,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 // Updates UI
                 self.nameLabel.text = "\(firstname) \(lastname)"
                 self.bioTextField.text = "\(bio)"
-                self.pointsNumberLabel.text = "\(points)"
-                self.swapsNumberLabel.text = "\(swaps ?? 0)"
-                self.swappedNumberLabel.text = "\(swapped ?? 0)"
+                self.pointsNumberLabel.text = "\(abbreviateNumber(num: points ?? 0 ))"
+                self.swapsNumberLabel.text = "\(abbreviateNumber(num: swaps ?? 0))"
+                self.swappedNumberLabel.text = "\(abbreviateNumber(num: swapped ?? 0 ))"
                 
                
                 self.Spotify.isSelected = willShareSpotify
@@ -893,3 +893,24 @@ let blueSwapCodeURL = "https://dashboard.unitag.io/qreator/generate?setting=%7B%
 /// The Paid version of the Swap Code URL Image via API
 let version2SwapCodeURL = "https://unitag-qr-code-generation.p.mashape.com/api?setting=%7B%22LAYOUT%22%3A%7B%22COLORBG%22%3A%22ffffff%22%2C%22COLOR1%22%3A%2203E4F3%22%7D%2C%22EYES%22%3A%7B%22EYE_TYPE%22%3A%22Grid%22%7D%2C%22BODY_TYPE%22%3A5%2C%22E%22%3A%22H%22%2C%22LOGO%22%3A%7B%22L_NAME%22%3A%22https%3A%2F%2Fstatic-unitag.com%2Ffile%2Ffreeqr%2Fe70b5ccd3ca5554615433abeae699420.png%22%2C%22EXCAVATE%22%3Atrue%7D%7D&data=%7B%22TYPE%22%3A%22text%22%2C%22DATA%22%3A%7B%22TEXT%22%3A%22http://getswap.me/\(getUsernameOfSignedInUser())%22%2C%22URL%22%3A%22%22%7D%7D"
 
+func abbreviateNumber(num: NSNumber) -> String {
+    // less than 1000, no abbreviation
+    
+    let num = num as Int
+   
+    if num < 1000 {
+        return "\(num)"
+    }
+    
+    // less than 1 million, abbreviate to thousands
+    if num < 1000000 {
+        var n = Double(num);
+        n = Double( floor(n/100)/10 )
+        return "\(n.description)k"
+    }
+    
+    // more than 1 million, abbreviate to millions
+    var n = Double(num)
+    n = Double( floor(n/100000)/10 )
+    return "\(n.description)m"
+}
