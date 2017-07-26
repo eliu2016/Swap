@@ -70,9 +70,12 @@ class ConfirmNewPhoneNumber: UIViewController, UITextFieldDelegate {
                                 delegate: nil,
                                 cancelButtonTitle: "Ok").show()
                     
-                    // ** User presses cancel 
-                    // *** clear out the entered numbers so the user can reenter the numbers
-                    
+                    self.Textfield1.text = ""
+                    self.Textfield2.text = ""
+                    self.Textfield3.text = ""
+                    self.Textfield4.text = ""
+                    self.Textfield5.text = ""
+                    self.Textfield6.text = ""
                     
                 } else {
                     
@@ -84,7 +87,7 @@ class ConfirmNewPhoneNumber: UIViewController, UITextFieldDelegate {
                                 delegate: nil,
                                 cancelButtonTitle: "Ok").show()
                     
-                    //*** Go back to settings or profile
+                    self.performSegue(withIdentifier: "confirmNumberDone", sender: nil)
                     
                 }
             }
@@ -99,7 +102,7 @@ class ConfirmNewPhoneNumber: UIViewController, UITextFieldDelegate {
     
     @IBAction func didTapCancel(_ sender: Any) {
         
-        // *** Go back 
+        self.performSegue(withIdentifier: "confirmNumberDone", sender: nil)
     }
  
     

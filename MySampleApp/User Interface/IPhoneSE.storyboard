@@ -4287,9 +4287,18 @@
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="CountryView" translatesAutoresizingMaskIntoConstraints="NO" id="GTi-zu-MYH" customClass="CountryPicker" customModule="CountryPicker">
-                                <rect key="frame" x="1" y="369" width="320" height="218"/>
+                                <rect key="frame" x="0.0" y="369" width="320" height="218"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARV-Uc-xlh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="567"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="7KU-G1-I1o">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="567"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -4297,6 +4306,8 @@
                         <outlet property="ConfirmationView" destination="BVa-UR-22N" id="xch-Cc-1dA"/>
                         <outlet property="CountryCodeButton" destination="Kkq-rZ-xej" id="T0t-5t-BVj"/>
                         <outlet property="CountryCodePicker" destination="GTi-zu-MYH" id="Cgn-Ab-ema"/>
+                        <outlet property="blurView" destination="ARV-Uc-xlh" id="4R4-aQ-hAz"/>
+                        <outlet property="confirmationLabel" destination="IU7-nE-Hsu" id="NbH-Wx-osg"/>
                         <outlet property="phoneNumberTextField" destination="T5b-jc-HBH" id="e3u-aL-8kW"/>
                         <segue destination="r5D-aD-hlH" kind="show" identifier="confirmNumber" id="bqg-8w-jQt">
                             <nil key="action"/>

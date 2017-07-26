@@ -4288,6 +4288,7 @@
                         <outlet property="Textfield4" destination="iIQ-zp-Asp" id="gMs-nn-6xE"/>
                         <outlet property="Textfield5" destination="dFr-QT-QNy" id="ayI-Rg-ebY"/>
                         <outlet property="Textfield6" destination="pkG-Cx-0To" id="GTw-KP-YKx"/>
+                        <segue destination="aQI-gv-sSM" kind="presentation" identifier="confirmNumberDone" id="JZw-rm-TtU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZ5-P9-xtA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4373,6 +4374,15 @@
                                 <rect key="frame" x="0.0" y="459" width="375" height="218"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73x-34-zeb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="qNg-hn-1eK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -4380,6 +4390,8 @@
                         <outlet property="ConfirmationView" destination="j4b-oI-n90" id="EgC-49-OuT"/>
                         <outlet property="CountryCodeButton" destination="jSZ-oF-xUe" id="GA4-1o-5cJ"/>
                         <outlet property="CountryCodePicker" destination="Rm1-OU-G32" id="aOy-E9-eIz"/>
+                        <outlet property="blurView" destination="73x-34-zeb" id="vYz-FG-QNP"/>
+                        <outlet property="confirmationLabel" destination="mkV-df-Vtu" id="Ikt-0f-HQZ"/>
                         <outlet property="phoneNumberTextField" destination="bvu-82-HY1" id="TyR-B6-KA4"/>
                         <segue destination="bC3-JS-RBu" kind="show" identifier="confirmNumber" id="yf6-x9-Zhe">
                             <nil key="action"/>
@@ -4422,7 +4434,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="7473" y="1075"/>
+            <point key="canvasLocation" x="7472.8000000000002" y="1074.5127436281859"/>
         </scene>
     </scenes>
     <resources>
@@ -4505,9 +4517,9 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ra5-oL-XrE"/>
         <segue reference="YeA-4M-5uc"/>
-        <segue reference="7cT-Je-Nm9"/>
+        <segue reference="ra5-oL-XrE"/>
+        <segue reference="JZw-rm-TtU"/>
         <segue reference="0aw-Hp-LRn"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -4217,10 +4217,6 @@
                                     <action selector="didTapCountryCode:" destination="qRk-1w-5Pu" eventType="touchUpInside" id="60O-jI-XOG"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="CountryView" translatesAutoresizingMaskIntoConstraints="NO" id="SLj-Yj-xnz" customClass="CountryPicker" customModule="CountryPicker">
-                                <rect key="frame" x="0.0" y="325" width="320" height="168"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTx-qy-7xb" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
                                 <rect key="frame" x="95" y="130" width="176" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4228,6 +4224,19 @@
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="CountryView" translatesAutoresizingMaskIntoConstraints="NO" id="SLj-Yj-xnz" customClass="CountryPicker" customModule="CountryPicker">
+                                <rect key="frame" x="0.0" y="325" width="320" height="168"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d45-2g-UNX">
+                                <rect key="frame" x="-1" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="PWd-ru-VQ7">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -4235,6 +4244,8 @@
                         <outlet property="ConfirmationView" destination="mtR-Lf-M7Y" id="lBh-XU-9mD"/>
                         <outlet property="CountryCodeButton" destination="a7C-4H-hJv" id="DZU-nu-1h6"/>
                         <outlet property="CountryCodePicker" destination="SLj-Yj-xnz" id="TZp-pc-rlO"/>
+                        <outlet property="blurView" destination="d45-2g-UNX" id="9GH-bU-64n"/>
+                        <outlet property="confirmationLabel" destination="Xfc-XY-srn" id="pmA-nt-pbf"/>
                         <outlet property="phoneNumberTextField" destination="mTx-qy-7xb" id="y5H-Og-AQa"/>
                         <segue destination="FLv-fI-og4" kind="show" identifier="confirmNumber" id="rZ7-gW-6Od">
                             <nil key="action"/>

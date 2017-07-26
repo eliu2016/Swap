@@ -15,6 +15,8 @@ class SetNewPhoneNumber: UIViewController, UITextFieldDelegate, CountryPickerDel
     @IBOutlet var CountryCodeButton: UIButton!
     @IBOutlet var ConfirmationView: UIView!
     @IBOutlet var CountryCodePicker: CountryPicker!
+    @IBOutlet var blurView: UIVisualEffectView!
+    @IBOutlet var confirmationLabel: UILabel!
     
     var phoneNumber: String!
     var PhoneCode: String!
@@ -34,6 +36,7 @@ class SetNewPhoneNumber: UIViewController, UITextFieldDelegate, CountryPickerDel
         CountryCodePicker.showPhoneNumbers = true
         CountryCodePicker.setCountry(code!)
 
+        blurView.isHidden = true
         
     }
     
@@ -60,7 +63,7 @@ class SetNewPhoneNumber: UIViewController, UITextFieldDelegate, CountryPickerDel
         
         savePhonenumber(phone: "+\(phoneNumber.digits)")
         
-        let alert = UIAlertController(title: "Change phone number associated with this Swap account?", message: "Your new phone number must be verified in order to reset your password. However, if you would like to keep using the phone number we already have verified in your account, press no. If you press no, we will still use this new number whenever you swap contacts with another user; however, you will not be able to use this number to reset your password.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Change phone number associated with this Swap account?", message:"You have successfully changed the number used to swap contacts. Is this a new number you will be able to recieve text messages at?", preferredStyle: .alert)
         
         
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action) in
@@ -94,13 +97,12 @@ class SetNewPhoneNumber: UIViewController, UITextFieldDelegate, CountryPickerDel
                             CGAffineTransform.init(scaleX: 1.3, y: 1.3)
                         self.ConfirmationView.alpha = 0
                         // Set the confirmation view text here
-                //**********   THis is what the text on the pop up view should say
-                      ///  self.ConfirmationView.text = "Send Confirmation Code to \(phoneNumber ?? "")?"
+                      self.confirmationLabel.text = "Send Confirmation Code to \(self.phoneNumber ?? "")?"
                         
                         UIView.animate(withDuration: 0.4){
                             
-                          //  self.blurView.isHidden = false
-                         //   self.blurView.alpha = 0.5
+                           self.blurView.isHidden = false
+                            self.blurView.alpha = 0.5
                             self.ConfirmationView.alpha = 1
                             self.ConfirmationView.transform = CGAffineTransform.identity
                         }
@@ -159,7 +161,7 @@ class SetNewPhoneNumber: UIViewController, UITextFieldDelegate, CountryPickerDel
             
             self.ConfirmationView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.ConfirmationView.alpha = 0
-          //  self.blurView.isHidden = true
+            self.blurView.isHidden = true
             
         }
     }
