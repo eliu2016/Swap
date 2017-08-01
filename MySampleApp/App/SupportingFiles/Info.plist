@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your Swap History Map needs your location to display where you swapped</string>
 	<key>AWS</key>
 	<dict>
 		<key>Cognito</key>
@@ -103,8 +101,6 @@
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>FacebookDisplayName</key>
-	<string>Swap</string>
 	<key>CFBundleDisplayName</key>
 	<string>Swap</string>
 	<key>CFBundleExecutable</key>
@@ -118,7 +114,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.1</string>
+	<string>2.1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -179,6 +175,8 @@
 	</dict>
 	<key>FacebookAppID</key>
 	<string>957571477682705</string>
+	<key>FacebookDisplayName</key>
+	<string>Swap</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -239,6 +237,8 @@
 	<string>Allow access to scan Swap Codes</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Swap needs access to your contacts in order to Swap contacts</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your Swap History Map needs your location to display where you swapped</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow access to upload pictures and Swap Codes</string>
 	<key>UIBackgroundModes</key>

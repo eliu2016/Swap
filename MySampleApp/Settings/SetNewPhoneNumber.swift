@@ -73,8 +73,7 @@ class SetNewPhoneNumber: UIViewController, UITextFieldDelegate, CountryPickerDel
             
             SwapUser().set(Phonenumber:  "+\(self.phoneNumber.digits)", ShouldChangePhoneNumberAssociation: false, DidSetInformation: { _ in
                 
-                     // ********Go back to Settings or back to profile
-                
+                self.dismiss(animated: true, completion: nil)
                 return nil
             })
        

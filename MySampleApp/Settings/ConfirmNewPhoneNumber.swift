@@ -17,28 +17,44 @@ class ConfirmNewPhoneNumber: UIViewController, UITextFieldDelegate {
     @IBOutlet var Textfield5: UITextField!
     @IBOutlet var Textfield6: UITextField!
     
+    override func viewDidLoad() {
+        Textfield1.delegate = self
+        Textfield2.delegate = self
+        Textfield3.delegate = self
+        Textfield4.delegate = self
+        Textfield5.delegate = self
+        Textfield6.delegate = self
+    }
     
     @IBAction func enteredFirst(_ sender: Any) {
-        
+
         Textfield2.becomeFirstResponder()
     }
     @IBAction func enteredSecond(_ sender: Any) {
+   
         Textfield3.becomeFirstResponder()
     }
     @IBAction func enteredThird(_ sender: Any) {
+       
         Textfield4.becomeFirstResponder()
     }
     @IBAction func enteredFourth(_ sender: Any) {
+       
         Textfield5.becomeFirstResponder()
     }
     @IBAction func enteredFifth(_ sender: Any) {
+        
         Textfield6.becomeFirstResponder()
     }
     @IBAction func enteredSixth(_ sender: Any) {
-        self.resignFirstResponder()
+        
+        view.endEditing(true)
     }
     
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        textField.text = ""
+    }
     
     
     @IBAction func SendCodeAgain(_ sender: Any) {
@@ -87,8 +103,7 @@ class ConfirmNewPhoneNumber: UIViewController, UITextFieldDelegate {
                                 delegate: nil,
                                 cancelButtonTitle: "Ok").show()
                     
-                    self.performSegue(withIdentifier: "confirmNumberDone", sender: nil)
-                    
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
           
@@ -102,7 +117,7 @@ class ConfirmNewPhoneNumber: UIViewController, UITextFieldDelegate {
     
     @IBAction func didTapCancel(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "confirmNumberDone", sender: nil)
+        self.dismiss(animated: true, completion: nil)
     }
  
     
