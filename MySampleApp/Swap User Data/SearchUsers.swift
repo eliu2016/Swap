@@ -67,6 +67,7 @@ func searchUsers(withUsername: String, completion: @escaping (_ error: Error?, _
     getUsersRequest?.attributesToGet = ["profile", "picture"]
     getUsersRequest?.limit = 10
     
+    
     idManager.listUsers(getUsersRequest!, completionHandler: { (response, error) in
         
         if error != nil{
