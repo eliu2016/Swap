@@ -17,6 +17,7 @@ class SetNewPhoneNumber: UIViewController, UITextFieldDelegate, CountryPickerDel
     @IBOutlet var CountryCodePicker: CountryPicker!
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var confirmationLabel: UILabel!
+    @IBOutlet var SendSMSButton: UIButton!
     
     var phoneNumber: String!
     var PhoneCode: String!
@@ -134,6 +135,7 @@ class SetNewPhoneNumber: UIViewController, UITextFieldDelegate, CountryPickerDel
     
     @IBAction func didTapSendSMS(_ sender: Any) {
         
+        SendSMSButton.isEnabled = false
         
         SwapUser().set(Phonenumber: "+\(self.phoneNumber.digits)", DidSetInformation: {  _ in
             
@@ -155,6 +157,8 @@ class SetNewPhoneNumber: UIViewController, UITextFieldDelegate, CountryPickerDel
     
     
     @IBAction func didTapCloseConfirmation(_ sender: Any) {
+        
+        SendSMSButton.isEnabled = true
         
         UIView.animate(withDuration: 0.2){
             

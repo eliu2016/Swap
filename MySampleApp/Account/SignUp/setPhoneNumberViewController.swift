@@ -14,16 +14,13 @@ import CountryPicker
 class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
     
     @IBOutlet var phoneNumberField: PhoneNumberTextField!
-    
     @IBOutlet var picker: CountryPicker!
- 
     @IBOutlet var countryCodeButton: UIButton!
-    
     @IBOutlet var blurView: UIVisualEffectView!
     var effect: UIVisualEffect!
-    
     @IBOutlet var popUp: UIView!
     @IBOutlet var popUpLabel: UILabel!
+    @IBOutlet var sendSMSButton: UIButton!
     
     var phoneNumber: String!
     var PhoneCode: String!
@@ -88,7 +85,7 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
     }
     @IBAction func didTapSendSMS(_ sender: Any) {
         
-        
+        sendSMSButton.isEnabled = false
         
         // Create an account 
         createAccount(username: getUsernameOfSignedInUser(), password: getPassword(), email: getSavedEmail(), phonenumber: getPhoneNumber(), failedToCreateAccount: { signUpError in
@@ -162,6 +159,8 @@ class setPhoneNumberViewController: UIViewController, CountryPickerDelegate {
                     
                     
                 }
+                
+                self.sendSMSButton.isEnabled = true
                 
             }
             

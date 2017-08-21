@@ -208,6 +208,15 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        print("DID TAP PIN")
+        
+        if let annotation = view.annotation as? SwapsAnnotation{
+            print(annotation.title)
+        }
+    }
+    
     
 }
 

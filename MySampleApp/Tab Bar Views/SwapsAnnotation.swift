@@ -12,6 +12,5 @@ import MapKit
 class SwapsAnnotation: MKPointAnnotation {
     
     var pinImage: UIImage?
-   
-}
 
+}

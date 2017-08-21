@@ -12,8 +12,7 @@ var acceptedRequests: [SwapRequest] = []
 
 class NotificationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
-    
-   
+
     
     var blankTableMessage: UILabel?
     
