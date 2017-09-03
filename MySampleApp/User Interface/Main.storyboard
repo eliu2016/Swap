@@ -1533,7 +1533,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8B-Zc-sPQ" id="vJP-W2-0j6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="klT-q3-j3A">
@@ -1586,7 +1586,7 @@
                                         <rect key="frame" x="0.0" y="103" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NcM-JA-rWs" id="bMv-dn-ZIo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z95-kS-ADc">
@@ -1680,6 +1680,28 @@
                                 <rect key="frame" x="-1" y="5" width="378" height="618"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <visualEffectView opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DXR-0x-u7D">
+                                <rect key="frame" x="0.0" y="0.0" width="377" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="lrh-Iz-BZE">
+                                    <rect key="frame" x="0.0" y="0.0" width="377" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBs-pa-KVk">
+                                            <rect key="frame" x="0.0" y="0.0" width="377" height="667"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="5Wp-39-76J">
+                                                <rect key="frame" x="0.0" y="0.0" width="377" height="667"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1687,23 +1709,111 @@
                         <inset key="imageInsets" minX="2" minY="6" maxX="-2" maxY="-6"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="bioLabel" destination="5Pa-wu-uWe" id="5pK-PZ-AEz"/>
+                        <outlet property="blurView" destination="DXR-0x-u7D" id="8XN-d0-kbu"/>
+                        <outlet property="locationLabel" destination="zxF-Vj-jLS" id="nEn-tE-Hkh"/>
                         <outlet property="mapView" destination="riP-oj-9FN" id="17x-hn-Vyk"/>
+                        <outlet property="moreInfoView" destination="gOd-Pk-LQf" id="7dT-1E-wpv"/>
+                        <outlet property="nameLabel" destination="7Oe-nS-b9i" id="hDZ-CR-ype"/>
+                        <outlet property="profilePicture" destination="P5i-GU-ppv" id="Efe-3p-ue2"/>
+                        <outlet property="swappedMedia1" destination="tDr-zd-eDt" id="Tvm-FS-MF6"/>
+                        <outlet property="swappedMedia2" destination="a7o-nQ-6VO" id="A2U-ko-LXN"/>
+                        <outlet property="swappedMedia3" destination="s9G-aD-Ug1" id="blP-Tm-efh"/>
+                        <outlet property="swappedMedia4" destination="dTO-Wq-VPr" id="JLX-Hd-LsJ"/>
+                        <outlet property="swappedMedia5" destination="rFj-p3-fYw" id="JLn-SD-Jd6"/>
+                        <outlet property="swappedMedia6" destination="3VV-x3-9CO" id="72s-um-Idr"/>
+                        <outlet property="swappedMedia7" destination="qz8-f1-HXF" id="emS-ns-pvo"/>
+                        <outlet property="swappedMedia8" destination="3M0-dF-Z70" id="ZNe-Je-QVl"/>
+                        <outlet property="swappedMedia9" destination="83z-Un-zM5" id="2MQ-OK-KG9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gly-2j-5ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="gOd-Pk-LQf">
-                    <rect key="frame" x="0.0" y="0.0" width="114" height="90"/>
+                    <rect key="frame" x="0.0" y="0.0" width="382" height="346"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rmp-mK-luW">
-                            <rect key="frame" x="22" y="0.0" width="68" height="90"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ConfirmSwapBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Rmp-mK-luW">
+                            <rect key="frame" x="35" y="9" width="314" height="317"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="P5i-GU-ppv">
+                            <rect key="frame" x="157" y="56" width="70" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Oe-nS-b9i">
+                            <rect key="frame" x="103" y="142" width="176" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pa-wu-uWe">
+                            <rect key="frame" x="61" y="167" width="260" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhU-7D-jGu">
+                            <rect key="frame" x="104" y="239" width="176" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-eD-yyf">
+                            <rect key="frame" x="144" y="164" width="96" height="0.5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-zd-eDt">
+                            <rect key="frame" x="187" y="270" width="16" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9G-aD-Ug1">
+                            <rect key="frame" x="208" y="270" width="16" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFj-p3-fYw">
+                            <rect key="frame" x="226" y="270" width="16" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qz8-f1-HXF">
+                            <rect key="frame" x="245" y="270" width="16" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83z-Un-zM5">
+                            <rect key="frame" x="265" y="270" width="16" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7o-nQ-6VO">
+                            <rect key="frame" x="166" y="270" width="16" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dTO-Wq-VPr">
+                            <rect key="frame" x="146" y="270" width="16" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3VV-x3-9CO">
+                            <rect key="frame" x="124" y="270" width="19" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3M0-dF-Z70">
+                            <rect key="frame" x="103" y="270" width="19" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxF-Vj-jLS">
+                            <rect key="frame" x="104" y="196" width="176" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="0.78315784415526535" blue="0.40636968142865038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="908" y="4362"/>
+            <point key="canvasLocation" x="905" y="4459"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ntb-DM-Aug">
@@ -1789,10 +1899,10 @@
                             <tableViewSection headerTitle="Profile" id="rxo-oo-6tB">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="E3Y-53-Dtt">
-                                        <rect key="frame" x="0.0" y="123.5" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="124" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E3Y-53-Dtt" id="CRM-kT-NLh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qax-Dl-w3Y">
@@ -1813,10 +1923,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="417-43-sKx">
-                                        <rect key="frame" x="0.0" y="171.5" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="172" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="417-43-sKx" id="8NJ-Mx-5Jj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swap Code Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAA-OS-I4j">
@@ -1838,10 +1948,10 @@
                             <tableViewSection headerTitle="Account" id="ahD-gW-dZE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KFN-fN-grE">
-                                        <rect key="frame" x="0.0" y="275.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="276" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KFN-fN-grE" id="WHc-jk-Y3j">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connect Social Medias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nO-Hd-5VH">
@@ -1862,10 +1972,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Buk-lG-bmP">
-                                        <rect key="frame" x="0.0" y="319.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="320" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Buk-lG-bmP" id="XsQ-cp-x3O">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Private Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DZ-hN-HYh">
@@ -1887,10 +1997,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="1Hn-00-nVp">
-                                        <rect key="frame" x="0.0" y="363.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="364" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Hn-00-nVp" id="kwS-eq-RoD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlackCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="pT7-Jr-Lmw">
@@ -1911,10 +2021,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Ane-zA-llp">
-                                        <rect key="frame" x="0.0" y="407.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="408" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ane-zA-llp" id="W5X-n3-T3R">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qr-WD-Mku">
@@ -1936,10 +2046,10 @@
                             <tableViewSection headerTitle="About" id="fgs-E0-PAY">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Xuw-bi-gkA">
-                                        <rect key="frame" x="0.0" y="507.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="508" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xuw-bi-gkA" id="KO1-SY-7DF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wO0-Lg-Qtz">
@@ -2441,7 +2551,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="471"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8MD-ND-A4S" id="oGb-ZE-BiE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="470.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="471"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nj3-pK-tNg">
@@ -2519,7 +2629,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="319"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WYO-cx-XxY" id="eoS-jm-ZYU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="318.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDt-hc-ILk">
@@ -2612,7 +2722,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X87-lq-JcR" id="rjf-pM-BPR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="86.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlackCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="yhe-Ci-bj5">
@@ -2859,7 +2969,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oi2-MB-RjC" id="oVU-Z3-qhb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00h-sc-InV">
@@ -2876,7 +2986,7 @@
                                         <rect key="frame" x="0.0" y="86" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oyV-40-mSr" id="CNt-ZV-Jsx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="snL-Y0-2cT">
@@ -2893,7 +3003,7 @@
                                         <rect key="frame" x="0.0" y="144" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fdc-73-rCQ" id="5sL-W8-9p8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ay8-el-QIs">
@@ -2914,7 +3024,7 @@
                                         <rect key="frame" x="0.0" y="230" width="375" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VPO-Ww-ahB" id="eoG-zr-Ged">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="42.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthday" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ild-KS-NKI">
@@ -3015,7 +3125,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ppw-zO-qJR" id="vgW-Ib-fbr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Middle Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EWY-r7-bD9">
@@ -3032,7 +3142,7 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mW6-k3-A7F" id="6a3-Wv-N9E">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zlc-6Z-cDR">
@@ -3049,7 +3159,7 @@
                                         <rect key="frame" x="0.0" y="148" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yi3-kw-kRI" id="IJU-p5-BZP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dcm-Af-CTc">
@@ -3158,7 +3268,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TQW-To-kEu" id="VwV-ee-IGW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="86.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlackCarrot" translatesAutoresizingMaskIntoConstraints="NO" id="1rV-Sk-o3Q">
@@ -4519,10 +4629,10 @@
         <image name="transparentExitButton" width="130" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YeA-4M-5uc"/>
-        <segue reference="RQz-Ee-5ke"/>
         <segue reference="Njh-cg-K6I"/>
         <segue reference="HYr-7U-ieP"/>
-        <segue reference="hOk-qE-IeD"/>
+        <segue reference="RQz-Ee-5ke"/>
+        <segue reference="YeA-4M-5uc"/>
+        <segue reference="7cT-Je-Nm9"/>
     </inferredMetricsTieBreakers>
 </document>

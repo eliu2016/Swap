@@ -20,12 +20,14 @@ import Fabric
 import Answers
 import TwitterKit
 import Crashlytics
+import FacebookCore
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UIScrollViewDelegate {
     
     var window: UIWindow?
+    
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -35,11 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         var storyboard: UIStoryboard = grabStoryboard()
         
-        Fabric.with([Crashlytics.self(), Twitter.self(), Answers.self()])
+        Fabric.with([Crashlytics.self(), Answers.self()])
         Fabric.sharedSDK().debug = true
         
         // Override point for customization after application launch.
         AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
+
+        
         
         //enable keyboard manager
         IQKeyboardManager.sharedManager().enable = true

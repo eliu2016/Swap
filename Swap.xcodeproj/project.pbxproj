@@ -76,7 +76,6 @@
 		75879ED31F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75879ED21F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift */; };
 		75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */; };
 		75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */; };
-		75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 751572101DFBBD3800ED4697 /* Lantinghei.ttc */; };
 		75C1EA101E021086005CB420 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C1EA0F1E021086005CB420 /* Images.xcassets */; };
 		75E434311EB66FFA00917D47 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E434301EB66FFA00917D47 /* TutorialViewController.swift */; };
 		E7A30F0406C9610900000000 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E292635028900000000 /* AWSMobileClient.swift */; };
@@ -211,7 +210,6 @@
 		2EFC3A311DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConnectingSocialMedias ViewController.swift"; sourceTree = "<group>"; };
 		2EFC3A381DFA2D6400D45E7E /* User Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User Errors.swift"; sourceTree = "<group>"; };
 		7514499D1E9723CE0041C49C /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scanner.swift; path = MySampleApp/App/Utility/Scanner.swift; sourceTree = SOURCE_ROOT; };
-		751572101DFBBD3800ED4697 /* Lantinghei.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lantinghei.ttc; sourceTree = "<group>"; };
 		751A54681EF9A121007EF94D /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		751B91681E5400CA0039AFA4 /* TwitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterView.swift; path = "MySampleApp/Preview Views/TwitterView.swift"; sourceTree = SOURCE_ROOT; };
 		751B916B1E54A6470039AFA4 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -439,7 +437,6 @@
 		7515720E1DFBBD0300ED4697 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				751572101DFBBD3800ED4697 /* Lantinghei.ttc */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -743,7 +740,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75C1EA0C1DFCBA18005CB420 /* Lantinghei.ttc in Resources */,
 				75C1EA101E021086005CB420 /* Images.xcassets in Resources */,
 				75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */,
 				751B91881E68E09F0039AFA4 /* IPad.storyboard in Resources */,
@@ -796,7 +792,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A8CA2F61B36757F2B92B9794 /* [CP] Copy Pods Resources */ = {

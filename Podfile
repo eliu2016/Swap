@@ -24,6 +24,8 @@ pod 'TwitterKit'
 pod 'Crashlytics'
 pod 'CountryPickerSwift'
 pod 'PhoneNumberKit', '~> 1.2'
+pod 'FacebookCore'
+pod 'FacebookLogin'
 
 
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'

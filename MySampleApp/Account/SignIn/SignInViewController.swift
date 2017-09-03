@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import FacebookLogin
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
 
@@ -26,6 +27,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     /// This variable should be located in whatever view controller is used to sign in
     var passwordAuthenticationCompletion: AWSTaskCompletionSource<AnyObject>?
+    
+    
+    let FBLoginButton = LoginButton(readPermissions: [ .publicProfile, .email ])
     
     @IBAction func didTapSignIn(_ sender: UIButton) {
       
@@ -71,6 +75,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
 
         // Do any additional setup after loading the view.
+        
+        FBLoginButton.center = CGPoint(x: view.center.x, y: view.center.y + 200)
+        FBLoginButton.frame.size = CGSize(width: 250, height: 40)
+        
+        view.addSubview(FBLoginButton)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

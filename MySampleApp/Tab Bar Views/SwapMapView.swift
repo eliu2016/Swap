@@ -11,14 +11,39 @@ import MapKit
 
 class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var moreInfoView: UIView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var bioLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var profilePicture: UIImageView!
+    @IBOutlet var blurView: UIVisualEffectView!
+    
+    @IBOutlet var swappedMedia1: UIImageView!
+    @IBOutlet var swappedMedia2: UIImageView!
+    @IBOutlet var swappedMedia3: UIImageView!
+    @IBOutlet var swappedMedia4: UIImageView!
+    @IBOutlet var swappedMedia5: UIImageView!
+    @IBOutlet var swappedMedia6: UIImageView!
+    @IBOutlet var swappedMedia7: UIImageView!
+    @IBOutlet var swappedMedia8: UIImageView!
+    @IBOutlet var swappedMedia9: UIImageView!
+    
+    var sharedSocialMedias: [UIImage] = []
+    
     var swapPin: SwapsAnnotation!
     var locationManager = CLLocationManager()
     var NewYorkCity = CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0059)//defaults to New York City
     
     override func viewDidLoad() {
         
+        blurView.isHidden = true
+        circularImageNoBorder(photoImageView: profilePicture)
+        
         // Listens for reloadProfile notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadMap), name: .reloadMap, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pinSelected), name: .showPinInfo, object: nil)
+
     
         mapView.delegate = self
         
@@ -39,16 +64,10 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     ///This  will remove all pins on the map and reload the pins based on the Swap History that is already cached locally. It will NOT pull new swap history via API, only use what is already stored locally.
     func reloadMap()  {
         
-        
         //Remove all added annotations
         mapView.removeAnnotations(mapView.annotations)
         
        addPins()
-        
-
-            
-        
-        
         
     }
     
@@ -112,20 +131,19 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView!.canShowCallout = true
+            annotationView = SwapsAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             
             print("ANNOTATION TITILE: \(annotation.title!!)")
             
             let swapPinView = self.createAnnotationView(from: (annotation.title ?? "")!)
             annotationView! = swapPinView
+            annotationView!.canShowCallout = false
             
         }
         else {
             annotationView?.annotation = annotation
         }
-        
-       
+
         
         return annotationView
     }
@@ -133,11 +151,12 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     /// Creates an annotation view from a username
     func createAnnotationView(from username: String) -> MKAnnotationView{
         
-        var AnnotationView = MKAnnotationView()
+        var AnnotationView = SwapsAnnotationView()
         
         var pinImageView = UIImageView(image: #imageLiteral(resourceName: "SwapAnnotationIcon"))
         var profilePicImageView = UIImageView()
         
+        AnnotationView.title = username
         
         
         profilePicImageView.kf.indicatorType = .activity
@@ -194,13 +213,13 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         }
         
         if (self.storyboard?.value(forKey: "name") as! String == "IPhone7Plus"){
-             profilePicImageView.frame = CGRect(x: profilePicImageView.center.x + 15, y: profilePicImageView.center.y - 32, width: profilePicImageView.frame.width - 41, height: profilePicImageView.frame.height - 41)
+             profilePicImageView.frame = CGRect(x: profilePicImageView.center.x + 15, y: profilePicImageView.center.y + 16, width: profilePicImageView.frame.width - 41, height: profilePicImageView.frame.height - 41)
             
         }
         else{
-                profilePicImageView.frame = CGRect(x: profilePicImageView.center.x + 22, y: profilePicImageView.center.y - 25, width: profilePicImageView.frame.width - 44, height: profilePicImageView.frame.height - 44)
+                profilePicImageView.frame = CGRect(x: profilePicImageView.center.x + 22, y: profilePicImageView.center.y + 20, width: profilePicImageView.frame.width - 44, height: profilePicImageView.frame.height - 44)
         }
-        pinImageView.frame = CGRect(x: pinImageView.center.x - 62, y: pinImageView.center.y - 115, width: pinImageView.frame.width, height: pinImageView.frame.height)
+        pinImageView.frame = CGRect(x: pinImageView.center.x - 62, y: pinImageView.center.y - 70, width: pinImageView.frame.width, height: pinImageView.frame.height)
         AnnotationView.addSubview(pinImageView)
         AnnotationView.addSubview(profilePicImageView)
         
@@ -208,14 +227,83 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    
+    func pinSelected() {
         
-        print("DID TAP PIN")
+        let dismissTap = UITapGestureRecognizer(target: self, action: #selector(self.dismissMorePinInfo))
+        blurView.isHidden = false
+        blurView.addGestureRecognizer(dismissTap)
         
-        if let annotation = view.annotation as? SwapsAnnotation{
-            print(annotation.title)
+        moreInfoView.frame = CGRect(x: view.center.x - moreInfoView.frame.width/2, y: view.center.y - moreInfoView.frame.height/2, width: moreInfoView.frame.width, height: moreInfoView.frame.height)
+        moreInfoView.backgroundColor = .clear
+        view.addSubview(moreInfoView)
+        
+        for annotation in mapView.selectedAnnotations{
+            
+            
+            
+           SwapUser(username: annotation.title!!).getInformation(completion: { (error, user) in
+            
+            if error == nil{
+                
+                DispatchQueue.main.async {
+                
+                    self.nameLabel.text = "\(user?._firstname ?? "") \(user?._lastname ?? "")"
+                    self.profilePicture.kf.setImage(with: URL(string: (user?._profilePictureUrl)!))
+                    self.bioLabel.text = user?._bio ?? ""
+                    
+                    var metAt = ""
+                    let geoCoder = CLGeocoder()
+                    let location = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+                    geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+                        
+                        // Place details
+                        var placeMark: CLPlacemark!
+                        placeMark = placemarks?[0]
+                        
+                        // Address dictionary
+                        print(placeMark.addressDictionary as Any)
+                        
+                        
+                        // Location name
+                        if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
+                            
+                            metAt.append(locationName as String)
+                            
+                        }
+                        // City
+                        if let city = placeMark.addressDictionary!["City"] as? NSString {
+                            
+                            metAt.append(", \(city)")
+                        }
+                        
+                        self.locationLabel.text = metAt
+                       
+                    })
+                    
+                    
+            
+                }
+            }
+            
+            })
         }
     }
+    
+            
+            
+    func dismissMorePinInfo(){
+        moreInfoView.removeFromSuperview()
+        blurView.isHidden = true
+        
+        profilePicture.image = #imageLiteral(resourceName: "DefaultProfileImage")
+        nameLabel.text = "Loading..."
+        bioLabel.text = ""
+        locationLabel.text = ""
+        
+    }
+   
+   
     
     
 }

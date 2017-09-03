@@ -64,6 +64,8 @@ extension Notification.Name {
     
     
     static let reloadMap = Notification.Name("reloadMap")
+    static let showPinInfo = Notification.Name("showPinInfo")
+    static let dismissPinInfo = Notification.Name("dismissPinInfo")
     
     //page control notifications
     static let updatePageControl = Notification.Name("updatePageControl")

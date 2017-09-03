@@ -19,13 +19,14 @@ func authorizeTwitter(onViewController: UIViewController,  completion: @escaping
     
     logoutTwitter()
     
-    Twitter.sharedInstance().logIn(withMethods: .all, completion: {  (session, error) in
+    
+    Twitter.sharedInstance().logIn(completion: {  (session, error) in
         
       
         guard error == nil else{
             
             completion(AuthorizationError.Unknown)
-            
+        
             return
         }
         

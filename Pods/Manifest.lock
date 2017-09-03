@@ -1,33 +1,48 @@
 PODS:
-  - Alamofire (4.4.0)
-  - Answers (1.3.4):
+  - Alamofire (4.5.0)
+  - Answers (1.3.5):
     - Fabric (~> 1.6.3)
-  - Branch (0.14.12):
-    - Branch/Core (= 0.14.12)
-    - Branch/without-IDFA (= 0.14.12)
-  - Branch/Core (0.14.12)
-  - Branch/without-IDFA (0.14.12)
-  - CountryPickerSwift (1.4.2)
-  - Crashlytics (3.8.4):
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - Branch (0.17.9):
+    - Branch/Core (= 0.17.9)
+  - Branch/Core (0.17.9)
+  - CountryPickerSwift (1.4.4)
+  - Crashlytics (3.8.5):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.11)
-  - IQKeyboardManagerSwift (4.0.9)
-  - Kingfisher (3.6.2)
-  - OneSignal (2.5.2)
+  - Fabric (1.6.12)
+  - FacebookCore (0.2.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.15)
+  - FacebookLogin (0.2.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.2)
+    - FBSDKCoreKit (~> 4.15)
+    - FBSDKLoginKit (~> 4.15)
+  - FBSDKCoreKit (4.25.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.25.0):
+    - FBSDKCoreKit
+  - IQKeyboardManagerSwift (4.0.13)
+  - Kingfisher (3.11.0)
+  - OneSignal (2.5.4)
   - p2.OAuth2 (3.0.3)
-  - PhoneNumberKit (1.2.3):
-    - PhoneNumberKit/PhoneNumberKitCore (= 1.2.3)
-    - PhoneNumberKit/UIKit (= 1.2.3)
-  - PhoneNumberKit/PhoneNumberKitCore (1.2.3)
-  - PhoneNumberKit/UIKit (1.2.3):
+  - PhoneNumberKit (1.3.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 1.3.0)
+    - PhoneNumberKit/UIKit (= 1.3.0)
+  - PhoneNumberKit/PhoneNumberKitCore (1.3.0)
+  - PhoneNumberKit/UIKit (1.3.0):
     - PhoneNumberKit/PhoneNumberKitCore
   - Spring (1.0.3)
   - Swifter (2.0.2)
   - SwiftyJSON (3.1.4)
-  - TwitterCore (2.8.0):
-    - Fabric
-  - TwitterKit (2.8.1):
-    - TwitterCore (>= 2.8)
+  - TwitterCore (3.0.0)
+  - TwitterKit (3.1.0):
+    - TwitterCore (>= 3.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -36,6 +51,8 @@ DEPENDENCIES:
   - CountryPickerSwift
   - Crashlytics
   - Fabric
+  - FacebookCore
+  - FacebookLogin
   - IQKeyboardManagerSwift
   - Kingfisher
   - OneSignal
@@ -58,27 +75,32 @@ CHECKOUT OPTIONS:
     :commit: 8201b5c93bd7ebdf4cd18160bcde1e6e88c2be64
     :git: https://github.com/MengTo/Spring.git
   Swifter:
-    :commit: 6d15237f58a1c4d65d8686978dfb9e0132e625b5
+    :commit: e62cbdaa37dc81beb5df8fce47676c19b614c301
     :git: https://github.com/mattdonnelly/Swifter.git
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Answers: 6a4d22973d8550808630a55f526055c9eb6d39a2
-  Branch: f63d9cf82ac09747349a73184a0b739d28781c4d
-  CountryPickerSwift: 3a6a3904bfada4871b9c4ac034d83d45fc7ed3c4
-  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
-  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
-  Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
-  OneSignal: 66d08b6b1e3c3858cbf28207ed20f1fa865ab2a2
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Answers: 567cbf43974855481b648db06692a3530de6b16e
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Branch: 38100c961f1838d0b0dbd7377839d530374762ff
+  CountryPickerSwift: e31e67f2b95eb1fa6ad230e9eb0b49b020526d99
+  Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
+  Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
+  FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
+  FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
+  FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
+  FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
+  IQKeyboardManagerSwift: fb399c4cddcd8d9bbcd2d0c7c81ed290b61c088e
+  Kingfisher: c8911a7672c6217dec8c0520fb6e76ec4b7e0780
+  OneSignal: da994bcf6a2efbdceaf71e389e1d05245c562899
   p2.OAuth2: 63d8d3e366ac2c43bfe8bfa13b42cfeb908c314e
-  PhoneNumberKit: 1e5cca669113fc361a8c82ec1ee559c62b8cd0f7
+  PhoneNumberKit: 08aaf1968ea41a114327e9223cbb0391d76ae145
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   Swifter: ec243114356f2e4c654a1957b770c6e925d2ea75
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
-  TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
+  TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
+  TwitterKit: 21d0b22d67cb9a568cd8053972d0da7df2e0e9a0
 
-PODFILE CHECKSUM: a205d35d1b3f7e85a7c8872ebf94e51a535a9a67
+PODFILE CHECKSUM: 57e24b4802670ac4a50ffd78c051614099e969c7
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.2.1

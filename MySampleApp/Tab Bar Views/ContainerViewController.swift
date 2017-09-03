@@ -224,7 +224,8 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
     
     func animateRefresh(){
         
-        let color1 = UIColor(red: 58/255.0, green: 1/255.0, blue: 65/255.0, alpha: 1.0)
+       
+        /*let color1 = UIColor(red: 58/255.0, green: 1/255.0, blue: 65/255.0, alpha: 1.0)
         let color2 = UIColor(red: 125/255.0, green: 1/255.0, blue: 65/255.0, alpha: 1.0)
         let color3 = UIColor(red: 125/255.0, green: 130/255.0, blue: 65/255.0, alpha: 1.0)
         let color4 = UIColor(red: 125/255.0, green: 130/255.0, blue: 137/255.0, alpha: 1.0)
@@ -256,7 +257,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
                   self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Header1"))
             }
         
-        }
+        }*/
         
     }
     

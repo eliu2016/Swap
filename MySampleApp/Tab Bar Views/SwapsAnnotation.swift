@@ -12,5 +12,26 @@ import MapKit
 class SwapsAnnotation: MKPointAnnotation {
     
     var pinImage: UIImage?
+    
 
+}
+class SwapsAnnotationView: MKAnnotationView {
+    
+    var title: String?
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+
+        super.setSelected(false, animated: animated)
+        
+        if (selected){
+            print("PIN SELECTED: \(title!)")
+            
+            let swapMap = SwapMapView()
+            
+            NotificationCenter.default.post(name: .showPinInfo, object: nil)
+            
+        }
+        
+    }
+    
 }
