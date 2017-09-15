@@ -120,35 +120,18 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>swap.co</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb957571477682705</string>
+				<string>twitterkit-vFuhhTMwYAZFEKJTOvLR0TbTU</string>
+				<string>fb267178360446420</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
-			<key>CFBundleURLIconFile</key>
-			<string></string>
-			<key>CFBundleURLName</key>
-			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>swap</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>google</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.659462811328-pmh87rmc7b1jqr6dv0ahi1s75sga6vkc</string>
+				<string>com.googleusercontent.apps.727584155719-j6d8on9k9h2vcb6ctggofg7ggp7reuhm</string>
 			</array>
 		</dict>
 	</array>
@@ -174,7 +157,7 @@
 		</array>
 	</dict>
 	<key>FacebookAppID</key>
-	<string>957571477682705</string>
+	<string>267178360446420</string>
 	<key>FacebookDisplayName</key>
 	<string>Swap</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -276,25 +259,5 @@
 	</dict>
 	<key>kOSSettingsKeyAutoPrompt</key>
 	<false/>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb267178360446420</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>267178360446420</string>
-    <key>FacebookDisplayName</key>
-    <string>Swap</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
 </dict>
 </plist>

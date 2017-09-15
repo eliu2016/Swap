@@ -737,6 +737,7 @@ func authorizeYouTube(onViewController: UIViewController, completion: @escaping 
         var youtubeReq = youtube_oauth2.request(forURL: URL(string: "https://www.googleapis.com/youtube/v3/channels?part=id&mine=true")!)
         try! youtubeReq.sign(with: youtube_oauth2)
         let loader = OAuth2DataLoader(oauth2: youtube_oauth2)
+            
         loader.perform(request: youtubeReq, callback: { (response) in
             
             do{
