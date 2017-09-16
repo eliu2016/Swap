@@ -60,6 +60,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         toogleSocialMedia(sender: sender)
         
     }
+    @IBAction func didTapShareButton(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "showSwapLink", sender: nil)
+        }
+    }
     
     @IBAction func didTapProfilePic(_ sender: Any) {
         
