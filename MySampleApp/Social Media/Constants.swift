@@ -171,8 +171,8 @@ let pinterest_oauth2 = OAuth2CodeGrantNoTokenType(settings: [
 
 // ==================================== YouTube Authoriation Info ==================================
 
-let GOOGLE_CLIENT_ID = "659462811328-pmh87rmc7b1jqr6dv0ahi1s75sga6vkc.apps.googleusercontent.com"
-let googleURLScheme = "com.googleusercontent.apps.659462811328-pmh87rmc7b1jqr6dv0ahi1s75sga6vkc:/oauth"
+let GOOGLE_CLIENT_ID = "727584155719-j6d8on9k9h2vcb6ctggofg7ggp7reuhm.apps.googleusercontent.com"
+let googleURLScheme = "com.googleusercontent.apps.727584155719-j6d8on9k9h2vcb6ctggofg7ggp7reuhm:/oauth"
 
 var youtube_oauth2 = OAuth2CodeGrant(settings: [
     "client_id": GOOGLE_CLIENT_ID,

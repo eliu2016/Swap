@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.5.0)
-  - Answers (1.3.5):
+  - Alamofire (4.5.1)
+  - Answers (1.3.6):
     - Fabric (~> 1.6.3)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
@@ -8,13 +8,13 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Branch (0.17.9):
-    - Branch/Core (= 0.17.9)
-  - Branch/Core (0.17.9)
+  - Branch (0.18.8):
+    - Branch/Core (= 0.18.8)
+  - Branch/Core (0.18.8)
   - CountryPickerSwift (1.4.4)
-  - Crashlytics (3.8.5):
+  - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.12)
+  - Fabric (1.6.13)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -23,12 +23,12 @@ PODS:
     - FacebookCore (~> 0.2)
     - FBSDKCoreKit (~> 4.15)
     - FBSDKLoginKit (~> 4.15)
-  - FBSDKCoreKit (4.25.0):
+  - FBSDKCoreKit (4.26.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.25.0):
+  - FBSDKLoginKit (4.26.0):
     - FBSDKCoreKit
   - IQKeyboardManagerSwift (4.0.13)
-  - Kingfisher (3.11.0)
+  - Kingfisher (4.0.1)
   - OneSignal (2.5.4)
   - p2.OAuth2 (3.0.3)
   - PhoneNumberKit (1.3.0):
@@ -40,9 +40,9 @@ PODS:
   - Spring (1.0.3)
   - Swifter (2.0.2)
   - SwiftyJSON (3.1.4)
-  - TwitterCore (3.0.0)
-  - TwitterKit (3.1.0):
-    - TwitterCore (>= 3.0.0)
+  - TwitterCore (3.0.1)
+  - TwitterKit (3.1.1):
+    - TwitterCore (>= 3.0.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -79,28 +79,28 @@ CHECKOUT OPTIONS:
     :git: https://github.com/mattdonnelly/Swifter.git
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  Answers: 567cbf43974855481b648db06692a3530de6b16e
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Answers: ef6af16bc75366334db6323a87f37ea54e2dab71
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Branch: 38100c961f1838d0b0dbd7377839d530374762ff
+  Branch: c8181636136a8ac2477f42ec8b811f50aa359c8c
   CountryPickerSwift: e31e67f2b95eb1fa6ad230e9eb0b49b020526d99
-  Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
-  Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
+  Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
+  Fabric: 2fb5676bc811af011a04513451f463dac6803206
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
-  FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
-  FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
+  FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
+  FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
   IQKeyboardManagerSwift: fb399c4cddcd8d9bbcd2d0c7c81ed290b61c088e
-  Kingfisher: c8911a7672c6217dec8c0520fb6e76ec4b7e0780
+  Kingfisher: b771785e9461ed4b8686d40e7145f9e58100cb24
   OneSignal: da994bcf6a2efbdceaf71e389e1d05245c562899
   p2.OAuth2: 63d8d3e366ac2c43bfe8bfa13b42cfeb908c314e
   PhoneNumberKit: 08aaf1968ea41a114327e9223cbb0391d76ae145
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   Swifter: ec243114356f2e4c654a1957b770c6e925d2ea75
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
-  TwitterKit: 21d0b22d67cb9a568cd8053972d0da7df2e0e9a0
+  TwitterCore: 6856288a1c25e5281363250681f33b42fce1da42
+  TwitterKit: 313bf02baee8427f7649b3640169178e5a8b5a99
 
 PODFILE CHECKSUM: 57e24b4802670ac4a50ffd78c051614099e969c7
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.2.0.rc.1
