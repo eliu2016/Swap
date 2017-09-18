@@ -11,7 +11,7 @@ PODS:
   - Branch (0.18.8):
     - Branch/Core (= 0.18.8)
   - Branch/Core (0.18.8)
-  - CountryPickerSwift (1.4.4)
+  - CountryPickerSwift (1.4.5)
   - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.13)
@@ -83,7 +83,7 @@ SPEC CHECKSUMS:
   Answers: ef6af16bc75366334db6323a87f37ea54e2dab71
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Branch: c8181636136a8ac2477f42ec8b811f50aa359c8c
-  CountryPickerSwift: e31e67f2b95eb1fa6ad230e9eb0b49b020526d99
+  CountryPickerSwift: be2cf0dc41887d8b16ea65ae263a70adb0cc953a
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
@@ -101,6 +101,6 @@ SPEC CHECKSUMS:
   TwitterCore: 6856288a1c25e5281363250681f33b42fce1da42
   TwitterKit: 313bf02baee8427f7649b3640169178e5a8b5a99
 
-PODFILE CHECKSUM: 57e24b4802670ac4a50ffd78c051614099e969c7
+PODFILE CHECKSUM: 5a44dde0d61331dd0f978600729ab0a4b0739d99
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.2.1

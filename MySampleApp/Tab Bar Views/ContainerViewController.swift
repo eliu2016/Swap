@@ -144,6 +144,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         if scrollView.contentOffset.y != scrollViewOffset{
            
             //show camera
+            NotificationCenter.default.post(name: .didShowScanner, object: nil)
             scanner.startScan()
             scrollView.setContentOffset(CGPoint(x: 0, y: self.view.frame.height), animated: true)
             
@@ -176,6 +177,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         if (self.lastContentOffset < scrollView.contentOffset.y) {
             
            // print("On scanner")
+           NotificationCenter.default.post(name: .didShowScanner, object: nil)
            scanner.startScan()
             
         } else if (self.lastContentOffset > scrollView.contentOffset.y) {

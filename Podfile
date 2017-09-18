@@ -26,13 +26,8 @@ pod 'CountryPickerSwift'
 pod 'PhoneNumberKit', '~> 1.2'
 pod 'FacebookCore'
 pod 'FacebookLogin'
-
-
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 pod 'Swifter', :git => 'https://github.com/mattdonnelly/Swifter.git'
-
-
-
 post_install do |installer|
 installer.pods_project.targets.each do |target|
 target.build_configurations.each do |config|
@@ -43,5 +38,4 @@ File.open(xcconfig_path, "w") { |file| file << new_xcconfig }
 end
 end
 end
-
 end

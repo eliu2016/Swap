@@ -46,30 +46,20 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.delegate = self
         
         setupViewController()
-      
+        
         handleCaseOfDisabledCamera()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.scannerDidShow), name: .didShowScanner, object: nil)
+    }
+    
+    func scannerDidShow(){
         
         setupSwapScanner()
         
-        
-        // Ask for Authorisation from the User. ** Ask for Location Always
-    //    self.locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy =  kCLLocationAccuracyBest//kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
-        
-
     }
     @IBAction func showProfile(_ sender: Any) {
         
         self.performSegue(withIdentifier: "showProfile", sender: nil)
-        
         
     }
     
@@ -176,9 +166,27 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             let username = getUsernameFromSwapLink(swapLink: swapLink)
             
+    
+            
             SwapUser().swap(with: username, authorizeOnViewController: self, completion: { (error, user) in
                 
                 DispatchQueue.main.async {
+                    
+                    // Ask for location Authorization from the User.
+                    
+                    //** Ask for Location Always
+                    //    self.locationManager.requestAlwaysAuthorization()
+                    
+                    // For use in foreground
+                    self.locationManager.requestWhenInUseAuthorization()
+                    
+                    if CLLocationManager.locationServicesEnabled() {
+                        self.locationManager.delegate = self
+                        self.locationManager.desiredAccuracy =  kCLLocationAccuracyBest//kCLLocationAccuracyNearestTenMeters
+                        self.locationManager.startUpdatingLocation()
+                    }
+                    
+                    
                     
                     self.nameLabel.isHidden = false
                     self.bioLabel.isHidden = false
@@ -200,6 +208,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
                     
                     if let user = user {
                         
+                    
                         searchedUser = user._username!
                         
                         if user._isPrivate?.boolValue ?? false{

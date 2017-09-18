@@ -59,6 +59,7 @@ extension Notification.Name {
     static let reloadSwaps = Notification.Name("reloadSwaps")
     static let reloadSwapped = Notification.Name("reloadSwapped")
     static let disableReloading = Notification.Name("disableReloading")
+    static let didShowScanner = Notification.Name("didShowScanner")
     static let changeSwapCodeToBlue = Notification.Name("changeSwapCodeToBlue")
     static let changeSwapCodeToDark = Notification.Name("changeSwapCodeToDark")
     
