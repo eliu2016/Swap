@@ -1532,33 +1532,12 @@
                                             </segue>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="cu1-bj-5cT">
-                                        <rect key="frame" x="0.0" y="171" width="414" height="48"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cu1-bj-5cT" id="gEu-bb-U8v">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swap Code Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb5-by-F00">
-                                                    <rect key="frame" x="9" y="14" width="203" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                                    <color key="textColor" red="0.1007211538" green="0.1007211538" blue="0.1007211538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SwapCodeColor1" translatesAutoresizingMaskIntoConstraints="NO" id="eVV-va-F8K">
-                                                    <rect key="frame" x="340" y="9" width="51" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Account" id="wdk-iu-zNg">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="K1g-NY-BTt">
-                                        <rect key="frame" x="0.0" y="275" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="227" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K1g-NY-BTt" id="y31-WB-A7D">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1584,7 +1563,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="733-HW-gDu">
-                                        <rect key="frame" x="0.0" y="319" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="271" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="733-HW-gDu" id="GQD-SJ-aGk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1609,7 +1588,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="8NO-RY-EnX">
-                                        <rect key="frame" x="0.0" y="363" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="315" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8NO-RY-EnX" id="65a-IR-S7Q">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1633,7 +1612,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="nwb-nt-6Ty">
-                                        <rect key="frame" x="0.0" y="407" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="359" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nwb-nt-6Ty" id="1Pr-PM-VpE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1658,7 +1637,7 @@
                             <tableViewSection headerTitle="About" id="HHO-oP-X4X">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="ueQ-re-PJX">
-                                        <rect key="frame" x="0.0" y="507" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="459" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ueQ-re-PJX" id="aWB-7L-POS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -1699,7 +1678,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="SwapCodeColorIndicator" destination="eVV-va-F8K" id="9OP-TV-5dC"/>
                         <outlet property="privateAccountSwitch" destination="LfD-pZ-vGo" id="itD-zD-uNB"/>
                         <segue destination="KWW-K5-YrP" kind="presentation" identifier="signOut" id="oFe-4K-wqZ"/>
                     </connections>
@@ -3586,7 +3564,7 @@
                                     <segue destination="zSl-8F-ZaF" kind="embed" id="umE-3o-SFz"/>
                                 </connections>
                             </containerView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="11" translatesAutoresizingMaskIntoConstraints="NO" id="a4C-Ur-znO">
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="10" translatesAutoresizingMaskIntoConstraints="NO" id="a4C-Ur-znO">
                                 <rect key="frame" x="188" y="669" width="39" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3804,33 +3782,9 @@
             <point key="canvasLocation" x="11651" y="2580"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="lZL-dp-VUJ">
-            <objects>
-                <viewController storyboardIdentifier="tpage9" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X75-76-k49" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1gc-Nl-SD6"/>
-                        <viewControllerLayoutGuide type="bottom" id="8lT-Na-p3W"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hIh-h3-93U">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TutorialPage9" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-xs-Shl">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1SQ-78-hbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="12482.608695652174" y="2580.9782608695655"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="Uiy-Kd-JGM">
             <objects>
-                <viewController storyboardIdentifier="tpage10" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8cS-ND-nfV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tpage9" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8cS-ND-nfV" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OSz-FC-xS2"/>
                         <viewControllerLayoutGuide type="bottom" id="dCH-jx-skS"/>
@@ -3849,12 +3803,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kw1-tj-0G3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13260.869565217392" y="2577.717391304348"/>
+            <point key="canvasLocation" x="12512" y="2580"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="usb-ym-FbB">
             <objects>
-                <viewController storyboardIdentifier="tpage11" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dmP-Ax-h9s" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tpage10" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dmP-Ax-h9s" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Doo-iw-Px1"/>
                         <viewControllerLayoutGuide type="bottom" id="6qK-qk-6j4"/>
@@ -3880,7 +3834,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3r-Qk-Fb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14010.144927536234" y="2575.271739130435"/>
+            <point key="canvasLocation" x="13368" y="2580"/>
         </scene>
         <!--Instagram View-->
         <scene sceneID="PsB-p4-Hg4">
@@ -4561,7 +4515,6 @@
         <image name="SpotifyBlackIcon" width="42" height="42"/>
         <image name="SpotifyDark" width="37" height="37"/>
         <image name="SpotifyDisabled" width="66" height="65"/>
-        <image name="SwapCodeColor1" width="62" height="38"/>
         <image name="SwapNotificationsButton" width="370" height="121"/>
         <image name="TabBarBackground" width="184" height="29"/>
         <image name="TextfieldBottom" width="410" height="1"/>
@@ -4576,7 +4529,6 @@
         <image name="TutorialPage6" width="375" height="667"/>
         <image name="TutorialPage7" width="375" height="667"/>
         <image name="TutorialPage8" width="371" height="667"/>
-        <image name="TutorialPage9" width="375" height="667"/>
         <image name="TwitterBlackIcon" width="41" height="36"/>
         <image name="TwitterDark" width="37" height="37"/>
         <image name="TwitterDisabled" width="66" height="65"/>
@@ -4594,10 +4546,10 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Qph-o2-Urf"/>
+        <segue reference="oFe-4K-wqZ"/>
         <segue reference="Qve-td-zgu"/>
-        <segue reference="C5z-dm-CYH"/>
+        <segue reference="jIR-tF-ust"/>
         <segue reference="Xpo-tz-aOQ"/>
-        <segue reference="zsx-4J-0qZ"/>
-        <segue reference="5Ua-6U-cKo"/>
     </inferredMetricsTieBreakers>
 </document>

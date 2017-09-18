@@ -20,7 +20,6 @@ class TutorialPageController: UIPageViewController, UIPageViewControllerDelegate
     var tpage8 = grabStoryboard().instantiateViewController(withIdentifier: "tpage8")
     var tpage9 = grabStoryboard().instantiateViewController(withIdentifier: "tpage9")
     var tpage10 = grabStoryboard().instantiateViewController(withIdentifier: "tpage10")
-    var tpage11 = grabStoryboard().instantiateViewController(withIdentifier: "tpage11")
     
     
     var tutorialViews = [UIViewController]()
@@ -29,7 +28,7 @@ class TutorialPageController: UIPageViewController, UIPageViewControllerDelegate
         
         super.viewDidLoad()
         
-        tutorialViews = [tpage1, tpage2, tpage3, tpage4, tpage5, tpage6, tpage7, tpage8, tpage9, tpage10, tpage11]
+        tutorialViews = [tpage1, tpage2, tpage3, tpage4, tpage5, tpage6, tpage7, tpage8, tpage9, tpage10]
         
         dataSource = self
         delegate = self
