@@ -504,7 +504,7 @@
 				751E75B91EB27E8A005BB48C /* YoutubeView.swift */,
 			);
 			name = "Preview Views";
-			path = "/Users/DrStephenPhD/Documents/Swap/mysampleapp/../MySampleApp/Preview Views";
+			path = "/Users/DrStephenPhD/Desktop/Swap/MySampleApp/Preview Views";
 			sourceTree = "<absolute>";
 		};
 		75A8E0881EB553B80042104C /* Tutorial */ = {
@@ -534,7 +534,7 @@
 				B401C979A30D1F9400000000 /* Utility */,
 			);
 			name = App;
-			path = mysampleapp/app;
+			path = ../MySampleApp/App;
 			sourceTree = "<group>";
 		};
 		B401C97979A8598F00000000 /* Frameworks */ = {
@@ -573,7 +573,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B401C979887AFB9C00000000 = {
+		B401C979887AFB9C00000000 /* mainGroup */ = {
 			isa = PBXGroup;
 			children = (
 				B401C97979C12C2200000000 /* Products */,
@@ -610,8 +610,7 @@
 			children = (
 				1DD70E2947EEFA7600000000 /* Info.plist */,
 			);
-			name = SupportingFiles;
-			path = mysampleapp/app/supportingfiles;
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		B401C9799E82047000000000 /* AmazonAws */ = {
@@ -624,7 +623,7 @@
 				B401C979480EFEB400000000 /* Models */,
 			);
 			name = AmazonAws;
-			path = mysampleapp/amazonaws;
+			path = ../MySampleApp/AmazonAws;
 			sourceTree = "<group>";
 		};
 		B401C979A30D1F9400000000 /* Utility */ = {
@@ -634,8 +633,7 @@
 				2ECF288F1DF90DEF00FEC5D2 /* Custom Operators.swift */,
 				7514499D1E9723CE0041C49C /* Scanner.swift */,
 			);
-			name = Utility;
-			path = mysampleapp/app/utility;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		B401C979D2FE381900000000 /* NoSQL */ = {
@@ -725,7 +723,7 @@
 				en,
 				Base,
 			);
-			mainGroup = B401C979887AFB9C00000000;
+			mainGroup = B401C979887AFB9C00000000 /* mainGroup */;
 			productRefGroup = B401C97979C12C2200000000 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
