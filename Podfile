@@ -11,7 +11,7 @@ use_frameworks!
 
 # Pods for Swap
 
-pod 'p2.OAuth2’, ‘3.0.2’
+pod 'p2.OAuth2’, :git => ‘https://github.com/p2/OAuth2.git', :branch => ‘master’, :submodules => true #, ‘3.0.2’
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'Kingfisher’, :git => 'https://github.com/onevcat/Kingfisher.git’, :branch => 'swift3'

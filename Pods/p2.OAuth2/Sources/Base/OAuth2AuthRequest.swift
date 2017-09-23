@@ -80,6 +80,7 @@ open class OAuth2AuthRequest {
 	/// Custom headers can be set here, they will take precedence over any built-in headers.
 	open private(set) var headers: [String: String]?
 	
+	/// Query parameters to use with the request.
 	open var params = OAuth2RequestParams()
 	
 	
@@ -244,7 +245,7 @@ public struct OAuth2RequestParams {
 	/// The parameters to be used.
 	public private(set) var params: OAuth2StringDict? = nil
 	
-	/** Designated initalizer. */
+	/** Designated initializer. */
 	public init() {  }
 	
 	public subscript(key: String) -> String? {

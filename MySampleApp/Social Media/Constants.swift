@@ -47,7 +47,7 @@ let spotify_oauth2 = OAuth2CodeGrant(settings: spotify_settings)
 
 let INSTAGRAM_CLIENT_ID = "22f7d645b33440399bfd78702c70276c"
 let INSTAGRAM_CLIENT_SECRET = "dd9df538eb77479eb523dd25eb276a93"
-let INSTAGRAM_CALLBACK = "https://wk8c7.app.goo.gl/5S4M"
+let INSTAGRAM_CALLBACK = "https://localhost"
 let INSTAGRAM_AUTH_URL = "https://api.instagram.com/oauth/authorize"
 let INSTAGRAM_SCOPES = "basic relationships"
 //let INSTAGRAM_ACCESS_TOKEN_URI = "https://api.instagram.com/oauth/access_token"

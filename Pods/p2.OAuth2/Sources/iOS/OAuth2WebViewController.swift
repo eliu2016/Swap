@@ -46,13 +46,13 @@ open class OAuth2WebViewController: UIViewController, WKNavigationDelegate {
 	/// The URL string to intercept and respond to.
 	var interceptURLString: String? {
 		didSet(oldURL) {
-			if nil != interceptURLString {
-				if let url = URL(string: interceptURLString!) {
+			if let interceptURLString = interceptURLString {
+				if let url = URL(string: interceptURLString) {
 					interceptComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
 				}
 				else {
 					oauth?.logger?.debug("OAuth2", msg: "Failed to parse URL \(interceptURLString), discarding")
-					interceptURLString = nil
+					self.interceptURLString = nil
 				}
 			}
 			else {
@@ -66,7 +66,7 @@ open class OAuth2WebViewController: UIViewController, WKNavigationDelegate {
 	/// that you've intercepted the URL.
 	var onIntercept: ((URL) -> Bool)?
 	
-	/// Called when the web view is about to be dismissed. The Bool indicates whether the request was (user-)cancelled.
+	/// Called when the web view is about to be dismissed. The Bool indicates whether the request was (user-)canceled.
 	var onWillDismiss: ((_ didCancel: Bool) -> Void)?
 	
 	/// Assign to override the back button, shown when it's possible to go back in history. Will adjust target/action accordingly.
@@ -209,6 +209,7 @@ open class OAuth2WebViewController: UIViewController, WKNavigationDelegate {
 				else {
 					decisionHandler(.allow)
 				}
+				return
 			}
 		}
 		decisionHandler(.allow)

@@ -181,13 +181,21 @@ class SelectProfilePicViewController: UIViewController {
         
         if let selectedLink = link{
             
-            SwapUser().set(ProfileImage: "\(selectedLink)",  DidSetInformation: {
-
-                DispatchQueue.main.async {
-
-                    self.performSegue(withIdentifier: "showHome", sender: nil)
-                }
+            ImageDownloader.default.downloadImage(with: link ?? URL(string: "")!, options: [], completionHandler: { (image, error, url, data) in
+                
+                let imageData = UIImageJPEGRepresentation(image ?? #imageLiteral(resourceName: "DefaultProfileImage"), 1.0)
+                
+                SwapUser().uploadProfilePicture(withData: imageData!, completion: {_ in
+                    
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "showHome", sender: nil)
+                    }
+                })
+                
+                
             })
+            
+            
         }
         else {
     

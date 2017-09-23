@@ -80,7 +80,7 @@ open class OAuth2Response {
 	*/
 	open func responseData() throws -> Data {
 		if let error = error {
-			if NSURLErrorDomain == error._domain && -999 == error._code {		// request was cancelled
+			if NSURLErrorDomain == error._domain && -999 == error._code {		// request was canceled
 				throw OAuth2Error.requestCancelled
 			}
 			throw error
@@ -91,7 +91,7 @@ open class OAuth2Response {
 		else if 403 == response.statusCode {
 			throw OAuth2Error.forbidden
 		}
-		else if let data = data {
+		else if let data = data, data.count > 0 {
 			return data
 		}
 		else {

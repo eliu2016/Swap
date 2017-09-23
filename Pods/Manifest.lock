@@ -12,7 +12,7 @@ PODS:
   - IQKeyboardManagerSwift (5.0.0)
   - Kingfisher (3.13.1)
   - OneSignal (2.5.4)
-  - p2.OAuth2 (3.0.2)
+  - p2.OAuth2 (3.0.3)
   - PhoneNumberKit (1.4.0):
     - PhoneNumberKit/PhoneNumberKitCore (= 1.4.0)
     - PhoneNumberKit/UIKit (= 1.4.0)
@@ -36,7 +36,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kingfisher (from `https://github.com/onevcat/Kingfisher.git`, branch `swift3`)
   - OneSignal
-  - p2.OAuth2 (= 3.0.2)
+  - p2.OAuth2 (from `https://github.com/p2/OAuth2.git`, branch `master`)
   - PhoneNumberKit (from `https://github.com/marmelroy/PhoneNumberKit.git`, branch `swift3`)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - Swifter (from `https://github.com/mattdonnelly/Swifter.git`)
@@ -47,6 +47,10 @@ EXTERNAL SOURCES:
   Kingfisher:
     :branch: swift3
     :git: https://github.com/onevcat/Kingfisher.git
+  p2.OAuth2:
+    :branch: master
+    :git: https://github.com/p2/OAuth2.git
+    :submodules: true
   PhoneNumberKit:
     :branch: swift3
     :git: https://github.com/marmelroy/PhoneNumberKit.git
@@ -60,6 +64,10 @@ CHECKOUT OPTIONS:
   Kingfisher:
     :commit: 2fbbffe2a2b501d92933a544b4c48ea4d6a4dc3a
     :git: https://github.com/onevcat/Kingfisher.git
+  p2.OAuth2:
+    :commit: 409d0844acbe693391cac5c1e0c417aeb421fa14
+    :git: https://github.com/p2/OAuth2.git
+    :submodules: true
   PhoneNumberKit:
     :commit: ca80b7699185f2542b39ba7016e52c4ecfc9343d
     :git: https://github.com/marmelroy/PhoneNumberKit.git
@@ -80,7 +88,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
   Kingfisher: b09963a87ce1fc156d358ca62662a9b43c6b9172
   OneSignal: da994bcf6a2efbdceaf71e389e1d05245c562899
-  p2.OAuth2: ba5f538fafbb81dd3a71b6e22d4550a08e71fdf0
+  p2.OAuth2: c433ae60f131b0b656f8483daa82b94fa2c67352
   PhoneNumberKit: cbfd6bea8dccf9b8fce3fc4aee8fd5b8763aca4e
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   Swifter: ec243114356f2e4c654a1957b770c6e925d2ea75
@@ -88,6 +96,6 @@ SPEC CHECKSUMS:
   TwitterCore: 6856288a1c25e5281363250681f33b42fce1da42
   TwitterKit: 313bf02baee8427f7649b3640169178e5a8b5a99
 
-PODFILE CHECKSUM: 978333218f0ac76e52762061099b00aa7116cc5d
+PODFILE CHECKSUM: f303571df4af5ec9a19e0d3396382fe85de9dcf0
 
 COCOAPODS: 1.2.0.rc.1
