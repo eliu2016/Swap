@@ -52,7 +52,7 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
      Previous bar button of toolbar.
      */
     private var privatePreviousBarButton: IQBarButtonItem?
-    open var previousBarButton : IQBarButtonItem {
+    @objc open var previousBarButton : IQBarButtonItem {
         get {
             if privatePreviousBarButton == nil {
                 privatePreviousBarButton = IQBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
@@ -70,7 +70,7 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
      Next bar button of toolbar.
      */
     private var privateNextBarButton: IQBarButtonItem?
-    open var nextBarButton : IQBarButtonItem {
+    @objc open var nextBarButton : IQBarButtonItem {
         get {
             if privateNextBarButton == nil {
                 privateNextBarButton = IQBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
@@ -88,7 +88,7 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
      Title bar button of toolbar.
      */
     private var privateTitleBarButton: IQTitleBarButtonItem?
-    open var titleBarButton : IQTitleBarButtonItem {
+    @objc open var titleBarButton : IQTitleBarButtonItem {
         get {
             if privateTitleBarButton == nil {
                 privateTitleBarButton = IQTitleBarButtonItem(title: nil)
@@ -106,7 +106,7 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
      Done bar button of toolbar.
      */
     private var privateDoneBarButton: IQBarButtonItem?
-    open var doneBarButton : IQBarButtonItem {
+    @objc open var doneBarButton : IQBarButtonItem {
         get {
             if privateDoneBarButton == nil {
                 privateDoneBarButton = IQBarButtonItem(title: nil, style: .done, target: nil, action: nil)
@@ -173,7 +173,7 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
         super.layoutSubviews()
         
         if #available(iOS 11, *) {
-            return;
+            return
         } else {
             var leftRect = CGRect.null
             var rightRect = CGRect.null

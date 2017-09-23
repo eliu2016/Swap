@@ -20,7 +20,7 @@ import Fabric
 import Answers
 import TwitterKit
 import Crashlytics
-import FacebookCore
+//import FacebookCore
 import SafariServices
 
 @UIApplicationMain

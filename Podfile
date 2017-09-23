@@ -11,22 +11,22 @@ use_frameworks!
 
 # Pods for Swap
 
-pod 'p2.OAuth2’ 
+pod 'p2.OAuth2’, ‘3.0.2’
 pod 'Alamofire'
 pod 'SwiftyJSON'
-pod 'Kingfisher'
+pod 'Kingfisher’, :git => 'https://github.com/onevcat/Kingfisher.git’, :branch => 'swift3'
 pod 'IQKeyboardManagerSwift'
 pod 'Branch'
-pod 'OneSignal'
+pod 'OneSignal’
 pod 'Fabric'
 pod 'Answers'
 pod 'TwitterKit'
 pod 'Crashlytics'
 pod 'CountryPickerSwift'
-pod 'PhoneNumberKit', '~> 1.2'
-pod 'FacebookCore'
-pod 'FacebookLogin'
-pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+pod 'PhoneNumberKit’, :git => ’https://github.com/marmelroy/PhoneNumberKit.git', :branch => ‘swift3’
+#pod 'FacebookCore'
+#pod 'FacebookLogin'
+pod 'Spring’, :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 pod 'Swifter', :git => 'https://github.com/mattdonnelly/Swifter.git'
 post_install do |installer|
 installer.pods_project.targets.each do |target|

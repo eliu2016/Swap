@@ -36,11 +36,6 @@ Base class for specific OAuth2 flow implementations.
 */
 open class OAuth2: OAuth2Base {
 	
-	/// Whether the flow type mandates client identification.
-	open class var clientIdMandatory: Bool {
-		return true
-	}
-	
 	/// If non-nil, will be called before performing dynamic client registration, giving you a chance to instantiate your own registrar.
 	public final var onBeforeDynamicClientRegistration: ((URL) -> OAuth2DynReg?)?
 	
@@ -130,6 +125,17 @@ open class OAuth2: OAuth2Base {
 	}
 	
 	/**
+	This method is deprecated in version 3.0 and has been replaced with `authorize(params:callback:)`.
+	
+	- parameter params: Optional key/value pairs to pass during authorization and token refresh
+	*/
+	@available(*, deprecated: 3.0, message: "Use the `authorize(params:callback:)` method and variants")
+	public final func authorize(params: OAuth2StringDict? = nil) {
+		authorize(params: params) { parameters, error in
+		}
+	}
+	
+	/**
 	Shortcut function to start embedded authorization from the given context (a UIViewController on iOS, an NSWindow on OS X).
 	
 	This method sets `authConfig.authorizeEmbedded = true` and `authConfig.authorizeContext = <# context #>`, then calls `authorize()`
@@ -147,6 +153,18 @@ open class OAuth2: OAuth2Base {
 		authConfig.authorizeEmbedded = true
 		authConfig.authorizeContext = context
 		authorize(params: params, callback: callback)
+	}
+	
+	/**
+	This method is deprecated in version 3.0 and has been replaced with `authorizeEmbedded(from:params:callback:)`.
+	
+	- parameter from:    The context to start authorization from, depends on platform (UIViewController or NSWindow, see `authorizeContext`)
+	- parameter params:  Optional key/value pairs to pass during authorization
+	*/
+	@available(*, deprecated: 3.0, message: "Use the `authorize(params:callback:)` method and variants")
+	open func authorizeEmbedded(from context: AnyObject, params: OAuth2StringDict? = nil) {
+		authorizeEmbedded(from: context, params: params) { parameters, error in
+		}
 	}
 	
 	/**
@@ -255,25 +273,22 @@ open class OAuth2: OAuth2Base {
 	- returns:            OAuth2AuthRequest to be used to call to the authorize endpoint
 	*/
 	func authorizeRequest(withRedirect redirect: String, scope: String?, params: OAuth2StringDict?) throws -> OAuth2AuthRequest {
-		let clientId = clientConfig.clientId
-		if type(of: self).clientIdMandatory && (nil == clientId || clientId!.isEmpty) {
+		guard let clientId = clientConfig.clientId, !clientId.isEmpty else {
 			throw OAuth2Error.noClientId
 		}
 		
 		let req = OAuth2AuthRequest(url: clientConfig.authorizeURL, method: .GET)
 		req.params["redirect_uri"] = redirect
+		req.params["client_id"] = clientId
 		req.params["state"] = context.state
-		if let clientId = clientId {
-			req.params["client_id"] = clientId
-		}
-		if let responseType = type(of: self).responseType {
-			req.params["response_type"] = responseType
+		if clientConfig.safariCancelWorkaround {
+			req.params["swa"] = "\(Date.timeIntervalSinceReferenceDate)" // Safari issue workaround
 		}
 		if let scope = scope ?? clientConfig.scope {
 			req.params["scope"] = scope
 		}
-		if clientConfig.safariCancelWorkaround {
-			req.params["swa"] = "\(Date.timeIntervalSinceReferenceDate)" // Safari issue workaround
+		if let responseType = type(of: self).responseType {
+			req.params["response_type"] = responseType
 		}
 		req.add(params: params)
 		
@@ -320,8 +335,7 @@ open class OAuth2: OAuth2Base {
 	- returns:          An `OAuth2AuthRequest` instance that is configured for token refresh
 	*/
 	open func tokenRequestForTokenRefresh(params: OAuth2StringDict? = nil) throws -> OAuth2AuthRequest {
-		let clientId = clientConfig.clientId
-		if type(of: self).clientIdMandatory && (nil == clientId || clientId!.isEmpty) {
+		guard let clientId = clientId, !clientId.isEmpty else {
 			throw OAuth2Error.noClientId
 		}
 		guard let refreshToken = clientConfig.refreshToken, !refreshToken.isEmpty else {
@@ -331,9 +345,7 @@ open class OAuth2: OAuth2Base {
 		let req = OAuth2AuthRequest(url: (clientConfig.tokenURL ?? clientConfig.authorizeURL))
 		req.params["grant_type"] = "refresh_token"
 		req.params["refresh_token"] = refreshToken
-		if let clientId = clientId {
-			req.params["client_id"] = clientId
-		}
+		req.params["client_id"] = clientId
 		req.add(params: params)
 		
 		return req
@@ -341,8 +353,6 @@ open class OAuth2: OAuth2Base {
 	
 	/**
 	If there is a refresh token, use it to receive a fresh access token.
-	
-	If the request returns an error, the refresh token is thrown away.
 	
 	- parameter params:   Optional key/value pairs to pass during token refresh
 	- parameter callback: The callback to call after the refresh token exchange has finished
@@ -357,7 +367,6 @@ open class OAuth2: OAuth2Base {
 					let data = try response.responseData()
 					let json = try self.parseRefreshTokenResponseData(data)
 					if response.response.statusCode >= 400 {
-						self.clientConfig.refreshToken = nil
 						throw OAuth2Error.generic("Failed with status \(response.response.statusCode)")
 					}
 					self.logger?.debug("OAuth2", msg: "Did use refresh token for access token [\(nil != self.clientConfig.accessToken)]")
@@ -388,7 +397,7 @@ open class OAuth2: OAuth2Base {
 	                      on success
 	*/
 	func registerClientIfNeeded(callback: @escaping ((OAuth2JSON?, OAuth2Error?) -> Void)) {
-		if nil != clientId || !type(of: self).clientIdMandatory {
+		if nil != clientId {
 			callOnMainThread() {
 				callback(nil, nil)
 			}

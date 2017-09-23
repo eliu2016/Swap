@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import FacebookLogin
+//import FacebookLogin
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
 
@@ -29,7 +29,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     var passwordAuthenticationCompletion: AWSTaskCompletionSource<AnyObject>?
     
     
-    let FBLoginButton = LoginButton(readPermissions: [ .publicProfile, .email ])
+  //  let FBLoginButton = LoginButton(readPermissions: [ .publicProfile, .email ])
     
     @IBAction func didTapSignIn(_ sender: UIButton) {
       
@@ -75,11 +75,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
 
         // Do any additional setup after loading the view.
-        
+        /*
         FBLoginButton.center = CGPoint(x: view.center.x, y: view.center.y + 200)
         FBLoginButton.frame.size = CGSize(width: 250, height: 40)
         
-        view.addSubview(FBLoginButton)
+        view.addSubview(FBLoginButton) */
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -40,17 +40,11 @@ open class OAuth2DataLoader: OAuth2Requestable {
 	/**
 	Designated initializer.
 	
-	Provide `host` if 301 and 302 redirects should be followed automatically, as long as they appear on the same host.
-	
 	- parameter oauth2: The OAuth2 instance to use for authorization when loading data.
-	- parameter host:   If given will handle redirects within the same host by way of `OAuth2DataLoaderSessionTaskDelegate`
 	*/
-	public init(oauth2: OAuth2, host: String? = nil) {
+	public init(oauth2: OAuth2) {
 		self.oauth2 = oauth2
 		super.init(logger: oauth2.logger)
-		if let host = host {
-			sessionDelegate = OAuth2DataLoaderSessionTaskDelegate(loader: self, host: host)
-		}
 	}
 	
 	
@@ -125,7 +119,6 @@ open class OAuth2DataLoader: OAuth2Requestable {
 			catch OAuth2Error.unauthorizedClient {
 				if retry {
 					self.enqueue(request: request, callback: callback)
-					self.oauth2.clientConfig.accessToken = nil
 					self.attemptToAuthorize() { json, error in
 						
 						// dequeue all if we're authorized, throw all away if something went wrong
@@ -141,7 +134,7 @@ open class OAuth2DataLoader: OAuth2Requestable {
 					callback(response)
 				}
 			}
-			
+				
 			// some other error, pass along
 			catch {
 				callback(response)
@@ -160,6 +153,7 @@ open class OAuth2DataLoader: OAuth2Requestable {
 	open func attemptToAuthorize(callback: @escaping ((OAuth2JSON?, OAuth2Error?) -> Void)) {
 		if !isAuthorizing {
 			isAuthorizing = true
+			oauth2.forgetTokens()
 			oauth2.authorize() { authParams, error in
 				self.isAuthorizing = false
 				callback(authParams, error)
