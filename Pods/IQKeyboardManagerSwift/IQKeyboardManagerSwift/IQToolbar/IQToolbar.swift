@@ -52,7 +52,7 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
      Previous bar button of toolbar.
      */
     private var privatePreviousBarButton: IQBarButtonItem?
-    @objc open var previousBarButton : IQBarButtonItem {
+    open var previousBarButton : IQBarButtonItem {
         get {
             if privatePreviousBarButton == nil {
                 privatePreviousBarButton = IQBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
@@ -70,7 +70,7 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
      Next bar button of toolbar.
      */
     private var privateNextBarButton: IQBarButtonItem?
-    @objc open var nextBarButton : IQBarButtonItem {
+    open var nextBarButton : IQBarButtonItem {
         get {
             if privateNextBarButton == nil {
                 privateNextBarButton = IQBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
@@ -88,7 +88,7 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
      Title bar button of toolbar.
      */
     private var privateTitleBarButton: IQTitleBarButtonItem?
-    @objc open var titleBarButton : IQTitleBarButtonItem {
+    open var titleBarButton : IQTitleBarButtonItem {
         get {
             if privateTitleBarButton == nil {
                 privateTitleBarButton = IQTitleBarButtonItem(title: nil)
@@ -106,7 +106,7 @@ open class IQToolbar: UIToolbar , UIInputViewAudioFeedback {
      Done bar button of toolbar.
      */
     private var privateDoneBarButton: IQBarButtonItem?
-    @objc open var doneBarButton : IQBarButtonItem {
+    open var doneBarButton : IQBarButtonItem {
         get {
             if privateDoneBarButton == nil {
                 privateDoneBarButton = IQBarButtonItem(title: nil, style: .done, target: nil, action: nil)

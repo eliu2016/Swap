@@ -28,7 +28,7 @@ import UIKit
 public extension UIWindow {
 
     /** @return Returns the current Top Most ViewController in hierarchy.   */
-    @objc public func topMostWindowController()->UIViewController? {
+    public func topMostWindowController()->UIViewController? {
         
         var topController = rootViewController
         
@@ -40,7 +40,7 @@ public extension UIWindow {
     }
     
     /** @return Returns the topViewController in stack of topMostWindowController.    */
-    @objc public func currentViewController()->UIViewController? {
+    public func currentViewController()->UIViewController? {
         
         var currentViewController = topMostWindowController()
         

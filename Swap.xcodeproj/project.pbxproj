@@ -428,17 +428,9 @@
 				1DD70E29DF90B53300000000 /* Main.storyboard */,
 				75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */,
 				7515720F1DFBBD0D00ED4697 /* Assets */,
-				7515720E1DFBBD0300ED4697 /* Fonts */,
 			);
 			name = "User Interface";
 			path = "../MySampleApp/User Interface";
-			sourceTree = "<group>";
-		};
-		7515720E1DFBBD0300ED4697 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		7515720F1DFBBD0D00ED4697 /* Assets */ = {
@@ -504,7 +496,7 @@
 				751E75B91EB27E8A005BB48C /* YoutubeView.swift */,
 			);
 			name = "Preview Views";
-			path = "/Users/DrStephenPhD/Desktop/Swap/MySampleApp/Preview Views";
+			path = "/Users/davidslakter/Desktop/Swap Inc./App/MySampleApp/Preview Views";
 			sourceTree = "<absolute>";
 		};
 		75A8E0881EB553B80042104C /* Tutorial */ = {
@@ -790,7 +782,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A8CA2F61B36757F2B92B9794 /* [CP] Copy Pods Resources */ = {

@@ -65,7 +65,7 @@ CHECKOUT OPTIONS:
     :commit: 2fbbffe2a2b501d92933a544b4c48ea4d6a4dc3a
     :git: https://github.com/onevcat/Kingfisher.git
   p2.OAuth2:
-    :commit: 409d0844acbe693391cac5c1e0c417aeb421fa14
+    :commit: e630ac7650ecc79b99c319b2b151c76e463a4311
     :git: https://github.com/p2/OAuth2.git
     :submodules: true
   PhoneNumberKit:
@@ -75,7 +75,7 @@ CHECKOUT OPTIONS:
     :commit: 8201b5c93bd7ebdf4cd18160bcde1e6e88c2be64
     :git: https://github.com/MengTo/Spring.git
   Swifter:
-    :commit: e62cbdaa37dc81beb5df8fce47676c19b614c301
+    :commit: 41eecf6f0c4fa320cdcafb100322265485c6e893
     :git: https://github.com/mattdonnelly/Swifter.git
 
 SPEC CHECKSUMS:
@@ -98,4 +98,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f303571df4af5ec9a19e0d3396382fe85de9dcf0
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.2.1

@@ -98,14 +98,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
            present(actionSheeet, animated: true, completion: nil)
 
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
+        self.setupViewController()
+        self.loadProfile()
+        self.setupSwapCodeGestureRecognizer()
         
-        setupViewController()
-        loadProfile()
-        setupSwapCodeGestureRecognizer()
         
         // Listens for reloadProfile notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadProfile), name: .reloadProfile, object: nil)
@@ -134,8 +134,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         super.viewDidAppear(animated)
            save(screen: .UserProfileScreen)
 
-    
-     
     }
   
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -415,7 +413,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         tabBarController?.tabBar.backgroundImage = UIImage(named: "TabBarBackground")
         tabBarController?.tabBar.isTranslucent = false
         tabBarController?.tabBar.tintColor = UIColor.init(red: 0, green: 144, blue: 255, alpha: 1.0)
-    
+        
+        let tabBarItem1 = tabBarController?.tabBar.items![0]
+        let tabBarItem2 = tabBarController?.tabBar.items![1]
+        let tabBarItem3 = tabBarController?.tabBar.items![2]
+        let tabBarItem4 = tabBarController?.tabBar.items![3]
+        
+        tabBarItem1?.selectedImage = #imageLiteral(resourceName: "HomeIconSelected")
+        tabBarItem2?.selectedImage = #imageLiteral(resourceName: "SearchIconSelected")
+        tabBarItem3?.selectedImage = #imageLiteral(resourceName: "NotificationIconSelected")
+        tabBarItem4?.selectedImage = #imageLiteral(resourceName: "ExploreIconSelected")
         
         
         if #available(iOS 10.0, *) {

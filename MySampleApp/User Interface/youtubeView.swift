@@ -39,7 +39,7 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 
             }
             
-            if self.youtubeVideos.count == 0{
+            if self.youtubeVideos.count == 0 || (self.youtubeVideos.count - 1) == 0{
                 
                 let blankTableMessage = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
                 
@@ -60,7 +60,7 @@ class YoutubeView: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return youtubeVideos.count
+        return youtubeVideos.count - 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
    

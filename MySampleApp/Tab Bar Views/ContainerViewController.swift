@@ -21,11 +21,10 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
      var lastContentOffset: CGFloat!
     
     override func viewDidLoad() {
-  
      
         super.viewDidLoad();
-        
         print("Container will load")
+    
         
         
         //initialize refresh control
@@ -57,7 +56,9 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
         
         
         scrollView = UIScrollView(frame: view.bounds)
-        
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never
+        }
         let scrollWidth: CGFloat  =  self.view.frame.width
         let scrollHeight: CGFloat  = 2 * self.view.frame.size.height
         scrollView.contentSize = CGSize(width: scrollWidth, height: scrollHeight);

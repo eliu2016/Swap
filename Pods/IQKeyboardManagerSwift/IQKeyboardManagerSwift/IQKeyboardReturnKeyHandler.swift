@@ -38,12 +38,12 @@ open class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextVie
     /**
     Delegate of textField/textView.
     */
-    @objc open weak var delegate: (UITextFieldDelegate & UITextViewDelegate)?
+    open weak var delegate: (UITextFieldDelegate & UITextViewDelegate)?
     
     /**
     Set the last textfield return key type. Default is UIReturnKeyDefault.
     */
-    @objc open var lastTextFieldReturnKeyType : UIReturnKeyType = UIReturnKeyType.default {
+    open var lastTextFieldReturnKeyType : UIReturnKeyType = UIReturnKeyType.default {
         
         didSet {
             
@@ -67,7 +67,7 @@ open class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextVie
     /**
     Add all the textFields available in UIViewController's view.
     */
-    @objc public init(controller : UIViewController) {
+    public init(controller : UIViewController) {
         super.init()
         
         addResponderFromView(controller.view)
@@ -181,7 +181,7 @@ open class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextVie
     
     @param textFieldView UITextField/UITextView object to register.
     */
-    @objc open func addTextFieldView(_ view : UIView) {
+    open func addTextFieldView(_ view : UIView) {
         
         var dictInfo : [String : AnyObject] = [String : AnyObject]()
         
@@ -215,7 +215,7 @@ open class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextVie
     
     @param textFieldView UITextField/UITextView object to unregister.
     */
-    @objc open func removeTextFieldView(_ view : UIView) {
+    open func removeTextFieldView(_ view : UIView) {
         
         if let dict : [String : AnyObject] = textFieldViewCachedInfo(view) {
             
@@ -242,7 +242,7 @@ open class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextVie
     
     @param UIView object to register all it's responder subviews.
     */
-    @objc open func addResponderFromView(_ view : UIView) {
+    open func addResponderFromView(_ view : UIView) {
         
         let textFields = view.deepResponderViews()
         
@@ -257,7 +257,7 @@ open class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextVie
     
     @param UIView object to unregister all it's responder subviews.
     */
-    @objc open func removeResponderFromView(_ view : UIView) {
+    open func removeResponderFromView(_ view : UIView) {
         
         let textFields = view.deepResponderViews()
         

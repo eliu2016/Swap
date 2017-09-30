@@ -27,7 +27,7 @@ import UIKit
 
 open class IQTitleBarButtonItem: IQBarButtonItem {
    
-    @objc open var titleFont : UIFont? {
+    open var titleFont : UIFont? {
     
         didSet {
             if let unwrappedFont = titleFont {
@@ -47,7 +47,7 @@ open class IQTitleBarButtonItem: IQBarButtonItem {
     /**
      selectableTextColor to be used for displaying button text when button is enabled.
      */
-    @objc open var selectableTextColor : UIColor? {
+    open var selectableTextColor : UIColor? {
         
         didSet {
             if let color = selectableTextColor {
@@ -87,7 +87,7 @@ open class IQTitleBarButtonItem: IQBarButtonItem {
         super.init()
     }
     
-    @objc convenience init(title : String?) {
+    convenience init(title : String?) {
 
         self.init(title: nil, style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
@@ -117,8 +117,8 @@ open class IQTitleBarButtonItem: IQBarButtonItem {
                 layoutDefaultLowPriority = UILayoutPriority(rawValue: layoutPriorityLowValue)
                 layoutDefaultHighPriority = UILayoutPriority(rawValue: layoutPriorityHighValue)
             #else
-                layoutDefaultLowPriority = UILayoutPriority.defaultLow-1
-                layoutDefaultHighPriority = UILayoutPriority.defaultHigh-1
+                layoutDefaultLowPriority = UILayoutPriorityDefaultLow-1
+                layoutDefaultHighPriority = UILayoutPriorityDefaultHigh-1
             #endif
             
             _titleView?.translatesAutoresizingMaskIntoConstraints = false

@@ -57,8 +57,6 @@ class SearchUsers: UIViewController, UITableViewDataSource, UITableViewDelegate,
 
         self.setupSwipeGestureRecognizers(allowCyclingThoughTabs: true)
         
-        self.automaticallyAdjustsScrollViewInsets = false;
-        
         //recognizes a tap on the screen
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapScreen))
         tapGestureRecognizer.numberOfTapsRequired = 1
