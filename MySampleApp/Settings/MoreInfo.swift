@@ -20,17 +20,11 @@ class MoreInfoTable: UITableViewController, UITextFieldDelegate {
     @IBOutlet var companyField: UITextField!
     @IBOutlet var websiteField: UITextField!
 
-
-    
     override func viewWillAppear(_ animated: Bool) {
-        
         
         SwapUser(username: getUsernameOfSignedInUser()).getInformation { (error, user) in
             
-            
             DispatchQueue.main.async {
-                
-               
                 
                 let middlename = (user?._middlename == nil && getSavedMiddlename() != nil)  ?getSavedMiddlename()! : ( user?._middlename ?? "")
                 
@@ -49,7 +43,6 @@ class MoreInfoTable: UITableViewController, UITextFieldDelegate {
             }
             
         }
-        
     }
     
     override func viewDidLoad() {
@@ -64,7 +57,6 @@ class MoreInfoTable: UITableViewController, UITextFieldDelegate {
         moreInfoCompany = companyField.text!
         moreInfoWebsite = websiteField.text!
     }
-
     
 }
 class MoreInfo: UIViewController{

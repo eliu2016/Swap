@@ -24,8 +24,6 @@ pod 'TwitterKit'
 pod 'Crashlytics'
 pod 'CountryPickerSwift'
 pod 'PhoneNumberKit’, :git => ’https://github.com/marmelroy/PhoneNumberKit.git', :branch => ‘swift3’
-#pod 'FacebookCore'
-#pod 'FacebookLogin'
 pod 'Spring’, :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 pod 'Swifter', :git => 'https://github.com/mattdonnelly/Swifter.git'
 post_install do |installer|

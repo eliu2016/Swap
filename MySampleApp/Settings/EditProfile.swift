@@ -57,8 +57,7 @@ class EditProfile: UIViewController, UINavigationControllerDelegate,  UIImagePic
 
     @IBAction func didPressDone(_ sender: Any) {
     
-        print("DID CHANGE PROFILE PICTURE: \(didChangeProfilePicture)")
-        
+        self.view.endEditing(true)
         let firstName = editProfileFirstName
         let lastName = editProfileLastName
         let email = editProfileEmail
