@@ -20,7 +20,7 @@ PODS:
   - PhoneNumberKit/UIKit (1.4.0):
     - PhoneNumberKit/PhoneNumberKitCore
   - Spring (1.0.3)
-  - Swifter (2.0.2)
+  - Swifter (2.1.0)
   - SwiftyJSON (3.1.4)
   - TwitterCore (3.0.1)
   - TwitterKit (3.1.1):
@@ -65,7 +65,7 @@ CHECKOUT OPTIONS:
     :commit: 2fbbffe2a2b501d92933a544b4c48ea4d6a4dc3a
     :git: https://github.com/onevcat/Kingfisher.git
   p2.OAuth2:
-    :commit: e630ac7650ecc79b99c319b2b151c76e463a4311
+    :commit: b5aa6855e55e56e6e4f4636d43dec1f114ddfdf3
     :git: https://github.com/p2/OAuth2.git
     :submodules: true
   PhoneNumberKit:
@@ -75,7 +75,7 @@ CHECKOUT OPTIONS:
     :commit: 8201b5c93bd7ebdf4cd18160bcde1e6e88c2be64
     :git: https://github.com/MengTo/Spring.git
   Swifter:
-    :commit: 41eecf6f0c4fa320cdcafb100322265485c6e893
+    :commit: 457c44b4c492f2a59019ec4f3bcc39b2e6cd3106
     :git: https://github.com/mattdonnelly/Swifter.git
 
 SPEC CHECKSUMS:
@@ -91,11 +91,11 @@ SPEC CHECKSUMS:
   p2.OAuth2: c433ae60f131b0b656f8483daa82b94fa2c67352
   PhoneNumberKit: cbfd6bea8dccf9b8fce3fc4aee8fd5b8763aca4e
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
-  Swifter: ec243114356f2e4c654a1957b770c6e925d2ea75
+  Swifter: bbf4ebde56c9f8c13e6c7270bf6841a5f29dfda3
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TwitterCore: 6856288a1c25e5281363250681f33b42fce1da42
   TwitterKit: 313bf02baee8427f7649b3640169178e5a8b5a99
 
 PODFILE CHECKSUM: f303571df4af5ec9a19e0d3396382fe85de9dcf0
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.2.0.rc.1

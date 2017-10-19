@@ -306,6 +306,19 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                 self.swapsNumberLabel.text = "\(abbreviateNumber(num: swaps ?? 0))"
                 self.swappedNumberLabel.text = "\(abbreviateNumber(num: swapped ?? 0 ))"
                 
+                
+                // Disable Permissions if they are not connected
+                self.Spotify.isEnabled = spotifyIsConnected()
+                self.Email.isEnabled = !(user?._email?.isEmpty ?? false)
+                self.Phone.isEnabled = !(user?._phonenumber?.isEmpty ?? false)
+                self.Reddit.isEnabled =  redditIsConnected()
+                self.Instagram.isEnabled = instagramIsConnected()
+                self.Twitter.isEnabled = twitterIsConnected()
+                self.YouTube.isEnabled = youtubeIsConnected()
+                self.SoundCloud.isEnabled = soundcloudIsConnected()
+                self.Pinterest.isEnabled = pinterestIsConnected()
+                self.Vimeo.isEnabled = vimeoIsConnected()
+                self.Github.isEnabled = githubIsConnected()
                
                 self.Spotify.isSelected = willShareSpotify
                 self.Email.isSelected = willShareEmail
@@ -419,10 +432,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let tabBarItem3 = tabBarController?.tabBar.items![2]
         let tabBarItem4 = tabBarController?.tabBar.items![3]
         
-        tabBarItem1?.selectedImage = #imageLiteral(resourceName: "HomeIconSelected")
+   /*     tabBarItem1?.selectedImage = #imageLiteral(resourceName: "HomeIconSelected")
         tabBarItem2?.selectedImage = #imageLiteral(resourceName: "SearchIconSelected")
         tabBarItem3?.selectedImage = #imageLiteral(resourceName: "NotificationIconSelected")
-        tabBarItem4?.selectedImage = #imageLiteral(resourceName: "ExploreIconSelected")
+        tabBarItem4?.selectedImage = #imageLiteral(resourceName: "ExploreIconSelected")  Make sure to uncomment this out. Had this comment this out for some reason*/
         
         
         if #available(iOS 10.0, *) {
@@ -721,6 +734,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let buttons: [UIButton] = [Reddit, Spotify, Phone, Email, Instagram, Github, Vimeo, Twitter, YouTube, SoundCloud, Pinterest]
         
         for button in buttons{
+            
+            
             if button.isSelected  {
                 
                 countOfTrue += 1

@@ -565,7 +565,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B401C979887AFB9C00000000 /* mainGroup */ = {
+		B401C979887AFB9C00000000 = {
 			isa = PBXGroup;
 			children = (
 				B401C97979C12C2200000000 /* Products */,
@@ -715,7 +715,7 @@
 				en,
 				Base,
 			);
-			mainGroup = B401C979887AFB9C00000000 /* mainGroup */;
+			mainGroup = B401C979887AFB9C00000000;
 			productRefGroup = B401C97979C12C2200000000 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -782,7 +782,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A8CA2F61B36757F2B92B9794 /* [CP] Copy Pods Resources */ = {
