@@ -58,7 +58,7 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         locationManager = CLLocationManager()
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         
         addPins()
         
