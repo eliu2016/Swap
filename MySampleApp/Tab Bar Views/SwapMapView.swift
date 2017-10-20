@@ -8,6 +8,14 @@
 
 import Foundation
 import MapKit
+import Firebase
+import GeoFire
+
+// Reference to location database with live user locations
+let geofireRef = Database.database().reference()
+
+// Location Database
+let locationDatabase = GeoFire(firebaseRef: geofireRef)
 
 class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet var mapView: MKMapView!
@@ -79,7 +87,49 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         let region = MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: true)
        
-        locationManager.stopUpdatingLocation()
+  // Update User Location in Database
+        if let location = locations.first{
+               locationDatabase?.setLocation(location, forKey: getUsernameOfSignedInUser())
+            
+            
+   
+            ///******* TESTING POPULAR NEARBY *******
+            var nearbyUsers: [String: Double] = [:]
+            // Query Users Based on Location Radius
+            //Key Entered: The location of a key now matches the query criteria.
+            let radius = 0.2 // In Kilometers
+            let query = locationDatabase?.query(at: location, withRadius: radius)
+            
+            
+            
+            query?.observe(.keyEntered, with: { (username, user_location) in
+                
+                guard username != getUsernameOfSignedInUser() else{
+                    return
+                }
+                // Called whenever another user moves within a nearby location.
+                print("Key Entered Event\n\n")
+                var meters = user_location?.distance(from: location)
+                
+                nearbyUsers[username!] = meters
+                
+               
+            })
+            
+            
+            query?.observeReady({
+                
+                guard nearbyUsers.count > 0 else {
+                    return
+                }
+                let alert = UIAlertController(title: "Nearby User Found", message: "\(nearbyUsers) found  near you", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                // Called when query is complete
+            })
+        }
+     
         mapView.showsUserLocation = true
         
         
@@ -304,6 +354,8 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     }
    
    
+    
+ 
     
     
 }

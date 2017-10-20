@@ -11,7 +11,8 @@ import UIKit
 import Kingfisher
 import Spring
 import Alamofire
-
+import Firebase
+import GeoFire
 
 class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
@@ -59,7 +60,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         
         toogleSocialMedia(sender: sender)
         
+
     }
+    
+    
     @IBAction func didTapShareButton(_ sender: Any) {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "showSwapLink", sender: nil)

@@ -22,7 +22,7 @@ import TwitterKit
 import Crashlytics
 //import FacebookCore
 import SafariServices
-
+import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UIScrollViewDelegate {
     
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         Fabric.with([Crashlytics.self(), Answers.self()])
         Fabric.sharedSDK().debug = true
-        
+       
         Twitter.sharedInstance().start(withConsumerKey: TWITTER_CONSUMER_KEY, consumerSecret: TWITTER_CONSUMER_SECRET)
         
         // Override point for customization after application launch.
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         determineWhatScreenToShow(on: storyboard)
         
-        
+         FirebaseApp.configure()
         return true
         
         

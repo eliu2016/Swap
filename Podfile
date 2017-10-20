@@ -7,6 +7,8 @@ platform :ios, '10.0'
 
 target 'Swap' do
 # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+
+
 use_frameworks!
 
 # Pods for Swap
@@ -28,6 +30,12 @@ pod 'PhoneNumberKit’, :git => ’https://github.com/marmelroy/PhoneNumberKit.g
 #pod 'FacebookLogin'
 pod 'Spring’, :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 pod 'Swifter', :git => 'https://github.com/mattdonnelly/Swifter.git'
+pod 'Firebase/Core'
+pod 'Firebase'
+pod 'Firebase/Database'
+pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
+
+
 post_install do |installer|
 installer.pods_project.targets.each do |target|
 target.build_configurations.each do |config|

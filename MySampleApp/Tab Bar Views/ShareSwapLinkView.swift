@@ -60,8 +60,7 @@ class ShareSwapLinkView: UIViewController{
             
             self.loadingView?.isHidden = true
             
-            Answers.logInvite(withMethod: "Swap Link",
-                                        customAttributes: nil)
+//           Answers.logInvite(withMethod: "Swap Link", customAttributes: nil)
         
         })
         
