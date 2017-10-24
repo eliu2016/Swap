@@ -28,6 +28,7 @@
 		2EE143C51E371FA6000EADB7 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE143C41E371FA6000EADB7 /* Tweet.swift */; };
 		2EE143C71E3725CC000EADB7 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE143C61E3725CC000EADB7 /* Analytics.swift */; };
 		2EE143C91E3726ED000EADB7 /* SwapRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE143C81E3726ED000EADB7 /* SwapRequest.swift */; };
+		2EE6F0151F996F83002080FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EE6F0141F996F3F002080FA /* GoogleService-Info.plist */; };
 		2EF414E51EB76E0C00F56305 /* TutorialPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF414E41EB76E0C00F56305 /* TutorialPageController.swift */; };
 		2EFC3A241DF9B8ED00D45E7E /* Authorizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A231DF9B8ED00D45E7E /* Authorizing.swift */; };
 		2EFC3A271DF9C0C700D45E7E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A261DF9C0C700D45E7E /* SignInViewController.swift */; };
@@ -202,6 +203,7 @@
 		2EE143C41E371FA6000EADB7 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		2EE143C61E3725CC000EADB7 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		2EE143C81E3726ED000EADB7 /* SwapRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwapRequest.swift; path = MySampleApp/Account/SwapRequest.swift; sourceTree = SOURCE_ROOT; };
+		2EE6F0141F996F3F002080FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2EF414E41EB76E0C00F56305 /* TutorialPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageController.swift; sourceTree = "<group>"; };
 		2EFC3A231DF9B8ED00D45E7E /* Authorizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authorizing.swift; sourceTree = "<group>"; };
 		2EFC3A261DF9C0C700D45E7E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 		B401C9798A0C4C4000000000 /* Swap */ = {
 			isa = PBXGroup;
 			children = (
+				2EE6F0141F996F3F002080FA /* GoogleService-Info.plist */,
 				2ECF28921DF90FA600FEC5D2 /* Social Media */,
 				2ECF28881DF90D8700FEC5D2 /* Swap User Data */,
 				2ECF28841DF90D6000FEC5D2 /* Errors */,
@@ -736,6 +739,7 @@
 				E7A30F048FA8A9CA00000000 /* Launch Screen.storyboard in Resources */,
 				E7A30F04F6E526BC00000000 /* Main.storyboard in Resources */,
 				75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */,
+				2EE6F0151F996F83002080FA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,7 +786,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A8CA2F61B36757F2B92B9794 /* [CP] Copy Pods Resources */ = {
