@@ -63,7 +63,9 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         addPins()
         
         locationManager.startUpdatingLocation()
-     
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = true
+        locationManager.distanceFilter = 10
         let region = MKCoordinateRegionForMapRect(MKMapRectWorld)
         mapView.setRegion(region, animated: true)
         
@@ -111,9 +113,12 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
                 print("Key Entered Event\n\n")
                 var meters = user_location?.distance(from: location)
                 
+               
                 nearbyUsers[username!] = meters
                 
-               
+               // This is ran everytime a new user is found nearby
+                // Add code to update swap map here
+                
             })
             
             
@@ -127,6 +132,8 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
                 self.present(alert, animated: true, completion: nil)
                 
                 // Called when query is complete
+                // This is called after ALL nearby users have been found
+                
             })
         }
      
