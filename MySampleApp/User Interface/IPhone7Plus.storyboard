@@ -4325,10 +4325,10 @@
             </objects>
             <point key="canvasLocation" x="7472.4637681159429" y="1074.4565217391305"/>
         </scene>
-        <!--Swap Map View-->
+        <!--Popular Nearby Map View-->
         <scene sceneID="gH9-Ck-NCI">
             <objects>
-                <viewController id="MIM-wH-vXW" customClass="SwapMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MIM-wH-vXW" customClass="PopularNearbyMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ReI-PA-lpZ"/>
                         <viewControllerLayoutGuide type="bottom" id="KPd-8k-mtE"/>
@@ -4385,15 +4385,6 @@
                         <outlet property="moreInfoView" destination="97Z-gE-e2j" id="0oc-p4-p6D"/>
                         <outlet property="nameLabel" destination="SUJ-MV-G9X" id="NB4-HL-NEE"/>
                         <outlet property="profilePicture" destination="oEg-e7-Vjd" id="aFI-MP-6hG"/>
-                        <outlet property="swappedMedia1" destination="ofx-cO-Ebw" id="F8k-VA-U53"/>
-                        <outlet property="swappedMedia2" destination="Onf-Mq-vJE" id="Zx4-T9-3Gx"/>
-                        <outlet property="swappedMedia3" destination="FFz-QB-a9j" id="fdI-dy-Ycw"/>
-                        <outlet property="swappedMedia4" destination="tn8-Yo-y3e" id="IqX-WU-Ezo"/>
-                        <outlet property="swappedMedia5" destination="9Dt-Fw-nTO" id="P1e-Ry-pAg"/>
-                        <outlet property="swappedMedia6" destination="Nxl-T2-ZHY" id="Zqk-fm-URA"/>
-                        <outlet property="swappedMedia7" destination="3BL-1T-Qyu" id="l0W-J7-UrT"/>
-                        <outlet property="swappedMedia8" destination="XNh-Wm-Ze4" id="aNT-dm-pGz"/>
-                        <outlet property="swappedMedia9" destination="ScI-99-17p" id="DyA-JP-xRb"/>
                     </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="97Z-gE-e2j">
@@ -4434,42 +4425,6 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ofx-cO-Ebw">
-                            <rect key="frame" x="187" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFz-QB-a9j">
-                            <rect key="frame" x="208" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Dt-Fw-nTO">
-                            <rect key="frame" x="226" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3BL-1T-Qyu">
-                            <rect key="frame" x="245" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ScI-99-17p">
-                            <rect key="frame" x="265" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Onf-Mq-vJE">
-                            <rect key="frame" x="166" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tn8-Yo-y3e">
-                            <rect key="frame" x="146" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxl-T2-ZHY">
-                            <rect key="frame" x="124" y="270" width="19" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XNh-Wm-Ze4">
-                            <rect key="frame" x="103" y="270" width="19" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxA-zX-ooP">
                             <rect key="frame" x="104" y="196" width="176" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4497,12 +4452,12 @@
         <image name="DefaultProfileImage" width="120" height="117"/>
         <image name="DenyButton" width="81" height="23"/>
         <image name="EmailDisabled" width="44" height="44"/>
-        <image name="ExploreIcon" width="28" height="28"/>
+        <image name="ExploreIcon" width="21" height="21"/>
         <image name="GithubBlackIcon" width="42" height="42"/>
         <image name="GithubDark" width="45" height="43"/>
         <image name="GithubDisabled" width="66" height="65"/>
         <image name="Header1" width="414" height="80"/>
-        <image name="HomeIcon" width="30" height="26"/>
+        <image name="HomeIcon" width="23" height="20"/>
         <image name="InfoIcon" width="35" height="35"/>
         <image name="InstagramBlackIcon" width="31" height="30"/>
         <image name="InstagramDark" width="37" height="37"/>
@@ -4511,7 +4466,7 @@
         <image name="LoginButton" width="692" height="96"/>
         <image name="LogoNoBorder" width="180" height="188"/>
         <image name="MainBackground" width="252" height="462"/>
-        <image name="NotificationIcon" width="28" height="29"/>
+        <image name="NotificationIcon" width="21" height="22"/>
         <image name="PhoneDisabled" width="66" height="65"/>
         <image name="PinterestBlackIcon" width="42" height="42"/>
         <image name="PinterestDisabled" width="66" height="65"/>
@@ -4522,7 +4477,7 @@
         <image name="RedditDisabled" width="66" height="65"/>
         <image name="RightCarrot" width="21" height="21"/>
         <image name="RoundWhiteTopper" width="234" height="13"/>
-        <image name="SearchIcon" width="28" height="27"/>
+        <image name="SearchIcon" width="21" height="20"/>
         <image name="SendCodeButton" width="63" height="11"/>
         <image name="SettingsIcon" width="35" height="33"/>
         <image name="SoundCloudBlackIcon" width="42" height="42"/>
