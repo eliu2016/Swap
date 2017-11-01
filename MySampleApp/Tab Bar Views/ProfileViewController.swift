@@ -436,11 +436,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         let tabBarItem3 = tabBarController?.tabBar.items![2]
         let tabBarItem4 = tabBarController?.tabBar.items![3]
         
-   /*     tabBarItem1?.selectedImage = #imageLiteral(resourceName: "HomeIconSelected")
+        tabBarItem1?.selectedImage = #imageLiteral(resourceName: "HomeIconSelected")
         tabBarItem2?.selectedImage = #imageLiteral(resourceName: "SearchIconSelected")
         tabBarItem3?.selectedImage = #imageLiteral(resourceName: "NotificationIconSelected")
-        tabBarItem4?.selectedImage = #imageLiteral(resourceName: "ExploreIconSelected")  Make sure to uncomment this out. Had this comment this out for some reason*/
-        
+        tabBarItem4?.selectedImage = #imageLiteral(resourceName: "ExploreIconSelected") 
         
         if #available(iOS 10.0, *) {
             tabBarController?.tabBar.unselectedItemTintColor = UIColor.white

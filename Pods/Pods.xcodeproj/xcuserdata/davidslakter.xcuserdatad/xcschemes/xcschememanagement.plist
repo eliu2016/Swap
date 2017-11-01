@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Bolts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Branch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,22 +24,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBSDKCoreKit.xcscheme</key>
+		<key>GeoFire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBSDKLoginKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FacebookCore.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FacebookLogin.xcscheme</key>
+		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -84,6 +69,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>leveldb-library.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>nanopb.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>p2.OAuth2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -91,92 +86,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>196B48F9067F1EB817AF66DECBF7EBCC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>29EEEC9E0608911AEE79862A99EEA2B5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>44CAD6CE523055ED339E87154473A254</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>516BED67422C4A709EBDC531DECED84A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>593E9479C06FB200807D11AB29EB50BD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5B5AC3C06B783F8674FDB4C0F900B56A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5B9A544927D9ED12AD3F9525E2E37D39</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6F712943B3C5592E82604940D11CE08A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7335E9C9689F3B8A16F063A884748533</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8C5BD10883BD185426DD737247F56DEC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B687674E6597240B90B5E0880CCEF7D6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C0E5A851C6CE6EF8E4966C457FDE009D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C235F77E101E742652CCF98FFDFA5182</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CD1350A8C50A557FC20CFD5B33351AB3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D2B60BEC5A9141176A1AED87A06EB3C5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DDBCFDE490CDFDABF6F16A26F346932D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

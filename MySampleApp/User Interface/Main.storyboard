@@ -1656,10 +1656,10 @@
             </objects>
             <point key="canvasLocation" x="1798" y="3394"/>
         </scene>
-        <!--Swap Map View-->
+        <!--Popular Nearby Map View-->
         <scene sceneID="Q9o-uz-vzW">
             <objects>
-                <viewController id="JEv-2S-bt2" customClass="SwapMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JEv-2S-bt2" customClass="PopularNearbyMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V7l-ym-mHC"/>
                         <viewControllerLayoutGuide type="bottom" id="AqP-KG-30a"/>
@@ -1725,15 +1725,6 @@
                         <outlet property="moreInfoView" destination="gOd-Pk-LQf" id="7dT-1E-wpv"/>
                         <outlet property="nameLabel" destination="7Oe-nS-b9i" id="hDZ-CR-ype"/>
                         <outlet property="profilePicture" destination="P5i-GU-ppv" id="Efe-3p-ue2"/>
-                        <outlet property="swappedMedia1" destination="tDr-zd-eDt" id="Tvm-FS-MF6"/>
-                        <outlet property="swappedMedia2" destination="a7o-nQ-6VO" id="A2U-ko-LXN"/>
-                        <outlet property="swappedMedia3" destination="s9G-aD-Ug1" id="blP-Tm-efh"/>
-                        <outlet property="swappedMedia4" destination="dTO-Wq-VPr" id="JLX-Hd-LsJ"/>
-                        <outlet property="swappedMedia5" destination="rFj-p3-fYw" id="JLn-SD-Jd6"/>
-                        <outlet property="swappedMedia6" destination="3VV-x3-9CO" id="72s-um-Idr"/>
-                        <outlet property="swappedMedia7" destination="qz8-f1-HXF" id="emS-ns-pvo"/>
-                        <outlet property="swappedMedia8" destination="3M0-dF-Z70" id="ZNe-Je-QVl"/>
-                        <outlet property="swappedMedia9" destination="83z-Un-zM5" id="2MQ-OK-KG9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gly-2j-5ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1750,7 +1741,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Oe-nS-b9i">
-                            <rect key="frame" x="103" y="142" width="176" height="21"/>
+                            <rect key="frame" x="103" y="141" width="176" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="16"/>
                             <nil key="textColor"/>
@@ -1774,42 +1765,6 @@
                             <rect key="frame" x="144" y="164" width="96" height="0.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-zd-eDt">
-                            <rect key="frame" x="187" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9G-aD-Ug1">
-                            <rect key="frame" x="208" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFj-p3-fYw">
-                            <rect key="frame" x="226" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qz8-f1-HXF">
-                            <rect key="frame" x="245" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83z-Un-zM5">
-                            <rect key="frame" x="265" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7o-nQ-6VO">
-                            <rect key="frame" x="166" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dTO-Wq-VPr">
-                            <rect key="frame" x="146" y="270" width="16" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3VV-x3-9CO">
-                            <rect key="frame" x="124" y="270" width="19" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3M0-dF-Z70">
-                            <rect key="frame" x="103" y="270" width="19" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxF-Vj-jLS">
                             <rect key="frame" x="104" y="196" width="176" height="44"/>
@@ -4717,12 +4672,12 @@
         <image name="DefaultProfileImage" width="181" height="176"/>
         <image name="DenyButton" width="122" height="34"/>
         <image name="EmailDisabled" width="66" height="66"/>
-        <image name="ExploreIcon" width="25" height="25"/>
+        <image name="ExploreIcon" width="22" height="22"/>
         <image name="GithubBlackIcon" width="64" height="64"/>
         <image name="GithubDisabled" width="66" height="66"/>
         <image name="GithubLight" width="23" height="23"/>
         <image name="Header1" width="522" height="67"/>
-        <image name="HomeIcon" width="27" height="24"/>
+        <image name="HomeIcon" width="22" height="20"/>
         <image name="InfoIcon" width="35" height="35"/>
         <image name="InstagramBlackIcon" width="27" height="26"/>
         <image name="InstagramDisabled" width="66" height="66"/>
@@ -4731,7 +4686,7 @@
         <image name="LoginButton" width="1039" height="145"/>
         <image name="LogoNoBorder" width="271" height="282"/>
         <image name="MainBackground" width="378" height="694"/>
-        <image name="NotificationIcon" width="27" height="28"/>
+        <image name="NotificationIcon" width="22" height="23"/>
         <image name="PhoneDisabled" width="66" height="66"/>
         <image name="PinterestBlackIcon" width="64" height="64"/>
         <image name="PinterestDisabled" width="66" height="66"/>
@@ -4743,7 +4698,7 @@
         <image name="RedditLight" width="23" height="23"/>
         <image name="RightCarrot" width="32" height="32"/>
         <image name="RoundWhiteTopper" width="351" height="20"/>
-        <image name="SearchIcon" width="25" height="24"/>
+        <image name="SearchIcon" width="20" height="19"/>
         <image name="SendCodeButton" width="95" height="17"/>
         <image name="SettingsIcon" width="35" height="33"/>
         <image name="SoundCloudBlackIcon" width="64" height="64"/>

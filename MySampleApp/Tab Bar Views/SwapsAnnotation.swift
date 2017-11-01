@@ -26,8 +26,6 @@ class SwapsAnnotationView: MKAnnotationView {
         if (selected){
             print("PIN SELECTED: \(title!)")
             
-            let swapMap = SwapMapView()
-            
             NotificationCenter.default.post(name: .showPinInfo, object: nil)
             
         }

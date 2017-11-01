@@ -220,6 +220,8 @@
 	<string>Allow access to scan Swap Codes</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Swap needs access to your contacts in order to Swap contacts</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow location to track where you meet new people</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow location to track where you meet new people</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -228,6 +230,7 @@
 	<array>
 		<string>fetch</string>
 		<string>remote-notification</string>
+		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>

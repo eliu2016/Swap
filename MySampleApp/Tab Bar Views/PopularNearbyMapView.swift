@@ -17,7 +17,9 @@ let geofireRef = Database.database().reference()
 // Location Database
 let locationDatabase = GeoFire(firebaseRef: geofireRef)
 
-class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+
+
+class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var moreInfoView: UIView!
     @IBOutlet var nameLabel: UILabel!
@@ -26,23 +28,34 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var blurView: UIVisualEffectView!
     
-    @IBOutlet var swappedMedia1: UIImageView!
-    @IBOutlet var swappedMedia2: UIImageView!
-    @IBOutlet var swappedMedia3: UIImageView!
-    @IBOutlet var swappedMedia4: UIImageView!
-    @IBOutlet var swappedMedia5: UIImageView!
-    @IBOutlet var swappedMedia6: UIImageView!
-    @IBOutlet var swappedMedia7: UIImageView!
-    @IBOutlet var swappedMedia8: UIImageView!
-    @IBOutlet var swappedMedia9: UIImageView!
-    
-    var sharedSocialMedias: [UIImage] = []
     
     var swapPin: SwapsAnnotation!
-    var locationManager = CLLocationManager()
     var NewYorkCity = CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0059)//defaults to New York City
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
+    
+    
+    // Checks if Location Services Are Enabled
+    
+    if CLLocationManager.locationServicesEnabled() {
+     switch(CLLocationManager.authorizationStatus()) {
+        case .notDetermined, .restricted, .denied:
+    
+        // Tell the user that location services is disabled and take them to settings
+        locationManager.requestAlwaysAuthorization()
+        case .authorizedAlways:
+        
+            print("Can always access location (this is what we need)")
+        
+         case .authorizedWhenInUse:
+         
+            print("Only when in use. We need access always")
+        }
+    } else {
+        print("Location services are not enabled")
+}
+
         
         blurView.isHidden = true
         circularImageNoBorder(photoImageView: profilePicture)
@@ -55,13 +68,13 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     
         mapView.delegate = self
         
-        locationManager = CLLocationManager()
+     
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         
-        addPins()
         
+        //addPins()
         locationManager.startUpdatingLocation()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = true
@@ -69,15 +82,16 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         let region = MKCoordinateRegionForMapRect(MKMapRectWorld)
         mapView.setRegion(region, animated: true)
         
+       
     }
     
-    ///This  will remove all pins on the map and reload the pins based on the Swap History that is already cached locally. It will NOT pull new swap history via API, only use what is already stored locally.
+    ///This  will remove all pins on the map and reload the pins
     func reloadMap()  {
         
         //Remove all added annotations
         mapView.removeAnnotations(mapView.annotations)
         
-       addPins()
+      // addPins()
         
     }
     
@@ -89,7 +103,7 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         let region = MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: true)
        
-  // Update User Location in Database
+        // Update User Location in Database
         if let location = locations.first{
                locationDatabase?.setLocation(location, forKey: getUsernameOfSignedInUser())
             
@@ -147,15 +161,8 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
     func addPins()  {
        
         
-        
         for history in swapHistoryUsers{
          
-      // ******* Creates Random Pins ****************************************************
-            
-            
-            
- // ************************************************************
-
            if let x_cordinate_string = history._latitude, let y_cordinate_string = history._longitude{
             print("I have cordinates")
                      let x_cordinate = Double(x_cordinate_string)
@@ -347,8 +354,6 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
         }
     }
     
-            
-            
     func dismissMorePinInfo(){
         moreInfoView.removeFromSuperview()
         blurView.isHidden = true
@@ -362,7 +367,10 @@ class SwapMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegat
    
    
     
- 
+ func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+
+// Executed when there is an error in updating location
+}
     
     
 }

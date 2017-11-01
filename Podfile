@@ -33,7 +33,6 @@ pod 'Firebase'
 pod 'Firebase/Database'
 pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 
-
 post_install do |installer|
 installer.pods_project.targets.each do |target|
 target.build_configurations.each do |config|

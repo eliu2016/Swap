@@ -67,7 +67,7 @@
 		752A6BDA1E20975E00E6695B /* SetttingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BD91E20975E00E6695B /* SetttingsView.swift */; };
 		752A6BDC1E20D21F00E6695B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BDB1E20D21F00E6695B /* ContainerViewController.swift */; };
 		752A6BDE1E20D39100E6695B /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A6BDD1E20D39100E6695B /* ScannerViewController.swift */; };
-		752A74451F1458AE005A0B64 /* SwapMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A74441F1458AE005A0B64 /* SwapMapView.swift */; };
+		752A74451F1458AE005A0B64 /* PopularNearbyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A74441F1458AE005A0B64 /* PopularNearbyMapView.swift */; };
 		752A74471F149A39005A0B64 /* SwapsAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752A74461F149A39005A0B64 /* SwapsAnnotation.swift */; };
 		752BE1931E3B051800CE5289 /* ShareSwapLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */; };
 		752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752BE1941E3B115000CE5289 /* SearchedUser.swift */; };
@@ -241,7 +241,7 @@
 		752A6BD91E20975E00E6695B /* SetttingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetttingsView.swift; sourceTree = "<group>"; };
 		752A6BDB1E20D21F00E6695B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		752A6BDD1E20D39100E6695B /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		752A74441F1458AE005A0B64 /* SwapMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapMapView.swift; sourceTree = "<group>"; };
+		752A74441F1458AE005A0B64 /* PopularNearbyMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularNearbyMapView.swift; sourceTree = "<group>"; };
 		752A74461F149A39005A0B64 /* SwapsAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwapsAnnotation.swift; sourceTree = "<group>"; };
 		752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSwapLinkView.swift; sourceTree = "<group>"; };
 		752BE1941E3B115000CE5289 /* SearchedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUser.swift; sourceTree = "<group>"; };
@@ -477,7 +477,7 @@
 				751C0B0D1E249E5800FD515A /* SearchUsersView.swift */,
 				751B918C1E6C97190039AFA4 /* FeaturedProfilesCell.swift */,
 				752BE1921E3B051800CE5289 /* ShareSwapLinkView.swift */,
-				752A74441F1458AE005A0B64 /* SwapMapView.swift */,
+				752A74441F1458AE005A0B64 /* PopularNearbyMapView.swift */,
 				752A74461F149A39005A0B64 /* SwapsAnnotation.swift */,
 				751B916B1E54A6470039AFA4 /* NotificationViewController.swift */,
 				752A6BDD1E20D39100E6695B /* ScannerViewController.swift */,
@@ -752,9 +752,38 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swap/Pods-Swap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
+				"${BUILT_PRODUCTS_DIR}/CountryPickerSwift/CountryPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/GeoFire/GeoFire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/Swifter/Swifter.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/p2.OAuth2/p2_OAuth2.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountryPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GeoFire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swifter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/p2_OAuth2.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -780,13 +809,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swap-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A8CA2F61B36757F2B92B9794 /* [CP] Copy Pods Resources */ = {
@@ -795,9 +827,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Swap/Pods-Swap-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -837,7 +873,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				752A74451F1458AE005A0B64 /* SwapMapView.swift in Sources */,
+				752A74451F1458AE005A0B64 /* PopularNearbyMapView.swift in Sources */,
 				75E434311EB66FFA00917D47 /* TutorialViewController.swift in Sources */,
 				75207DC81E76458600BB66F4 /* SetPasswordViewController.swift in Sources */,
 				2E49B8391E4A534E005029C9 /* YouTubeMedia.swift in Sources */,
