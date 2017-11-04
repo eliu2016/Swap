@@ -20,7 +20,6 @@ import Fabric
 import Answers
 import TwitterKit
 import Crashlytics
-//import FacebookCore
 import SafariServices
 import Firebase
 @UIApplicationMain
@@ -318,25 +317,26 @@ func grabStoryboard() -> UIStoryboard {
     var storyboard: UIStoryboard! = nil
     
     switch (screenHeight) {
-    // iPhone 4s
-    case 480:
-        storyboard = UIStoryboard(name: "IPad", bundle: nil)
-        break
-    // iPhone 5s
+
+    // iPhone SE
     case 568:
         storyboard = UIStoryboard(name: "IPhoneSE", bundle: nil)
-    // iPhone 6
-        
+    
+    // iPhone 8
     case 667:
         storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-    // iPhone 6 Plus
+    // iPhone 8 Plus
     case 736:
         storyboard = UIStoryboard(name: "IPhone7Plus", bundle: nil)
+    
+    //iPhone X
+    case 812:
+        storyboard = UIStoryboard(name: "IPhoneX", bundle: nil)
         
+    //Ipad or 4s
     default:
         storyboard = UIStoryboard(name: "IPad", bundle: nil)
-        // it's an iPad
         break
     }
     
