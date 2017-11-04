@@ -37,6 +37,7 @@
 		2EFC3A321DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A311DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift */; };
 		2EFC3A391DFA2D6400D45E7E /* User Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3A381DFA2D6400D45E7E /* User Errors.swift */; };
 		6337DB712712F1F8B142F0BE /* Pods_Swap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00186E5A0D07F039FAFBA04 /* Pods_Swap.framework */; };
+		750A4DB91FAD7E400087B7F8 /* IPhoneX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 750A4DB81FAD7E400087B7F8 /* IPhoneX.storyboard */; };
 		7514499E1E9723CE0041C49C /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7514499D1E9723CE0041C49C /* Scanner.swift */; };
 		751A54691EF9A121007EF94D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A54681EF9A121007EF94D /* TabBarController.swift */; };
 		751B91691E5400CA0039AFA4 /* TwitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B91681E5400CA0039AFA4 /* TwitterView.swift */; };
@@ -211,6 +212,7 @@
 		2EFC3A2C1DF9D96000D45E7E /* ConfirmAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmAccountViewController.swift; sourceTree = "<group>"; };
 		2EFC3A311DFA1BE100D45E7E /* ConnectingSocialMedias ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConnectingSocialMedias ViewController.swift"; sourceTree = "<group>"; };
 		2EFC3A381DFA2D6400D45E7E /* User Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User Errors.swift"; sourceTree = "<group>"; };
+		750A4DB81FAD7E400087B7F8 /* IPhoneX.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IPhoneX.storyboard; sourceTree = "<group>"; };
 		7514499D1E9723CE0041C49C /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scanner.swift; path = MySampleApp/App/Utility/Scanner.swift; sourceTree = SOURCE_ROOT; };
 		751A54681EF9A121007EF94D /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		751B91681E5400CA0039AFA4 /* TwitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterView.swift; path = "MySampleApp/Preview Views/TwitterView.swift"; sourceTree = SOURCE_ROOT; };
@@ -429,6 +431,7 @@
 				75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */,
 				1DD70E29DF90B53300000000 /* Main.storyboard */,
 				75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */,
+				750A4DB81FAD7E400087B7F8 /* IPhoneX.storyboard */,
 				7515720F1DFBBD0D00ED4697 /* Assets */,
 			);
 			name = "User Interface";
@@ -737,6 +740,7 @@
 				75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */,
 				751B91881E68E09F0039AFA4 /* IPad.storyboard in Resources */,
 				E7A30F048FA8A9CA00000000 /* Launch Screen.storyboard in Resources */,
+				750A4DB91FAD7E400087B7F8 /* IPhoneX.storyboard in Resources */,
 				E7A30F04F6E526BC00000000 /* Main.storyboard in Resources */,
 				75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */,
 				2EE6F0151F996F83002080FA /* GoogleService-Info.plist in Resources */,

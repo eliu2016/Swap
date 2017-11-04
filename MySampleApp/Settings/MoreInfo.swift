@@ -65,6 +65,7 @@ class MoreInfo: UIViewController{
     
     @IBAction func didTapBack(_ sender: Any) {
         
+        self.view.endEditing(true)
         activityView.isHidden = false
         activityView.startAnimating()
         

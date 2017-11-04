@@ -72,6 +72,11 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
         locationManager.delegate = self;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
+        if #available(iOS 11.0, *) {
+            locationManager.showsBackgroundLocationIndicator = false
+        } else {
+            // Fallback on earlier versions
+        }
         
         
         //addPins()
@@ -144,6 +149,7 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
                 let alert = UIAlertController(title: "Nearby User Found", message: "\(nearbyUsers) found  near you", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+                
                 
                 // Called when query is complete
                 // This is called after ALL nearby users have been found

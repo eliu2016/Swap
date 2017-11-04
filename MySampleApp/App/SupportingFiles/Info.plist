@@ -221,7 +221,7 @@
 	<key>NSContactsUsageDescription</key>
 	<string>Swap needs access to your contacts in order to Swap contacts</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allow location to track where you meet new people</string>
+	<string>Keep track of popular Swap users near you</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow location to track where you meet new people</string>
 	<key>NSPhotoLibraryUsageDescription</key>
