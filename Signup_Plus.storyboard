@@ -484,10 +484,10 @@
         <!--SignInViewController-->
         <scene sceneID="mlx-oV-HK1">
             <objects>
-                <viewControllerPlaceholder storyboardName="Signup_Plus" referencedIdentifier="SignInViewController" id="tjx-4X-gPc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IPhone7Plus" referencedIdentifier="SignInViewController" id="tjx-4X-gPc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5u-1o-Kgi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3878" y="-1187"/>
+            <point key="canvasLocation" x="4013" y="-1244"/>
         </scene>
         <!--Set Name View Controller-->
         <scene sceneID="TbD-eN-c44">
@@ -932,7 +932,7 @@
         <!--ProfileViewController-->
         <scene sceneID="Fjt-3F-9df">
             <objects>
-                <viewControllerPlaceholder storyboardName="Signup_Plus" referencedIdentifier="ProfileViewController" id="T7D-bn-CYy" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IPhone7Plus" referencedIdentifier="ProfileViewController" id="T7D-bn-CYy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpX-Az-ciK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5322" y="-1239"/>
@@ -940,7 +940,7 @@
         <!--ProfileViewController-->
         <scene sceneID="zri-L2-cYJ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Signup_Plus" referencedIdentifier="ProfileViewController" id="HdU-jl-8Km" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IPhone7Plus" referencedIdentifier="ProfileViewController" id="HdU-jl-8Km" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6s-bM-KE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5625" y="-1244"/>
@@ -1561,7 +1561,6 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pUd-Tn-JZ1"/>
         <segue reference="yFZ-h8-Hj9"/>
     </inferredMetricsTieBreakers>
 </document>

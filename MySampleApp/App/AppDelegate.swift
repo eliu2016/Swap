@@ -22,6 +22,8 @@ import TwitterKit
 import Crashlytics
 import SafariServices
 import Firebase
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UIScrollViewDelegate {
     
@@ -53,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         determineWhatScreenToShow(on: storyboard)
         
-         FirebaseApp.configure()
+        FirebaseApp.configure()
         return true
         
         
@@ -103,9 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
     }
     
-    
-    
-    
+
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         AWSMobileClient.sharedInstance.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
     }
@@ -117,13 +117,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     
-    
-    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         
         
         AWSMobileClient.sharedInstance.application(application, didReceiveRemoteNotification: userInfo)
-        
         
     }
     
@@ -148,8 +145,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         
         Branch.getInstance().continue(userActivity)
-        
-        
         
         return true
     }
@@ -301,10 +296,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         
         
-        
-        
         // If there is no saved view controller ID in UserDefaults, it instantiates the default view controller as the initial view controller. However, if there is, it instantiates the last view controller it can remember being on
-        self.window?.rootViewController =  (getLastViewControllerID() != nil ) ? storyboard.instantiateViewController(withIdentifier: getLastViewControllerID()! ) : defaultVC
+        self.window?.rootViewController =  (getLastViewControllerID() != nil ) ? getSignupStoryboard().instantiateViewController(withIdentifier: getLastViewControllerID()! ) : defaultVC
         self.window?.makeKeyAndVisible()
     }
     
@@ -343,7 +336,36 @@ func grabStoryboard() -> UIStoryboard {
     return storyboard
 }
 
+func getSignupStoryboard() -> UIStoryboard{
+    let screenHeight = UIScreen.main.bounds.size.height
+    var storyboard: UIStoryboard! = nil
+    
+    switch (screenHeight) {
 
+    // iPhone SE
+    case 568:
+        storyboard = UIStoryboard(name: "Signup_SE", bundle: nil)
+    
+    // iPhone 8
+    case 667:
+        storyboard = UIStoryboard(name: "Signup_Main", bundle: nil)
+        
+    // iPhone 8 Plus
+    case 736:
+        storyboard = UIStoryboard(name: "Signup_Plus", bundle: nil)
+    
+    //iPhone X
+    case 812:
+        storyboard = UIStoryboard(name: "Signup_X", bundle: nil)
+        
+    //Ipad or 4s
+    default:
+        storyboard = UIStoryboard(name: "Signup_IPad", bundle: nil)
+    break
+    }
+    
+    return storyboard
+}
 
 
 

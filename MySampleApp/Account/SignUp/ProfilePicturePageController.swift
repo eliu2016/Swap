@@ -215,34 +215,5 @@ class SelectProfilePicViewController: UIViewController {
    
 }
 
-func getSignupStoryboard() -> UIStoryboard{
-    let screenHeight = UIScreen.main.bounds.size.height
-    var storyboard: UIStoryboard! = nil
-    
-    switch (screenHeight) {
 
-    // iPhone SE
-    case 568:
-        storyboard = UIStoryboard(name: "Signup_SE", bundle: nil)
-    
-    // iPhone 8
-    case 667:
-        storyboard = UIStoryboard(name: "Signup_Main", bundle: nil)
-        
-    // iPhone 8 Plus
-    case 736:
-        storyboard = UIStoryboard(name: "Signup_Plus", bundle: nil)
-    
-    //iPhone X
-    case 812:
-        storyboard = UIStoryboard(name: "Signup_X", bundle: nil)
-        
-    //Ipad or 4s
-    default:
-        storyboard = UIStoryboard(name: "Signup_IPad", bundle: nil)
-    break
-    }
-    
-    return storyboard
-}
 

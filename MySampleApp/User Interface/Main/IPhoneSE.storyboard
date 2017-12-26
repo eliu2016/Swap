@@ -2590,10 +2590,10 @@
             </objects>
             <point key="canvasLocation" x="6654" y="1262"/>
         </scene>
-        <!--Swap Map View-->
+        <!--Popular Nearby Map View-->
         <scene sceneID="sb3-0s-iqY">
             <objects>
-                <viewController id="XXj-ez-XP7" customClass="SwapMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XXj-ez-XP7" customClass="PopularNearbyMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SHQ-Sr-IgR"/>
                         <viewControllerLayoutGuide type="bottom" id="Ls7-UK-LFU"/>
@@ -2643,13 +2643,13 @@
                         <inset key="imageInsets" minX="2" minY="6" maxX="-2" maxY="-6"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="bioLabel" destination="pA0-aP-AEy" id="7dy-5Y-gfr"/>
-                        <outlet property="blurView" destination="BKI-sJ-Zkr" id="0Xg-Sb-HeP"/>
-                        <outlet property="locationLabel" destination="Yhd-xF-OOc" id="DUw-IV-3MT"/>
-                        <outlet property="mapView" destination="G5r-Kg-vvj" id="H7w-5X-cSt"/>
-                        <outlet property="moreInfoView" destination="zXv-14-IKh" id="k1e-Fu-KLN"/>
-                        <outlet property="nameLabel" destination="r5U-PW-ifn" id="Zf4-df-nOm"/>
-                        <outlet property="profilePicture" destination="AtQ-pB-qko" id="nkv-uF-2yL"/>
+                        <outlet property="bioLabel" destination="pA0-aP-AEy" id="r3b-g5-72w"/>
+                        <outlet property="blurView" destination="BKI-sJ-Zkr" id="qcR-i7-1S2"/>
+                        <outlet property="locationLabel" destination="Yhd-xF-OOc" id="xdc-fo-Ndc"/>
+                        <outlet property="mapView" destination="G5r-Kg-vvj" id="MXH-r9-oCr"/>
+                        <outlet property="moreInfoView" destination="zXv-14-IKh" id="276-ga-1Uw"/>
+                        <outlet property="nameLabel" destination="r5U-PW-ifn" id="B6u-oe-j1N"/>
+                        <outlet property="profilePicture" destination="AtQ-pB-qko" id="uAx-8a-icy"/>
                         <outlet property="swappedMedia1" destination="ci2-8a-Yrh" id="DZ4-t1-RTf"/>
                         <outlet property="swappedMedia2" destination="sB8-cF-2lQ" id="c3T-c7-Ucp"/>
                         <outlet property="swappedMedia3" destination="Umo-0E-jkE" id="3lJ-ix-N9w"/>

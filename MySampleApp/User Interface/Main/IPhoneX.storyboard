@@ -44,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUB-mv-8Bv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1066" y="2023"/>
+            <point key="canvasLocation" x="-1466" y="1806"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="sAZ-lW-x41">
@@ -429,7 +429,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drD-dT-vFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1492" y="773"/>
+            <point key="canvasLocation" x="-172" y="1057"/>
         </scene>
         <!--Signup_X-->
         <scene sceneID="YXJ-DY-E2J">
@@ -439,7 +439,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4WN-nv-t2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-646" y="767"/>
+            <point key="canvasLocation" x="710" y="1057"/>
         </scene>
         <!--Notification View Controller-->
         <scene sceneID="KGT-gX-40w">
@@ -1403,7 +1403,7 @@
                 <viewControllerPlaceholder storyboardName="Signup_X" referencedIdentifier="ConnectSocialMediasViewController" id="bmu-Ql-UZw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wag-vG-Okk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3196" y="338"/>
+            <point key="canvasLocation" x="3487" y="355"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="m9d-EU-FiY">
@@ -2117,7 +2117,7 @@
                     <viewLayoutGuide key="safeArea" id="yxH-Qh-gd9"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1068" y="2942.3645320197047"/>
+            <point key="canvasLocation" x="-1466" y="2701"/>
         </scene>
         <!--Instagram View-->
         <scene sceneID="yfs-yt-3DD">
@@ -2777,6 +2777,6 @@
         <image name="transparentExitButton" width="86" height="86"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vYb-T6-pxK"/>
+        <segue reference="TYH-eX-ODE"/>
     </inferredMetricsTieBreakers>
 </document>

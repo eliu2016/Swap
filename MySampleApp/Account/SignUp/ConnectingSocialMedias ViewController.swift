@@ -28,9 +28,6 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
     @IBAction func didTapConnectSocialMedia(_ sender: UIButton) {
         
         
-        
-        
-        
         guard !sender.isSelected else{
             
             // Log out social media if it's logged in
@@ -84,14 +81,9 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
         
         
         
-        
-        
-        
         // Log in
         
         switch sender {
-            
-            
             
         
             
@@ -142,8 +134,6 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
             authorizeTwitter(onViewController: self, completion: { (error) in
                 
                 if let error = error {
-                    
-                
                     
                     // There is an error
                     
@@ -493,7 +483,6 @@ class ConnectingSocialMediasViewController: UIViewController, SFSafariViewContro
 
   
     }
-    
     
     
     override func viewDidLoad() {
