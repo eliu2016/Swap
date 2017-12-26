@@ -76,6 +76,13 @@
 		755CAD721E856190008E94E3 /* ProfilePicturePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */; };
 		75879ED11F23CB66006D7214 /* SetNewPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75879ED01F23CB66006D7214 /* SetNewPhoneNumber.swift */; };
 		75879ED31F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75879ED21F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift */; };
+		75A14B211FEB9EEE00FE3A2A /* Tutorial_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A14B201FEB9EEE00FE3A2A /* Tutorial_Main.storyboard */; };
+		75A14B2B1FED98A300FE3A2A /* TutorialLastPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A14B2A1FED98A300FE3A2A /* TutorialLastPage.swift */; };
+		75A14B2E1FEDC32200FE3A2A /* Signup_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A14B2D1FEDC32200FE3A2A /* Signup_Main.storyboard */; };
+		75A14B301FEF343400FE3A2A /* Signup_SE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A14B2F1FEF343400FE3A2A /* Signup_SE.storyboard */; };
+		75A14B321FEF347A00FE3A2A /* Signup_IPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A14B311FEF347A00FE3A2A /* Signup_IPad.storyboard */; };
+		75A14B341FEF349C00FE3A2A /* Signup_Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A14B331FEF349C00FE3A2A /* Signup_Plus.storyboard */; };
+		75A14B371FF0904500FE3A2A /* Signup_X.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A14B361FF0904500FE3A2A /* Signup_X.storyboard */; };
 		75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */; };
 		75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */; };
 		75C1EA101E021086005CB420 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C1EA0F1E021086005CB420 /* Images.xcassets */; };
@@ -180,7 +187,7 @@
 		1DD70E29D0BE157A00000000 /* AWSAPI_0MZ6OXIFT5_ResponseSchema.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWSAPI_0MZ6OXIFT5_ResponseSchema.h; path = MySampleApp/AmazonAws/Api/AWSAPI_0MZ6OXIFT5_ResponseSchema.h; sourceTree = SOURCE_ROOT; };
 		1DD70E29D150EF8000000000 /* AWSAPI_0MZ6OXIFT5_ResponseSchema.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AWSAPI_0MZ6OXIFT5_ResponseSchema.m; path = MySampleApp/AmazonAws/Api/AWSAPI_0MZ6OXIFT5_ResponseSchema.m; sourceTree = SOURCE_ROOT; };
 		1DD70E29D44DF82800000000 /* AWSPinpoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSPinpoint.framework; path = MySampleApp/Sdk/Aws/AWSPinpoint.framework; sourceTree = "<group>"; };
-		1DD70E29DF90B53300000000 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "MySampleApp/User Interface/Main.storyboard"; sourceTree = SOURCE_ROOT; };
+		1DD70E29DF90B53300000000 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "MySampleApp/User Interface/Main/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		1DD70E29ED4914FA00000000 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2E4041DA1E43D892003C23F3 /* IGUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGUser.swift; sourceTree = "<group>"; };
 		2E4041DC1E43D982003C23F3 /* IGMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGMedia.swift; sourceTree = "<group>"; };
@@ -251,6 +258,13 @@
 		755CAD711E856190008E94E3 /* ProfilePicturePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePicturePageController.swift; path = MySampleApp/Account/SignUp/ProfilePicturePageController.swift; sourceTree = SOURCE_ROOT; };
 		75879ED01F23CB66006D7214 /* SetNewPhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNewPhoneNumber.swift; sourceTree = "<group>"; };
 		75879ED21F23CBB9006D7214 /* ConfirmNewPhoneNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmNewPhoneNumber.swift; sourceTree = "<group>"; };
+		75A14B201FEB9EEE00FE3A2A /* Tutorial_Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial_Main.storyboard; sourceTree = "<group>"; };
+		75A14B2A1FED98A300FE3A2A /* TutorialLastPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialLastPage.swift; sourceTree = "<group>"; };
+		75A14B2D1FEDC32200FE3A2A /* Signup_Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup_Main.storyboard; sourceTree = "<group>"; };
+		75A14B2F1FEF343400FE3A2A /* Signup_SE.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup_SE.storyboard; sourceTree = "<group>"; };
+		75A14B311FEF347A00FE3A2A /* Signup_IPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup_IPad.storyboard; sourceTree = "<group>"; };
+		75A14B331FEF349C00FE3A2A /* Signup_Plus.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup_Plus.storyboard; sourceTree = "<group>"; };
+		75A14B361FF0904500FE3A2A /* Signup_X.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup_X.storyboard; sourceTree = "<group>"; };
 		75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhone7Plus.storyboard; sourceTree = "<group>"; };
 		75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneSE.storyboard; sourceTree = "<group>"; };
 		75C1EA0F1E021086005CB420 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -424,14 +438,12 @@
 		7515720D1DFA5F0B00ED4697 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				75A14B2C1FED9D9700FE3A2A /* SignUp */,
+				75A14B1F1FEB9C2500FE3A2A /* Tutorial */,
+				75A14B351FEF34AB00FE3A2A /* Main */,
 				751D190C1E2EEBA100DF5415 /* SettingUI.swift */,
 				752A6BCD1E1F273A00E6695B /* ShowLoadingOverlay.swift */,
 				1DD70E298866540700000000 /* Launch Screen.storyboard */,
-				751B91871E68E09F0039AFA4 /* IPad.storyboard */,
-				75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */,
-				1DD70E29DF90B53300000000 /* Main.storyboard */,
-				75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */,
-				750A4DB81FAD7E400087B7F8 /* IPhoneX.storyboard */,
 				7515720F1DFBBD0D00ED4697 /* Assets */,
 			);
 			name = "User Interface";
@@ -493,6 +505,39 @@
 			path = "../MySampleApp/Tab Bar Views";
 			sourceTree = "<group>";
 		};
+		75A14B1F1FEB9C2500FE3A2A /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				75A14B201FEB9EEE00FE3A2A /* Tutorial_Main.storyboard */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		75A14B2C1FED9D9700FE3A2A /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				75A14B311FEF347A00FE3A2A /* Signup_IPad.storyboard */,
+				75A14B2F1FEF343400FE3A2A /* Signup_SE.storyboard */,
+				75A14B2D1FEDC32200FE3A2A /* Signup_Main.storyboard */,
+				75A14B331FEF349C00FE3A2A /* Signup_Plus.storyboard */,
+				75A14B361FF0904500FE3A2A /* Signup_X.storyboard */,
+			);
+			name = SignUp;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		75A14B351FEF34AB00FE3A2A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				751B91871E68E09F0039AFA4 /* IPad.storyboard */,
+				75A81B581E4C08D800F8F62C /* IPhoneSE.storyboard */,
+				1DD70E29DF90B53300000000 /* Main.storyboard */,
+				75A81B561E4C08CF00F8F62C /* IPhone7Plus.storyboard */,
+				750A4DB81FAD7E400087B7F8 /* IPhoneX.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		75A81B0C1E40515400F8F62C /* Preview Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +554,7 @@
 			children = (
 				2EF414E41EB76E0C00F56305 /* TutorialPageController.swift */,
 				75E434301EB66FFA00917D47 /* TutorialViewController.swift */,
+				75A14B2A1FED98A300FE3A2A /* TutorialLastPage.swift */,
 			);
 			name = Tutorial;
 			path = ../MySampleApp/Tutorial;
@@ -739,10 +785,16 @@
 				75C1EA101E021086005CB420 /* Images.xcassets in Resources */,
 				75A81B571E4C08CF00F8F62C /* IPhone7Plus.storyboard in Resources */,
 				751B91881E68E09F0039AFA4 /* IPad.storyboard in Resources */,
+				75A14B371FF0904500FE3A2A /* Signup_X.storyboard in Resources */,
+				75A14B2E1FEDC32200FE3A2A /* Signup_Main.storyboard in Resources */,
+				75A14B321FEF347A00FE3A2A /* Signup_IPad.storyboard in Resources */,
 				E7A30F048FA8A9CA00000000 /* Launch Screen.storyboard in Resources */,
 				750A4DB91FAD7E400087B7F8 /* IPhoneX.storyboard in Resources */,
+				75A14B301FEF343400FE3A2A /* Signup_SE.storyboard in Resources */,
 				E7A30F04F6E526BC00000000 /* Main.storyboard in Resources */,
+				75A14B211FEB9EEE00FE3A2A /* Tutorial_Main.storyboard in Resources */,
 				75A81B591E4C08D800F8F62C /* IPhoneSE.storyboard in Resources */,
+				75A14B341FEF349C00FE3A2A /* Signup_Plus.storyboard in Resources */,
 				2EE6F0151F996F83002080FA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -931,6 +983,7 @@
 				2ECF28831DF90D3E00FEC5D2 /* Account.swift in Sources */,
 				2ECF28901DF90DEF00FEC5D2 /* Custom Operators.swift in Sources */,
 				752A6BCE1E1F273A00E6695B /* ShowLoadingOverlay.swift in Sources */,
+				75A14B2B1FED98A300FE3A2A /* TutorialLastPage.swift in Sources */,
 				E7A30F0414C8EE1900000000 /* Users.swift in Sources */,
 				2E9849371E04BCD200EC4C4C /* ConnectSocialMedias.swift in Sources */,
 				752BE1951E3B115000CE5289 /* SearchedUser.swift in Sources */,

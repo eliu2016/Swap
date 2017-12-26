@@ -19,8 +19,6 @@ class TutorialViewController: UIViewController {
         
         if UserDefaults.standard.bool(forKey: "didShowTutorial"){
             
-            
-            
         }
         else{
             

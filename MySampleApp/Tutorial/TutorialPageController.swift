@@ -9,24 +9,26 @@
 import Foundation
 
 class TutorialPageController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    
-    var tpage1 = grabStoryboard().instantiateViewController(withIdentifier: "tpage1")
-    var tpage2 = grabStoryboard().instantiateViewController(withIdentifier: "tpage2")
-    var tpage3 = grabStoryboard().instantiateViewController(withIdentifier: "tpage3")
-    var tpage4 = grabStoryboard().instantiateViewController(withIdentifier: "tpage4")
-     var tpage5 = grabStoryboard().instantiateViewController(withIdentifier: "tpage5")
-     var tpage6 = grabStoryboard().instantiateViewController(withIdentifier: "tpage6")
-     var tpage7 = grabStoryboard().instantiateViewController(withIdentifier: "tpage7")
-    var tpage8 = grabStoryboard().instantiateViewController(withIdentifier: "tpage8")
-    var tpage9 = grabStoryboard().instantiateViewController(withIdentifier: "tpage9")
-    var tpage10 = grabStoryboard().instantiateViewController(withIdentifier: "tpage10")
-    
-    
+
     var tutorialViews = [UIViewController]()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        var Tstoryboard: UIStoryboard! = nil
+        Tstoryboard = UIStoryboard(name: "Tutorial_Main", bundle: nil)
+    
+        let tpage1 = Tstoryboard.instantiateViewController(withIdentifier: "tpage1")
+        let tpage2 = Tstoryboard.instantiateViewController(withIdentifier: "tpage2")
+        let tpage3 = Tstoryboard.instantiateViewController(withIdentifier: "tpage3")
+        let tpage4 = Tstoryboard.instantiateViewController(withIdentifier: "tpage4")
+        let tpage5 = Tstoryboard.instantiateViewController(withIdentifier: "tpage5")
+        let tpage6 = Tstoryboard.instantiateViewController(withIdentifier: "tpage6")
+        let tpage7 = Tstoryboard.instantiateViewController(withIdentifier: "tpage7")
+        let tpage8 = Tstoryboard.instantiateViewController(withIdentifier: "tpage8")
+        let tpage9 = Tstoryboard.instantiateViewController(withIdentifier: "tpage9")
+        let tpage10 = Tstoryboard.instantiateViewController(withIdentifier: "tpage10")
         
         tutorialViews = [tpage1, tpage2, tpage3, tpage4, tpage5, tpage6, tpage7, tpage8, tpage9, tpage10]
         

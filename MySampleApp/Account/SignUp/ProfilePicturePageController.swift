@@ -16,10 +16,11 @@ var currentIndex = 0
 class ProfilePicPageController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     
-    var instagramPicView = grabStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
-    var twitterPicView = grabStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
-    var youtubePicView = grabStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
-    var contactPicView = grabStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
+    
+    var instagramPicView = getSignupStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
+    var twitterPicView = getSignupStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
+    var youtubePicView = getSignupStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
+    var contactPicView = getSignupStoryboard().instantiateViewController(withIdentifier: "profilePicView") as! ProfilePicView
  
     
     var pictureViews = [UIViewController]()
@@ -159,7 +160,7 @@ class SelectProfilePicViewController: UIViewController {
         pageControl.currentPage = currentIndex
     }
     
-    
+
     @IBAction func didSelectPicture(_ sender: Any) {
         
         switch currentIndex {
@@ -210,6 +211,38 @@ class SelectProfilePicViewController: UIViewController {
     
         
     }
+    
+   
+}
 
+func getSignupStoryboard() -> UIStoryboard{
+    let screenHeight = UIScreen.main.bounds.size.height
+    var storyboard: UIStoryboard! = nil
+    
+    switch (screenHeight) {
+
+    // iPhone SE
+    case 568:
+        storyboard = UIStoryboard(name: "Signup_SE", bundle: nil)
+    
+    // iPhone 8
+    case 667:
+        storyboard = UIStoryboard(name: "Signup_Main", bundle: nil)
+        
+    // iPhone 8 Plus
+    case 736:
+        storyboard = UIStoryboard(name: "Signup_Plus", bundle: nil)
+    
+    //iPhone X
+    case 812:
+        storyboard = UIStoryboard(name: "Signup_X", bundle: nil)
+        
+    //Ipad or 4s
+    default:
+        storyboard = UIStoryboard(name: "Signup_IPad", bundle: nil)
+    break
+    }
+    
+    return storyboard
 }
 

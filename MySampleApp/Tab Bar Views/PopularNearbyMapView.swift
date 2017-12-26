@@ -18,7 +18,6 @@ let geofireRef = Database.database().reference()
 let locationDatabase = GeoFire(firebaseRef: geofireRef)
 
 
-
 class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var moreInfoView: UIView!
@@ -35,15 +34,29 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func viewDidLoad() {
     
-    
     // Checks if Location Services Are Enabled
-    
     if CLLocationManager.locationServicesEnabled() {
      switch(CLLocationManager.authorizationStatus()) {
         case .notDetermined, .restricted, .denied:
-    
         // Tell the user that location services is disabled and take them to settings
-        locationManager.requestAlwaysAuthorization()
+            let alertView = UIAlertController(title: "Location Services Disabled", message: "Enable location to see popular profiles around you", preferredStyle: .alert)
+            alertView.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (_) -> Void in
+                guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                return
+            }
+
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)") // Prints true
+                    })
+                }
+            }
+            }))
+            alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alertView, animated: true, completion: nil)
+        
+            //locationManager.requestAlwaysAuthorization()
         case .authorizedAlways:
         
             print("Can always access location (this is what we need)")
@@ -112,7 +125,6 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
         if let location = locations.first{
                locationDatabase?.setLocation(location, forKey: getUsernameOfSignedInUser())
             
-            
    
             ///******* TESTING POPULAR NEARBY *******
             var nearbyUsers: [String: Double] = [:]
@@ -120,7 +132,6 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
             //Key Entered: The location of a key now matches the query criteria.
             let radius = 0.2 // In Kilometers
             let query = locationDatabase?.query(at: location, withRadius: radius)
-            
             
             
             query?.observe(.keyEntered, with: { (username, user_location) in
@@ -132,7 +143,6 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
                 print("Key Entered Event\n\n")
                 var meters = user_location?.distance(from: location)
                 
-               
                 nearbyUsers[username!] = meters
                 
                // This is ran everytime a new user is found nearby
@@ -146,13 +156,11 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
                 guard nearbyUsers.count > 0 else {
                     return
                 }
-                let alert = UIAlertController(title: "Nearby User Found", message: "\(nearbyUsers) found  near you", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                
                 
                 // Called when query is complete
                 // This is called after ALL nearby users have been found
+                
+                
                 
             })
         }
@@ -162,7 +170,10 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
         
         
     }
-  
+    func addNearbyUserPins() {
+    
+        
+    }
     ///   Adds pins on map that show locations of where you swapped users
     func addPins()  {
        
@@ -178,15 +189,15 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
             
                     if let x = x_cordinate, let y = y_cordinate{
                 
-                               // Add Annotations
-                    print("creating pin")
+                        // Add Annotations
+                        print("creating pin")
                         swapPin = SwapsAnnotation()
                         swapPin.coordinate = CLLocationCoordinate2D(latitude: x , longitude: y )
                         swapPin.title = history._swapped ?? ""
                                         
                         mapView.addAnnotation(swapPin)
                     
-            }
+                    }
             
             }
         }
@@ -370,14 +381,14 @@ class PopularNearbyMapView: UIViewController, MKMapViewDelegate, CLLocationManag
         locationLabel.text = ""
         
     }
+    
    
    
     
  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 
 // Executed when there is an error in updating location
-}
-    
+ }
     
 }
 
