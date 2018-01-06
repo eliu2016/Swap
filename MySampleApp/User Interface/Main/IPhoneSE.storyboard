@@ -2590,10 +2590,10 @@
             </objects>
             <point key="canvasLocation" x="6654" y="1262"/>
         </scene>
-        <!--Popular Nearby Map View-->
+        <!--View Controller-->
         <scene sceneID="sb3-0s-iqY">
             <objects>
-                <viewController id="XXj-ez-XP7" customClass="PopularNearbyMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XXj-ez-XP7" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SHQ-Sr-IgR"/>
                         <viewControllerLayoutGuide type="bottom" id="Ls7-UK-LFU"/>
@@ -2610,56 +2610,19 @@
                                 <rect key="frame" x="-1" y="519" width="255" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G5r-Kg-vvj">
-                                <rect key="frame" x="-1" y="0.0" width="321" height="519"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coming Soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksO-QA-BiE">
+                                <rect key="frame" x="106" y="274" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <visualEffectView opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKI-sJ-Zkr">
-                                <rect key="frame" x="0.0" y="1" width="320" height="518"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="puQ-Z8-OBe">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rXV-g1-H0m">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="ozP-5J-kUv">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <vibrancyEffect>
-                                                <blurEffect style="light"/>
-                                            </vibrancyEffect>
-                                        </visualEffectView>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="ExploreIcon" id="XmB-tL-tZd">
                         <inset key="imageInsets" minX="2" minY="6" maxX="-2" maxY="-6"/>
                     </tabBarItem>
-                    <connections>
-                        <outlet property="bioLabel" destination="pA0-aP-AEy" id="r3b-g5-72w"/>
-                        <outlet property="blurView" destination="BKI-sJ-Zkr" id="qcR-i7-1S2"/>
-                        <outlet property="locationLabel" destination="Yhd-xF-OOc" id="xdc-fo-Ndc"/>
-                        <outlet property="mapView" destination="G5r-Kg-vvj" id="MXH-r9-oCr"/>
-                        <outlet property="moreInfoView" destination="zXv-14-IKh" id="276-ga-1Uw"/>
-                        <outlet property="nameLabel" destination="r5U-PW-ifn" id="B6u-oe-j1N"/>
-                        <outlet property="profilePicture" destination="AtQ-pB-qko" id="uAx-8a-icy"/>
-                        <outlet property="swappedMedia1" destination="ci2-8a-Yrh" id="DZ4-t1-RTf"/>
-                        <outlet property="swappedMedia2" destination="sB8-cF-2lQ" id="c3T-c7-Ucp"/>
-                        <outlet property="swappedMedia3" destination="Umo-0E-jkE" id="3lJ-ix-N9w"/>
-                        <outlet property="swappedMedia4" destination="WNy-sC-qQk" id="H4N-B6-cBI"/>
-                        <outlet property="swappedMedia5" destination="FIw-nw-XJ9" id="M5Z-PK-5ob"/>
-                        <outlet property="swappedMedia6" destination="SCo-Vd-c49" id="Dap-wB-CWk"/>
-                        <outlet property="swappedMedia7" destination="yss-SF-Ukk" id="faY-eJ-nYj"/>
-                        <outlet property="swappedMedia8" destination="pAE-4S-3VJ" id="myw-21-fjH"/>
-                        <outlet property="swappedMedia9" destination="pgr-hY-oXD" id="QFS-Vh-Dib"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKj-lE-vR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="zXv-14-IKh">

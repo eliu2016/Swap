@@ -2406,10 +2406,10 @@
             </objects>
             <point key="canvasLocation" x="7471.875" y="1075"/>
         </scene>
-        <!--Popular Nearby Map View-->
+        <!--View Controller-->
         <scene sceneID="S5E-ud-p0N">
             <objects>
-                <viewController id="KOX-2v-JPN" customClass="PopularNearbyMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KOX-2v-JPN" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hfe-qx-EyX"/>
                         <viewControllerLayoutGuide type="bottom" id="lL3-Eh-7Ex"/>
@@ -2435,47 +2435,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EuE-4j-iFz">
-                                <rect key="frame" x="-1" y="0.0" width="321" height="480"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coming Soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-yI-Xwd">
+                                <rect key="frame" x="106" y="230" width="108" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="piS-Or-cis">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="rMj-sh-aCr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y8y-zg-KGZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="1uJ-iF-FVn">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <vibrancyEffect>
-                                                <blurEffect style="light"/>
-                                            </vibrancyEffect>
-                                        </visualEffectView>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="ExploreIcon" id="tNU-OO-z49">
                         <inset key="imageInsets" minX="2" minY="6" maxX="-2" maxY="-6"/>
                     </tabBarItem>
-                    <connections>
-                        <outlet property="bioLabel" destination="o3l-3E-YNT" id="sCF-Ke-VnU"/>
-                        <outlet property="blurView" destination="piS-Or-cis" id="f2z-8K-oQ5"/>
-                        <outlet property="locationLabel" destination="jso-wU-U9v" id="5vB-0Y-rJj"/>
-                        <outlet property="mapView" destination="EuE-4j-iFz" id="246-JA-xIg"/>
-                        <outlet property="moreInfoView" destination="NCA-Z3-5kI" id="ytE-yo-Ibk"/>
-                        <outlet property="nameLabel" destination="435-5P-aWJ" id="pfN-Ge-UKW"/>
-                        <outlet property="profilePicture" destination="FrN-BL-bbW" id="cXy-4p-8ZK"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTH-7E-LTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="NCA-Z3-5kI">

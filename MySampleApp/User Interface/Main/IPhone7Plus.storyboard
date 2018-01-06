@@ -2593,10 +2593,10 @@
             </objects>
             <point key="canvasLocation" x="7472.4637681159429" y="1074.4565217391305"/>
         </scene>
-        <!--Popular Nearby Map View-->
+        <!--View Controller-->
         <scene sceneID="gH9-Ck-NCI">
             <objects>
-                <viewController id="MIM-wH-vXW" customClass="PopularNearbyMapView" customModule="Swap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MIM-wH-vXW" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ReI-PA-lpZ"/>
                         <viewControllerLayoutGuide type="bottom" id="KPd-8k-mtE"/>
@@ -2605,32 +2605,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="b6b-EU-sp6">
-                                <rect key="frame" x="-1" y="5" width="415" height="683"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <visualEffectView opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="340-kK-oAN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="690"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="BqH-sg-HJD">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="690"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZX-xr-Kxg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="690"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="iun-De-wfO">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="690"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <vibrancyEffect>
-                                                <blurEffect style="light"/>
-                                            </vibrancyEffect>
-                                        </visualEffectView>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabBarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="BAC-iW-wAK">
                                 <rect key="frame" x="400" y="687" width="13" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2639,21 +2613,19 @@
                                 <rect key="frame" x="-1" y="687" width="333" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coming Soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwP-KS-jfq">
+                                <rect key="frame" x="153" y="358" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="ExploreIcon" id="uuJ-RF-Tof">
                         <inset key="imageInsets" minX="2" minY="6" maxX="-2" maxY="-6"/>
                     </tabBarItem>
-                    <connections>
-                        <outlet property="bioLabel" destination="jpz-5b-U4p" id="UiQ-ir-9GB"/>
-                        <outlet property="blurView" destination="340-kK-oAN" id="eWN-kg-oZP"/>
-                        <outlet property="locationLabel" destination="fxA-zX-ooP" id="TgC-xD-FLl"/>
-                        <outlet property="mapView" destination="b6b-EU-sp6" id="LhU-Cs-pt8"/>
-                        <outlet property="moreInfoView" destination="97Z-gE-e2j" id="0oc-p4-p6D"/>
-                        <outlet property="nameLabel" destination="SUJ-MV-G9X" id="NB4-HL-NEE"/>
-                        <outlet property="profilePicture" destination="oEg-e7-Vjd" id="aFI-MP-6hG"/>
-                    </connections>
                 </viewController>
                 <view contentMode="scaleToFill" id="97Z-gE-e2j">
                     <rect key="frame" x="0.0" y="0.0" width="382" height="346"/>
