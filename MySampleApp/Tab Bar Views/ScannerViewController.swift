@@ -32,6 +32,7 @@ class ScannerViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     var effect: UIVisualEffect!
     
+    
     var loadingSymbol: UIImageView?
     
     let locationManager = CLLocationManager()

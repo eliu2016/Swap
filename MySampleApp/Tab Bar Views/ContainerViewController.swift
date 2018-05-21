@@ -21,7 +21,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, UITabBarC
      var lastContentOffset: CGFloat!
     
     override func viewDidLoad() {
-     
+     SC
         super.viewDidLoad();
         print("Container will load")
     
